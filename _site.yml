@@ -1,0 +1,49 @@
+name: "COG-Train Resources"
+output_dir: "_site"
+exclude: ["course_materials", "notes", "slides", "prepare_data"]
+output:
+  html_document:
+    highlight: pygments
+    css: "assets/styles.css"
+    toc: true
+    toc_float:
+      collapsed: false
+    includes:
+      after_body: assets/footer.html
+
+navbar:
+  title: "COG-Train_Resources"
+  left:
+    - text: "Home"
+      href: index.html
+      icon: fa-home
+    - text: "Course Materials"
+      icon: fa-file-lines
+      menu:
+        - text: "Virtual Courses"
+        - text: "Viral Genomics"
+          menu:
+            - text: "VBioinf2022 Asia"
+              href: vbioinfasia.html
+            - text: "VBioinf2022 LAC"
+              href: vbioinflac.html
+        - text: "----"
+        - text: "Online Courses"
+          href: onlinecourses.html
+        - text: "----"
+        - text: "Hybrid Courses"
+        - text: "SARS-CoV-2 B4B"
+          href: scvo2b4b.html
+    - text: "Team"
+      icon: fa-book
+      menu:
+        - text: "Contributors"
+          href: contributors.html
+        - text: "COG-Train"
+          href: cogteam.html
+        - text: "Wellcome Connecting Science"
+          href: wcsteam.html
+  right:
+    - text: "Github"
+      icon: fa-brands fa-github
+      href: https://github.com/WCSCourses/wcssite
