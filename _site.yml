@@ -29,7 +29,19 @@ navbar:
               href: vbioinflac.html
         - text: "----"
         - text: "Online Courses"
+        - text: "----"  
+        - text: Online Courses Home
           href: onlinecourses.html
+        - text: "Power of Genomics"
+          menu:
+            - text: "Home"
+              href: power_of_genomics_home.html
+            - text: "Set 1"
+              href: power_of_genomics_set1.html
+            - text: "Set 2"
+              href: power_of_genomics_set2.html
+            - text: "Set 3"
+              href: power_of_genomics_set3.html
         - text: "----"
         - text: "Hybrid Courses"
         - text: "SARS-CoV-2 B4B"
@@ -39,11 +51,9 @@ navbar:
       menu:
         - text: "Contributors"
           href: contributors.html
-        - text: "COG-Train"
+        - text: "COG-Train Team"
           href: cogteam.html
-        - text: "Wellcome Connecting Science"
-          href: wcsteam.html
   right:
     - text: "Github"
       icon: fa-brands fa-github
-      href: https://github.com/WCSCourses/wcssite
+      href: https://github.com/WCSCourses/COG-Train_Resources
