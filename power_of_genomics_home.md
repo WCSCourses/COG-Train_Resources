@@ -1,6 +1,6 @@
-—
-pagetitle: “The power of genomics to understand the COVID-19 pandemic”
-—
+
+# The power of genomics to understand the COVID-19 pandemic”
+
 
 ## About the course
 
@@ -9,11 +9,11 @@ The world was devastated by the COVID-19 pandemic. Genomics is key to understand
 
 ### Learning outcomes
 
-* Describe how viruses cause diseases and pandemics
-* Discuss the use of sequence data for detecting and tracking the SARS-CoV-2 virus and its variants
-* Describe the development and action of vaccines and therapeutics against SARS-CoV-2
-* Evaluate the role of genomic epidemiology in pandemic decision-making
-* Explain how data sharing contributes to developing effective strategies against the pandemic
+* Describe how viruses cause diseases and pandemics         
+* Discuss the use of sequence data for detecting and tracking the SARS-CoV-2 virus and its variants          
+* Describe the development and action of vaccines and therapeutics against SARS-CoV-2       
+* Evaluate the role of genomic epidemiology in pandemic decision-making       
+* Explain how data sharing contributes to developing effective strategies against the pandemic         
 
 ### Target audience
 This course is designed for anyone interested in learning more about the genomics response to the current pandemic. While no prior knowledge about COVID-19 is required, it is likely to be most useful to researchers, healthcare professionals, science journalists, policymakers, and those working in public health.
@@ -24,56 +24,64 @@ TBP
 
 ## Collaborators
 
-### Educators
-Leigh Jackson, University of Exeter, United Kingdom
-Sophie Prosolek, United Kingdom
-Stephanie Hutchings, Health Security Agency (UKHSA), United Kingdom 
-Teresa Cutiño-Moguel, Barts Health, United Kingdom
+### Educators     
+
+Leigh Jackson, University of Exeter, United Kingdom       
+Sophie Prosolek, United Kingdom        
+Stephanie Hutchings, Health Security Agency (UKHSA), United Kingdom         
+Teresa Cutiño-Moguel, Barts Health, United Kingdom        
 
 ### Contributors
-Carlo Lapid, Philippine Genomics Center, Philippines      
-Carolina Torres, University of Buenos Aires, Argentina     
-Charlotte Williams, University College London, United Kingdom   
-Gerald Mboowa, Africa Centres for Disease Control and Prevention, Ethiopia 
-Mariana Viegas, Argentinean Scientific and Technical Research Council (CONICET), Argentina      
-Paola Niola, University College London, United Kingdom
-Rachel Williams, University College London, United Kingdom
-Sandra Cantinela, University College London, United Kingdom
-Sunando Roy, University College London, United Kingdom
-Stephen Bridgett, Queen’s University Belfast, United Kingdom
-Tapfumanei Mashe, Ministry of Health and Child Care, Zimbabwe        
-Thanat Chookajorn, Mahidol University, Thailand     
+
+Carlo Lapid, Philippine Genomics Center, Philippines         
+Carolina Torres, University of Buenos Aires, Argentina      
+Charlotte Williams, University College London, United Kingdom      
+Gerald Mboowa, Africa Centres for Disease Control and Prevention, Ethiopia       
+Mariana Viegas, Argentinean Scientific and Technical Research Council (CONICET), Argentina       
+Paola Niola, University College London, United Kingdom        
+Rachel Williams, University College London, United Kingdom          
+Sandra Cantinela, University College London, United Kingdom          
+Sunando Roy, University College London, United Kingdom         
+Stephen Bridgett, Queen’s University Belfast, United Kingdom         
+Tapfumanei Mashe, Ministry of Health and Child Care, Zimbabwe         
+Thanat Chookajorn, Mahidol University, Thailand       
 
 ### Reviewers
-Camila Romano, University of São Paulo, Brazil      
-Charles Masembe, Makerere University, Uganda     
-Varun Shamanna, Kerela Insitute of Medical Science, India      
+
+Camila Romano, University of São Paulo, Brazil       
+Charles Masembe, Makerere University, Uganda      
+Varun Shamanna, Kerela Insitute of Medical Science, India       
 
 ### Education developers
-Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom  
-Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom  
+
+Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom        
+Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom        
 
 ### COG-UK contributors
-Sharon Peacock, University of Cambridge, United Kingdom
-Alistair Darby, University of Liverpool, United Kingdom 
-Catherine Ludden, University of Cambridge, United Kingdom
-Darren Smith, Northumbria University, United Kingdom     
-Anna Markov, University of Cambridge, United Kingdom
-Peter McEwan, University of Cambridge, United Kingdom
+
+Sharon Peacock, University of Cambridge, United Kingdom      
+Alistair Darby, University of Liverpool, United Kingdom         
+Catherine Ludden, University of Cambridge, United Kingdom         
+Darren Smith, Northumbria University, United Kingdom          
+Anna Markov, University of Cambridge, United Kingdom        
+Peter McEwan, University of Cambridge, United Kingdom        
 
 ### Wellcome Connecting Science contributors
-Treasa Creavin, Wellcome Connecting Science, United Kingdom
-Alice Matimba, Wellcome Connecting Science, United Kingdom
-Rachel Berkson, Wellcome Connecting Science, United Kingdom
-Dusanka Nikolic, Wellcome Connecting Science, United Kingdom
+
+Treasa Creavin, Wellcome Connecting Science, United Kingdom        
+Alice Matimba, Wellcome Connecting Science, United Kingdom          
+Rachel Berkson, Wellcome Connecting Science, United Kingdom         
+Dusanka Nikolic, Wellcome Connecting Science, United Kingdom          
 
 ## Original version
-**Original platform:** FutureLearn
-**Launch of the original version:** 7 February 2022
-**Launch of the reviewed version:** 4 July 2022
-**Number of joiners:** 4,260
-**Number of countries reached:** 130
-**Review score:** 4.7/5 (47 reviews)
+
+**Original platform:** FutureLearn       
+**Original course page:** [The power of genomics to understand the COVID-19 pandemic](https://www.futurelearn.com/courses/genomics-covid-19/2)          
+**Launch of the original version:** 7 February 2022         
+**Launch of the reviewed version:** 4 July 2022        
+**Number of joiners:** 4,260          
+**Number of countries reached:** 130         
+**Review score:** 4.7/5 (47 reviews)         
 
 ## How to cite 
 
