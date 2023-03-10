@@ -20,7 +20,18 @@ This course is designed for anyone interested in learning more about the genomic
 
 ### Content
 
-TBP
+[Glossary](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#glossary)         
+[Hypotheses of where COVID-19 came from](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#hypotheses-of-where-covid-19-came-from)       
+[What is a Virus?](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#what-is-a-virus)     
+[The SARS-CoV-2 virus](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#the-sars-cov-2-virus)      
+[What is the difference between pandemic, epidemic, and outbreak?](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#what-is-the-difference-between-pandemic-epidemic-and-outbreak)     
+[Transmission of respiratory viruses](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#transmission-of-respiratory-viruses)       
+[Genomic technologies for tracking COVID-19](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#genomic-technologies-for-tracking-covid-19)      
+[The Great Influenza Pandemic of 1918](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#the-great-influenza-pandemic-of-1918)      
+[DNA, RNA and PCR](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#dna-rna-and-pcr)       
+[What is Genome Sequencing?](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#what-is-genome-sequencing)          
+[Tracking and reacting to outbreaks with genomic knowledge](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#tracking-and-reacting-to-outbreaks-with-genomic-knowledge)        
+[How is SARS-CoV-2 sequencing done?](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#how-is-sars-cov-2-sequencing-done)    
 
 ## Collaborators
 
