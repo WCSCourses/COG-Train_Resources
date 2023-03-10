@@ -1,5 +1,5 @@
 
-# The power of genomics to understand the COVID-19 pandemic”
+# The power of genomics to understand the COVID-19 pandemic
 
 
 ## About the course
@@ -18,7 +18,7 @@ The world was devastated by the COVID-19 pandemic. Genomics is key to understand
 ### Target audience
 This course is designed for anyone interested in learning more about the genomics response to the current pandemic. While no prior knowledge about COVID-19 is required, it is likely to be most useful to researchers, healthcare professionals, science journalists, policymakers, and those working in public health.
 
-###Content
+### Content
 
 TBP
 
