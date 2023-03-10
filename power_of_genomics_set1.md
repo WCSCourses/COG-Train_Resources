@@ -310,7 +310,7 @@ The sample requires extraction of the nucleic acid so there is nothing else in t
 
 _Figure 1 - Methods for SARS-CoV-2 genome sequencing. **a.)** In Illumina’s Nextera DNA Flex Enrichment protocol cDNA is tagmented and made into barcoded sequencing libraries, which are then enriched using sequence capture with a respiratory virus panel containing probes against SARS-CoV-2. **b.)** In the ARTIC protocol, first-strand cDNA is enriched by amplifying with two pools of primers to generate amplicons tiling the SARS-CoV-2 genome. These amplicons are then subjected to either Illumina or Oxford Nanopore library preparation, using methods that either directly add adapters to the ends of the amplicons or to fragment them to enable sequencing on a wider variety of Illumina instruments. **c.)** The tailed amplicon approach, developed here, enriches first-strand cDNA using ARTIC v3 primers containing adapter tails. This allows functional sequencing libraries to be created through a second indexing PCR reaction that adds sample-specific barcodes and flow cell adapters. Source: [BMC Genomics](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-020-07283-6#Fig1)_
 
-##Library preparation
+## Library preparation
 
 **1. complementary DNA synthesis (not used for all technologies)**  
 RNA extracts must be converted to cDNA because amplification methods, such as PCR, require DNA molecules as a template. A reverse transcriptase enzyme is used to synthesize the cDNA. 
