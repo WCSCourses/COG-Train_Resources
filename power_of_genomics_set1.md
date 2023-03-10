@@ -327,15 +327,15 @@ The concentration of the DNA of the barcoded samples is measured and equal amoun
 **5. Clean-Up**  
 NGS methodologies are highly sensitive. Inhibitors and reagent residues must be removed through DNA purification. It is strongly recommended to use magnetic beads purification protocols for the clean-up step. 
 
-##Sequencing run
+## Sequencing run
 
 Depending on the technology used, the samples are loaded onto a flow cell and run on a sequencer that will generate fluorescent reads which can be captured by a camera or one which passes the entire molecule through a Nanopore and captures the sequence in real-time.  
 
-##Analysis
+## Analysis
 
 Sequencing data is demultiplexed and the viral genome is assembled (similar to an alignment) using bioinformatics tools. There are many analysis pipelines, most commonly using command-line, but there are also graphic interface tools. 
 
-##SARS-CoV-2 ARTIC Protocols
+## SARS-CoV-2 ARTIC Protocols
 There are specific ARTIC Network-derived protocols available for both [Illumina](https://www.protocols.io/view/ncov-2019-sequencing-protocol-for-illumina-b2msqc6e) and [Oxford Nanopore Technologies](https://www.protocols.io/view/ncov-2019-sequencing-protocol-v3-locost-bh42j8ye) platforms.
 
 If you are interested in seeing a sequencing workflow in a laboratory, see this video (note, the video is silent) :
