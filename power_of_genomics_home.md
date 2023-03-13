@@ -16,6 +16,7 @@ The world was devastated by the COVID-19 pandemic. Genomics is key to understand
 * Explain how data sharing contributes to developing effective strategies against the pandemic         
 
 **Target audience**
+
 This course is designed for anyone interested in learning more about the genomics response to the current pandemic. While no prior knowledge about COVID-19 is required, it is likely to be most useful to researchers, healthcare professionals, science journalists, policymakers, and those working in public health.
 
 ## Content
