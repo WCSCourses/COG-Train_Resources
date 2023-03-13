@@ -3,7 +3,6 @@
 
 # Pandemics and their origins
 
-
 <!---- [Glossary](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#glossary)         
 
 [Hypotheses of where COVID-19 came from](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#hypotheses-of-where-covid-19-came-from)       
@@ -59,6 +58,8 @@
 * **WHO:** World Health Organisation
 
 [Download the PDF here](https://github.com/WCSCourses/COG-Train_Resources/blob/main/assets/OC1_glossary.pdf)
+
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
 
 # Hypotheses of where COVID-19 came from
 <!-- 1-8 -->
