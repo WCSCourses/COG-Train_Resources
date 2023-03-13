@@ -3,9 +3,9 @@
 
 # Pandemics and their origins
 
-## Index
 
-[Glossary](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#glossary)         
+<!---- [Glossary](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#glossary)         
+
 [Hypotheses of where COVID-19 came from](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#hypotheses-of-where-covid-19-came-from)       
 [What is a Virus?](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#what-is-a-virus)     
 [The SARS-CoV-2 virus](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#the-sars-cov-2-virus)      
@@ -16,7 +16,7 @@
 [DNA, RNA and PCR](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#dna-rna-and-pcr)       
 [What is Genome Sequencing?](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#what-is-genome-sequencing)          
 [Tracking and reacting to outbreaks with genomic knowledge](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#tracking-and-reacting-to-outbreaks-with-genomic-knowledge)        
-[How is SARS-CoV-2 sequencing done?](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#how-is-sars-cov-2-sequencing-done)    
+[How is SARS-CoV-2 sequencing done?](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#how-is-sars-cov-2-sequencing-done)    --->
 # Glossary 
 <!-- 1-6 -->
 
@@ -63,7 +63,7 @@
 # Hypotheses of where COVID-19 came from
 <!-- 1-8 -->
 
-![Decorative image of people in a market](https://github.com/WCSCourses/COG-Train_Resources/blob/main/images/OC1%201-8%20illustrative.jpeg)
+![Decorative image of people in a market](/images/OC1_1-8_illustrative.jpeg)
 
 ## Wuhan, wildlife and ‘wet markets’
 
@@ -79,7 +79,7 @@ Making the leap from one species to another is a rare event, and it represents a
 
 New coronaviruses evolve when subtle changes occur in their genetic code. These genetic changes (also known as ‘mutations’) can sometimes confer advantages to the virus, increasing its infectivity, and transmissibility, or even enabling it to cross the species barrier. The SARS-CoV-2 virus has continued to evolve and mutate, as seen in the Omicron variant which has around 50 mutations compared to the original Wuhan virus, around 30 of these in the Spike protein that we will learn about next week. The virus is likely to continue to find new ways to evade the immune system and transmit with higher efficiency. This process of evolution has occurred as part of the natural history of every infectious disease including the [Great Flu of 1918](https://www.cdc.gov/flu/pandemic-resources/1918-commemoration/1918-pandemic-history.htm), and the first [SARS outbreak of 2003](https://www.who.int/health-topics/severe-acute-respiratory-syndrome#tab=tab_1). 
 
-![cartoon depiction of SARS-CoV-2 virus. Red circle covered with coloured spike-shaped forms and a yellow spiral in the middle of the circle](https://github.com/WCSCourses/COG-Train_Resources/blob/main/images/OC1%201-8%20viral%20particle%20illustrative.png)
+![cartoon depiction of SARS-CoV-2 virus. Red circle covered with coloured spike-shaped forms and a yellow spiral in the middle of the circle](/images/OC1_1-8_viral_particle_illustrative.png)
 
 _Figure 1 - Schematic illustration representing a SARS-CoV-2 viral particle_
 
@@ -96,7 +96,7 @@ Viruses are sub-microscopic infectious agents - much smaller than most bacteria 
 
 The virus core contains its genetic content – this can be DNA or RNA. The genetic material is then covered by a protective protein coat called a ‘capsid’, and some viruses have an additional 'envelope' layer (Figure 1). This may give the virus [a greater range between hosts (the ability to survive outside a host for longer and travel further) and aid in immune escape](https://www.ncbi.nlm.nih.gov/books/NBK8174/). The type of genetic material and its conformation are used to classify viruses according to the [Baltimore classification](https://viralzone.expasy.org/254).
 
-![Diagram of the structure of a typical virus. Viral envelope, capsid and surface proteins are shown as a circle decorated with protein blobs surrounding a hexagon; the viral genome is shown as a helix structure in the centre, with a small yellow dot representing densely packaged internal proteins](https://github.com/WCSCourses/COG-Train_Resources/blob/main/images/OC1%201-9%20viral%20particle.png)
+![Diagram of the structure of a typical virus. Viral envelope, capsid and surface proteins are shown as a circle decorated with protein blobs surrounding a hexagon; the viral genome is shown as a helix structure in the centre, with a small yellow dot representing densely packaged internal proteins](/images/OC1_1-9_viral_particle.png)
 
 _Figure 1 - A viral particle structure. The viral genome is protected by a protein coat known as a capsid. Proteins required for viral replication are also packed into the capsid. Some viruses have an envelope membrane with surface proteins that bind to the host cell surface during infection. Source: [Nature Reviews Biotechnology](https://www.nature.com/articles/s41579-021-00535-6)_
 
