@@ -7,7 +7,7 @@
 The world was devastated by the COVID-19 pandemic. Genomics is key to understanding and responding to the disease. This course, the first of a series of five, introduces key concepts in viral genomics and how they can be applied to the current pandemic. It explores lessons that can be applied to future pandemic preparedness.
 
 
-### Learning outcomes
+**Learning outcomes**
 
 * Describe how viruses cause diseases and pandemics         
 * Discuss the use of sequence data for detecting and tracking the SARS-CoV-2 virus and its variants          
@@ -15,11 +15,12 @@ The world was devastated by the COVID-19 pandemic. Genomics is key to understand
 * Evaluate the role of genomic epidemiology in pandemic decision-making       
 * Explain how data sharing contributes to developing effective strategies against the pandemic         
 
-### Target audience
+**Target audience**
 This course is designed for anyone interested in learning more about the genomics response to the current pandemic. While no prior knowledge about COVID-19 is required, it is likely to be most useful to researchers, healthcare professionals, science journalists, policymakers, and those working in public health.
 
-### Content
+## Content
 
+**[Pandemic and their origins](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#pandemics-and-their-origins)**             
 [Glossary](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#glossary)         
 [Hypotheses of where COVID-19 came from](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#hypotheses-of-where-covid-19-came-from)       
 [What is a Virus?](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#what-is-a-virus)     
@@ -33,16 +34,17 @@ This course is designed for anyone interested in learning more about the genomic
 [Tracking and reacting to outbreaks with genomic knowledge](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#tracking-and-reacting-to-outbreaks-with-genomic-knowledge)        
 [How is SARS-CoV-2 sequencing done?](https://github.com/WCSCourses/COG-Train_Resources/blob/main/power_of_genomics_set1.md#how-is-sars-cov-2-sequencing-done)    
 
+
 ## Collaborators
 
-### Educators     
+**Educators**     
 
 Leigh Jackson, University of Exeter, United Kingdom       
 Sophie Prosolek, United Kingdom        
 Stephanie Hutchings, Health Security Agency (UKHSA), United Kingdom         
 Teresa Cutiño-Moguel, Barts Health, United Kingdom        
 
-### Contributors
+**Contributors**
 
 Carlo Lapid, Philippine Genomics Center, Philippines         
 Carolina Torres, University of Buenos Aires, Argentina      
@@ -57,18 +59,18 @@ Stephen Bridgett, Queen’s University Belfast, United Kingdom
 Tapfumanei Mashe, Ministry of Health and Child Care, Zimbabwe         
 Thanat Chookajorn, Mahidol University, Thailand       
 
-### Reviewers
+**Reviewers**
 
 Camila Romano, University of São Paulo, Brazil       
 Charles Masembe, Makerere University, Uganda      
 Varun Shamanna, Kerela Insitute of Medical Science, India       
 
-### Education developers
+**Education developers**
 
 Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom        
 Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom        
 
-### COG-UK contributors
+**COG-UK contributors**
 
 Sharon Peacock, University of Cambridge, United Kingdom      
 Alistair Darby, University of Liverpool, United Kingdom         
@@ -77,7 +79,7 @@ Darren Smith, Northumbria University, United Kingdom
 Anna Markov, University of Cambridge, United Kingdom        
 Peter McEwan, University of Cambridge, United Kingdom        
 
-### Wellcome Connecting Science contributors
+**Wellcome Connecting Science contributors**
 
 Treasa Creavin, Wellcome Connecting Science, United Kingdom        
 Alice Matimba, Wellcome Connecting Science, United Kingdom          
@@ -103,7 +105,4 @@ Any reuse of the course materials is encouraged with due acknowledgement.
 ## How to cite 
 
 TBP
-
-
-
 
