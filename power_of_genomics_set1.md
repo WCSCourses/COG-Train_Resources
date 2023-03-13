@@ -63,7 +63,7 @@
 # Hypotheses of where COVID-19 came from
 <!-- 1-8 -->
 
-![Decorative image of people in a market](/images/OC1_1-8_illustrative.jpeg)
+![Decorative image of people in a market](images/OC1_1-8_illustrative.jpeg)
 
 ## Wuhan, wildlife and ‘wet markets’
 
@@ -79,7 +79,7 @@ Making the leap from one species to another is a rare event, and it represents a
 
 New coronaviruses evolve when subtle changes occur in their genetic code. These genetic changes (also known as ‘mutations’) can sometimes confer advantages to the virus, increasing its infectivity, and transmissibility, or even enabling it to cross the species barrier. The SARS-CoV-2 virus has continued to evolve and mutate, as seen in the Omicron variant which has around 50 mutations compared to the original Wuhan virus, around 30 of these in the Spike protein that we will learn about next week. The virus is likely to continue to find new ways to evade the immune system and transmit with higher efficiency. This process of evolution has occurred as part of the natural history of every infectious disease including the [Great Flu of 1918](https://www.cdc.gov/flu/pandemic-resources/1918-commemoration/1918-pandemic-history.htm), and the first [SARS outbreak of 2003](https://www.who.int/health-topics/severe-acute-respiratory-syndrome#tab=tab_1). 
 
-![cartoon depiction of SARS-CoV-2 virus. Red circle covered with coloured spike-shaped forms and a yellow spiral in the middle of the circle](/images/OC1_1-8_viral_particle_illustrative.png)
+![cartoon depiction of SARS-CoV-2 virus. Red circle covered with coloured spike-shaped forms and a yellow spiral in the middle of the circle](images/OC1_1-8_viral_particle_illustrative.png)
 
 _Figure 1 - Schematic illustration representing a SARS-CoV-2 viral particle_
 
@@ -96,7 +96,7 @@ Viruses are sub-microscopic infectious agents - much smaller than most bacteria 
 
 The virus core contains its genetic content – this can be DNA or RNA. The genetic material is then covered by a protective protein coat called a ‘capsid’, and some viruses have an additional 'envelope' layer (Figure 1). This may give the virus [a greater range between hosts (the ability to survive outside a host for longer and travel further) and aid in immune escape](https://www.ncbi.nlm.nih.gov/books/NBK8174/). The type of genetic material and its conformation are used to classify viruses according to the [Baltimore classification](https://viralzone.expasy.org/254).
 
-![Diagram of the structure of a typical virus. Viral envelope, capsid and surface proteins are shown as a circle decorated with protein blobs surrounding a hexagon; the viral genome is shown as a helix structure in the centre, with a small yellow dot representing densely packaged internal proteins](/images/OC1_1-9_viral_particle.png)
+![Diagram of the structure of a typical virus. Viral envelope, capsid and surface proteins are shown as a circle decorated with protein blobs surrounding a hexagon; the viral genome is shown as a helix structure in the centre, with a small yellow dot representing densely packaged internal proteins](images/OC1_1-9_viral_particle.png)
 
 _Figure 1 - A viral particle structure. The viral genome is protected by a protein coat known as a capsid. Proteins required for viral replication are also packed into the capsid. Some viruses have an envelope membrane with surface proteins that bind to the host cell surface during infection. Source: [Nature Reviews Biotechnology](https://www.nature.com/articles/s41579-021-00535-6)_
 
@@ -105,7 +105,7 @@ Even though viruses are simple structures, they exist in a variety of shapes and
 Viruses infect all known species of life and they require an actively growing cell to replicate. They are usually specific to one type of cell, which ranges from a single free-living cell such as amoebae, up to a cell that forms part of a bigger multi-cellular organism like us.
 Viruses have a reputation for being the cause of disease – but not all of them do! [The World needs viruses to function](https://www.bbc.com/future/article/20200617-what-if-all-viruses-disappeared) – and can even prove useful as [vital tools for scientific research](https://blog.addgene.org/using-virus-in-your-research-a-primer-for-beginners).
 
-![Purple and green digitally generated image of a bacteriophage virus, with a polyhedral head, a central tube, and several spider-like legs](https://github.com/WCSCourses/COG-Train_Resources/blob/main/images/OC1%201-9%20bacteriophage.png)
+![Purple and green digitally generated image of a bacteriophage virus, with a polyhedral head, a central tube, and several spider-like legs](images/OOC1_1-9_bacteriophage.png)
 
 _Figure 2 - Illustration of a bacteriophage, a virus that infects bacteria_
 
@@ -145,7 +145,7 @@ _Erratum: After the video editing we noticed a mistake. At 3:00 Teresa says: "We
 # Transmission of respiratory viruses
 <!-- 1-12 -->
 
-![Woman wearing a mask and surrounded by viral particles](https://github.com/WCSCourses/COG-Train_Resources/blob/main/images/OC1%201-12%20illustrative.jpeg)
+![Woman wearing a mask and surrounded by viral particles](images/OC1_1-12_illustrative.jpeg)
 
 Viral transmission is the process through which viruses spread between hosts and includes the spread to members of the same host species or to different species.
 
