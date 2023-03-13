@@ -131,7 +131,8 @@ _Figure 2 -  The SARS-CoV-2 replication and pathogenesis. (a) The SARS-CoV-2 inf
 # What is the difference between pandemic, epidemic, and outbreak?
 <!-- 1-11 -->
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=uhu7fQ5PEoY&list=PL51nPOKxSjqjqvoHDliEblBthkvZDKaWC&index=2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uhu7fQ5PEoY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
+
 
 In this recorded lecture, Dr Teresa Cutiño-Moguel from Barts Health, United Kingdom explains the differences between the terms: pandemic, epidemic, endemic and outbreak. Each is related to the spread and presence of a disease, but all have different meanings. 
 
