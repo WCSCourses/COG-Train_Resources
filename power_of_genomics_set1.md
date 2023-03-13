@@ -79,7 +79,7 @@ Making the leap from one species to another is a rare event, and it represents a
 
 New coronaviruses evolve when subtle changes occur in their genetic code. These genetic changes (also known as ‘mutations’) can sometimes confer advantages to the virus, increasing its infectivity, and transmissibility, or even enabling it to cross the species barrier. The SARS-CoV-2 virus has continued to evolve and mutate, as seen in the Omicron variant which has around 50 mutations compared to the original Wuhan virus, around 30 of these in the Spike protein that we will learn about next week. The virus is likely to continue to find new ways to evade the immune system and transmit with higher efficiency. This process of evolution has occurred as part of the natural history of every infectious disease including the [Great Flu of 1918](https://www.cdc.gov/flu/pandemic-resources/1918-commemoration/1918-pandemic-history.htm), and the first [SARS outbreak of 2003](https://www.who.int/health-topics/severe-acute-respiratory-syndrome#tab=tab_1). 
 
-![cartoon depiction of SARS-CoV-2 virus. Red circle covered with coloured spike-shaped forms and a yellow spiral in the middle of the circle](images/OC1_1-8_viral_particle_illustrative.png)
+![cartoon depiction of SARS-CoV-2 virus. Red circle covered with coloured spike-shaped forms and a yellow spiral in the middle of the circle](images/OC1_1-8_viral_particle_illustrative.png){width=50%}
 
 _Figure 1 - Schematic illustration representing a SARS-CoV-2 viral particle_
 
