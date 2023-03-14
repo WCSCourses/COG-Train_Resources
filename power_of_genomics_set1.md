@@ -1,6 +1,8 @@
 # PANDEMICS AND THEIR ORIGINS
 
+![](images/OC1_W1_cover.png)
 
+      
 # Glossary 
 <!-- 1-6 -->
 
@@ -66,7 +68,7 @@ However, bats were not available for sale at the Huanan market; therefore this v
 Making the leap from one species to another is a rare event, and it represents a key turning point in the evolution of SARS-CoV-2 (Figure 1). In 2007, coronavirus scientists compared the prevalence of similar viruses in horseshoe bats to [“a time bomb” that “should not be ignored”](https://journals.asm.org/doi/10.1128/cmr.00023-07?permanently=true) – only 12 years later, SARS-CoV-2 - the evolutionary product of the predecessors these and other scientists warned of - emerged. 
 
 <!-- Figure 1 --> 
-![Schematic illustration representing a SARS-CoV-2 viral particle](images/OC1_1-8_viral_particle_illustrative.png){width=50%}
+![Schematic illustration representing a SARS-CoV-2 viral particle](images/OC1_1-8_viral_particle_illustrative.png){width=50%}       
 
 New coronaviruses evolve when subtle changes occur in their genetic code. These genetic changes (also known as ‘mutations’) can sometimes confer advantages to the virus, increasing its infectivity, and transmissibility, or even enabling it to cross the species barrier. The SARS-CoV-2 virus has continued to evolve and mutate, as seen in the Omicron variant which has around 50 mutations compared to the original Wuhan virus, around 30 of these in the Spike protein that we will learn about next week. The virus is likely to continue to find new ways to evade the immune system and transmit with higher efficiency. This process of evolution has occurred as part of the natural history of every infectious disease including the [Great Flu of 1918](https://www.cdc.gov/flu/pandemic-resources/1918-commemoration/1918-pandemic-history.htm), and the first [SARS outbreak of 2003](https://www.who.int/health-topics/severe-acute-respiratory-syndrome#tab=tab_1). 
 
@@ -99,7 +101,7 @@ The virus core contains its genetic content – this can be DNA or RNA. The gene
 
 _Source: [Nature Reviews Biotechnology](https://www.nature.com/articles/s41579-021-00535-6)_
 
-Even though viruses are simple structures, they exist in a variety of shapes and sizes. Some viruses, like SARS-CoV-2, are relatively large – measuring around 100th of a millimetre in diameter. Others like the rhinovirus (which causes the common cold) are much smaller – around one-third of the size of SARS-CoV-2. Some viral capsids are covered by a spiky protein envelope (such as SARS-CoV-1 and SARS-CoV-2), whereas others have no envelope at all (such as Poliovirus). Some viruses exist in more complex shapes – resembling a lunar lander, or a spider (such as the Bacteriophage depicted in Figure 2). [Some people debate whether they’re a true form of life](https://www.sciencedirect.com/science/article/pii/S1369848616300103?via%3Dihub)
+Even though viruses are simple structures, they exist in a variety of shapes and sizes. Some viruses, like SARS-CoV-2, are relatively large – measuring around 100th of a millimetre in diameter. Others like the rhinovirus (which causes the common cold) are much smaller – around one-third of the size of SARS-CoV-2. Some viral capsids are covered by a spiky protein envelope (such as SARS-CoV-1 and SARS-CoV-2), whereas others have no envelope at all (such as Poliovirus). Some viruses exist in more complex shapes – resembling a lunar lander, or a spider. [Some people debate whether they’re a true form of life](https://www.sciencedirect.com/science/article/pii/S1369848616300103?via%3Dihub)
 
 Viruses infect all known species of life and they require an actively growing cell to replicate. They are usually specific to one type of cell, which ranges from a single free-living cell such as amoebae, up to a cell that forms part of a bigger multi-cellular organism like us.
 Viruses have a reputation for being the cause of disease – but not all of them do! [The World needs viruses to function](https://www.bbc.com/future/article/20200617-what-if-all-viruses-disappeared) – and can even prove useful as [vital tools for scientific research](https://blog.addgene.org/using-virus-in-your-research-a-primer-for-beginners).
@@ -141,7 +143,7 @@ _Source: [Respiratory Research](https://doi.org/10.1186/s12931-020-01581-z)_
 <!-- 1-11 -->
 
 <!-- YT: https://youtu.be/uhu7fQ5PEoY -->   
-<iframe width="560" height="315" src="https://www.youtube.com/embed/uhu7fQ5PEoY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="1120" height="630" src="https://www.youtube.com/embed/uhu7fQ5PEoY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 [Download the transcript here](assets/Pandemic_epidemic_etc_with_audio_7_1_22.pdf)
 
@@ -225,7 +227,7 @@ So what is different now? Crucially, in 1918, the pathogen causing the outbreak 
 To learn more about the 1918 pandemic and lessons learned for the future, watch this video:
 
 <!-- YT: https://youtu.be/3x1aLAw_xkY --> 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3x1aLAw_xkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+<iframe width="1120" height="630" src="https://www.youtube.com/embed/3x1aLAw_xkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
 
 <sub>This video is hosted by a third party</sub>
 
@@ -241,11 +243,11 @@ This video is also available on the [University of Cambridge website](https://ww
 <!--1-15 -->
 
 <!-- YT: https://youtu.be/6Zmv76CFzMw -->   
-<iframe width="560" height="315" src="https://www.youtube.com/embed/6Zmv76CFzMw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-In this video, Dr Sophie Prosolek discusses the importance of genomics for sequencing and PCR methodologies. 
+<iframe width="1120" height="630" src="https://www.youtube.com/embed/6Zmv76CFzMw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 [Download the transcript here](assets/OC1_1-15_transcript.pdf)
+
+In this video, Dr Sophie Prosolek discusses the importance of genomics for sequencing and PCR methodologies. 
 
 Deoxyribonucleic acid (DNA) and ribonucleic acid (RNA) are amongst the most important molecules for life on earth – they’re responsible for the storage and translation of the genetic code. DNA and RNA are both linear polymers (chains of molecules) – they consist of sugars, phosphates, and bases, linked together in a chain (Figure 7).
 
@@ -261,7 +263,7 @@ RNA is usually a single-stranded molecule, and it also comprises four nitrogenou
 The subtle differences between DNA and RNA have implications for viral sequencing. To read the genetic code of SARS-CoV-2, its RNA must first be converted to DNA – allowing it to be ‘read’ by the sequencing machine (Figure 8).
 
 <!-- Figure 8 -->    
-![Table differentiating DNA and RNA.](images/OC1_1-15_table_1.png){width=50%}
+![Table differentiating DNA and RNA.](images/OC1_1-15_table_1.png)
 
 [Download the table PDF file here](assets/OC1_1-15_DNA_RNA_table.pdf)
 
@@ -303,7 +305,7 @@ Sanger sequencing was the first technique discovered by Frederick Sanger in the 
 The Human Genome Project (HGP) has led to changes that have dramatically changed our approach to disease diagnosis, and together with the development of sequencing-by-synthesis techniques (otherwise known as next-generation sequencing or NGS technologies) the cost and time to sequence have decreased considerably. The HGP enabled clinicians to find mutations within the DNA code which we now use to test for genetic disorders and personalised medicine. Today, we can sequence the whole genome of a human in 1-2 days and it is expected that this will continue to decrease in time and cost. 
 
 <!-- YT: https://youtu.be/fCd6B5HRaZ8 -->   
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fCd6B5HRaZ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+<iframe width="1120" height="630" src="https://www.youtube.com/embed/fCd6B5HRaZ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
 
 <sub>This video is hosted by a third party</sub>
 
@@ -312,7 +314,7 @@ At the beginning of the 21st century, NGS methodologies became available and the
 Since the COVID-19 pandemic began, the COG-UK Consortium has used NGS and viral Whole Genome Sequencing (WGS) technologies to find the unique code of the SARS-CoV-2 RNA genomes. Although different sequencing methods can be used, WGS has helped us to understand many different aspects of the virus in rapid time: its epidemiology and transmission, how the interventions and treatment are working and the biological understanding of the virus. Sequencing the human DNA from a large cohort of people who have been infected with the virus has allowed us to determine the genetic changes over time and understand how this translates into patient health and the genetic evolution of the virus during the pandemic. 
 
 <!-- YT: https://youtu.be/qzusVw4Dp8w -->   
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qzusVw4Dp8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="1120" height="630" src="https://www.youtube.com/embed/qzusVw4Dp8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <sub>This video is hosted by a third party</sub>
 
@@ -326,7 +328,7 @@ Since the COVID-19 pandemic began, the COG-UK Consortium has used NGS and viral 
 <!-- 1-17 -->
 
 <!-- YT: https://youtu.be/mlbVYNzVejE -->   
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mlbVYNzVejE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+<iframe width="1120" height="630" src="https://www.youtube.com/embed/mlbVYNzVejE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
 
 [Download the transcript here](assets/Tapfumanei_Talk_outbreaks_zim.pdf)
 
@@ -361,7 +363,7 @@ By sequencing samples from Typhoid cases, researchers could show where resistanc
 There are many sequencing technologies used for SARS-CoV-2 (Figure 10). Here we will approach a broadly used protocol based on viral WGS. The method consists of viral RNA isolation, Library preparation, Sequencing run and Analysis. 
 
 <!-- Figure 10 -->    
-![Methods for SARS-CoV-2 genome sequencing. **a.)** In Illumina’s Nextera DNA Flex Enrichment protocol cDNA is tagmented and made into barcoded sequencing libraries, which are then enriched using sequence capture with a respiratory virus panel containing probes against SARS-CoV-2. **b.)** In the ARTIC protocol, first-strand cDNA is enriched by amplifying with two pools of primers to generate amplicons tiling the SARS-CoV-2 genome. These amplicons are then subjected to either Illumina or Oxford Nanopore library preparation, using methods that either directly add adapters to the ends of the amplicons or fragment them to enable sequencing on a wider variety of Illumina instruments. **c.)** The tailed amplicon approach, developed here, enriches first-strand cDNA using ARTIC v3 primers containing adapter tails. This allows functional sequencing libraries to be created through a second indexing PCR reaction that adds sample-specific barcodes and flow cell adapters](images/OC1_1-18_fig_1.png 
+![Methods for SARS-CoV-2 genome sequencing. **a.)** In Illumina’s Nextera DNA Flex Enrichment protocol cDNA is tagmented and made into barcoded sequencing libraries, which are then enriched using sequence capture with a respiratory virus panel containing probes against SARS-CoV-2. **b.)** In the ARTIC protocol, first-strand cDNA is enriched by amplifying with two pools of primers to generate amplicons tiling the SARS-CoV-2 genome. These amplicons are then subjected to either Illumina or Oxford Nanopore library preparation, using methods that either directly add adapters to the ends of the amplicons or fragment them to enable sequencing on a wider variety of Illumina instruments. **c.)** The tailed amplicon approach, developed here, enriches first-strand cDNA using ARTIC v3 primers containing adapter tails. This allows functional sequencing libraries to be created through a second indexing PCR reaction that adds sample-specific barcodes and flow cell adapters](images/OC1_1-18_fig_1.png) 
 
 _Source: [BMC Genomics](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-020-07283-6#Fig1)_
 
@@ -385,10 +387,10 @@ The cDNA is then added to a reaction mix including PCR reagents and SARS-CoV-2 s
 _3. Index PCR Set-up_  
 NGS technologies allow multiplexing, ie. pooling several different samples in a single sequencing run. In this process oligonucleotide indexes are added to each individual sample, ‘barcoding’ them, using a PCR procedure. This allows the individual samples to be separated computationally after sequencing. 
 
-**4. Sample Pooling**  
+_4. Sample Pooling_  
 The concentration of the DNA of the barcoded samples is measured and equal amounts of DNA from each sample are pooled in a single tube. 
 
-**5. Clean-Up**  
+_5. Clean-Up_  
 NGS methodologies are highly sensitive. Inhibitors and reagent residues must be removed through DNA purification. It is strongly recommended to use magnetic beads purification protocols for the clean-up step. 
 
 **Sequencing run**
@@ -406,13 +408,14 @@ If you are interested in seeing a sequencing workflow in a laboratory, see this 
 
 
 <!-- YT: https://youtu.be/0iok-W3N_Iw -->     
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0iok-W3N_Iw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="1120" height="630" src="https://www.youtube.com/embed/0iok-W3N_Iw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <sub>This video is hosted by a third party</sub>
 
 
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
+
 
 
 
