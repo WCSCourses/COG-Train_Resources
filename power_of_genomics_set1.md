@@ -1,7 +1,7 @@
 # PANDEMICS AND THEIR ORIGINS
 
-![](images/OC1_W1_cover.png)
-
+![](images/OC1_W1_cover.png)       
+<sub>@Canva</sub>
       
 # Glossary 
 <!-- 1-6 -->
