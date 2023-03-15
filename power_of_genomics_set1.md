@@ -143,7 +143,7 @@ _Source: [Respiratory Research](https://doi.org/10.1186/s12931-020-01581-z)_
 <!-- 1-11 -->
 
 <!-- YT: https://youtu.be/uhu7fQ5PEoY -->   
-<iframe width="1120" height="630" src="https://www.youtube.com/embed/uhu7fQ5PEoY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="840" height="472" src="https://www.youtube.com/embed/uhu7fQ5PEoY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 [Download the transcript here](assets/Pandemic_epidemic_etc_with_audio_7_1_22.pdf)
 
@@ -227,7 +227,7 @@ So what is different now? Crucially, in 1918, the pathogen causing the outbreak 
 To learn more about the 1918 pandemic and lessons learned for the future, watch this video:
 
 <!-- YT: https://youtu.be/3x1aLAw_xkY --> 
-<iframe width="1120" height="630" src="https://www.youtube.com/embed/3x1aLAw_xkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+<iframe width="840" height="472" src="https://www.youtube.com/embed/3x1aLAw_xkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
 
 <sub>This video is hosted by a third party</sub>
 
@@ -243,7 +243,7 @@ This video is also available on the [University of Cambridge website](https://ww
 <!--1-15 -->
 
 <!-- YT: https://youtu.be/6Zmv76CFzMw -->   
-<iframe width="1120" height="630" src="https://www.youtube.com/embed/6Zmv76CFzMw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="840" height="472" src="https://www.youtube.com/embed/6Zmv76CFzMw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 [Download the transcript here](assets/OC1_1-15_transcript.pdf)
 
@@ -305,7 +305,7 @@ Sanger sequencing was the first technique discovered by Frederick Sanger in the 
 The Human Genome Project (HGP) has led to changes that have dramatically changed our approach to disease diagnosis, and together with the development of sequencing-by-synthesis techniques (otherwise known as next-generation sequencing or NGS technologies) the cost and time to sequence have decreased considerably. The HGP enabled clinicians to find mutations within the DNA code which we now use to test for genetic disorders and personalised medicine. Today, we can sequence the whole genome of a human in 1-2 days and it is expected that this will continue to decrease in time and cost. 
 
 <!-- YT: https://youtu.be/fCd6B5HRaZ8 -->   
-<iframe width="1120" height="630" src="https://www.youtube.com/embed/fCd6B5HRaZ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+<iframe width="840" height="472" src="https://www.youtube.com/embed/fCd6B5HRaZ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
 
 <sub>This video is hosted by a third party</sub>
 
@@ -314,7 +314,7 @@ At the beginning of the 21st century, NGS methodologies became available and the
 Since the COVID-19 pandemic began, the COG-UK Consortium has used NGS and viral Whole Genome Sequencing (WGS) technologies to find the unique code of the SARS-CoV-2 RNA genomes. Although different sequencing methods can be used, WGS has helped us to understand many different aspects of the virus in rapid time: its epidemiology and transmission, how the interventions and treatment are working and the biological understanding of the virus. Sequencing the human DNA from a large cohort of people who have been infected with the virus has allowed us to determine the genetic changes over time and understand how this translates into patient health and the genetic evolution of the virus during the pandemic. 
 
 <!-- YT: https://youtu.be/qzusVw4Dp8w -->   
-<iframe width="1120" height="630" src="https://www.youtube.com/embed/qzusVw4Dp8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="840" height="472" src="https://www.youtube.com/embed/qzusVw4Dp8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <sub>This video is hosted by a third party</sub>
 
@@ -328,7 +328,7 @@ Since the COVID-19 pandemic began, the COG-UK Consortium has used NGS and viral 
 <!-- 1-17 -->
 
 <!-- YT: https://youtu.be/mlbVYNzVejE -->   
-<iframe width="1120" height="630" src="https://www.youtube.com/embed/mlbVYNzVejE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+<iframe width="840" height="472" src="https://www.youtube.com/embed/mlbVYNzVejE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
 
 [Download the transcript here](assets/Tapfumanei_Talk_outbreaks_zim.pdf)
 
@@ -408,7 +408,7 @@ If you are interested in seeing a sequencing workflow in a laboratory, see this 
 
 
 <!-- YT: https://youtu.be/0iok-W3N_Iw -->     
-<iframe width="1120" height="630" src="https://www.youtube.com/embed/0iok-W3N_Iw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="840" height="472" src="https://www.youtube.com/embed/0iok-W3N_Iw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <sub>This video is hosted by a third party</sub>
 
