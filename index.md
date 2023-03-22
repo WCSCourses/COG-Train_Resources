@@ -2,7 +2,7 @@
 pagetitle: "COG-Train Resources Site"
 ---
 
-# COG-Train Resources Site
+# COG-Train Resources Site      
 
 Note - this site is currently under development and will experience frequent changes and updates. 
 
