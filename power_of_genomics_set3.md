@@ -70,11 +70,6 @@ In this recorded video call, in January 2022, you will hear from experts from th
 # Identifying transmission clusters: Hospital outbreak investigation in the United Kingdom
 <!-- 3-6 -->      
 
-<!-- INSERT AUDIO FILE HERE!!!!! -->           
-
-[Listen to this audio](assets/OC1_3-6_audio.m4a)  
-
-TEST AUDIO
 <audio controls>
   <source src="assets/OC1_3-6_audio.m4a" type="audio/ogg">
  </audio>
