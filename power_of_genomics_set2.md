@@ -75,7 +75,7 @@ _Source: [RCSB PDB 101](https://pdb101.rcsb.org/motm/256)_
 
 **Further reading**
 
-[New coronavirus variant: what is the spike protein and why are mutations on it important?)(https://theconversation.com/new-coronavirus-variant-what-is-the-spike-protein-and-why-are-mutations-on-it-important-152463)
+[New coronavirus variant: what is the spike protein and why are mutations on it important?](https://theconversation.com/new-coronavirus-variant-what-is-the-spike-protein-and-why-are-mutations-on-it-important-152463)
 
 [Explatiner: what is a spike protein?](https://www.snexplores.org/article/explainer-what-is-a-spike-protein)
 
@@ -132,7 +132,7 @@ This video explains the various types of vaccines used for SARS-CoV-2 virus and 
 <!-- 2-10 -->   
 
 <!-- YT: https://youtu.be/R8ieQ2r6VTI  -->
-<iframe width="840" height="472 src="https://www.youtube.com/embed/R8ieQ2r6VTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="840" height="472" src="https://www.youtube.com/embed/R8ieQ2r6VTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 [Download the transcript here](assets/OC1_2-10_transcript.pdf)
 
@@ -215,6 +215,7 @@ COVID-19 has become endemic: it can re-infect people who have been vaccinated or
 Vaccines are an effective way to limit infection and spread of infectious diseases, and reduce the severity of symptoms. The ongoing COVID-19 pandemic has hastened the development and trials of several vaccines. Sequencing of the virus variants assists in vaccine development, and in phase 3 and 4 vaccine trials, and guides booster vaccine improvements for possible new viral variants for which existing vaccines may be less effective.
 
 **Further reading**
+
 [Innate vs adaptive immunity](https://www.technologynetworks.com/immunology/articles/innate-vs-adaptive-immunity-335116) 
 
 
