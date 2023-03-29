@@ -36,12 +36,22 @@ navbar:
           menu:
             - text: "Home"
               href: power_of_genomics_home.html
-            - text: "Set 1"
+            - text: "Week 1"
               href: power_of_genomics_set1.html
-            - text: "Set 2"
+            - text: "Week 2"
               href: power_of_genomics_set2.html
-            - text: "Set 3"
+            - text: "Week 3"
               href: power_of_genomics_set3.html
+        - text: "Swab to server"
+          menu:
+            - text: "Home"
+              href: swab_to_server_home.html
+            - text: "Week 1"
+              href: swab_to_server_week1.html
+            - text: "Week 2"
+              href: swab_to_server_week2.html
+            - text: "Week 3"
+              href: swab_to_server_week3.html
         - text: "----"
         - text: "Hybrid Courses"
         - text: "SARS-CoV-2 B4B"
