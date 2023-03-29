@@ -1,4 +1,4 @@
-![](images/OC1_cover.jpeg){width:50%}  
+![](images/OC1_cover.jpeg)
 
 # The power of genomics to understand the COVID-19 pandemic
 
