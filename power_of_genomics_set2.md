@@ -159,7 +159,7 @@ Figure 4 shows how antibodies (produced by the adaptive immune system’s B-cell
 
 _Source: [NIH](https://www.nih.gov/news-events/news-releases/clinical-trials-monoclonal-antibodies-prevent-covid-19-now-enrolling)_
 
-[Download Figure 4 alt-text here](images/OC1_2-11_fig4_5_alt-text.pdf)
+[Download Figure 4 alt-text here](images/OC1_Fig4-5_alt-text.pdf)
 
 A vaccine can also stimulate the development of a T-cell response, for example, CD4 T-cells can increase the antibody response, and CD8 T-cells identify and remove host cells that have been infected by the virus.
 
@@ -181,7 +181,7 @@ Different antibodies are produced in response to the COVID-19 vaccine (and to th
 
 _Source: [C&EN](https://cen.acs.org/analytical-chemistry/structural-biology/Characterizing-SARS-CoV-2-antibodies/98/i40)_
 
-[Download Figure 5 alt-text here](images/OC1_2-11_fig4_5_alt-text.pdf)
+[Download Figure 5 alt-text here](images/OC1_Fig4-5_alt-text.pdf)
 
 **Vaccines Trials**
 
