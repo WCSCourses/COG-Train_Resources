@@ -36,7 +36,7 @@ Rogers Kamulegeya, Makerere University, Uganda
 
 Angela Beckett, University of Portsmouth, United Kingdom          
 Camila Romano, Universidade de São Paulo, Brazil              
-Collins ​​Otieno, African Society for Laboratory Medicine, Ethiopia                   
+Collins Otieno, African Society for Laboratory Medicine, Ethiopia                   
 Dodge Lim, Research Institute for Tropical Medicine, Philippines          
 Emma Thomson, MRC-University of Glasgow Centre for Virus Research, United Kingdom        
 Emmanuel Nasinghe, Makerere University, Uganda        
