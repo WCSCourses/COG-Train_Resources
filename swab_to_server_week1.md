@@ -1,6 +1,6 @@
 # THE JOURNEY OF A SAMPLE
 
-![](images/OC2_W1_Act3.png)        
+![](images/OC2_W1_cover.png)        
 <sub>@Canva</sub>
 
 # Glossary
