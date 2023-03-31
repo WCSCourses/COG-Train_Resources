@@ -183,7 +183,7 @@ A table with detailed information about sequencing technologies is available for
 <!-- 1-12 -->    
  
 <!-- YT https://youtu.be/M-kFTbGt52U -->       
-<iframe width="840 height="472" src="https://www.youtube.com/embed/M-kFTbGt52U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="840" height="472" src="https://www.youtube.com/embed/M-kFTbGt52U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 [Download the transcript here](assets/Oc2_1-12_transcript.pdf)
 
