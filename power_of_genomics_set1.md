@@ -1,8 +1,8 @@
 # PANDEMICS AND THEIR ORIGINS
 
-![](images/OC1_W1_cover.png)       
+![](images/OC1_W1_cover.png)        
 <sub>@Canva</sub>
-      
+
 # Glossary 
 <!-- 1-6 -->
 
@@ -70,6 +70,8 @@ Making the leap from one species to another is a rare event, and it represents a
 <!-- Figure 1 --> 
 ![Schematic illustration representing a SARS-CoV-2 viral particle](images/OC1_1-8_viral_particle_illustrative.png){width=50%}       
 
+[Download Figure 1 alt-text here](images/OC1_1-8_Fig1_alt-text.pdf)         
+
 New coronaviruses evolve when subtle changes occur in their genetic code. These genetic changes (also known as ‘mutations’) can sometimes confer advantages to the virus, increasing its infectivity, and transmissibility, or even enabling it to cross the species barrier. The SARS-CoV-2 virus has continued to evolve and mutate, as seen in the Omicron variant which has around 50 mutations compared to the original Wuhan virus, around 30 of these in the Spike protein that we will learn about next week. The virus is likely to continue to find new ways to evade the immune system and transmit with higher efficiency. This process of evolution has occurred as part of the natural history of every infectious disease including the [Great Flu of 1918](https://www.cdc.gov/flu/pandemic-resources/1918-commemoration/1918-pandemic-history.htm), and the first [SARS outbreak of 2003](https://www.who.int/health-topics/severe-acute-respiratory-syndrome#tab=tab_1). 
 
 **Sequencing the virus’ genetic code**
@@ -99,9 +101,11 @@ The virus core contains its genetic content – this can be DNA or RNA. The gene
 <!-- Figure 2 -->
 ![A viral particle structure. The viral genome is protected by a protein coat known as a capsid. Proteins required for viral replication are also packed into the capsid. Some viruses have an envelope membrane with surface proteins that bind to the host cell surface during infection](images/OC1_1-9_viral_particle.png)
 
+[Download Figure 2 alt-text here](images/OC1_1-9_fig2_alt-text.pdf)
+
 _Source: [Nature Reviews Biotechnology](https://www.nature.com/articles/s41579-021-00535-6)_
 
-Even though viruses are simple structures, they exist in a variety of shapes and sizes. Some viruses, like SARS-CoV-2, are relatively large – measuring around 100th of a millimetre in diameter. Others like the rhinovirus (which causes the common cold) are much smaller – around one-third of the size of SARS-CoV-2. Some viral capsids are covered by a spiky protein envelope (such as SARS-CoV-1 and SARS-CoV-2), whereas others have no envelope at all (such as Poliovirus). Some viruses exist in more complex shapes – resembling a lunar lander, or a spider. [Some people debate whether they’re a true form of life](https://www.sciencedirect.com/science/article/pii/S1369848616300103?via%3Dihub)
+Even though viruses are simple structures, they exist in a variety of shapes and sizes. Some viruses, like SARS-CoV-2, are relatively large – measuring around 100th of a millimetre in diameter. Others like the rhinovirus (which causes the common cold) are much smaller – around one-third of the size of SARS-CoV-2. Some viral capsids are covered by a spiky protein envelope (such as SARS-CoV-1 and SARS-CoV-2), whereas others have no envelope at all (such as Poliovirus). Some viruses exist in more complex shapes – resembling a lunar lander, or a spider. [Some people debate whether they’re a true form of life](https://www.sciencedirect.com/science/article/pii/S1369848614720103?via%3Dihub)
 
 Viruses infect all known species of life and they require an actively growing cell to replicate. They are usually specific to one type of cell, which ranges from a single free-living cell such as amoebae, up to a cell that forms part of a bigger multi-cellular organism like us.
 Viruses have a reputation for being the cause of disease – but not all of them do! [The World needs viruses to function](https://www.bbc.com/future/article/20200617-what-if-all-viruses-disappeared) – and can even prove useful as [vital tools for scientific research](https://blog.addgene.org/using-virus-in-your-research-a-primer-for-beginners).
@@ -122,6 +126,8 @@ To enter a cell, the virus must recognise and bind to a receptor. SARS-CoV-2 Spi
 <!-- Figure 3 -->
 ![A schematic illustration of the SARS-CoV-2 viral particle in the centre. The surrounding arc depicts the genome organisation. Structural and non-structural viral proteins are coloured in green and blue shades, respectively](images/OC1_1-10_Fig_1_sarscov2_ptn.png) 
 
+[Download Figure 3 alt-text here](images/OC1_1-10_Fig3-4_alt-text.pdf)
+
 _Source: [RCSB PDB](https://pdb101.rcsb.org/learn/flyers-posters-and-other-resources/flyer/sars-cov-2-genome-and-proteins)_
 
 All these pieces are then assembled into new viral particles and released from the cell to infect new cells. Some viruses may enter the bloodstream and find their way to organs other than the lungs such as the heart, brain and kidney. This may cause additional damage and wide-ranging symptoms. 
@@ -130,6 +136,8 @@ Figure 4 shows a schematic of SARS-CoV-2 replication within the host cell as wel
 
 <!-- Figure 4 -->   
 ![The SARS-CoV-2 replication and pathogenesis. (a) SARS-CoV-2 infects the upper and lower respiratory tract. (b) The virus replication from 1 to 12 has been described as: (1-2) The virus identifies the ACE-2 receptor. (2) The Spike (S) protein of SARS-CoV-2 binds to the ACE-2 receptor. (3, 4) The virus-receptor internalization occurs and a membrane fusion is carried out followed by the release of the viral genome inside the cell. (5–7) Replication of viral genetic code and generation of viral proteins. (8–10) Assembly of new viral particles. (11–12) Budding of recently formed viral particles from the infected cell. (c) The virus disseminates to the other part of the body through blood affecting the brain, heart, liver spleen, large intestine and kidneys](images/OC1_1-10_Fig2_infection_scheme.png)
+
+[Download Figure 4 alt-text here](images/OC1_1-10_Fig3-4_alt-text.pdf)
 
 _Source: [Respiratory Research](https://doi.org/10.1186/s12931-020-01581-z)_
 
@@ -175,7 +183,9 @@ Transmissibility is how easily a disease-causing pathogen can spread from an inf
 Due to its ability to replicate in the upper gastrointestinal tract, SARS-CoV-2, like some other beta-coronaviruses, also has been shown to transmit via a faecal-oral route.
 
 <!-- Figure 5 -->   
-![During an acute respiratory virus infection, an infected individual (infector; red) may shed the virus in exhaled breath droplets and aerosols, and may also contaminate their immediate bodily surfaces (for example, skin and clothes) or surrounding objects and surfaces (for example, tables) with their respiratory secretions. In general, if a susceptible individual (infectee; grey) is close to the infector, the short-range transmission may occur when the infectee breathes in the virus-laden droplets or aerosols released by the infector, during direct (physical) contact with the infector or during physical contact with objects or surfaces contaminated (fomite) by the infector. If the infected are at a distance from the infector, the long-range transmission may occur when the infectee breathes in the virus-laden aerosols released by the infector or during physical contact with a fomite. However, the terminology and the defining features of each mode of respiratory virus transmission, especially regarding redefining the particle size threshold between droplets and aerosols, is under active discussion (see the section Terminology and defining features of modes of transmission)](images/OC1_1-12_Fig_1.png) 
+![Modes of transmission. During an acute respiratory virus infection, an infected individual (infector; red) may shed the virus in exhaled breath droplets and aerosols, and may also contaminate their immediate bodily surfaces (for example, skin and clothes) or surrounding objects and surfaces (for example, tables) with their respiratory secretions. In general, if a susceptible individual (infectee; grey) is close to the infector, the short-range transmission may occur when the infectee breathes in the virus-laden droplets or aerosols released by the infector, during direct (physical) contact with the infector or during physical contact with objects or surfaces contaminated (fomite) by the infector. If the infected are at a distance from the infector, the long-range transmission may occur when the infectee breathes in the virus-laden aerosols released by the infector or during physical contact with a fomite. However, the terminology and the defining features of each mode of respiratory virus transmission, especially regarding redefining the particle size threshold between droplets and aerosols, is under active discussion (see the section Terminology and defining features of modes of transmission)](images/OC1_1-12_Fig_1.png) 
+
+[Download Figure 5 alt-text here](images/OC1_1-12_Fig5_alt-text.pdf)
 
 _Source: [Nature Reviews Microbiology](https://www.nature.com/articles/s41579-021-00535-6)_
 
@@ -201,6 +211,8 @@ Figure 6 depicts the timeline of the early outbreak response to the new respirat
 
 <!-- Figure 6 -->   
 ![Timeline of the fast SARS-CoV-2 PCR test development in the first couple of months since the first reported cases](images/OC1_1-13_Fig_1.png)
+
+[Download Figure 6 alt-text here](images/OC1_1-13_Fig6_alt-text.pdf)
 
 With accurate diagnostic tests, scientists were able to define the reproduction number (R)  of SARS-CoV-2. The R number is the average number of additional individuals infected (secondary infections) produced by a single infected individual. An R-value of “1” indicates that one infected individual will infect another person. At an R-value of “2”, one infected individual will infect two more individuals. Values lower than “1” indicate that infections are slowing - an R-value of “0.5” indicates that for every two infected individuals only one additional infection occurs. 
 
@@ -253,6 +265,8 @@ Deoxyribonucleic acid (DNA) and ribonucleic acid (RNA) are amongst the most impo
 
 <!-- Figure 7 -->     
 ![Difference between DNA and RNA molecules. DNA: deoxyribonucleic acid is represented by a double-stranded helix. The bases are paired as adenine-thymine and cytosine-guanine, forming "stores" of genetic code. RNA: ribonucleic acid is usually a single-stranded helix that codifies the instructions for building proteins. RNA is composed of the nucleotides adenine, cytosine, guanine, and has uracil replacing thymine](images/OC1_1-15.png){width=50%}
+
+[Download Figure 7 alt-text here](images/OC1_1-15_Fig7_alt-text.pdf)
 
 DNA is a double-stranded molecule comprising four nitrogenous ‘bases’, each strung together along a carbon backbone - these bases are known as adenine (A), thiamine (T), cytosine (C) and guanine (G).
 
@@ -343,7 +357,9 @@ Bacteria can carry DNA external to their genomes in transmissible elements calle
 Tapfumanei explains that resistance genes carried on plasmids can give _Vibrio cholerae_ the ability to resist certain treatments (Figure 9).
 
 <!-- Figure 9 -->    
-![Phylogenetic Relatedness of the **Vibrio cholerae** O1 El Tor Isolates from the 2018–2019 Outbreak in Zimbabwe. You are not expected to understand or replicate the full image but this figure gives an idea of the relatedness of different Cholera outbreaks determined by genomic testing. Read the full paper on the link above for further details](images/OC1_1-17_fig1.png)
+![Phylogenetic Relatedness of the **Vibrio cholerae** O1 El Tor Isolates from the 2018–2019 Outbreak in Zimbabwe](images/OC1_1-17_fig1.png)
+
+[Download Figure 9 alt-text here](images/OC1_1-17_Fig9_alt-text.pdf)
 
 _Source: [NEJM](https://www.nejm.org/doi/full/10.1056/NEJMc2004773)_
 
@@ -364,6 +380,8 @@ There are many sequencing technologies used for SARS-CoV-2 (Figure 10). Here we 
 
 <!-- Figure 10 -->    
 ![Methods for SARS-CoV-2 genome sequencing. **a.)** In Illumina’s Nextera DNA Flex Enrichment protocol cDNA is tagmented and made into barcoded sequencing libraries, which are then enriched using sequence capture with a respiratory virus panel containing probes against SARS-CoV-2. **b.)** In the ARTIC protocol, first-strand cDNA is enriched by amplifying with two pools of primers to generate amplicons tiling the SARS-CoV-2 genome. These amplicons are then subjected to either Illumina or Oxford Nanopore library preparation, using methods that either directly add adapters to the ends of the amplicons or fragment them to enable sequencing on a wider variety of Illumina instruments. **c.)** The tailed amplicon approach, developed here, enriches first-strand cDNA using ARTIC v3 primers containing adapter tails. This allows functional sequencing libraries to be created through a second indexing PCR reaction that adds sample-specific barcodes and flow cell adapters](images/OC1_1-18_fig_1.png) 
+
+[Download Figure 10 alt-text here](images/OC1_1-18_Fig10_alt-text.pdf)
 
 _Source: [BMC Genomics](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-020-07283-6#Fig1)_
 
@@ -415,7 +433,6 @@ If you are interested in seeing a sequencing workflow in a laboratory, see this 
 
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
-
 
 
 
