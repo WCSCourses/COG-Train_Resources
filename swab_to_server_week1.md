@@ -300,9 +300,9 @@ QCs that are commonly employed for PCR testing include **extraction negative con
 
 For further information about quality management, some materials developed by the [Africa Society for Laboratory Medicine (ASLM)](https://aslm.org/) and [Africa Centres for Disease Control and Prevention (Africa CDC)](https://africacdc.org/) are available for download below. 
 
-[Download article on quality control here](assets/OC2_1-16_resources1.pdf) 
-[Download guidance on SARS-CoV-2 genomic surveillance here](assets/OC2_1-16_resources2.pdf)
-[Download guidance on COVID-19 testing quality assurance here](assets/OC2_1-16_resources3.pdf)
+[Download article on quality control here](assets/OC2_1-16_resources1.pdf)            
+[Download guidance on SARS-CoV-2 genomic surveillance here](assets/OC2_1-16_resources2.pdf)                   
+[Download guidance on COVID-19 testing quality assurance here](assets/OC2_1-16_resources3.pdf)                      
 
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
