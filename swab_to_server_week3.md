@@ -1,6 +1,6 @@
 # A SAMPLE WITHOUT DATA IS NOTHING
 
-[](images/OC2_W3_cover.png)
+[](images/OC2_W3_cover.png)                       
 <sub>@Canva</sub>
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
@@ -52,7 +52,7 @@ Stakeholders involved in clinical research have different roles/responsibilities
 
 [Download Figure 1 alt-text here](images/OC2_3-4_Fig1_alt-text.pdf)
 
-_ Source: [Frontiers](https://doi.org/10.3389/fmed.2018.00006)_
+_Source: [Frontiers](https://doi.org/10.3389/fmed.2018.00006)_
 
 **Why share research data**
 
@@ -141,6 +141,7 @@ Before an individual can take part in a scientific or medical research study, it
 The technological challenges highlighted include transferring large datasets, particularly to the African region.  Furthermore, technology is viewed as simplifying data-related operations rather than adding complexity. However, many alternative cloud data providers are now accessible, each with their own set of data access rules. As data teams continue to rapidly embrace numerous cloud data platforms, this heterogeneous patchwork of capabilities frequently fails to scale effectively across different cloud data platforms. As a consequence, either too tight data rules that prevent data exchange entirely, or overly wide policies that allow sensitive data to slip through the gaps, resulting in a data breach or leak.
 
 **Further reading**
+
 [Ethical and practical issues to consider in the governance of genomic and human research data and data sharing in South Africa: a meeting report](https://doi.org/10.12688/aasopenres.12968.1)
 
 
@@ -217,7 +218,7 @@ As well as the FAIR principles for data sharing, The Research Data Alliance Inte
 _Table 1 - Implementation of the CARE Principles across the data lifecycle_
 
 | Practice CARE in data collection | Engage CARE in data stewardship | Implement CARE in data community | Use FAIR and CARE in data applications |
-| ------ |
+| ------ | | ------ | | ------ | | ------ | 
 | Define cultural data; record provenance in metadata | Use appropriate governance models; make data FAIR | Indigenous ethics inform access; use tools for transparency, integrity and provenance | Fairness, accountability, transparency; access equity |
 
 _Source: [Scientific Data](https://doi.org/10.1038/s41597-021-00892-0)_
@@ -300,7 +301,7 @@ Agree on roles and responsibilities together. Who will hold the data? Who is goi
 **Further reading**
 
  [CLIMB-COVID: continuous integration supporting decentralised sequencing for SARS-CoV-2 genomic surveillance](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-021-02395-y)
- might be of interest too. 
+
 
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
