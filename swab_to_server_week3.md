@@ -1,6 +1,6 @@
 # A SAMPLE WITHOUT DATA IS NOTHING
 
-[](images/OC2_W3_cover.png)                       
+![](images/OC2_W3_cover.png)                       
 <sub>@Canva</sub>
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
@@ -218,7 +218,7 @@ As well as the FAIR principles for data sharing, The Research Data Alliance Inte
 _Table 1 - Implementation of the CARE Principles across the data lifecycle_
 
 | Practice CARE in data collection | Engage CARE in data stewardship | Implement CARE in data community | Use FAIR and CARE in data applications |
-| ------ | | ------ | | ------ | | ------ | 
+| ------ | ------ | ------ | ------ | 
 | Define cultural data; record provenance in metadata | Use appropriate governance models; make data FAIR | Indigenous ethics inform access; use tools for transparency, integrity and provenance | Fairness, accountability, transparency; access equity |
 
 _Source: [Scientific Data](https://doi.org/10.1038/s41597-021-00892-0)_
