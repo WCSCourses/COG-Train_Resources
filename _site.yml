@@ -52,7 +52,7 @@ navbar:
               href: swab_to_server_week2.html
             - text: "Week 3"
               href: swab_to_server_week3.html
-        - text: "Swab to server"
+        - text: "Making sense"
           menu:
             - text: "Home"
               href: making_sense_home.html
