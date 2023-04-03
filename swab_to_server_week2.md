@@ -1,6 +1,6 @@
 # HOW TO MAKE DATA RICHER
 
-[](images/OC2_W2_cover.png)
+[](images/OC2_W2_cover.png)                 
 <sub>@Canva</sub>
 
 # (v) How different countries tackled the pandemic: an example
@@ -154,29 +154,29 @@ A data collection tool is an instrument used to collect data intended to answer 
          
 It is useful to ensure that quality data is collected so that you can draw inferences and make informed decisions on what is factual. In relation to sampling and testing during the COVID-19 pandemic, individuals, public and private institutions participating in the COVID-19 testing or surveillance have deployed different tools for data collection of patients’ information, samples and test results information around the pandemic.
 
-_1)      Laboratory Investigation Forms (LIFs):_
+_1) Laboratory Investigation Forms (LIFs):_
         
 When the COVID-19 pandemic broke out, the ministry of health in Uganda, together with the different laboratories involved in the sample collection and testing developed a standard Laboratory Investigation Form for enrolling and documenting all the important information about the COVID-19 suspected patients and samples. This form would be printed into booklets and distributed across the country to the different COVID-19 collection and testing facilities. Similar forms, both paper and online are used globally to record critical patient information. Challenges arise from the ability to quickly and accurately collate and combine this data at scale for public health benefit.     
 
-_2)  	Common Online Survey Tools:_
+_2) Common Online Survey Tools:_
            
-a)       [Google Forms](https://www.google.co.uk/forms/about/): This is a free survey administration software included as part of the free, web-based Google Docs Editors suite offered by Google. It helps you to easily create and share polished surveys and forms to respondents from which you can analyze their responses.   
+a) [Google Forms](https://www.google.co.uk/forms/about/): This is a free survey administration software included as part of the free, web-based Google Docs Editors suite offered by Google. It helps you to easily create and share polished surveys and forms to respondents from which you can analyze their responses.   
      
-b)      [Microsoft form](https://forms.office.com/): An online survey creator, part of Office 365 by Microsoft. It allows users to create surveys and quizzes, and the data from respondents can be exported to Microsoft Excel for further analysis.         
+b) [Microsoft form](https://forms.office.com/): An online survey creator, part of Office 365 by Microsoft. It allows users to create surveys and quizzes, and the data from respondents can be exported to Microsoft Excel for further analysis.         
 
-c)       [Doodle forms](https://help.doodle.com/hc/en-us/articles/360012149713-Get-started-with-Doodle): This is a free online tool that allows users to create questionnaires to gather people’s opinions.        
+c) [Doodle forms](https://help.doodle.com/hc/en-us/articles/360012149713-Get-started-with-Doodle): This is a free online tool that allows users to create questionnaires to gather people’s opinions.        
 
-d)      Emails: You can use emails, webmail or mailing lists to send out questions or questionnaires for which you receive feedback from the respondents.        
+d) Emails: You can use emails, webmail or mailing lists to send out questions or questionnaires for which you receive feedback from the respondents.        
 
-e)       Social Media: During the CoVID-19 pandemic, many organisations and individuals used social media such [Facebook](https://en-gb.facebook.com/), [WhatsApp](https://www.whatsapp.com/), [Twitter](https://twitter.com/?lang=en) to collect information from users about the pandemic.          
+e) Social Media: During the CoVID-19 pandemic, many organisations and individuals used social media such [Facebook](https://en-gb.facebook.com/), [WhatsApp](https://www.whatsapp.com/), [Twitter](https://twitter.com/?lang=en) to collect information from users about the pandemic.          
 
-_3)  	Common Online Data Collection Tools:_
+_3) Common Online Data Collection Tools:_
          
-a)       [Open Data Kit (ODK)](https://opendatakit.org/): ODK is open-source software for collecting, managing and using data in resource-constrained environments. It allows for offline data collection with mobile devices in remote areas and the submission of the data to the server can be performed when internet connectivity on the device is available.         
+a) [Open Data Kit (ODK)](https://opendatakit.org/): ODK is open-source software for collecting, managing and using data in resource-constrained environments. It allows for offline data collection with mobile devices in remote areas and the submission of the data to the server can be performed when internet connectivity on the device is available.         
 
-b)      [RedCap](https://www.project-redcap.org/): A web application for building and managing online surveys and designing clinical and translational research databases. It provides for the export of the data into other applications for further analysis.               
+b) [RedCap](https://www.project-redcap.org/): A web application for building and managing online surveys and designing clinical and translational research databases. It provides for the export of the data into other applications for further analysis.               
 
-c)       [Kobotoolbox](https://www.kobotoolbox.org/): It is a free and open-source software suite of tools for field data collection for use in challenging environments. It provides simple, robust and powerful tools for data collection and analysis.
+c) [Kobotoolbox](https://www.kobotoolbox.org/): It is a free and open-source software suite of tools for field data collection for use in challenging environments. It provides simple, robust and powerful tools for data collection and analysis.
 
 Custom software applications. Customised software is software that is specially developed for a specific organisation or user. In circumstances where the available tools cannot meet your needs, one can develop their own software application for their data collection needs. 
 
@@ -213,6 +213,7 @@ Research findings databases became remarkably popular during the pandemic, for e
 [Download the transcript here](assets/OC2_2-10_transcript.pdf)
 
 [Download the presentation slides here](assets/OC2_2-10_slides.pdf)
+
 In this lecture Malebo Malope from Stellenbosch University, South Africa reviews informed consent and discusses who owns the data. 
 
 Please visit the [POPI Act website](https://popia.co.za/) to learn more about the Protection of Personal Information Act from South Africa.
@@ -288,7 +289,7 @@ In this roundtable discussion, Dr Sharon Glaysher, Dr Sam Robson and Angie Becke
 # De-centralising genomic surveillance
 <!-- 2-15 -->       
 
-To address the pressing challenge of centralised genomic surveillance, the Philippines Department of Health (DOH) with its established surveillance network was utilized to leverage the crafting of additional genomic surveillance for SARS-COV-2 led by the Research Institute for Tropical Medicine (RITM) in collaboration with various Sub-national Laboratories (SNLs); the Epidemiology Bureau (DOH-EB); the Regional Epidemiology and Surveillance Units (RESUs) and its surveillance units within the DOH; and strong support from the University of Glasgow (UOG) with funding from the UKRI GECO-COMP. This project dubbed the GECO PH Project (https://www.geco-seqlab.org/) is deemed to be a landmark catalyst to empower local laboratories to perform their own genomic surveillance using state-of-the-art real-time Nanopore whole genome sequencing technology (e.g. MinION, GridION). This initiative has boosted the sequencing capacity of the Philippines for genomic surveillance, particularly for COVID-19.
+To address the pressing challenge of centralised genomic surveillance, the Philippines Department of Health (DOH) with its established surveillance network was utilized to leverage the crafting of additional genomic surveillance for SARS-COV-2 led by the Research Institute for Tropical Medicine (RITM) in collaboration with various Sub-national Laboratories (SNLs); the Epidemiology Bureau (DOH-EB); the Regional Epidemiology and Surveillance Units (RESUs) and its surveillance units within the DOH; and strong support from the University of Glasgow (UOG) with funding from the UKRI GECO-COMP. This project dubbed the [GECO PH Project](https://www.geco-seqlab.org/) is deemed to be a landmark catalyst to empower local laboratories to perform their own genomic surveillance using state-of-the-art real-time Nanopore whole genome sequencing technology (e.g. MinION, GridION). This initiative has boosted the sequencing capacity of the Philippines for genomic surveillance, particularly for COVID-19.
 
 The [Genomic Epidemiology of COVID in the Philippines](https://www.geco-seqlab.org/) (GECO PH) project has operationalized genomic surveillance and informed responses across the Philippines to embed large-scale real-time sequencing capacity at the national reference laboratory (RITM) and builds local sequencing capacity at (Sub-national Laboratories) SNLs for national, regional, and local-scale responses in the Philippines. The [research](https://gtr.ukri.org/projects?ref=MR%2FV035444%2F1) will further enable the evaluation of control measures across settings, from infection controls to prevent hospital-acquired infections, lockdowns to interrupt community transmission, and quarantining and movement restrictions to contain introductions, whilst increasing our understanding of SARS-CoV-2 transmission and control.
 
