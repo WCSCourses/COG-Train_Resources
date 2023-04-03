@@ -52,6 +52,16 @@ navbar:
               href: swab_to_server_week2.html
             - text: "Week 3"
               href: swab_to_server_week3.html
+        - text: "Swab to server"
+          menu:
+            - text: "Home"
+              href: making_sense_home.html
+            - text: "Week 1"
+              href: making_sense_week1.html
+            - text: "Week 2"
+              href: making_sense_week2.html
+            - text: "Week 3"
+              href: making_sense_week3.html
         - text: "----"
         - text: "Hybrid Courses"
         - text: "SARS-CoV-2 B4B"
