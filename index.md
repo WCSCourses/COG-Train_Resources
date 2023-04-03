@@ -17,3 +17,7 @@ These are educational resources produced by COG-Train to help build capacity in 
 -   Hybrid Courses
 
 **Objectives of the project:**
+
+
+**Site Version:**         
+v 1.3.4.23
