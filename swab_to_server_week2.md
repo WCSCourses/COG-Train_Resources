@@ -1,6 +1,6 @@
 # HOW TO MAKE DATA RICHER
 
-[](images/OC2_W2_cover.png)                 
+![](images/OC2_W2_cover.png)                 
 <sub>@Canva</sub>
 
 # (v) How different countries tackled the pandemic: an example
