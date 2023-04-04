@@ -21,7 +21,8 @@ This course is designed for anyone interested in learning more about the genomic
 
 ## Content
 
-**[Week 1 - Pandemic and their origins](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#PANDEMICS_AND_THEIR_ORIGINS)**      * [Glossary](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#Glossary)                  
+**[Week 1 - Pandemic and their origins](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#PANDEMICS_AND_THEIR_ORIGINS)**      
+* [* Glossary](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#Glossary)                  
 * [Hypotheses of where COVID-19 came from](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#Hypotheses_of_where_COVID-19_came_from)            
 * [What is a Virus?](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#What_is_a_Virus)                  
 * [The SARS-CoV-2 virus](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#The_SARS-CoV-2_virus)             
@@ -30,26 +31,28 @@ This course is designed for anyone interested in learning more about the genomic
 * [Genomic technologies for tracking COVID-19](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#Genomic_technologies_for_tracking_COVID-19)            
 * [The Great Influenza Pandemic of 1918](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#The_Great_Influenza_Pandemic_of_1918)              
 * [DNA, RNA and PCR](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#DNA,_RNA_and_PCR)              
-* [What is Genome Sequencing?]https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#What_is_Genome_Sequencing)              
+* [What is Genome Sequencing?](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#What_is_Genome_Sequencing)              
 * [Tracking and reacting to outbreaks with genomic knowledge](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#Tracking_and_reacting_to_outbreaks_with_genomic_knowledge)           
 * [How is SARS-CoV-2 sequencing done?](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#How_is_SARS-CoV-2_sequencing_done)             
 
 **[Week 2 - Viruses, Variants and Vaccines](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html)**              
 * [What came before? Comparison with other coronaviruses (MERS/SARS)](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#What_came_before_Comparison_with_other_coronaviruses_(MERSSARS))          
 * [The disappearance of SARS](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#The_disappearance_of_SARS)      
-* [The mechanism of viral replication](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#The_mechanism_of_viral_replication)  * [The Coronavirus Spike Protein](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#The_Coronavirus_Spike_Protein)        
+* [The mechanism of viral replication](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#The_mechanism_of_viral_replication)     
+* [The Coronavirus Spike Protein](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#The_Coronavirus_Spike_Protein)        
 * [What is a vaccine?](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#What_is_a_vaccine)       
 * [Some vaccine approaches used for COVID-19](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#Some_vaccine_approaches_used_for_COVID-19)      
 * [Up next - sequencing for vaccine development](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#Up_next_-_sequencing_for_vaccine_development)       
 * [The importance of sequencing in vaccine trials](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#The_importance_of_sequencing_in_vaccine_trials)        
 * [How has genomics guided therapeutic design?](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#How_has_genomics_guided_therapeutic_design)       
-* [Variants Explained: Mutation, Variant, VOC](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#Variants_Explained:_Mutation,_Variant,_VOC)
+* [Variants Explained: Mutation, Variant, VOC](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#Variants_Explained:_Mutation,_Variant,_VOC)    
 * [Tracking across a nation](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#Tracking_across_a_nation)      
 * [SARS-CoV-2 Variants](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#SARS-CoV-2_Variants)       
 * [Variants arising all over the world](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#Variants_arising_all_over_the_world)        
 
 **[Week 3 - Epidemiology and tracking in a pandemic](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html)**         
-* [How to tackle a respiratory virus?](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#How_to_tackle_a_respiratory_virus)    * [Introduction to Phylogenetics](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Introduction_to_Phylogenetics)          
+* [How to tackle a respiratory virus?](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#How_to_tackle_a_respiratory_virus).        
+* [Introduction to Phylogenetics](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Introduction_to_Phylogenetics)          
 * [Surveillance around the world](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Surveillance_around_the_world)        
 * [Identifying transmission clusters: Hospital outbreak investigation in the United Kingdom](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Identifying_transmission_clusters:_Hospital_outbreak_investigation_in_the_United_Kingdom)          
 * [Surveillance of viruses in a population](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Surveillance_of_viruses_in_a_population)         
