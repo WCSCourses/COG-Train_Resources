@@ -22,7 +22,8 @@ This course is designed for anyone interested in learning more about the genomic
 ## Content
 
 **[Week 1 - Pandemic and their origins](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#PANDEMICS_AND_THEIR_ORIGINS)**      
-* [* Glossary](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#Glossary)                  
+
+* [Glossary](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#Glossary)                  
 * [Hypotheses of where COVID-19 came from](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#Hypotheses_of_where_COVID-19_came_from)            
 * [What is a Virus?](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#What_is_a_Virus)                  
 * [The SARS-CoV-2 virus](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#The_SARS-CoV-2_virus)             
@@ -36,6 +37,7 @@ This course is designed for anyone interested in learning more about the genomic
 * [How is SARS-CoV-2 sequencing done?](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#How_is_SARS-CoV-2_sequencing_done)             
 
 **[Week 2 - Viruses, Variants and Vaccines](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html)**              
+
 * [What came before? Comparison with other coronaviruses (MERS/SARS)](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#What_came_before_Comparison_with_other_coronaviruses_(MERSSARS))          
 * [The disappearance of SARS](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#The_disappearance_of_SARS)      
 * [The mechanism of viral replication](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#The_mechanism_of_viral_replication)     
@@ -51,6 +53,7 @@ This course is designed for anyone interested in learning more about the genomic
 * [Variants arising all over the world](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#Variants_arising_all_over_the_world)        
 
 **[Week 3 - Epidemiology and tracking in a pandemic](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html)**         
+
 * [How to tackle a respiratory virus?](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#How_to_tackle_a_respiratory_virus).        
 * [Introduction to Phylogenetics](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Introduction_to_Phylogenetics)          
 * [Surveillance around the world](https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Surveillance_around_the_world)        
