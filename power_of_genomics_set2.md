@@ -1,3 +1,8 @@
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+
+
+<!-- external link | images  | youtube link | assets-->
+
 # VIRUSES, VARIANTS AND VACCINES
 
 ![](images/OC1_W2_cover.png)        
@@ -24,6 +29,8 @@ In Figure 1, you can observe a timeline of previous pandemics and public health 
 
 _Source: [Visual Capitalis](https://www.visualcapitalist.com/history-of-pandemics-deadliest/)_
 
+[Click here to enlarge the image](images/OC1_2-1_Fig1.jpeg)
+
 [Download Figure 1 alt-text here](images/OC1_2-2_Fig1_alt-text.pdf)
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
@@ -49,6 +56,8 @@ In order to complete their replication cycle, viruses must enter a host cell, hi
 
 ![Schematic viral replication](images/OC1_2-4_Fig2.png)
 
+[Click here to enlarge the image](images/OC1_2-4_Fig2.png)
+
 [Download Figure 2 alt-text here](images/OC1_2-4_Fig2_alt-text.pdf)
 
 SARS-CoV-2 reaches human cells through the upper airway tract – entering the body through the mouth or nose. Spike proteins on the surface of SARS-CoV-2 help it attach to the human host cells. It can then inject its own genetic material. SARS-CoV-2 hijacks the host's genetic replication machinery, ensuring that its own structural proteins are transcribed. Once the virus has replicated everything it needs - it re-assembles into new and complete virus particles. The new, complete viruses then prepare for ejection from the host cell – a process called ‘budding’.
@@ -70,6 +79,8 @@ In Figure 3 you can see a graphical representation of the SARS-CoV-2 spike prote
 ![Tridimensional structure of the Spike protein binding to antibodies](images/OC1_2-5_Fig3.png) 
 
 _Source: [RCSB PDB 101](https://pdb101.rcsb.org/motm/256)_
+
+[Click here to enlarge the image](images/OC1_2-5_Fig3.png)
 
 [Download Figure 3 alt-text here](images/OC1_2-5_Fig3_alt-text.pdf)
 
@@ -159,6 +170,8 @@ Figure 4 shows how antibodies (produced by the adaptive immune system’s B-cell
 
 _Source: [NIH](https://www.nih.gov/news-events/news-releases/clinical-trials-monoclonal-antibodies-prevent-covid-19-now-enrolling)_
 
+[Click here to enlarge the image](images/OC1_2-11_fig1.png)
+
 [Download Figure 4 alt-text here](images/OC1_Fig4-5_alt-text.pdf)
 
 A vaccine can also stimulate the development of a T-cell response, for example, CD4 T-cells can increase the antibody response, and CD8 T-cells identify and remove host cells that have been infected by the virus.
@@ -180,6 +193,8 @@ Different antibodies are produced in response to the COVID-19 vaccine (and to th
 ![Characterizing SARS-CoV-2 antibodies, showing each class of antibody bound to the Receptor-Binding Domain (RBD) (grey) of the Spike protein. Each of the SARS-CoV-2 virus spikes is composed of three identical copies of the Spike protein, each having its own RDB. This is based on cryo-electron microscopy imaging](images/OC1_2-11_Fig2.png) 
 
 _Source: [C&EN](https://cen.acs.org/analytical-chemistry/structural-biology/Characterizing-SARS-CoV-2-antibodies/98/i40)_
+
+[Click here to enlarge the image](images/OC1_2-11_Fig2.png)
 
 [Download Figure 5 alt-text here](images/OC1_Fig4-5_alt-text.pdf)
 
@@ -214,7 +229,7 @@ COVID-19 has become endemic: it can re-infect people who have been vaccinated or
 
 Vaccines are an effective way to limit infection and spread of infectious diseases, and reduce the severity of symptoms. The ongoing COVID-19 pandemic has hastened the development and trials of several vaccines. Sequencing of the virus variants assists in vaccine development, and in phase 3 and 4 vaccine trials, and guides booster vaccine improvements for possible new viral variants for which existing vaccines may be less effective.
 
-**Further reading**
+**Further reading** 
 
 [Innate vs adaptive immunity](https://www.technologynetworks.com/immunology/articles/innate-vs-adaptive-immunity-335116) 
 
@@ -239,6 +254,8 @@ The [COG-UK mutation explorer](https://sars2.cvr.gla.ac.uk/cog-uk/) platform can
 ![Bar plot demonstrating the emergence of SARS-CoV-2 variants over time in the United Kingdom](images/OC1_2-12_Fig6.png)
 
 _Source: [COG-UK/Mutation Explorer](https://sars2.cvr.gla.ac.uk/cog-uk/)_
+
+[Click here to enlarge the image](images/OC1_2-12_Fig6.png)
 
 [Download Figure 6 alt-text here](images/OC1_2-12_fig6_alt-text.pdf)
 
@@ -303,6 +320,9 @@ To be considered a VOC, a VOI must meet one or more of the following criteria, a
 
 * Decrease in the effectiveness of public health and social measures or available diagnostics, vaccines or therapeutics.  
 
+
+_Table 1 - SARS-CoV-2 variants of concern. In June 2022 only Omicron is considered a variant of concern (VOC). Alpha, Beta, Gamma and Delta are previously circulating VOCs._
+
 | WHO Label | Pango lineage | GISAID clade | Nextstrain clade | Earliest documented samples | 
 | ------- | ------- | ------- | ------- | ------- |
 | Alpha | B.1.1.7 | GRY | 20I (V1) | United Kingdom Sep-2020 |
@@ -313,7 +333,8 @@ To be considered a VOC, a VOI must meet one or more of the following criteria, a
 
 NB: Omicron lineage includes BA.1, BA.2, BA.3, BA.4, BA.5 and descendent lineages. 
 
-_Table 1 - SARS-CoV-2 variants of concern. In June 2022 only Omicron is considered a variant of concern (VOC). Alpha, Beta, Gamma and Delta are previously circulating VOCs. Source: [WHO](https://www.who.int/en/activities/tracking-SARS-CoV-2-variants/)._  
+_Source: [WHO](https://www.who.int/en/activities/tracking-SARS-CoV-2-variants/)._  
+
 
 **Variants of concern under monitoring (VOC-LUM)**
 
