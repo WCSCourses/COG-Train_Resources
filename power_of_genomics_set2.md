@@ -1,8 +1,3 @@
-<hr style="height:5px;border-width:0;color:gray;background-color:gray">
-
-
-<!-- external link | images  | youtube link | assets-->
-
 # VIRUSES, VARIANTS AND VACCINES
 
 ![](images/OC1_W2_cover.png)        
