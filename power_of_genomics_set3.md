@@ -26,6 +26,8 @@ People who are not protected against a particular airborne virus are susceptible
 
 _Source [Science Advances](https://www.science.org/doi/10.1126/sciadv.abd3083)_
 
+[Click here to enlarge the image](images/OC1_3-2_Fig1.png)
+
 [Download Figure 1 alt-text here](images/OC1_3-2_alt-text.pdf)
 
 **Ventilation**: open windows increase the circulation and renewal of the air in a room. The viral particles in the air are carried outside the room, significantly reducing the number of virus particles in suspension and the spread of the infection.
@@ -46,6 +48,8 @@ Phylogenetic inferences apply models and algorithms to reconstruct the evolution
 Figure 2 depicts a cladogram (in black) of four organisms or taxa A-D and their hypothetical evolutionary relationships through time. Each taxon has a connection (branch) to a node. The length of the branch is an inference of the evolutionary steps or genetic changes from the analysed organisms to their common ancestor, represented by a node. A clade is composed of a group of taxa that shares a common node/ancestor, also known as a lineage in the context of SARS-CoV-2. The root represents the hypothetical last common ancestor of the analysed group. Purple and green cladograms are just different graphical representations of the same inference. 
 
 ![Different graphic representations of a cladogram of four organisms](images/OC1_3-4_Fig2.png)
+
+[Click here to enlarge the image](images/OC1_3-4_Fig2.png)
 
 [Donwload Figure 2 alt-text here](images/OC1_3-4_alt-text.pdf)
 
@@ -118,6 +122,8 @@ In this recorded lecture, hear from Prof Thanat Chookajoorn, of the [COVID-19 Ne
 <!-- 3-9 -->     
 
 ![An example of some potential categories of public health options and the types of sample you might decide to sequence](images/OC1_3-9_Fig3.png)
+
+[Click here to enlarge the image](images/OC1_3-9_Fig3.png)
 
 [Donwload Figure 3 alt-text here](images/OC1_3-9_alt-text.pdf)
 
