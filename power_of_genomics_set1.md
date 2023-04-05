@@ -144,11 +144,13 @@ Figure 4 shows a schematic of SARS-CoV-2 replication within the host cell as wel
 <!-- Figure 4 -->   
 ![The SARS-CoV-2 replication and pathogenesis. (a) SARS-CoV-2 infects the upper and lower respiratory tract. (b) The virus replication from 1 to 12 has been described as: (1-2) The virus identifies the ACE-2 receptor. (2) The Spike (S) protein of SARS-CoV-2 binds to the ACE-2 receptor. (3, 4) The virus-receptor internalization occurs and a membrane fusion is carried out followed by the release of the viral genome inside the cell. (5–7) Replication of viral genetic code and generation of viral proteins. (8–10) Assembly of new viral particles. (11–12) Budding of recently formed viral particles from the infected cell. (c) The virus disseminates to the other part of the body through blood affecting the brain, heart, liver spleen, large intestine and kidneys](images/OC1_1-10_Fig2_infection_scheme.png)
 
+_Source: [Respiratory Research](https://doi.org/10.1186/s12931-020-01581-z)_
+
 [Click here to enlarge the image](images/OC1_1-10_Fig2_infection_scheme.png)
 
 [Download Figure 4 alt-text here](images/OC1_1-10_Fig3-4_alt-text.pdf)
 
-_Source: [Respiratory Research](https://doi.org/10.1186/s12931-020-01581-z)_
+
 
 
 
@@ -377,11 +379,13 @@ Tapfumanei explains that resistance genes carried on plasmids can give _Vibrio c
 <!-- Figure 9 -->    
 ![Phylogenetic Relatedness of the **Vibrio cholerae** O1 El Tor Isolates from the 2018–2019 Outbreak in Zimbabwe](images/OC1_1-17_fig1.png)
 
+_Source: [NEJM](https://www.nejm.org/doi/full/10.1056/NEJMc2004773)_
+
 [Click here to enlarge the image](images/OC1_1-17_fig1.png)
 
 [Download Figure 9 alt-text here](images/OC1_1-17_Fig9_alt-text.pdf)
 
-_Source: [NEJM](https://www.nejm.org/doi/full/10.1056/NEJMc2004773)_
+
 
 He also gives the example of discovering that Typhoid, caused by _Salmonella typhi_, also carried genetic material conferring resistance to ciprofloxacin (a commonly used antibiotic). 
 
