@@ -117,6 +117,8 @@ When deciding what type of sample to use for detecting SARS-CoV-2, there are a n
 
 _Source [Science](https://www.science.org/doi/10.1126/science.abe9187)_
 
+[Click here to enlarge the image](images/OC2_1-10_Fig1.png)
+
 [Download Figure 1 alt-text here](images/OC2_1-10_Fig1-2_alt-text.pdf)                    
 
 Decisions made at the sampling stage may impact the utility of downstream data. Saliva samples might be easier and less distressing to collect from particular groups (such as children, the elderly and the clinically vulnerable), but may exhibit reduced sensitivity for detection and insufficient RNA for sequencing. Wastewater sampling can provide sufficient RNA for sequencing and variant detection in the community but does not provide individual-level data. 
@@ -128,6 +130,8 @@ For each test, there will be a given sensitivity and specificity. Sensitivity is
 ![Sensitivity results for the PCR test in stool/rectal swabs (A), urine (B), blood (C), sputum (D), saliva (E) and nasopharyngeal aspirate/swab and throat swab (F)](images/OC2_1-10_Fig2.png)
 
 _Source: [American Journal of Infection Control](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7350782/)_
+
+[Click here to enlarge the image](images/OC2_1-10_Fig2.png)
 
 [Download Figure 2 alt-text here](images/OC2_1-10_Fig1-2_alt-text.pdf)               
 
@@ -301,7 +305,9 @@ QCs that are commonly employed for PCR testing include **extraction negative con
 For further information about quality management, some materials developed by the [Africa Society for Laboratory Medicine (ASLM)](https://aslm.org/) and [Africa Centres for Disease Control and Prevention (Africa CDC)](https://africacdc.org/) are available for download below. 
 
 [Download article on quality control here](assets/OC2_1-16_resources1.pdf)            
+
 [Download guidance on SARS-CoV-2 genomic surveillance here](assets/OC2_1-16_resources2.pdf)                   
+
 [Download guidance on COVID-19 testing quality assurance here](assets/OC2_1-16_resources3.pdf)                      
 
 
