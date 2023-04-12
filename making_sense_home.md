@@ -2,19 +2,19 @@
 
 ![](images/OC3_cover.jpeg)
 
-## About the course
+## About the course         
 
 Over the past decade, sequencing technologies have become more accessible and sequencing data has increased exponentially, especially due to the COVID-19 pandemic. However, bioinformatics capacity is still limited. This course will provide concepts and tools for web-based SARS-CoV-2 analyses, aiming to mitigate the bottleneck on sequencing analyses.
 
 
-**Learning outcomes**
+**Learning outcomes**         
 
 * Describe the SARS-CoV-2 viral genomic structure         
 * Evaluate different sequence analysis outputs           
 * Apply a basic analytical web-based pipeline            
 * Examine how variant calling contributes to epidemiological inferences           
 
-**Target audience**
+**Target audience**            
 
 This course is designed for diagnostic and healthcare professionals, researchers, and anyone involved in the testing and analysis of disease samples. It will also be advantageous to researchers specialising in web-based bioinformatics, diagnostics, diseases, or pandemics.
 
@@ -50,8 +50,7 @@ Arporn (Koi) Wangwiwatsin, Cholangiocarcinoma Research Institute and Khon Kaen U
 Andrés Culasso, University of Buenos Aires and Consejo Nacional de Investigaciones Científicas y Tecnológicas, Argentina          
 Daniel Gyamfi Amoako, National Institute for Communicable Diseases, South Africa          
 
-
-**Education developers**
+**Education developers**           
 
 Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom       
 Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom          
@@ -59,9 +58,8 @@ Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom
 **COG-UK contributors**
  
 Sharon Peacock, University of Cambridge, United Kingdom          
-Alistair Darby, University of Liverpool, United Kingdom            
-Catherine Ludden, University of Cambridge, United Kingdom           
-Darren Smith, Northumbria University, United Kingdom           
+Alistair Darby, University of Liverpool, United Kingdom              
+Darren Smith, Northumbria University, United Kingdom             
 Ewan Harrison, Wellcome Sanger Institute, United Kingdom         
 Leigh Jackson, University of Exeter, United Kingdom          
 Anna Markov, University of Cambridge, United Kingdom           
