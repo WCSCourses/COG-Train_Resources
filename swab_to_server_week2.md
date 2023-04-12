@@ -30,7 +30,9 @@ Just like a bank accepts (receives) and safeguards (stores) money owned by other
 
 A biobank/biorepository/bioresource is a collection of biological samples and health information. The purpose of a biobank is to process, organise, and maintain various types of biospecimens that are shared for utilisation in both clinical and research-based services (Figure 1). 
 
-![Biobanking process](images/OC2_2-3_Fig1.png)                   
+![Biobanking process](images/OC2_2-3_Fig1.png)     
+
+[Click here to enlarge the image](images/OC2_2-3_Fig1.png)
 
 [Download Figure 1 alt-text here](images/OC2_2-3_Fig1_alt-text.pdf)
 
