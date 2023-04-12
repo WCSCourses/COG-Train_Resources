@@ -50,6 +50,8 @@ Stakeholders involved in clinical research have different roles/responsibilities
 
 ![Chain of stakeholders involved in the process of sharing clinical patient data and samples](images/OC2_3-4_Fig1.jpeg)
 
+[Click here to enlarge the image](images/OC2_3-4_Fig1.jpeg)
+
 [Download Figure 1 alt-text here](images/OC2_3-4_Fig1_alt-text.pdf)
 
 _Source: [Frontiers](https://doi.org/10.3389/fmed.2018.00006)_
