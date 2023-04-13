@@ -39,7 +39,7 @@ This course is for researchers, healthcare and public health professionals, diag
 
 **[Week 2 - How to make data richer](https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#HOW_TO_MAKE_DATA_RICHER)**
 
-* [(v) How different countries tackled the pandemic: an example](https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#(v)_How_different_countries_tackled_the_pandemic:_an_example)            
+* [How different countries tackled the pandemic: an example](https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#How_different_countries_tackled_the_pandemic:_an_example)               
 * [Introduction to biobanking](https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#Introduction_to_biobanking)              
 * [Walking through a biobank](https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#Walking_through_a_biobank)             
 * [What is metadata?](https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#What_is_metadata)              
