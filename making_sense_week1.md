@@ -1,8 +1,3 @@
-<hr style="height:5px;border-width:0;color:gray;background-color:gray">
-
-
-<!-- external link | images  | youtube link (width="840" height="472") | assets-->
-
 # INTRODUCTION TO VIRAL GENOMICS
 
 ![](images/OC3_W1_cover.png)        
