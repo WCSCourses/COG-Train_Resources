@@ -3,11 +3,12 @@
 ![](images/OC2_W2_cover.png)                 
 <sub>@Canva</sub>
 
-# (v) How different countries tackled the pandemic: an example
+# How different countries tackled the pandemic: an example
 <!-- 2-2 -->      
 
-<!-- VIDEO MISSING -->    
-
+<!-- YT https://youtu.be/yB89a8rxRug -->    
+<iframe width="840" height="472" src="https://www.youtube.com/embed/yB89a8rxRug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+   
 NB: this video is in French. 
 
 [Download the French transcript here](assets/OC2_2-2_fr_transcript.pdf)
