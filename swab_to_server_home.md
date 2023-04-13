@@ -2,7 +2,7 @@
 
 
 ![](images/OC2_cover.jpeg)
-
+<sub>@Pixabay</sub>
 
 ## About the course
 
@@ -16,7 +16,8 @@ Sampling and testing are key to understanding where a disease is spreading. In t
 * Explain the importance of linking genomic data to clinical and epidemiological data sets to address public health and scientific questions
 * Identify and explore ethical, legal and social implications of data use and sharing
 
-**Target audience**
+**Target audience**          
+
 This course is for researchers, healthcare and public health professionals, diagnostic professionals, or any person involved in testing and analysis of disease samples.
 
 ## Content
