@@ -416,7 +416,7 @@ _Source: [BMC Genomics](https://bmcgenomics.biomedcentral.com/articles/10.1186/s
 **Viral RNA Isolation**
 
 _1. Viral inactivation_  
-Sequencing of SARS-CoV-2 first requires the inactivation of live virus either by heat or inactivating buffer so that the laboratory worker can handle the sample without putting themselves at risk. This procedure is carried out at various Biosafety Levels (BSL) worldwide. In the UK, prior to the current pandemic, this viral isolation would have been carried out at BSL3 facilities, but in early 2020, Public Health England issued a directive allowing this work to be completed at BSL2+. At which BSL is SARS-CoV-2 inactivation carried out in your country? Comment below. 
+Sequencing of SARS-CoV-2 first requires the inactivation of live virus either by heat or inactivating buffer so that the laboratory worker can handle the sample without putting themselves at risk. This procedure is carried out at various Biosafety Levels (BSL) worldwide. In the UK, prior to the current pandemic, this viral isolation would have been carried out at BSL3 facilities, but in early 2020, Public Health England issued a directive allowing this work to be completed at BSL2+. 
 
 _2. Extraction of nucleic acid_  
 The sample requires extraction of the nucleic acid so there is nothing else in the sample which could inhibit the sequencing. Extraction is normally performed by lysing (breaking down) the virus. It can be performed using commercial kits or using magnetic beads to separate the nucleic acids from other materials in the sample. A range of buffers and alcohol suspensions are used to elute the nucleic acid into a final solution which is usually molecular-grade water. 
