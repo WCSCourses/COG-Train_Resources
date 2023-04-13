@@ -117,7 +117,7 @@ Finally, the [structural proteins](https://doi.org/10.2174/156652402166621022314
 
 _Source:  [StatPearls Publishing LLC](https://www.ncbi.nlm.nih.gov/books/NBK554776/figure/article-52171.image.f5/)_
 
-[Click here to enlarge the image](images/OC3_1-8_Fig2.jpeg
+[Click here to enlarge the image](images/OC3_1-8_Fig2.jpeg)
 
 [Download Figure 2 alt-text here](images/OC3_W1_Fig1-2_alt-text.pdf)
        
