@@ -99,7 +99,7 @@ _Source: [Frontiers](https://doi.org/10.3389/fmicb.2020.01818)_
 
 [Click here to enlarge the image](images/OC3_1-8_Fig1.jpeg)
 
-[Download Figure 1 alt-text here](images/OC3_W1_Fig1-2_alt-text.pdf)
+[Download Figure 2 alt-text here](images/OC3_1-8_fig1-2_alt-text_fixed.pdf)
 
 
 The [accessory proteins](https://doi.org/10.2174/1566524021666210223143243) participate in the viral replication, assembly and in virus-host interactions.
@@ -517,7 +517,7 @@ Galaxy](images/OC3_1-19_Fig1.png)
 
 [Click here to enlarge the image](images/OC3_1-19_Fig1.png)
 
-[Download Figure 8 alt-text here](iimages/OC3_1-19_fig8-16_alt-text.pdf)
+[Download Figure 8-16 alt-text here](images/OC3_1-20_Fig8-16_alt-text_fixed.pdf)
 
 
 In this example, we'll make a workflow to flip a "digital burger"
@@ -538,15 +538,11 @@ Bread
 
 [Click here to enlarge the image](images/OC3_1-19_Fig2.png)
 
-[Download Figure 9 alt-text here](images/OC3_1-19_fig8-16_alt-text.pdf)
-
 After creating your workflow, you will see a blank canvas
 
 ![The blank canvas of a galaxy workflow](images/OC3_1-19_Fig3.png)
 
 [Click here to enlarge the image](images/OC3_1-19_Fig3.png)
-
-[Download Figure 10 alt-text here](images/OC3_1-19_fig8-16_alt-text.pdf)
 
 You can add some annotations on the right-hand side panel to describe
 what this workflow does
@@ -559,17 +555,12 @@ some annotation data on the right-hand side panel
 
 [Click here to enlarge the image](images/OC3_1-19_Fig4.png)
 
-[Download Figure 11 alt-text here](images/OC3_1-19_fig8-16_alt-text.pdf)
-
-
 Then add the tool "tac reverse a file" by searching for it on the left
 hand side panel
 
 ![Adding the reverse a file tool and link to the input dataset](images/OC3_1-19_Fig5.png)
 
 [Click here to enlarge the image](images/OC3_1-19_Fig5.png)
-
-[Download Figure 12 alt-text here](images/OC3_1-19_fig8-16_alt-text.pdf)
 
 You can add annotations for this too. Now link the two steps by dragging
 the small arrow "\>" on the load burger step onto the arrow on the tac
@@ -584,15 +575,9 @@ file upload.
 
 [Click here to enlarge the image](images/OC3_1-19_Fig6.png)
 
-[Download Figure 13 alt-text here](images/OC3_1-19_fig8-16_alt-text.pdf)
-
-
 ![The file upload menu on the paste input section](images/OC3_1-19_Fig7.png)
 
 [Click here to enlarge the image](images/OC3_1-19_Fig7.png)
-
-[Download Figure 14 alt-text here](images/OC3_1-19_fig8-16_alt-text.pdf)
-
 
 Select “Paste/fetch data”, then fill in the details - see examples below.
 You must add the name of the file, and the type (text file is format
@@ -603,9 +588,6 @@ filled, click "Start".
 
 [Click here to enlarge the image](images/OC3_1-19_Fig8.png)
 
-[Download Figure 15 alt-text here](images/OC3_1-19_fig8-16_alt-text.pdf)
-
-
 You can then hit, “Start workflow”, and make sure the input file specified is
 the burger file you made (select it from the dropdown menu). Once the job is complete, you will see the
 output available via the history panel on the right.
@@ -613,9 +595,6 @@ output available via the history panel on the right.
 ![The workflow complete screen](images/OC3_1-19_Fig9.png)
 
 [Click here to enlarge the image](images/OC3_1-19_Fig9.png)
-
-[Download Figure 16 alt-text here](images/OC3_1-19_fig8-16_alt-text.pdf)
-
 
 Our burger has been flipped! So now the order is:
 
