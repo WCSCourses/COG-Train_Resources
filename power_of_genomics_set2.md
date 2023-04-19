@@ -60,7 +60,8 @@ SARS-CoV-2 reaches human cells through the upper airway tract – entering the b
 Finally, the virus undergoes one last modification - a cleavage of its Spike protein by a host cell enzyme. This cleavage primes the virus to go on and infect more host cells. Some variants have a higher proportion of the snipped Spike protein – this is why it’s so important to understand variant profiles alongside the mechanism of viral infection.
 
 **Further reading**
-[COVID-19/SARS-CoV-2 Pandemic]](https://www.fpm.org.uk/blog/covid-19-sars-cov-2-pandemic/)
+
+[COVID-19/SARS-CoV-2 Pandemic](https://www.fpm.org.uk/blog/covid-19-sars-cov-2-pandemic/)
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
 
