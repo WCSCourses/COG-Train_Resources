@@ -21,7 +21,7 @@ _Source: [Chance](https://chance.amstat.org/2020/02/data-cleaning/)._
 
 [Click here to enlarge the image](images/OC3_2-2_Fig1.jpeg)
 
-[Download Figure 1 alt-text here](images/OC3_2-2_Fig1-2_alt-text.pdf
+[Download Figure 1 alt-text here](images/OC3_2-2_Fig1-2_alt-text.pdf)
 
 ![Building a model removing missing values ](images/OC3_2-2_Fig2.png)
      
@@ -204,7 +204,7 @@ The x-axis on the plot shows the base position in the read. For each position, a
 * The mean quality, represented by the blue line         
 
 The y-axis shows the quality scores. The higher the score, the better the base call, whereby a range from very good quality scores (green), scores of reasonable quality (orange), and reads of poor quality (red) can be observed.
-A detailed tutorial on the use of FastQC on short and long reads and the interpretation of the results can be found on the [Galaxy hub] (https://training.galaxyproject.org/training-material/topics/sequence-analysis/tutorials/quality-control/tutorial.html). 
+A detailed tutorial on the use of FastQC on short and long reads and the interpretation of the results can be found on the [Galaxy hub](https://training.galaxyproject.org/training-material/topics/sequence-analysis/tutorials/quality-control/tutorial.html). 
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
 
@@ -343,7 +343,7 @@ It may take a while for the files to process and be available in Galaxy. As it�
 
 [Click here to enlarge the image](images/Oc3_2-8_fig11.png)
  
-10) You will see that it already determined a pattern it can use to group the pairs because the forward files have a **“_1”** in them and the reverse files have a **“_2”** in them.
+10) You will see that it already determined a pattern it can use to group the pairs because the forward files have a “_1” in them and the reverse files have a “_2” in them.
 
 Give the selection a **name** and click on **“Create collection”**
 
@@ -468,7 +468,7 @@ Since NGS-generated reads aligned to the reference genome can be visualised usin
 
 ![GV visualisation of a SARS-CoV-2 variant site](images/OC3_2-9_fig1.png)
 
-_Reference sequence [NC_045512.2](https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2?report=genbank)
+_Reference sequence [NC_045512.2](https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2?report=genbank)_
 
 [Click here to enlarge the image](images/OC3_2-9_fig1.png)
 
@@ -608,7 +608,7 @@ Pathogen genomics helps us to track the spread of an outbreak and to identify si
  
 Phylogenetics using web interfaces like [Pangolin](https://cov-lineages.org/resources/pangolin.html) and [Nextstrain](https://nextstrain.org/ncov/open/global/6m) to help us with genomic surveillance has been extremely important during the pandemic period. We use it to differentiate one transmission chain from another (e.g. local nosocomial versus school outbreaks). However, in order to do this, we needed to create categories into which we could classify the diversity. This was done by [dividing the groups into clades and lineages](https://doi.org/10.1038/s41564-020-0770-5).
  
-**What are clades, lineages and variants?
+**What are clades, lineages and variants?**
 
 A clade is a very broad way of grouping SARS-CoV-2 isolates. Hence, it gives us a sense of the diversity patterns over the years. The samples also need to have a minimum size and persistence.
 
@@ -690,8 +690,6 @@ When mutations affect the majority of sequence reads this is known as a consensu
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
 
-
-[discusssion]
 
 # Identification of recombinants
 <!-- 2-15 -->    
@@ -795,6 +793,7 @@ _Source: [The Journal of Infectious Diseases](https://doi.org/10.1093/infdis/jia
 A similar kind of study can be conducted with cases having a history of travel. It is very evident throughout that there is a direct link between infection and travel history. Phylogenetic studies can help us identify the route of transmission so that as far as possible appropriate travel restrictions and quarantine measures can be adopted to control the virus spread. 
 
 **Further reading**
+
 [Rapid SARS-CoV-2 whole-genome sequencing and analysis for informed public health decision-making in the Netherlands](https://doi.org/10.1038/s41591-020-0997-y) 
 
 
