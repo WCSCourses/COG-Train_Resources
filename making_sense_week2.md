@@ -846,6 +846,7 @@ To overcome these shortcomings there are some QC steps that you can perform to g
 
 [Click here to enlarge the image](images/OC3_2-19_fig1.png)
 
+[Download Figure 44 alt-text here](images/OC3_2-19_Fig44_alt-text.pdf)
 
 **Further reading**
 
