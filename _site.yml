@@ -42,7 +42,7 @@ navbar:
               href: power_of_genomics_set2.html
             - text: "Week 3"
               href: power_of_genomics_set3.html
-        - text: "Swab to server"
+        - text: "Swab to Server"
           menu:
             - text: "Home"
               href: swab_to_server_home.html
@@ -52,7 +52,7 @@ navbar:
               href: swab_to_server_week2.html
             - text: "Week 3"
               href: swab_to_server_week3.html
-        - text: "Making sense"
+        - text: "Making Sense"
           menu:
             - text: "Home"
               href: making_sense_home.html
@@ -62,6 +62,26 @@ navbar:
               href: making_sense_week2.html
             - text: "Week 3"
               href: making_sense_week3.html
+        - text: "Practical Guide"
+          menu:
+            - text: "Home"
+              href: practical_guide_home.html
+            - text: "Week 1"
+              href: practical_guide_week1.html
+            - text: "Week 2"
+              href: practical_guide_week2.html
+            - text: "Week 3"
+              href: practical_guide_week3.html
+        - text: "Pathogen Genomics"
+          menu:
+            - text: "Home"
+              href: pathogen_genomics_home.html
+            - text: "Week 1"
+              href: pathogen_genomics_week1.html
+            - text: "Week 2"
+              href: pathogen_genomics_week2.html
+            - text: "Week 3"
+              href: pathogen_genomics_week3.html
         - text: "----"
         - text: "Hybrid Courses"
         - text: "SARS-CoV-2 B4B"
