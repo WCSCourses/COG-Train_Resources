@@ -427,36 +427,22 @@ WHO shares [weekly reports about the COVID-19](https://www.who.int/emergencies/d
 # Resources
 <!-- 3-18 -->     
 
-
 **Datasets for this course**
+
 Zenodo repository: [Making sense of genomic data: COVID-19 web-based bioinformatics](https://zenodo.org/record/6652215#.YrB8D-zML0u) 
 
-
-Coronavirus biology: [ViralZone](https://viralzone.expasy.org/9056)  
-
-Coronavirus taxonomy: [International Committee on Taxonomy of Viruses (ICTV)](https://talk.ictvonline.org/taxonomy/)  
-
-[SARS-CoV-2 replication cycle](https://www.sumanasinc.com/scienceinfocus/sif_coronavirus.html) by Sultanas, Inc
-
-Real-time tracking of pathogen evolution: [NextStrain](https://nextstrain.org/ncov/gisaid/global)  
-
-Lineages nomenclature: [Pango](https://cov-lineages.org/index.html)  
-
-Genomic data sharing: [GISAID](https://www.gisaid.org/)  
-
-Cloud Infrastructure for Big Data Microbial Bioinformatics: [CLIMB](https://www.climb.ac.uk/)  
-
-COVID-19 Genomics UK Consortium: [COG-UK](https://www.cogconsortium.uk/)  
-
-NCBI COVID-19 scientific literature: [LitCovid](https://www.ncbi.nlm.nih.gov/research/coronavirus/)
-
-SARS-CoV-2 sequencing protocol: [ARTIC protocol](https://artic.network/ncov-2019)
-
-Further training on Galaxy: [Getting data into Galaxy](https://training.galaxyproject.org/training-material/topics/galaxy-interface/tutorials/get-data/slides-plain.html)
-
-Further information about COVID-19 reports: [WHO COVID-19 reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) and [CDC COVID-19 report format](https://www.cdc.gov/coronavirus/2019-ncov/lab/reporting-lab-data.html)
-
-
+Coronavirus biology: [ViralZone](https://viralzone.expasy.org/9056)           
+Coronavirus taxonomy: [International Committee on Taxonomy of Viruses (ICTV)](https://talk.ictvonline.org/taxonomy/)            
+[SARS-CoV-2 replication cycle](https://www.sumanasinc.com/scienceinfocus/sif_coronavirus.html) by Sultanas, Inc             
+Real-time tracking of pathogen evolution: [NextStrain](https://nextstrain.org/ncov/gisaid/global)           
+Lineages nomenclature: [Pango](https://cov-lineages.org/index.html)            
+Genomic data sharing: [GISAID](https://www.gisaid.org/)             
+Cloud Infrastructure for Big Data Microbial Bioinformatics: [CLIMB](https://www.climb.ac.uk/)           
+COVID-19 Genomics UK Consortium: [COG-UK](https://www.cogconsortium.uk/)           
+NCBI COVID-19 scientific literature: [LitCovid](https://www.ncbi.nlm.nih.gov/research/coronavirus/)              
+SARS-CoV-2 sequencing protocol: [ARTIC protocol](https://artic.network/ncov-2019)              
+Further training on Galaxy: [Getting data into Galaxy](https://training.galaxyproject.org/training-material/topics/galaxy-interface/tutorials/get-data/slides-plain.html)                   
+Further information about COVID-19 reports: [WHO COVID-19 reports](https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports) and [CDC COVID-19 report format](https://www.cdc.gov/coronavirus/2019-ncov/lab/reporting-lab-data.html)                  
 
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
