@@ -168,9 +168,9 @@ With the rapid sharing of the genome sequence data, accurate anonymized epidemio
 
 Additional Information regarding the sequencing data:
 
-| Sequencing technology | No standard format - ideally, this should include the laboratory approach and sequencing platform (e.g. “Metagenomics on Illumina HiSeq 2500” or “ARTIC PCR primer scheme on ONT MinION”) |
-| Assembly method, consensus generation method | No standard format |
-| Minimum sequencing depth required to call sites during consensus sequence generation | e.g. 20x |
+| Sequencing technology | No standard format - ideally, this should include the laboratory approach and sequencing platform (e.g. “Metagenomics on Illumina HiSeq 2500” or “ARTIC PCR primer scheme on ONT MinION”) |            
+| Assembly method, consensus generation method | No standard format |           
+| Minimum sequencing depth required to call sites during consensus sequence generation | e.g. 20x |           
 
 **Further information**
 
