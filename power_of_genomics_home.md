@@ -111,7 +111,8 @@ Peter McEwan, University of Cambridge, United Kingdom
 
 Treasa Creavin, Wellcome Connecting Science, United Kingdom        
 Alice Matimba, Wellcome Connecting Science, United Kingdom          
-Rachel Berkson, Wellcome Connecting Science, United Kingdom         
+Rachel Berkson, Wellcome Connecting Science, United Kingdom   
+Mel Sharpe, Wellcome Connecting Science, United Kingdom   
 Dusanka Nikolic, Wellcome Connecting Science, United Kingdom          
 
 ## Original version
