@@ -91,17 +91,17 @@ Peter McEwan, University of Cambridge, United Kingdom
 **Wellcome Connecting Science contributors**
 
 
-Alice Matimba, Wellcome Connecting Science, United Kingdom
-Dusanka Nikolic, Wellcome Connecting Science, United Kingdom
-Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom       
-Mel Sharpe, Wellcome Connecting Science, United Kingdom 
-Rachel Berkson, Wellcome Connecting Science, United Kingdom
-Treasa Creavin, Wellcome Connecting Science, United Kingdom
+Alice Matimba, Wellcome Connecting Science, United Kingdom      
+Dusanka Nikolic, Wellcome Connecting Science, United Kingdom         
+Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom          
+Mel Sharpe, Wellcome Connecting Science, United Kingdom       
+Rachel Berkson, Wellcome Connecting Science, United Kingdom        
+Treasa Creavin, Wellcome Connecting Science, United Kingdom          
               
 ## Original version
 
 **Original platform:** FutureLearn       
-**Original course page:** [https://www.futurelearn.com/courses/a-practical-guide-for-sars-cov-2-whole-genome-sequencing/1]https://www.futurelearn.com/courses/a-practical-guide-for-sars-cov-2-whole-genome-sequencing/1)                           
+**Original course page:** [https://www.futurelearn.com/courses/a-practical-guide-for-sars-cov-2-whole-genome-sequencing/1](https://www.futurelearn.com/courses/a-practical-guide-for-sars-cov-2-whole-genome-sequencing/1)                           
 
 Data collected on 31 May 2023
 **Number of joiners:** 2,011        
