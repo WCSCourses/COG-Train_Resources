@@ -1,6 +1,6 @@
 # FUNDAMENTALS OF VIRAL SEQUENCING
 
-![](iimages/OC4_W1_Act2.png)              
+![](images/OC4_W1_Act2.png)              
 <sub>@Canva</sub>
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
