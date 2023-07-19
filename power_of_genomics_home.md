@@ -122,7 +122,7 @@ Dusanka Nikolic, Wellcome Connecting Science, United Kingdom
 **Launch of the original version:** 7 February 2022         
 **Launch of the reviewed version:** 4 July 2022        
 
-**Data collected on 31 May 2023**
+**Data collected on 31 May 2023**         
 **Number of joiners:** 4,466         
 **Number of countries reached:** 132         
 **Review score:** 4.6/5 (37 reviews)          
