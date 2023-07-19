@@ -133,9 +133,11 @@ Treasa Creavin, Wellcome Connecting Science, United Kingdom
 **Original platform:** FutureLearn       
 **Original course page:** [Making sense of genomic data: COVID-19 web-based bioinformatics](https://www.futurelearn.com/courses/making-sense-of-genomic-data-covid-19-web-based-bioinformatics/1)                            
 **Launch of the original version:** 25 July 2022                
-**Number of joiners:** 2,488         
+
+**Data collected on 31 May 2023**
+**Number of joiners:** 2,700        
 **Number of countries reached:** 136         
-**Review score:** 4.6/5 (26 reviews)         
+**Review score:** 4.6/5 (27 reviews)
 
 ******
 Any reuse of the course materials is encouraged with due acknowledgement.
@@ -143,9 +145,10 @@ Any reuse of the course materials is encouraged with due acknowledgement.
 ## License
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
-<!-- ## How to cite 
+## How to cite 
 
-TBP --> 
+COG-Train. (2022). Making Sense of Genomic Data: COVID-19 Web-based Bioinformatics. Zenodo. https://doi.org/10.5281/zenodo.8165026
+
 
 
 
