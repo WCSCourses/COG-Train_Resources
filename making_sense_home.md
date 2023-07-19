@@ -1,4 +1,4 @@
-# Making sense of genomic data: COVID-19 web-based bioinformatics
+# MAKING SENSE OF GENOMIC DATA: COVID-19 WEB-BASED BIOINFORMATICS
 
 ![](images/OC3_cover.jpeg)
 
