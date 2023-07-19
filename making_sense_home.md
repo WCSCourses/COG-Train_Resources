@@ -134,10 +134,10 @@ Treasa Creavin, Wellcome Connecting Science, United Kingdom
 **Original course page:** [Making sense of genomic data: COVID-19 web-based bioinformatics](https://www.futurelearn.com/courses/making-sense-of-genomic-data-covid-19-web-based-bioinformatics/1)                            
 **Launch of the original version:** 25 July 2022                
 
-**Data collected on 31 May 2023**
-**Number of joiners:** 2,700        
-**Number of countries reached:** 136         
-**Review score:** 4.6/5 (27 reviews)
+**Data collected on 31 May 2023**        
+**Number of joiners:** 2,700           
+**Number of countries reached:** 136           
+**Review score:** 4.6/5 (27 reviews)         
 
 ******
 Any reuse of the course materials is encouraged with due acknowledgement.
