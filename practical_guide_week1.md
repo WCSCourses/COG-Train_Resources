@@ -94,7 +94,7 @@ The genome size ranges between 27–32 Kbp, and is one of the largest known RNA 
 
 ![The genomic organisation of SARS-CoV-2](images/OC4_1-7_fig1.png)
 
-_Source: [Frontiers](https://doi.org/10.3389/fcimb.2022.794264)
+_Source: [Frontiers](https://doi.org/10.3389/fcimb.2022.794264)_
 
 [Click to enlarge the image](images/OC4_1-7_fig1.png)
 
@@ -259,9 +259,6 @@ Typically the advantage of using Nanopore sequencing is that it is able to seque
 
 The advancements in portable sequencing devices have opened up new possibilities for sequencing organisms in the furthest corners of our planet. The accuracy of genetic sequencing is improving continuously and the future for Nanopore Technology is promising and exciting for all those who are part of the current genetic sequencing revolution.
 
->“Our goal is to enable the analysis of anything, by anyone, anywhere.”(Oxford Nanopore Technologies)
-
-
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
 # Using metagenomics to investigate infections
 <!-- 1-11 -->
@@ -280,7 +277,7 @@ The primary advantage of using metagenomics to diagnose infection is that it is 
 
 ![Illustration of pathogen-specific real-time PCR versus metagenomics for pathogen detection](images/OC4_1-11_Fig1.png)
 
-_ Source: [Journal of infection](https://doi.org/10.1016/j.jinf.2017.12.014)_
+_Source: [Journal of infection](https://doi.org/10.1016/j.jinf.2017.12.014)_
 
 [Click to enlarge the image](images/OC4_1-11_Fig1.png)
 
