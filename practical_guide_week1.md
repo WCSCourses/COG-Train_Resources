@@ -602,6 +602,7 @@ Before storing samples, you should consider:
 * In addition, a laboratory may need to store specimens for projects aimed at studying genomic epidemiology of the SARS-CoV-2 virus across regions and over time 
 
 **Existing guidelines: storage duration**
+
 * The WHO or ECDC do not have guidelines about the duration of storage of COVID-19 PCR samples. 
 
 * In August 2020, the Indian Council of Medical Research (ICMR), Government of India, advised government laboratories to retain all positive COVID-19 samples at ultra-low temperatures for 30 days, then disinfect the samples before disposal. Some respiratory samples will need to be kept even longer — even a year or more — in ultra-low temperature freezers, for future testing and quality control purposes. 
@@ -682,7 +683,7 @@ The amplified cDNA used for SARS-CoV-2 genome amplification is stored at -80°C 
 <!-- 1-19 -->  
 
 
-<!-- YT: https://youtu.be/TXgz-GrQszM –>    
+<!-- YT: https://youtu.be/TXgz-GrQszM -->    
 <iframe width="840" height="472" src="https://www.youtube.com/embed/TXgz-GrQszM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 [Download the transcript here](assets/OC4_1-19_transcript.pdf)
@@ -724,7 +725,7 @@ To reduce variation in results between operators, give all staff members the sam
 
 Consider training staff in pipetting techniques to ensure [consistency and accuracy](https://www.thermofisher.com/uk/en/home/life-science/lab-plasticware-supplies/lab-plasticware-supplies-learning-center/lab-plasticware-supplies-resource-library/fundamentals-of-pipetting/proper-pipetting-techniques/10-steps-to-improve-pipetting-accuracy.html). Holding the tip vertically, having a 1cm immersion depth, and pre-rinsing tips to break surface tension before aspirating can all improve accuracy (Figure 14). For small volumes and repeat pipetting the [reverse pipetting](https://www.mt.com/gb/en/home/library/know-how/rainin-pipettes/how-to-reverse-pipette.html) technique can be useful. 
 
-![Accurate pipetting [diagram](images/OC4_1-20_fig4.png)
+![Accurate pipetting diagram](images/OC4_1-20_fig4.png)
 
 _Source: [Thermofisher](https://www.thermofisher.com/uk/en/home/life-science/lab-plasticware-supplies/lab-plasticware-supplies-learning-center/lab-plasticware-supplies-resource-library/fundamentals-of-pipetting/proper-pipetting-techniques/10-steps-to-improve-pipetting-accuracy.html)_
 
