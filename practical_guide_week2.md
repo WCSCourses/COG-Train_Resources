@@ -264,13 +264,13 @@ PCR can be used to select library molecules that have successfully ligated adapt
 
 [Click to enlarge the image](images/OC4_2-7_fig2.png)
 
-[Download Figure 7 alt-text here](images/OC4_2-7_Alt-text.pdf) 
+[Download Figure 7 and 8 alt-text here](images/OC4_2-7_Alt-text.pdf) 
 
 **4. Tagmentation**
 
 An alternative method to the more traditional fragmentation and adapter ligation is a process known as tagmentation whereby a transposome (transposase enzyme plus DNA adapter sequence) simultaneously fragments and adapter tails DNA (Figure 8). Transposases are enzymes that mediate the movement of DNA within a genome (sometimes called a “jumping gene”). Tagmentation is much more efficient than standard fragmentation and ligation, allowing for more sensitive applications that typically have less DNA input. The tagmentation process has recently been simplified by attaching these transposomes to magnetic beads, thus allowing for fixed amounts of DNA to be captured, whilst undergoing uniform fragmentation and adapter addition. This removes the requirement for each library to be quantified before sequencing, reducing turnaround times and hands-on steps whilst facilitating automation.
 
-!Bead linked transposomes simultaneously capture a fixed amount of DNA and fragment to a uniform length, whilst adding Illumina adapter sequences](images/OC4_2-7_fig3.png)
+![Bead linked transposomes simultaneously capture a fixed amount of DNA and fragment to a uniform length, whilst adding Illumina adapter sequences](images/OC4_2-7_fig3.png)
 
 _Source: [Illumina](https://www.illumina.com/products/by-type/sequencing-kits/library-prep-kits/nextera-dna-flex.html)_
 
@@ -341,7 +341,9 @@ Both methodologies allow for the [multiplexing of samples](https://emea.illumina
 
 <!-- YT: https://youtu.be/x3HtNDlG7ZA -->
 <iframe width="840" height="472" src="https://www.youtube.com/embed/x3HtNDlG7ZA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 [Download the transcript here](assets/OC4_2-9_trancript.pdf)
+
 In this video, you will follow Dr Paola Niola preparing a sequencing library for Illumina methodology. 
 
 Libraries prepared using technologies that attach Illumina adaptors to the fragmented DNA are sequenced on Illumina platforms. Libraries made from different samples that have had unique indexes (barcodes) incorporated are pooled together to go onto the same sequencing run. Tip: libraries can be pooled prior to a final clean-up and the pool cleaned, rather than cleaning individual libraries and then pooling. The final pool is quantified by Qubit and the peak size is determined by fragment analysis e.g. TapeStation. 
@@ -397,6 +399,7 @@ In this video, learn from our global experts what methodologies they have used i
 <iframe width="840" height="472" src="https://www.youtube.com/embed/oKui_Due0Zs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 [Download the transcript here](assets/OC4_2-12_transcript.pdf)
+
 What are the differences between protocols using manual and automated methods? In this video, you will watch the procedures and learn the details of both protocols. 
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
