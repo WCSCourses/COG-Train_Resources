@@ -359,11 +359,13 @@ As discussed in the library preparation module, there is an optional step of lib
 
 [Multiplexing](https://www.illumina.com/techniques/sequencing/ngs-library-prep/multiplexing.html) describes the method by which individual unique “barcode” sequences, often 8-10 nucleotides long, are added to each DNA fragment in a sample so that each read can be identified and sorted during final analysis. In Oxford Nanopore Technologies (ONT) sequencing, this step comes just before adapter ligation, and for Illumina sequencing barcoding is incorporated with adapter ligation. Samples are pooled after barcoding and then loaded into the flow cell (Figure 12)
 
-![Overview of multiplexing samples during an NGS library preparation and sequencing](https://ugc.futurelearn.com/uploads/assets/4f/af/4faf38cc-66cf-44ba-92be-9c8f858a21f8.png)
+![Overview of multiplexing samples during an NGS library preparation and sequencing](images/OC4_2-10_Fig1.png)
 
 _Source: [Illumina](https://www.illumina.com/techniques/sequencing/ngs-library-prep/multiplexing.html). Adapted using [Biorender.com](https://biorender.com/)._
 
-[Click to enlarge the image](https://ugc.futurelearn.com/uploads/assets/4f/af/4faf38cc-66cf-44ba-92be-9c8f858a21f8.png)
+[Click to enlarge the image](images/OC4_2-10_Fig1.png)
+
+[Download Figure 12 alt-text here](images/OC4_2-10_Alt-text.pdf)
 
 **Flow cell loading**
 
