@@ -20,7 +20,7 @@ This course is designed for diagnostic and healthcare professionals, researchers
 
 ## Content
 
-**[Week 1 Fundamentals of viral sequencing](https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#FUNDAMENTALS_OF_VIRAL_SEQUENCING)    
+**[Week 1 Fundamentals of viral sequencing](https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#FUNDAMENTALS_OF_VIRAL_SEQUENCING)**    
 
 * [Glossary](https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#Glossary)     
 * [Introduction to viral genomes](https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#Introduction_to_viral_genomes)         
@@ -58,7 +58,7 @@ This course is designed for diagnostic and healthcare professionals, researchers
 
 **[Week 3 Sequencing analysis and interpretation](https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#SEQUENCING_ANALYSIS_AND_INTERPRETATION)**
 
-* [What are sequencing metrics[(https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#What_are_sequencing_metrics)       
+* [What are sequencing metrics](https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#What_are_sequencing_metrics)       
 * [Accessing and using sequencing data](https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#Accessing_and_using_sequencing_data)       
 * [How to generate a consensus sequence](https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#How_to_generate_a_consensus_sequence)        
 * [User-friendly tools for quality control](https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#User-friendly_tools_for_quality_control)        
