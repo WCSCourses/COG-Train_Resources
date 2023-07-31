@@ -658,5 +658,68 @@ In this interview, Paola Resende, Senjuti Saha, Murali Bashyam and Christian Hap
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
 
+# Resources
+<!-- 3-20 --> 
+
+Coronavirus biology: [ViralZone](https://viralzone.expasy.org/9056)  
+
+Coronavirus taxonomy: [International Committee on Taxonomy of Viruses (ICTV)](https://talk.ictvonline.org/taxonomy/)  
+
+[SARS-CoV-2 replication cycle](https://www.sumanasinc.com/scienceinfocus/sif_coronavirus.html) by Sultanas, Inc
+
+Real-time tracking of pathogen evolution: [NextStrain](https://nextstrain.org/ncov/gisaid/global)  
+
+Lineages nomenclature: [Pango](https://cov-lineages.org/index.html)  
+
+Genomic data sharing: [GISAID](https://www.gisaid.org/)  
+
+Cloud Infrastructure for Big Data Microbial Bioinformatics: [CLIMB](https://www.climb.ac.uk/)  
+
+NCBI COVID-19 scientific literature: [LitCovid](https://www.ncbi.nlm.nih.gov/research/coronavirus/)
+
+SARS-CoV-2 sequencing protocol: [ARTIC protocol](https://artic.network/ncov-2019)
+
+**Examples of commercially available library prep kits or open-source protocols used in SARS-CoV-2 WGS by amplicon-seq**
+
+[CovidSeq](https://emea.illumina.com/products/by-type/ivd-products/covidseq.html)
+
+[CoronaHiT:  high-throughput sequencing of SARS-CoV-2 genomes](https://doi.org/10.1186/s13073-021-00839-5)
+
+[Mini-XT, a miniaturized tagmentation-based protocol for efficient sequencing of SARS-CoV-2](https://doi.org/10.1186/s12967-022-03307-9)
+
+[NEBNext ARTIC products for SARS-CoV-2 sequencing](https://international.neb.com/applications/ngs-sample-prep-and-target-enrichment/nebnext-artic-products-for-sars-cov-2-sequencing)
+
+[nCoV-2019 sequencing protocol v3 (LoCost)](https://www.protocols.io/view/ncov-2019-sequencing-protocol-v3-locost-bp2l6n26rgqe/v3) 
+
+[SARS-CoV-2 genome sequencing protocol (1200bp amplicon ‘midnight’ primer set, using Nanopore Rapid kit)](https://www.protocols.io/view/sars-cov2-genome-sequencing-protocol-1200bp-amplic-rm7vz8q64vx1/v6)
+
+[HifiViral SARS-CoV-2 kit](https://www.pacb.com/research-focus/microbiology/public-health/covid-19-sequencing-tools-and-resources/) 
+
+[Ion AmpliSeq SARS-CoV-2 Insight Research Assay](https://www.thermofisher.com/uk/en/home/life-science/sequencing/dna-sequencing/microbial-sequencing/microbial-identification-ion-torrent-next-generation-sequencing/viral-typing/coronavirus-research.html) 
+
+[EasySeq™ SARS-CoV-2 WGS  kit (NimaGen, Nijmegen, The Netherlands)](https://www.nimagen.com/fields-of-application/covid-19)
+
+**Examples of commercially available SARS-CoV-2 probe panels used in probe/bait capture**
+
+[Agilent Community Designs – Infectious Diseases](https://www.agilent.com/en/product/next-generation-sequencing/community-designs-ngs/infectious-disease-research-designs-536208)
+ 
+[IDT  - xGen SARS-CoV-2 Hyb Panel](https://eu.idtdna.com/pages/products/next-generation-sequencing/workflow/xgen-ngs-hybridization-capture/pre-designed-hyb-cap-panels/sars-cov-2-hyb-panel)
+ 
+[myBaits Expert Virus SARS-CoV-2 panel (Arbor Biosciences)](https://arborbiosci.com/genomics/targeted-sequencing/mybaits/mybaits-expert/mybaits-expert-virus-sars-cov-2/?gclid=CjwKCAjwq5-WBhB7EiwAl-HEkgJfoldddWDRiAJDchPVd-FOvnC_lu14x3ROSDcYf7VbvFgdPITu9hoC5LQQAvD_BwE)
+
+[Illumina RVOP](https://www.illumina.com/products/by-type/sequencing-kits/library-prep-kits/respiratory-virus-oligo-panel.html)
+
+[SARS-CoV-2 Research Panel](https://www.twistbioscience.com/products/ngs/fixed-panels/sars-cov-2-research-panel?tab=overview)
+
+[KAPA HyperCap SARS-CoV-2 panel](https://sequencing.roche.com/en/products-solutions/products/sample-preparation/dna-reagents/target-enrichment/hybridization/kapa-te-custom-panel-covid-19.html) 
+
+[Sequencing Analysis Viewer Software User Guide](https://emea.support.illumina.com/content/dam/illumina-support/documents/documentation/software_documentation/sav/sequencing-analysis-viewer-user-guide-15020619-f.pdf)
+
+[MiSeq Specifications](https://emea.illumina.com/systems/sequencing-platforms/miseq/specifications.html)
+
+[NextSeq 500/550 Specifications](https://emea.illumina.com/systems/sequencing-platforms/nextseq/specifications.html)
+
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+
 
 
