@@ -1,6 +1,6 @@
 # SEQUENCING ANALYSIS AND INTERPRETATION
 
-![](images/OC4_W2_Act2.png)                       
+![](images/OC4_3-3_illustrative.png)                       
 <sub>@Canva</sub>
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
