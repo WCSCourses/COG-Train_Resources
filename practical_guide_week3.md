@@ -162,6 +162,7 @@ For ONT data, tools for inspection and summary statistics of reads include [Pyco
 
 # User-friendly tools for quality control
 <!-- 3-5 -->     
+
 **Reference alignment and consensus sequence generation**
 
 There are many analyses that can be done with a sample’s FASTQ reads, but here we will focus on reference alignment. This is typically used when you have a good idea of what biological organism is in the sample and a reference sequence for that organism is used to align all your sequence reads to. 
@@ -177,6 +178,7 @@ SAM/BAM files store the alignment results of every read to the reference genome 
 [Click to enlarge the image](images/OC4_3-5_fig1.png)
 
 [Download Figure 2 alt-text here](images/OC4_3-5_Alt-text.pdf)
+
 There are several tools available to call a consensus sequence from a SAM/BAM file. Perhaps the most commonly used tools during the SARS-CoV-2 pandemic are [iVar](https://github.com/andersen-lab/ivar) (Illumina data), and the ARTIC bioinformatics protocol (ONT data). One important aspect of consensus calling is the minimum depth needed to reliably call the consensus base at a given genome position. Depth (or coverage) is the number of reads that are aligned at a position. Due to sequencing errors (as well as errors potentially caused during reverse transcription and/or PCR amplification), sufficient data is needed to be sure the consensus base is real and not just a random error observed when coverage is low. For SARS-CoV-2 samples, a coverage threshold of 10 for Illumina data and 20 for ONT data has been commonly used.
 
 Once you have a consensus sequence, you can evaluate the mutations it has with respect to the reference sequence and investigate their functional effect (i.e. where the mutation is, and whether it results in an amino acid change), the sequence can be BLASTed online to identify similar sequences, and added to phylogenetic trees to investigate relationships.
@@ -325,6 +327,8 @@ To be considered a VOC, a VOI must meet one or more of the following criteria, a
 
 * Decrease in the effectiveness of public health and social measures or available diagnostics, vaccines or therapeutics.  
 
+_Table 1 - SARS-CoV-2 variants of concern. In September 2022, only Omicron is considered a VOC. Alpha, Beta, Gamma and Delta are previously circulating VOCs. Source: [WHO](https://www.who.int/en/activities/tracking-SARS-CoV-2-variants/)_ 
+
 | WHO Label | Pango lineage | GISAID clade | Nextstrain clade | Earliest documented samples | 
 | ------- | ------- | ------- | ------- | ------- |
 | **Omicron**| **B.1.1.529** | **GR/484A** | **21K, 21L, 21M, 22A, 22B, 22C, 22D** | **Multiple countries Nov-2020** |
@@ -334,8 +338,6 @@ To be considered a VOC, a VOI must meet one or more of the following criteria, a
 | Delta | B.1.617.2 | G/478K.V1 | 21A, 21I, 21J | India Oct-2020 |
 
 NB: Omicron lineage includes BA.1, BA.2, BA.3, BA.4, BA.5 and descendent lineages.
-
-_Table 1 - SARS-CoV-2 variants of concern. In September 2022, only Omicron is considered a VOC. Alpha, Beta, Gamma and Delta are previously circulating VOCs. Source: [WHO](https://www.who.int/en/activities/tracking-SARS-CoV-2-variants/)_  
 
 **Variants of concern under monitoring (VOC-LUM)**
 
@@ -352,7 +354,6 @@ A VOC-LUM is:
 A full list of Pango lineages is available on the [Pango website](https://cov-lineages.org/lineage_list.html) 
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
-
 
 # Interpreting Nextclade quality metrics
 <!-- 3-9 -->     
