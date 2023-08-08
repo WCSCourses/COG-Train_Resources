@@ -152,6 +152,7 @@ Treasa Creavin, Wellcome Connecting Science, United Kingdom
 
 **Original platform:** FutureLearn       
 **Original course page:** [https://www.futurelearn.com/courses/a-practical-guide-for-sars-cov-2-whole-genome-sequencing/1](https://www.futurelearn.com/courses/a-practical-guide-for-sars-cov-2-whole-genome-sequencing/1)                           
+**Launch of the original version:** 19 September 2022
 
 Data collected on 31 May 2023         
 **Number of joiners:** 2,011            
