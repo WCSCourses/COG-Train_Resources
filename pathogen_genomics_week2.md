@@ -64,10 +64,10 @@ WGS enabled _Salmonella_ isolates to be compared locally, focusing on the resist
 
 ![Geographical distribution of the 260 extended-spectrum cephalosporin-resistant _Salmonella enterica_ in Colombia sampled between 2008 and 2013](images/OC5_2-3_fig1.png)
 
+[Click here to enlarge the image](images/OC5_2-3_fig1.png)
+
 _Source: [Frontiers in Microbiology](https://doi.org/10.3389/fmicb.2018.02431)_ 
 
-[Click here to enlarge the image](images/OC5_2-3_fig1.png)
- 
 [Download Figure 2 alt-text here](images/OC5_2-3_Alt-text.pdf)
   
 In summary, WGS approaches in Colombia:
@@ -93,31 +93,35 @@ Antimicrobial resistance (AMR), which occurs when changes in bacteria cause the 
 
 Whole genome sequencing (WGS) can be used to monitor resistance against multiple microbes in parallel, help differentiate AMR evolution versus spread; and improve data sharing and create adaptable infrastructure for future [pandemic responses](https://doi.org/10.1186/s13073-022-01020-2).
 
-_Table 1 -A summary of use cases for WGS in mitigating the public health impact of antimicrobial resistance (AMR). Source: [Genome Medicine](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01020-2/tables/1)_
+_Table 1 - A summary of use cases for WGS in mitigating the public health impact of antimicrobial resistance (AMR). Source: [Genome Medicine](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01020-2/tables/1)_
 
 _Enhancing the national surveillance of antimicrobial resistance in the Philippines_
             
 | Trigger | Uses of WGS/workflow | Main finding | Advantages of using WGS |
 | National laboratory-based surveillance had shown increasing AMR prevalence over the previous 10 years, but the understanding of the epidemiology and drivers of AMR was lacking. | WGS capability was introduced to the existing surveillance programme. Retrospective sequencing of multi-drug-resistant (MDR) Gram-negative bacteria (GNB) obtained prior to the introduction was undertaken and analysed with phenotypic and epidemiological data to provide baseline data and inform control measures. | Drivers of carbapenem resistance at different levels of the healthcare system were identified, including a localised outbreak of plasmid-driven CR-Kp affecting a specific hospital, through the detection of the introduction and country-wide spread of a high-risk epidemic clone, _E. coli_ ST410. | Detailed understanding of the epidemiology and drivers of AMR enabled the introduction of effective infection control measures. Data were contributed to international AMR surveillance efforts, improving global coverage. |           
 
+
 _Investigating an MRSA outbreak in a neonatal unit_      
            
 | Trigger | Uses of WGS/workflow | Main finding | Advantages of using WGS |
 | Phenotypically similar MRSA isolates were identified from patients on a neonatal unit over a 6-month period but could not be linked temporally or geographically, suggesting that the full extent of the outbreak had not been identified. | All MRSA isolates obtained from patients on the neonatal unit over a 6-month period underwent WGS regardless of phenotypic characteristics. MRSA isolates with antibiograms similar to the outbreak strain, identified from the community, and screening samples taken elsewhere in the hospital were also sequenced. | Two previously excluded isolates were identified as being part of the outbreak by phylogenetic analysis, allowing temporal links between cases to be established. A wide transmission network beyond the neonatal unit was identified. | WGS allowed a large number of isolates to be tested and related strains to be accurately identified, thereby enabling full outbreak reconstruction. Combining WGS data with clinical and epidemiological data enabled the identification of outbreak sources and the successful instigation of infection control measures. |           
 
+
 _Identifying the drivers of AMR in atypical enteropathogenic E. coli (aEPEC) strains isolated from children < 5 years in four sub-Saharan African countries and three South Asian countries_
           
 | Trigger | Uses of WGS/workflow | Main finding | Advantages of using WGS |
-| The frequency, mechanisms, and drivers of AMR in intestinal isolates of E. coli in children in the community in many countries worldwide were unknown. | Phenotypic susceptibility and WGS of isolates were analysed and correlated with antimicrobial use, disease status (symptomatic/asymptomatic), phylogenetic lineage, and geographic location. | High rates of AMR were shown, with 65% of isolates resistant to at least 3 antimicrobial drug classes. A diverse range of genetic mechanisms of AMR was shown, with geographic location and the associated antimicrobial use pattern being the strongest predictors of AMR. | WGS was used to provide a detailed analysis of AMR across a large geographical area, providing insights into AMR epidemiology, spread, and drivers. |            
+| The frequency, mechanisms, and drivers of AMR in intestinal isolates of E. coli in children in the community in many countries worldwide were unknown. | Phenotypic susceptibility and WGS of isolates were analysed and correlated with antimicrobial use, disease status (symptomatic/asymptomatic), phylogenetic lineage, and geographic location. | High rates of AMR were shown, with 65% of isolates resistant to at least 3 antimicrobial drug classes. A diverse range of genetic mechanisms of AMR was shown, with geographic location and the associated antimicrobial use pattern being the strongest predictors of AMR. | WGS was used to provide a detailed analysis of AMR across a large geographical area, providing insights into AMR epidemiology, spread, and drivers. |              
+
 
 _Investigating colistin resistance detected in commensal E. coli in food stock animals in China_
        
 | Trigger | Uses of WGS/workflow | Main finding | Advantages of using WGS |
-| Routine surveillance had detected a sharp increase in the rates of colistin resistance in colonising bacteria from pigs in China, but the mechanism of this resistance was not known. | Conjugation experiments were undertaken to confirm the presence of plasmid-associated, transmissible colistin resistance. WGS of the plasmids was used to identify the gene responsible. | The sequence of the plasmid-associated colistin resistance gene was identified and designated _mcr-1_. | The genetic basis of a new, AMR mechanism was identified and described, allowing ongoing surveillance, as well as informing investigation and detection of this emerging threat in other settings. |
+| Routine surveillance had detected a sharp increase in the rates of colistin resistance in colonising bacteria from pigs in China, but the mechanism of this resistance was not known. | Conjugation experiments were undertaken to confirm the presence of plasmid-associated, transmissible colistin resistance. WGS of the plasmids was used to identify the gene responsible. | The sequence of the plasmid-associated colistin resistance gene was identified and designated _mcr-1_. | The genetic basis of a new, AMR mechanism was identified and described, allowing ongoing surveillance, as well as informing investigation and detection of this emerging threat in other settings. |               
+
 
 The [SEDRIC](https://sedric.org.uk/) genomics working group has made several policy recommendations on how genomics can be harnessed for AMR surveillance:   
 
-###Increasing detection and control by Health Laboratories
+**Increasing detection and control by Health Laboratories**
 
 * Build capacity – including hub and spoke models to overcome differential sequencing costs in different geographical regions
 
@@ -125,7 +129,7 @@ The [SEDRIC](https://sedric.org.uk/) genomics working group has made several pol
 
 * Invest in AMR genomic surveillance innovations, especially research required to address uncharacterized associations with health outcomes.
 
-###Public Health Networks
+**Public Health Networks**
 
 * Harmonise and standardise surveillance - by agreeing on a list of bug/drug combinations informed by local needs, develop clinical standards and support pathogen-specific expert review groups for interpretation guidelines.
 
@@ -244,14 +248,11 @@ WHO recommends that **trivalent vaccines** for use in the 2023 southern hemisphe
 
 * A B/Austria/1359417/2021 (B/Victoria lineage)-like virus
  
- 
- 
- 
 ![Diagram of the individual steps in the selection of candidate vaccine viruses and development of standardizing reagents for seasonal influenza and for a potential H5N1 influenza pandemic. For seasonal vaccines, the timelines are: Steps 1–4: the collection, isolation and thorough antigenic and genetic characterization of recent virus isolates continues throughout the year; Step 4a: comparisons of the recognition of representative recent viruses by vaccine-induced antibodies in human sera are conducted 2–3 weeks before the biannual WHO vaccine consultation meetings; Steps 5, 6a and 7a: candidate viruses for vaccine use are reviewed and selected, and high-growth reassortants prepared and characterized following identification of (potential) antigenic variants– these steps are not solely dictated by the recommendations of the WHO biannual vaccine virus consultations. Step 8: Evaluation of their growth properties is conducted in a timely manner around the time of the WHO vaccine virus consultations and prior to authorization of vaccine composition by national authorities. Step 9a: Preparation of the standardizing reagents for new vaccine components is initiated once the particular vaccine virus has been selected following the WHO recommendation](images/OC5_2-8_fig1.png)
 
-_Source: [Influenza](https://doi.org/10.1111/j.1750-2659.2011.00277.x)_
-
 [Click here to enlarge the image](images/OC5_2-8_fig1.png)
+
+_Source: [Influenza](https://doi.org/10.1111/j.1750-2659.2011.00277.x)_
 
 [Downlad Figure 3 alt-text  here](images/OC5_2-8_Alt-text.pdf)
 
@@ -311,6 +312,7 @@ Visit her [blog](https://linzyelton628749128.wordpress.com/) and [podcast](https
 <iframe width="840" height="472" src="https://www.youtube.com/embed/8M54e25n5PQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 [Download the transcript here](assets/OC5_2-10_transcript.pdf)
+
 In this video, Dr Andrea Cabibbe from IRCCS San Raffaele Scientific Institute in Italy discusses the advantages and challenges of implementing tuberculosis genomics worldwide. 
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
@@ -441,7 +443,7 @@ Since March 2020, over 50 countries have successfully applied wastewater-based e
 Two main methods are used for tracking variants in wastewater: reverse transcriptase quantitative polymerase chain reaction (RT-qPCR) and next-generation sequencing (NGS), both have [advantages and limitations](https://doi.org/10.1038/s41591-022-01940-x). Advanced NGS technologies have enabled scientists to sequence [long-](https://doi.org/10.3390/w13182503) and [short-read](https://doi.org/10.1128/mBio.02703-20) SARS-CoV-2 fragments. Prior to sequencing the 30 Kb genome of the virus in the wastewater sample, scientists extract total RNA, run RT-PCR testing with SARS-CoV-2 primers and perform quantity and quality checks (Figure 4). 
 
 
-![Sample collection, RNA extraction, RT-PCR testing and whole genome sequencing of SARS-CoV-2 from wastewater](images/OC5_2-14_fig1.png
+![Sample collection, RNA extraction, RT-PCR testing and whole genome sequencing of SARS-CoV-2 from wastewater](images/OC5_2-14_fig1.png)
 
 
 [Click here to enlarge the image](images/OC5_2-14_fig1.png)
@@ -499,6 +501,7 @@ If you are interested in learning more from her research, you can also watch thi
 **Further reading**
 
 [India must scale up wastewater analysis for health surveillance](https://www.nature.com/articles/d44151-022-00130-5)
+
 [SARS-CoV-2 infection dynamics and genomic surveillance to detect variants in wastewater – a longitudinal study in Bengaluru, India](https://doi.org/10.1016/j.lansea.2023.100151)
 
 
