@@ -1,6 +1,2 @@
----
-pagetitle: "COG-Team"
----
-
-# COG-Team
+[](images/this page is under construction.png)
 
