@@ -479,7 +479,7 @@ It should be noted that compared to clinical samples, the identification of [SAR
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
 
 
-# Wasterwater monitoring for SARS-CoV-2 in India
+# Wastewater monitoring for SARS-CoV-2 in India
 <!-- 2-15 -->    
 
 <!-- YT https://youtu.be/2jYuPXxHdmU --> 
