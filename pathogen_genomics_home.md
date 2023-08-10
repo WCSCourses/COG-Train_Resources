@@ -133,6 +133,6 @@ Any reuse of the course materials is encouraged with due acknowledgement.
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
 ## How to cite 
-
+COG-Train. (2023). Pathogen Genomics: A New Era In Global Health Surveillance And Strategy. Zenodo. https://doi.org/10.5281/zenodo.8234152
 
 
