@@ -17,9 +17,9 @@ A One Health approach to genomic surveillance can help in preparing for future p
  
 ![Taking One Health from theory to practice, as highlighted by the 4 Cs: Communication, Coordination, Collaboration, and Capacity building between a wide range of areas and sectors](images/OC5_2-2_fig1.png)
 
- _Source: [Plos Pathogens](https://doi.org/10.1371/journal.ppat.1010537)_
-
 [Click here to enlarge the image](images/OC5_2-2_fig1.png) 
+
+ _Source: [Plos Pathogens](https://doi.org/10.1371/journal.ppat.1010537)_
 
 [Download Figure 1 alt-text here](images/OC5_2-2_Alt-text.pdf)
  
@@ -91,34 +91,8 @@ Furthermore, metagenomic technologies using short and long-read next-generation 
 
 Antimicrobial resistance (AMR), which occurs when changes in bacteria cause the drugs used to treat infections to become less effective, has been largely driven by the misuse of antibiotics. The spread of AMR threatens many advances in modern medicine, for example impairing our ability to treat common infectious diseases, such as pneumonia and tuberculosis, and increasing the risks associated with organ transplantation, complex surgery, and cancer chemotherapy. It is a significant problem: in 2019 1.27 million deaths were directly attributed to AMR, with 4.9 million deaths indirectly attributed to AMR. Low-and-middle-income countries have a greater burden of AMR. The SARS-CoV-2 pandemic has demonstrated the potential and capacity for genomic surveillance to monitor and help combat AMR.   
 
-Whole genome sequencing (WGS) can be used to monitor resistance against multiple microbes in parallel, help differentiate AMR evolution versus spread; and improve data sharing and create adaptable infrastructure for future [pandemic responses](https://doi.org/10.1186/s13073-022-01020-2).
-
-_Table 1 - A summary of use cases for WGS in mitigating the public health impact of antimicrobial resistance (AMR). Source: [Genome Medicine](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01020-2/tables/1)_
-
-_Enhancing the national surveillance of antimicrobial resistance in the Philippines_
-            
-| Trigger | Uses of WGS/workflow | Main finding | Advantages of using WGS |
-| National laboratory-based surveillance had shown increasing AMR prevalence over the previous 10 years, but the understanding of the epidemiology and drivers of AMR was lacking. | WGS capability was introduced to the existing surveillance programme. Retrospective sequencing of multi-drug-resistant (MDR) Gram-negative bacteria (GNB) obtained prior to the introduction was undertaken and analysed with phenotypic and epidemiological data to provide baseline data and inform control measures. | Drivers of carbapenem resistance at different levels of the healthcare system were identified, including a localised outbreak of plasmid-driven CR-Kp affecting a specific hospital, through the detection of the introduction and country-wide spread of a high-risk epidemic clone, _E. coli_ ST410. | Detailed understanding of the epidemiology and drivers of AMR enabled the introduction of effective infection control measures. Data were contributed to international AMR surveillance efforts, improving global coverage. |           
-
-
-_Investigating an MRSA outbreak in a neonatal unit_      
-           
-| Trigger | Uses of WGS/workflow | Main finding | Advantages of using WGS |
-| Phenotypically similar MRSA isolates were identified from patients on a neonatal unit over a 6-month period but could not be linked temporally or geographically, suggesting that the full extent of the outbreak had not been identified. | All MRSA isolates obtained from patients on the neonatal unit over a 6-month period underwent WGS regardless of phenotypic characteristics. MRSA isolates with antibiograms similar to the outbreak strain, identified from the community, and screening samples taken elsewhere in the hospital were also sequenced. | Two previously excluded isolates were identified as being part of the outbreak by phylogenetic analysis, allowing temporal links between cases to be established. A wide transmission network beyond the neonatal unit was identified. | WGS allowed a large number of isolates to be tested and related strains to be accurately identified, thereby enabling full outbreak reconstruction. Combining WGS data with clinical and epidemiological data enabled the identification of outbreak sources and the successful instigation of infection control measures. |           
-
-
-_Identifying the drivers of AMR in atypical enteropathogenic E. coli (aEPEC) strains isolated from children < 5 years in four sub-Saharan African countries and three South Asian countries_
-          
-| Trigger | Uses of WGS/workflow | Main finding | Advantages of using WGS |
-| The frequency, mechanisms, and drivers of AMR in intestinal isolates of E. coli in children in the community in many countries worldwide were unknown. | Phenotypic susceptibility and WGS of isolates were analysed and correlated with antimicrobial use, disease status (symptomatic/asymptomatic), phylogenetic lineage, and geographic location. | High rates of AMR were shown, with 65% of isolates resistant to at least 3 antimicrobial drug classes. A diverse range of genetic mechanisms of AMR was shown, with geographic location and the associated antimicrobial use pattern being the strongest predictors of AMR. | WGS was used to provide a detailed analysis of AMR across a large geographical area, providing insights into AMR epidemiology, spread, and drivers. |              
-
-
-_Investigating colistin resistance detected in commensal E. coli in food stock animals in China_
-       
-| Trigger | Uses of WGS/workflow | Main finding | Advantages of using WGS |
-| Routine surveillance had detected a sharp increase in the rates of colistin resistance in colonising bacteria from pigs in China, but the mechanism of this resistance was not known. | Conjugation experiments were undertaken to confirm the presence of plasmid-associated, transmissible colistin resistance. WGS of the plasmids was used to identify the gene responsible. | The sequence of the plasmid-associated colistin resistance gene was identified and designated _mcr-1_. | The genetic basis of a new, AMR mechanism was identified and described, allowing ongoing surveillance, as well as informing investigation and detection of this emerging threat in other settings. |               
-
-
+Whole genome sequencing (WGS) can be used to monitor resistance against multiple microbes in parallel, help differentiate AMR evolution versus spread; and improve data sharing and create adaptable infrastructure for future [pandemic responses](https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01020-2/tables/1).
+             
 The [SEDRIC](https://sedric.org.uk/) genomics working group has made several policy recommendations on how genomics can be harnessed for AMR surveillance:   
 
 **Increasing detection and control by Health Laboratories**
