@@ -1,5 +1,1 @@
----
-pagetitle: "Contributors"
----
-
-# Contributors
+![](images/construction.png)
