@@ -60,7 +60,6 @@
 
 <!-- YT https://youtu.be/XYjayaMStRY -->      
 <iframe width="840" height="472" src="https://www.youtube.com/embed/XYjayaMStRY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-In this video, our educator Dr Josefina Campos shares her experiences and explains the importance of genomics surveillance to monitor and control pathogen outbreaks.
 
 [Download the transcript here](assets/OC5_1-7_transcript.pdf) 
 
@@ -206,20 +205,14 @@ The biobank serves as a library for researchers. Therefore, the time and resourc
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
 
-
-
-
-
-<hr style="height:5px;border-width:0;color:gray;background-color:gray">
-
 # Metadata
 <!-- 1-13 --> 
 
 ![An interesting-looking graph with incomplete labelling](images/OC5_1-13_fig1.png)
 
-_Source: [Hugh Fox III](https://foxhugh.files.wordpress.com/2012/02/graph_20060627_lg.jpg)_ 
-
 [Click here to enlarge the image](images/OC5_1-13_fig1.png)
+
+_Source: [Hugh Fox III](https://foxhugh.files.wordpress.com/2012/02/graph_20060627_lg.jpg)_ 
 
 [Donwload Figure 2 alt-text here](images/OC5_1-13_Alt-text.pdf)
 
@@ -239,7 +232,7 @@ The COVID-19 pandemic has especially highlighted [how necessary it is to have in
  
 Describing the WHO, WHAT, HOW, WHERE, and WHEN of genomic data also contributes to the findable, accessible, interoperable and reproducible [(FAIR)](https://doi.org/10.1038/sdata.2016.18) guiding principles, to support the reuse of scientific data, and very importantly, it helps to inform public health responses.
 
-Although we acknowledge the importance of accompanying genomic data with the appropriate metadata, we also have to be cognizant of the fact that the collection, anonymisation, storage and access to this data have to be carefully managed in a way that protects the donors. [Submitting a data management plan as part of the research plan has therefore become an increasingly standard procedure](https://doi.org/10.1016/j.jbi.2021.103900).  
+Although we acknowledge the importance of accompanying genomic data with the appropriate metadata, we also have to be cognizant of the fact that the collection, anonymisation, storage and access to this data have to be carefully managed in a way that protects the donors. Submitting a data management plan as part of the research plan has therefore become an increasingly [standard procedure](https://doi.org/10.1016/j.jbi.2021.103900).  
 
 
 <hr style="height:5px;border-width:0;color:gray;background-color:gray">
@@ -277,6 +270,7 @@ In conclusion, further ethical-legal scholarship (including empirical work) is w
 <iframe width="840" height="472" src="https://www.youtube.com/embed/VxqH686g4eI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 [Download the transcript here](assets/OC5_1-15_transcript.pdf)
+
 [Download the PDF slides here](assets/OC5_1-15_slides.pdf) 
 
 Dr Euzebiusz Jamrozik from Ethox Centre, United Kingdom shares his experience in ethically using data to improve HIV phylogenetics analysis.
@@ -287,10 +281,10 @@ Dr Euzebiusz Jamrozik from Ethox Centre, United Kingdom shares his experience in
 # Data sharing in a public health emergency
 <!-- 1-16 -->    
 
-<!-- YT    --> 
+<!-- YT   https://youtu.be/tbjo1cLNgQI  --> 
+<iframe width="840" height="472" src="https://www.youtube.com/embed/tbjo1cLNgQI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-
-[Download the transcript here]
+[Download the transcript here](assets/OC5_1-16_transcript.pdf)
 
 In this video, Dr Ewan Harrinson from Wellcome Sanger Institute and the University of Cambridge guides us through the differences between data sharing routinely and during a public health emergency.
 
