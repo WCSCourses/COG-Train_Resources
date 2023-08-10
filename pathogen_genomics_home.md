@@ -23,6 +23,7 @@ This course is designed for professionals from various disciplines who are inter
 ## Content
 
 **[Week 1 - Introduction to genomics surveillance](https://wcscourses.github.io/COG-Train_Resources/pathogen_genomics_week1.html#INTRODUCTION_TO_VIRAL_SURVEILLANCE)**       
+
 * [Glossary](https://wcscourses.github.io/COG-Train_Resources/pathogen_genomics_week1.html#Glossary)        
 * [Pathogen monitoring](https://wcscourses.github.io/COG-Train_Resources/pathogen_genomics_week1.html#Pathogen_monitoring)        
 * [Working together to build capacity](https://wcscourses.github.io/COG-Train_Resources/pathogen_genomics_week1.html#Working_together_to_build_capacity)         
@@ -166,10 +167,10 @@ Treasa Creavin, Wellcome Connecting Science, United Kingdom
 **Original course page:** [https://www.futurelearn.com/courses/pathogen-genomics-a-new-era-in-global-health-surveillance-and-strategy/1](https://www.futurelearn.com/courses/pathogen-genomics-a-new-era-in-global-health-surveillance-and-strategy/1)                           
 **Launch of the original version:** 6 March 2023
  
-Data collected on 31 May 2023
-Number of joiners: 1,614         
-Number of countries reached: 121         
-Review score: 4.9/5 (20 reviews)             
+Data collected on 31 May 2023           
+Number of joiners: 1,614              
+Number of countries reached: 121           
+Review score: 4.9/5 (20 reviews)               
 
 ******
 Any reuse of the course materials is encouraged with due acknowledgement.
