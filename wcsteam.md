@@ -1,6 +1,1 @@
----
-pagetitle: "WCS Team"
----
-
-
-## WCS Team
+![](images/construction.png)
