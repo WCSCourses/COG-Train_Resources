@@ -90,8 +90,6 @@ navbar:
     - text: "Team"
       icon: fa-book
       menu:
-        - text: "Contributors"
-          href: contributors.html
         - text: "COG-Train Team"
           href: cogteam.html
   right:
