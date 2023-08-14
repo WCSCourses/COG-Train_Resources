@@ -4,14 +4,14 @@ COG-Train was a partnership between Wellcome Connecting Science and COG-UK to pr
 
 Working with our international partners and scientific leaders from around the world, the COG-Train programme delivered a series of free courses focusing on the SARS-CoV-2 genomics and bioinformatics.
 
-# Virtual Courses
+## Virtual Courses
 
 Viral Genomics and Bioinformatics virtual courses were delivered to participants in Asia and Latin America and the Caribbean (LAC). Along with gaining bioinformatics knowledge, the participants also gained an opportunity to establish links and networks and develop future collaborative projects. In this repository, we collated the course materials from both courses:
 
 * [Viral Genomics and Bioinformatics Asia 2022](https://wcscourses.github.io/COG-Train_Resources/vbioinfasia.html)              
 * [Viral Genomics and Bioinformatics LAC 2022](https://wcscourses.github.io/COG-Train_Resources/vbioinflac.html)         
 
-# Online courses
+## Online courses
 
 In collaboration with the digital social learning platform [FutureLearn](https://www.futurelearn.com/), COG-Train delivered five massive open online courses (MOOCs) which together reached over 14,000 learners from almost 140 countries. In this repository, you will find the relevant course materials of the courses:
 
@@ -21,13 +21,13 @@ In collaboration with the digital social learning platform [FutureLearn](https:/
 * [A practical guide for SARS-CoV-2 whole-genome sequencing](https://wcscourses.github.io/COG-Train_Resources/practical_guide_home.html)              
 * [Pathogen genomics: a new era in global health surveillance and strategy](https://wcscourses.github.io/COG-Train_Resources/pathogen_genomics_home.html)            
 
-# Hybrid Courses
+## Hybrid Courses
 
 A blended, distributed classroom model was used to increase the reach and impact of the learning materials, with training being delivered simultaneously in multiple classrooms across many countries in Africa, Asia and Latin America. The distributed classrooms course materials can also be found in this repository:
 
 * [SARS-CoV-2 Bioinformatics for Beginners](https://wcscourses.github.io/COG-Train_Resources/scvo2b4b.html)
 
-# Train-the-training initiatives
+## Train-the-training initiatives
 
 The programme also featured ‘train-the-trainer’ initiatives, supporting researchers and healthcare professionals to learn about bioinformatics analysis and sequencing and acquire the knowledge to develop and deliver their own courses. 
 
