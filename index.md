@@ -35,6 +35,8 @@ In May 2023 we delivered an in-person training [Establishing Capacity for Pathog
 
 We also piloted a bilingual English-Portuguese approach to develop a course in partnership with Institute Gonçalo Moniz FIOCRUZ-BA. The in-person course ‘[Bioinformática Decodificada: A Jornada do Iniciante à Genômica de Patógenos](https://wcscourses.github.io/COG-Train_Resources/TtT.html#Bioinform%C3%A1tica_Decodificada:_A_Jornada_do_Iniciante_%C3%A0_Gen%C3%B4mica_de_Pat%C3%B3genos)’ (Decodified Bioinformatics: the beginner’s journey into pathogen genomics) will be delivered in Portuguese between 30 October and 1 November 2023 in Salvador, Brazil.
 
+*****
+
 **Site Version:**
 v 2.14.8.23
 
