@@ -95,15 +95,15 @@ The course will include the following topics:
 
 _Instructors and facilitators_
 
-Andrêza Leite, Universidade Federal de Pernambuco, Brazil
-Laise de Moraes, Instituto Gonçalo Moniz, Fundação Oswaldo Cruz, Brazil
-Luciane Amorim, Instituto Gonçalo Moniz, Fundação Oswaldo Cruz e Escola Bahiana de Medicina e Saúde Pública, Brazil
-Ricardo Khouri, Instituto Gonçalo Moniz, Fundação Oswaldo Cruz, Brazil
-Robson de Souza, Universidade de São Paulo, Brazil
-Túlio Campos, Instituto Aggeu Magalhães, Fundação Oswaldo Cruz, Brazil
+Andrêza Leite, Universidade Federal de Pernambuco, Brazil       
+Laise de Moraes, Instituto Gonçalo Moniz, Fundação Oswaldo Cruz, Brazil        
+Luciane Amorim, Instituto Gonçalo Moniz, Fundação Oswaldo Cruz e Escola Bahiana de Medicina e Saúde Pública, Brazil       
+Ricardo Khouri, Instituto Gonçalo Moniz, Fundação Oswaldo Cruz, Brazil        
+Robson de Souza, Universidade de São Paulo, Brazil          
+Túlio Campos, Instituto Aggeu Magalhães, Fundação Oswaldo Cruz, Brazil         
 
 _Education developers and advisers_
 
-Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom          
-Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom         
+Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom           
+Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom          
 
