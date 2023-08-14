@@ -29,9 +29,6 @@ navbar:
               href: vbioinflac.html
         - text: "----"
         - text: "Online Courses"
-        - text: "----"  
-        - text: Online Courses Home
-          href: onlinecourses.html
         - text: "Power of Genomics"
           menu:
             - text: "Home"
