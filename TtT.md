@@ -91,7 +91,7 @@ The course will include the following topics:
 * Applications of bioinformatics in pathogen genomics           
 * Critical assessment of available analysis tools and resources            
 
-** Training team**
+**Training team**
 
 _Instructors and facilitators_
 
@@ -104,6 +104,6 @@ Túlio Campos, Instituto Aggeu Magalhães, Fundação Oswaldo Cruz, Brazil
 
 _Education developers and advisers_
 
-Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom
-Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom
+Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom          
+Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom         
 
