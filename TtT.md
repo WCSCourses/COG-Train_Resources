@@ -67,7 +67,7 @@ Melanie Sharpe, Wellcome Connecting Science, United Kingdom
 Shavanthi Rajatileka, Wellcome Sanger Insitute, United Kingdom         
 Treasa Creavin, Wellcome Connecting Science, United Kingdom      
  
-[Participants of the Establishing Capacity for Pathogen Genomics 2023](images/ECPG.png)
+![Participants of the Establishing Capacity for Pathogen Genomics 2023](images/ECPG.png)
 
 
 # Bioinformática Decodificada: A Jornada do Iniciante à Genômica de Patógenos
