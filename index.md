@@ -31,9 +31,9 @@ A blended, distributed classroom model was used to increase the reach and impact
 
 The programme also featured ‘train-the-trainer’ initiatives, supporting researchers and healthcare professionals to learn about bioinformatics analysis and sequencing and acquire the knowledge to develop and deliver their own courses. 
 
-In May 2023 we delivered an in-person training [Establishing Capacity for Pathogen Genomics Workshop]( in Addis Ababa, Ethiopia with participants coming from 26 African nations. A follow-up seminar series will be programmed between September-October 2023 to strengthen the COG-Train alumni community. 	
+In May 2023 we delivered an in-person training [Establishing Capacity for Pathogen Genomics Workshop](https://wcscourses.github.io/COG-Train_Resources/TtT.html#Establishing_Capacity_for_Pathogen_Genomics) in Addis Ababa, Ethiopia with participants coming from 26 African nations. A follow-up seminar series will be programmed between September-October 2023 to strengthen the COG-Train alumni community. 	
 
-We also piloted a bilingual English-Portuguese approach to develop a course in partnership with Institute Gonçalo Moniz FIOCRUZ-BA. The in-person course ‘[Bioinformática Decodificada: A Jornada do Iniciante à Genômica de Patógenos](’ (Decodified Bioinformatics: the beginner’s journey into pathogen genomics) will be delivered in Portuguese between 30 October and 1 November 2023 in Salvador, Brazil.
+We also piloted a bilingual English-Portuguese approach to develop a course in partnership with Institute Gonçalo Moniz FIOCRUZ-BA. The in-person course ‘[Bioinformática Decodificada: A Jornada do Iniciante à Genômica de Patógenos](https://wcscourses.github.io/COG-Train_Resources/TtT.html#Bioinform%C3%A1tica_Decodificada:_A_Jornada_do_Iniciante_%C3%A0_Gen%C3%B4mica_de_Pat%C3%B3genos)’ (Decodified Bioinformatics: the beginner’s journey into pathogen genomics) will be delivered in Portuguese between 30 October and 1 November 2023 in Salvador, Brazil.
 
 **Site Version:**
 v 2.14.8.23
