@@ -83,6 +83,10 @@ navbar:
         - text: "Hybrid Courses"
         - text: "SARS-CoV-2 B4B"
           href: scvo2b4b.html
+        - text: "----"
+        - text: "Train-the-trainer"
+        - text: "TtT initiatives"
+          href: TtT.html
     - text: "Team"
       icon: fa-book
       menu:
