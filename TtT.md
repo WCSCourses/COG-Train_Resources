@@ -1,5 +1,9 @@
 # Establishing Capacity for Pathogen Genomics
 
+![](images/ECPG.png)
+
+Attendees of the Establishing Capacity for Pathogen Genomics 2023
+
 **About the course**
 
 
