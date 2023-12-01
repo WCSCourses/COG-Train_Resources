@@ -36,7 +36,7 @@ A workshop to discuss and strengthen pathogen genomics capacity in Africa was de
 We also piloted an English-Portuguese approach to develop a course in partnership with Institute Gonçalo Moniz FIOCRUZ-BA. The in-person course was delivered in Portuguese between 30 October and 1 November 2023 in Salvador, Brazil. Key course materials (Portuguese) and additional resources (English-Portuguese)  are shared in this repository:
 
 
-_Bioinformática Decodificada: A Jornada do Iniciante à Genômica de Patógenos(https://wcscourses.github.io/COG-Train_Resources/IGM_B4B.html)_
+_[Bioinformática Decodificada: A Jornada do Iniciante à Genômica de Patógenos](https://wcscourses.github.io/COG-Train_Resources/IGM_B4B.html)_
 
 # Webinars
 
