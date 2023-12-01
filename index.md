@@ -21,22 +21,31 @@ In collaboration with the digital social learning platform [FutureLearn](https:/
 * [A practical guide for SARS-CoV-2 whole-genome sequencing](https://wcscourses.github.io/COG-Train_Resources/practical_guide_home.html)              
 * [Pathogen genomics: a new era in global health surveillance and strategy](https://wcscourses.github.io/COG-Train_Resources/pathogen_genomics_home.html)            
 
-## Hybrid Courses
+## Hybrid Course
 
 A blended, distributed classroom model was used to increase the reach and impact of the learning materials, with training being delivered simultaneously in multiple classrooms across many countries in Africa, Asia and Latin America. The distributed classrooms course materials can also be found in this repository:
 
 * [SARS-CoV-2 Bioinformatics for Beginners](https://wcscourses.github.io/COG-Train_Resources/scvo2b4b.html)
 
-## Train-the-training initiatives
+# In-person courses
 
-The programme also featured ‘train-the-trainer’ initiatives, supporting researchers and healthcare professionals to learn about bioinformatics analysis and sequencing and acquire the knowledge to develop and deliver their own courses. 
+A workshop to discuss and strengthen pathogen genomics capacity in Africa was delivered in May 2023 in Addis Ababa, Ethiopia. The workshop enabled the networking and learning training of 30 participants from 25 African countries. Here you will find the key materials produced for this workshop:
 
-In May 2023 we delivered an in-person training [Establishing Capacity for Pathogen Genomics Workshop](https://wcscourses.github.io/COG-Train_Resources/TtT.html#Establishing_Capacity_for_Pathogen_Genomics) in Addis Ababa, Ethiopia with participants coming from 26 African nations. A follow-up seminar series will be programmed between September-October 2023 to strengthen the COG-Train alumni community. 	
+[Establishing Capacity in Pathogen Genomics Workshop 2023](https://wcscourses.github.io/COG-Train_Resources/ECPG.html)
 
-We also piloted a bilingual English-Portuguese approach to develop a course in partnership with Institute Gonçalo Moniz FIOCRUZ-BA. The in-person course ‘[Bioinformática Decodificada: A Jornada do Iniciante à Genômica de Patógenos](https://wcscourses.github.io/COG-Train_Resources/TtT.html#Bioinform%C3%A1tica_Decodificada:_A_Jornada_do_Iniciante_%C3%A0_Gen%C3%B4mica_de_Pat%C3%B3genos)’ (Decodified Bioinformatics: the beginner’s journey into pathogen genomics) will be delivered in Portuguese between 30 October and 1 November 2023 in Salvador, Brazil.
+We also piloted an English-Portuguese approach to develop a course in partnership with Institute Gonçalo Moniz FIOCRUZ-BA. The in-person course was delivered in Portuguese between 30 October and 1 November 2023 in Salvador, Brazil. Key course materials (Portuguese) and additional resources (English-Portuguese)  are shared in this repository:
 
-*****
+
+_Bioinformática Decodificada: A Jornada do Iniciante à Genômica de Patógenos(https://wcscourses.github.io/COG-Train_Resources/IGM_B4B.html)_
+
+# Webinars
+
+Alumni champions from the Establishing Capacity Pathogen Workshop led the organisation of a webinar to promote the networking of the pathogen genomics community. The seminar presented talks and poster presentations using the interactive platform Gather Town.
+
+[COG-Train Community Seminar Event: Advancing Pathogen Genomics Science and Collaboration](https://wcscourses.github.io/COG-Train_Resources/Community.html)
 
 **Site Version:**
-v 2.14.8.23
+v 3.01.12.23
+
+
 
