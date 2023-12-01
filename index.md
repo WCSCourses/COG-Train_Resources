@@ -27,7 +27,7 @@ A blended, distributed classroom model was used to increase the reach and impact
 
 * [SARS-CoV-2 Bioinformatics for Beginners](https://wcscourses.github.io/COG-Train_Resources/scvo2b4b.html)
 
-# In-person courses
+## In-person courses
 
 A workshop to discuss and strengthen pathogen genomics capacity in Africa was delivered in May 2023 in Addis Ababa, Ethiopia. The workshop enabled the networking and learning training of 30 participants from 25 African countries. Here you will find the key materials produced for this workshop:
 
@@ -38,7 +38,7 @@ We also piloted an English-Portuguese approach to develop a course in partnershi
 
 _[Bioinformática Decodificada: A Jornada do Iniciante à Genômica de Patógenos](https://wcscourses.github.io/COG-Train_Resources/IGM_B4B.html)_
 
-# Webinars
+## Webinars
 
 Alumni champions from the Establishing Capacity Pathogen Workshop led the organisation of a webinar to promote the networking of the pathogen genomics community. The seminar presented talks and poster presentations using the interactive platform Gather Town.
 
