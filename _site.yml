@@ -90,6 +90,7 @@ navbar:
         - text: "Bioinformática Decodificada"
           href: IGM_B4B.html
         - text: "----"
+        - text: "Webinars"
         - text: "COG-Train Community"
           href: Community.html
     - text: "Team"
