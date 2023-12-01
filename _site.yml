@@ -87,6 +87,11 @@ navbar:
         - text: "In Person Courses"
         - text: "Pathogen Genomics Capacity"
           href: ECPG.html
+        - text: "Bioinformática Decodificada"
+          href: IGM_B4B.html
+        - text: "----"
+        - text: "COG-Train Community"
+          href: Community.html
     - text: "Team"
       icon: fa-book
       menu:
