@@ -85,12 +85,12 @@ _[Workshop booklet](assets/ECPG_Booklet.pdf)_
 
 **Instructors and facilitators**
 
-Amadou Diallo, Institut Pasteur de Dakar, Senegal
-Aquilla Kanzi, African Society for Laboratory Medicine, Ethiopia
-Brenda Kwambana, Malawi Liverpool Wellcome Trust, Malawi
-Fatma Guerfali, Institut Pasteur de Tunis, Tunisia
-Fatuma Guleid, Kenya Medical Research Institute, Kenya
-Francis Chikuse, Africa Centre for Disease Control and Prevention, Namibia        
+Amadou Diallo, Institut Pasteur de Dakar, Senegal               
+Aquilla Kanzi, African Society for Laboratory Medicine, Ethiopia                  
+Brenda Kwambana, Malawi Liverpool Wellcome Trust, Malawi              
+Fatma Guerfali, Institut Pasteur de Tunis, Tunisia         
+Fatuma Guleid, Kenya Medical Research Institute, Kenya     
+Francis Chikuse, Africa Centre for Disease Control and Prevention, Namibia            
 George Githinji,  Kenya Medical Research Institute, Kenya            
 Harris Onywera, Africa CDC Insitute of Pathogen Genomics, Ethiopia          
 John Tembo, HerpeZ, Zambia               
@@ -101,14 +101,14 @@ Linzy Elton, University College London, United Kingdom
 Luria Leslie Founou, CEDBCAM-RI, Cameroon         
 Sam Oyola, International Livestock Research Institute, Kenya             
 Stanford Kwenda, National Institute for Communicable Diseases, South Africa              
-Tapfumanei Mashe, National Microbiology Research Laboratory, Zimbabwe
+Tapfumanei Mashe, National Microbiology Research Laboratory, Zimbabwe              
 
 **Honorable guest speakers**
 
-Alan Christofels, Public Health Alliance for Genomic Epidemiology, South Africa        
-Dawit Wolday, Ethiopian Public Health Institute, Ethiopia      
-Getachew Tollera, Ethiopian Public Health Institute, Ethiopia          
-Mebratu Messebo, Ethiopian Public Health Institute, Ethiopia          
+Alan Christofels, Public Health Alliance for Genomic Epidemiology, South Africa               
+Dawit Wolday, Ethiopian Public Health Institute, Ethiopia        
+Getachew Tollera, Ethiopian Public Health Institute, Ethiopia           
+Mebratu Messebo, Ethiopian Public Health Institute, Ethiopia           
 Messay Hailu, Ethiopian Public Health Institute, Ethiopia          
 Mohammed Rameto, Ethiopian Public Health Institute, Ethiopia       
 Naod Wendrad, Ministry of Health, Ethiopia         
