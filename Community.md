@@ -17,13 +17,13 @@ Sylvester Moyo, African Society for Laboratory Medicine, Eswatini
 
 **Talks**
 
-[Introduction to the event](assets/Webinar_Intro.pdf)
+[Introduction to the event](assets/Webinar_Intro.pdf)                     
 Organisers
 
-[Helminth Genomics: a team journey on worms and cancer from fundamentals towards applications](assets/Koi.pdf)
+[Helminth Genomics: a team journey on worms and cancer from fundamentals towards applications](assets/Koi.pdf)                   
 Dr Arporn (Koi) Wangwiwatsin, Khon Kaen University, Thailand
 
-[Brucella genomics in Costa Rica: a path of learning from scratch to networking](assets/MarcelaEsquivel.pdf)
+[Brucella genomics in Costa Rica: a path of learning from scratch to networking](assets/MarcelaEsquivel.pdf)                      
 Dr Marcela Suárez-Esquivel, National University of Costa Rica, Costa Rica
 
 Africa Pathogen Genomics Initiative (PGI) Priority Pathogens
