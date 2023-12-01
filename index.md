@@ -11,7 +11,7 @@ Viral Genomics and Bioinformatics virtual courses were delivered to participants
 * [Viral Genomics and Bioinformatics Asia 2022](https://wcscourses.github.io/COG-Train_Resources/vbioinfasia.html)              
 * [Viral Genomics and Bioinformatics LAC 2022](https://wcscourses.github.io/COG-Train_Resources/vbioinflac.html)         
 
-## Online courses
+## MOOCs
 
 In collaboration with the digital social learning platform [FutureLearn](https://www.futurelearn.com/), COG-Train delivered five massive open online courses (MOOCs) which together reached over 14,000 learners from almost 140 countries. In this repository, you will find the relevant course materials of the courses:
 
