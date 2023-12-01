@@ -49,6 +49,7 @@ The course material is available in Portuguese only
 [Túlio Campos](http://lattes.cnpq.br/1367273895160398), Fundação Oswaldo Cruz - Instituto Aggeu Magalhães, Brazil             
  
 **Organisers**
+
 [Laise de Moraes](http://lattes.cnpq.br/7097758558494370), Fundação Oswaldo Cruz - Instituto Gonçalo Moniz, Brazil             
 [Ricardo Khouri](http://lattes.cnpq.br/9908602398727888), Fundação Oswaldo Cruz - Instituto Gonçalo Moniz, Brazil                
 [Liã Bárbara Arruda](http://lattes.cnpq.br/6247495194627118), Wellcome Connecting Science, United Kingdom                     
@@ -56,6 +57,7 @@ Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom
 
 
 **Translation**
+
 [Gabriel Carvalho](https://lattes.cnpq.br/4456457687905570), Fundação Oswaldo Cruz - Instituto Gonçalo Moniz, Brazil                    
 [Liã Bárbara Arruda](http://lattes.cnpq.br/6247495194627118), Wellcome Connecting Science, United Kingdom               
 
