@@ -28,7 +28,7 @@ navbar:
             - text: "VBioinf2022 LAC"
               href: vbioinflac.html
         - text: "----"
-        - text: "Online Courses"
+        - text: "MOOCs"
         - text: "Power of Genomics"
           menu:
             - text: "Home"
@@ -80,13 +80,13 @@ navbar:
             - text: "Week 3"
               href: pathogen_genomics_week3.html
         - text: "----"
-        - text: "Hybrid Courses"
+        - text: "Hybrid Course"
         - text: "SARS-CoV-2 B4B"
           href: scvo2b4b.html
         - text: "----"
-        - text: "Train-the-trainer"
-        - text: "TtT initiatives"
-          href: TtT.html
+        - text: "In Person Courses"
+        - text: "Pathogen Genomics Capacity"
+          href: ECPG.html
     - text: "Team"
       icon: fa-book
       menu:
