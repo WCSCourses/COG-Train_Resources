@@ -28,18 +28,18 @@ Research and healthcare professionals based in Africa who are interested in impl
 
 
 
-_[Workshop booklet](booklet)_
+_[Workshop booklet](assets/ECPG_Booklet.pdf)_
 
 
-**[Introduction Day](session plan)**
+**Introduction Day**
 
 
-* [Welcome to the course](slides)
+* [Welcome to the course](assets/ECPG_IntroDay_Slides.pptx.pdf)
 
 
-**[Day 1 - Capacity development overview](session plan)**
+**Day 1 - Capacity development overview**
       
-* [Session 1 - Developing pathogen genomics capacity](slides)                 
+* [Session 1 - Developing pathogen genomics capacity](assets/ECPG_D1S1_slides.pptx.pdf)                 
 * [Session 2 - Practical approaches: specimen, genomics and data infrastructure](slides)     
 * [Session 3 - Practical approaches: translation of genomics into public health intervention](slides)                
 * [Session 4 - Challenges and opportunities: group action planning](slides)            
@@ -47,7 +47,7 @@ _[Workshop booklet](booklet)_
 * [Session 6 - Establishing needs for pathogen genomics skills development](slides)       
 
 
-**[Day 2 - Specimen and sequencing](day plan)**
+**Day 2 - Specimen and sequencing**
 
 
 * [Session 1 - Specimen and data collection and processing](slides)    
@@ -60,7 +60,7 @@ _[Session 4 Toolkit](spreadsheet)_
 * [Session 5 - Design genomics training part 2: specimen to sequencing](slides)        
 
 
-**[Day 3 - Data tools and pipelines](session plan)**
+**Day 3 - Data tools and pipelines**
 
 
 * [Session 1 - Setting up data infrastructure and processes](slides)      
@@ -72,7 +72,7 @@ _[Session 4 Toolkit](spreadsheet)_
 * [Session 5 - Design genomics training part 3: bioinformatics](slides)            
 
 
-**[Day 4 - Frameworks. guidelines and decision-making](session plan)**
+**Day 4 - Frameworks. guidelines and decision-making**
 
 
 * [Session 1 - Frameworks and guidelines for pathogen surveillance and genomics](slides)      
@@ -82,7 +82,7 @@ _[Session 2  Additional resources](resources page)_
 * [Session 3 - Building sustainable models](slides)        
 * [Session 4 - Communication of genomics data and public health decision-making](slides)                     
 
-**[Day 5 - Projects, networks and action plan](session plan)**
+**Day 5 - Projects, networks and action plan**
 
 
 * [Session 1 - Group projects](slides)      
@@ -136,10 +136,9 @@ Shavanthi Rajatileka, Wellcome Sanger Insitute, United Kingdom
 Treasa Creavin, Wellcome Connecting Science, United Kingdom      
   
 ## Course statistics     
-
-**Number of applicants:**
-**Number of participants:**
-**Number of represented countries in the course:**
+             
+**Number of participants:** 30 
+**Number of represented countries in the course:** 25
 
 ******
 Any reuse of the course materials is encouraged with due acknowledgement.
@@ -147,4 +146,4 @@ Any reuse of the course materials is encouraged with due acknowledgement.
 ## License
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
-<!-- ## How to cite    -->
+<!-- ## How to cite    -->     
