@@ -45,7 +45,7 @@ Alumni champions from the Establishing Capacity Pathogen Workshop led the organi
 [COG-Train Community Seminar Event: Advancing Pathogen Genomics Science and Collaboration](https://wcscourses.github.io/COG-Train_Resources/Community.html)
 
 **Site Version:**
-v 3.01.12.23
+v 3.1.01.12.23
 
 
 
