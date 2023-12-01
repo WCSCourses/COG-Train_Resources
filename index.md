@@ -31,18 +31,18 @@ A blended, distributed classroom model was used to increase the reach and impact
 
 A workshop to discuss and strengthen pathogen genomics capacity in Africa was delivered in May 2023 in Addis Ababa, Ethiopia. The workshop enabled the networking and learning training of 30 participants from 25 African countries. Here you will find the key materials produced for this workshop:
 
-[Establishing Capacity in Pathogen Genomics Workshop 2023](https://wcscourses.github.io/COG-Train_Resources/ECPG.html)
+* [Establishing Capacity in Pathogen Genomics Workshop 2023](https://wcscourses.github.io/COG-Train_Resources/ECPG.html)
 
 We also piloted an English-Portuguese approach to develop a course in partnership with Institute Gonçalo Moniz FIOCRUZ-BA. The in-person course was delivered in Portuguese between 30 October and 1 November 2023 in Salvador, Brazil. Key course materials (Portuguese) and additional resources (English-Portuguese)  are shared in this repository:
 
 
-_[Bioinformática Decodificada: A Jornada do Iniciante à Genômica de Patógenos](https://wcscourses.github.io/COG-Train_Resources/IGM_B4B.html)_
+_* [Bioinformática Decodificada: A Jornada do Iniciante à Genômica de Patógenos](https://wcscourses.github.io/COG-Train_Resources/IGM_B4B.html)_
 
 ## Webinars
 
 Alumni champions from the Establishing Capacity Pathogen Workshop led the organisation of a webinar to promote the networking of the pathogen genomics community. The seminar presented talks and poster presentations using the interactive platform Gather Town.
 
-[COG-Train Community Seminar Event: Advancing Pathogen Genomics Science and Collaboration](https://wcscourses.github.io/COG-Train_Resources/Community.html)
+* [COG-Train Community Seminar Event: Advancing Pathogen Genomics Science and Collaboration](https://wcscourses.github.io/COG-Train_Resources/Community.html)
 
 **Site Version:**
 v 3.1.01.12.23
