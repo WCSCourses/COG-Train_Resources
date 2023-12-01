@@ -1,4 +1,4 @@
-# ESTABLISHING CAPACITY FOR PATHOGEN GENOMICS
+# ESTABLISHING CAPACITY FOR PATHOGEN GENOMICS WORKSHOP
 
 ![Participants of the Establishing Capacity for Pathogen Genomics 2023](images/ECPG.png)
 
@@ -26,8 +26,6 @@ Research and healthcare professionals based in Africa who are interested in impl
 ## Content
 
 
-
-
 _[Workshop booklet](assets/ECPG_Booklet.pdf)_
 
 
@@ -40,56 +38,48 @@ _[Workshop booklet](assets/ECPG_Booklet.pdf)_
 **Day 1 - Capacity development overview**
       
 * [Session 1 - Developing pathogen genomics capacity](assets/ECPG_D1S1_slides.pptx.pdf)                 
-* [Session 2 - Practical approaches: specimen, genomics and data infrastructure](slides)     
-* [Session 3 - Practical approaches: translation of genomics into public health intervention](slides)                
-* [Session 4 - Challenges and opportunities: group action planning](slides)            
-* [Session 5 - Design genomics training part 1: training design elements](slides)      
-* [Session 6 - Establishing needs for pathogen genomics skills development](slides)       
+* [Session 2 - Practical approaches: specimen, genomics and data infrastructure](assets/ECPG_D1S2_slides.pptx.pdf)     
+* [Session 3 - Practical approaches: translation of genomics into public health intervention](assets/ECPG_D1S3_slides.pptx.pdf)         * [Session 4 - Challenges and opportunities: group action planning](assets/ECPG_D1S4_slides.pptx.pdf)            
+* [Session 5 - Design genomics training part 1: training design elements](assets/ECPG_D1S5_slides.pptx.pdf)      
+* [Session 6 - Establishing needs for pathogen genomics skills development](assets/ECPG_D1S6_slides.pptx.pdf)       
 
 
 **Day 2 - Specimen and sequencing**
 
 
-* [Session 1 - Specimen and data collection and processing](slides)    
-_[Session 1  Additional resources](resources page)_   
-* [Session 2 - Molecular microbiology](slides)      
-_[Session 2  Additional resources](resources page)_   
-* [Session 3 - Setting up genomic sequencing infrastructure](slides)           
-* [Session 4 - Translating to your own context part 1: sample to sequencing](slides)    
-_[Session 4 Toolkit](spreadsheet)_        
-* [Session 5 - Design genomics training part 2: specimen to sequencing](slides)        
+* [Session 1 - Specimen and data collection and processing](assets/ECPG_D2S1_slides.pptx.pdf)      
+* [Session 2 - Molecular microbiology](assets/ECPG_D2S2_slides.pptx.pdf)      
+* [Session 3 - Setting up genomic sequencing infrastructure](assets/ECPG_D2S3_slides.pptx.pdf)           
+* [Session 4 - Translating to your own context part 1: sample to sequencing](assets/ECPG_D2S4_slides.pptx.pdf)    
+      _[Session 4 Toolkit](assets/ECPG_D2_toolkit.xlsx)_        
+* [Session 5 - Design genomics training part 2: specimen to sequencing](assets/ECPG_D2S5_slides.pptx.pdf)        
 
 
 **Day 3 - Data tools and pipelines**
 
 
-* [Session 1 - Setting up data infrastructure and processes](slides)      
-* [Session 2 - Data workflows for analysis and interpretation](slides)      
-* [Session 3 - Data science for public health tools](slides)     
-_[Session 3  Additional resources](resources page)_      
-* [Session 4 - Translating to your own context - Data](slides)   
-_[Session 4 Toolkit](spreadsheet)_        
-* [Session 5 - Design genomics training part 3: bioinformatics](slides)            
+* [Session 1 - Setting up data infrastructure and processes](assets/ECPG_D3S1_slides.pptx.pdf)      
+* [Session 2 - Data workflows for analysis and interpretation](assets/ECPG_D3S2_slides.pptx.pdf)      
+* [Session 3 - Data science for public health tools](assets/ECPG_D3S3_slides.pptx.pdf)          
+* [Session 4 - Translating to your own context - Data](assets/ECPG_D3S4_slides.pptx.pdf)   
+      _[Session 4 Toolkit](assets/ECPG_D3_toolkit.xlsx)_        
+* [Session 5 - Design genomics training part 3: bioinformatics](assets/ECPG_D3S5_slides.pptx.pdf)            
 
 
 **Day 4 - Frameworks. guidelines and decision-making**
 
 
-* [Session 1 - Frameworks and guidelines for pathogen surveillance and genomics](slides)      
-_[Session 1  Additional resources](resources page)_ 
-* [Session 2 - Ethics for specimen and data sharing](slides)    
-_[Session 2  Additional resources](resources page)_      
-* [Session 3 - Building sustainable models](slides)        
-* [Session 4 - Communication of genomics data and public health decision-making](slides)                     
+* [Session 1 - Frameworks and guidelines for pathogen surveillance and genomics](assets/ECPG_D4S1_slides.pptx.pdf)      
+* [Session 2 - Ethics for specimen and data sharing](assets/ECPG_D4S2_slides.pptx.pdf)    
+* [Session 3 - Building sustainable models](assets/ECPG_D4S3_slides.pptx.pdf)        
+* [Session 4 - Communication of genomics data and public health decision-making](assets/ECPG_D4S4_slides.pptx.pdf)                     
 
 **Day 5 - Projects, networks and action plan**
 
 
-* [Session 1 - Group projects](slides)      
-* [Session 2 - Networking and mentorship](slides)      
-* [Session 3 - Course wrap-up](slides)        
-
-**[Course additional resources](resources page)**
+* [Session 1 - Group projects](assets/ECPG_D5S1_slides.pptx.pdf)      
+* [Session 2 - Networking and mentorship](assets/ECPG_D5S2_slides.pptx.pdf)      
+* [Session 3 - Course wrap-up](assets/ECPG_D5S3_slides.pptx.pdf)        
 
 ## Training team
 
@@ -137,8 +127,8 @@ Treasa Creavin, Wellcome Connecting Science, United Kingdom
   
 ## Course statistics     
              
-**Number of participants:** 30 
-**Number of represented countries in the course:** 25
+**Number of participants:** 30      
+**Number of represented countries in the course:** 25                   
 
 ******
 Any reuse of the course materials is encouraged with due acknowledgement.
