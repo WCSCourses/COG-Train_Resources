@@ -26,7 +26,7 @@ Dr Arporn (Koi) Wangwiwatsin, Khon Kaen University, Thailand
 [Brucella genomics in Costa Rica: a path of learning from scratch to networking](assets/MarcelaEsquivel.pdf)                      
 Dr Marcela Suárez-Esquivel, National University of Costa Rica, Costa Rica
 
-Africa Pathogen Genomics Initiative (PGI) Priority Pathogens
+Africa Pathogen Genomics Initiative (PGI) Priority Pathogens                    
 Dr Francis Chikuse, Africa CDC
 
 **Resources**
