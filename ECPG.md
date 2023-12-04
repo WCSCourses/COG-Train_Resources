@@ -39,7 +39,8 @@ _[Workshop booklet](assets/ECPG_Booklet.pdf)_
       
 * [Session 1 - Developing pathogen genomics capacity](assets/ECPG_D1S1_slides.pptx.pdf)                 
 * [Session 2 - Practical approaches: specimen, genomics and data infrastructure](assets/ECPG_D1S2_slides.pptx.pdf)     
-* [Session 3 - Practical approaches: translation of genomics into public health intervention](assets/ECPG_D1S3_slides.pptx.pdf)         * [Session 4 - Challenges and opportunities: group action planning](assets/ECPG_D1S4_slides.pptx.pdf)            
+* [Session 3 - Practical approaches: translation of genomics into public health intervention](assets/ECPG_D1S3_slides.pptx.pdf)
+* [Session 4 - Challenges and opportunities: group action planning](assets/ECPG_D1S4_slides.pptx.pdf)            
 * [Session 5 - Design genomics training part 1: training design elements](assets/ECPG_D1S5_slides.pptx.pdf)      
 * [Session 6 - Establishing needs for pathogen genomics skills development](assets/ECPG_D1S6_slides.pptx.pdf)       
 
