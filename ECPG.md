@@ -81,16 +81,25 @@ _[Workshop booklet](assets/ECPG_Booklet.pdf)_
 * [Session 2 - Networking and mentorship](assets/ECPG_D5S2_slides.pptx.pdf)      
 * [Session 3 - Course wrap-up](assets/ECPG_D5S3_slides.pptx.pdf)        
 
-## Training team
+## Organisers
 
-**Instructors and facilitators**
+Abebe Asefa, Ethiopian Public Health Insitute, Ethiopia          
+Alice Matimba, Wellcome Connecting Science, United Kingdom        
+Harris Onywera, Africa CDC Insitute of Pathogen Genomics, Ethiopia
+Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom      
+Leigh Jackson, University of Exeter, United Kingdom      
+Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom      
+Melanie Sharpe, Wellcome Connecting Science, United Kingdom      
+Treasa Creavin, Wellcome Connecting Science, United Kingdom   
+
+## Facilitators
 
 Amadou Diallo, Institut Pasteur de Dakar, Senegal               
 Aquilla Kanzi, African Society for Laboratory Medicine, Ethiopia                  
 Brenda Kwambana, Malawi Liverpool Wellcome Trust, Malawi              
 Fatma Guerfali, Institut Pasteur de Tunis, Tunisia         
 Fatuma Guleid, Kenya Medical Research Institute, Kenya     
-Francis Chikuse, Africa Centre for Disease Control and Prevention, Namibia            
+Francis Chikuse, Africa Centre for Disease Control and Prevention, Ethiopia            
 George Githinji,  Kenya Medical Research Institute, Kenya            
 Harris Onywera, Africa CDC Insitute of Pathogen Genomics, Ethiopia          
 John Tembo, HerpeZ, Zambia               
@@ -100,35 +109,23 @@ Kirsty Lee Garson, University of Cape Town, South Africa
 Linzy Elton, University College London, United Kingdom              
 Luria Leslie Founou, CEDBCAM-RI, Cameroon         
 Sam Oyola, International Livestock Research Institute, Kenya             
+Shavanthi Rajatileka, Wellcome Sanger Insitute, United Kingdom 
 Stanford Kwenda, National Institute for Communicable Diseases, South Africa              
 Tapfumanei Mashe, National Microbiology Research Laboratory, Zimbabwe              
 
-**Honorable guest speakers**
+<! -- ## Guest speakers**
 
 Alan Christofels, Public Health Alliance for Genomic Epidemiology, South Africa               
 Dawit Wolday, Ethiopian Public Health Institute, Ethiopia        
 Getachew Tollera, Ethiopian Public Health Institute, Ethiopia           
-Mebratu Messebo, Ethiopian Public Health Institute, Ethiopia           
 Messay Hailu, Ethiopian Public Health Institute, Ethiopia          
-Mohammed Rameto, Ethiopian Public Health Institute, Ethiopia       
-Naod Wendrad, Ministry of Health, Ethiopia         
-Saro Abdella, Ethiopian Public Health Institute, Ethiopia           
-
-**Organisers**
-
-Abebe Asefa, Ethiopian Public Health Insitute, Ethiopia          
-Alice Matimba, Wellcome Connecting Science, United Kingdom           
-Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom      
-Leigh Jackson, University of Exeter, United Kingdom      
-Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom      
-Melanie Sharpe, Wellcome Connecting Science, United Kingdom      
-Shavanthi Rajatileka, Wellcome Sanger Insitute, United Kingdom         
-Treasa Creavin, Wellcome Connecting Science, United Kingdom      
+Mohammed Rameto, Ethiopian Public Health Institute, Ethiopia              
+Saro Abdella, Ethiopian Public Health Institute, Ethiopia         -->  
   
 ## Course statistics     
              
-**Number of participants:** 30      
-**Number of represented countries in the course:** 25                   
+**Number of participants:** 30 from 25 African countries         
+**Number of facilitators:** 26 from 9 countries      
 
 ******
 Any reuse of the course materials is encouraged with due acknowledgement.
