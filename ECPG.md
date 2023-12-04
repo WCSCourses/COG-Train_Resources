@@ -86,7 +86,7 @@ _[Workshop booklet](assets/ECPG_Booklet.pdf)_
 
 Abebe Asefa, Ethiopian Public Health Insitute, Ethiopia          
 Alice Matimba, Wellcome Connecting Science, United Kingdom        
-Harris Onywera, Africa CDC Insitute of Pathogen Genomics, Ethiopia
+Harris Onywera, Africa CDC Insitute of Pathogen Genomics, Ethiopia            
 Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom      
 Leigh Jackson, University of Exeter, United Kingdom      
 Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom      
