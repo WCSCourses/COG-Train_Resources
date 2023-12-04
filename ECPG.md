@@ -113,15 +113,6 @@ Sam Oyola, International Livestock Research Institute, Kenya
 Shavanthi Rajatileka, Wellcome Sanger Insitute, United Kingdom 
 Stanford Kwenda, National Institute for Communicable Diseases, South Africa              
 Tapfumanei Mashe, National Microbiology Research Laboratory, Zimbabwe              
-
-<! -- ## Guest speakers**
-
-Alan Christofels, Public Health Alliance for Genomic Epidemiology, South Africa               
-Dawit Wolday, Ethiopian Public Health Institute, Ethiopia        
-Getachew Tollera, Ethiopian Public Health Institute, Ethiopia           
-Messay Hailu, Ethiopian Public Health Institute, Ethiopia          
-Mohammed Rameto, Ethiopian Public Health Institute, Ethiopia              
-Saro Abdella, Ethiopian Public Health Institute, Ethiopia         -->  
   
 ## Course statistics     
              
