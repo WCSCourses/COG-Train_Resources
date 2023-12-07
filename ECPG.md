@@ -110,7 +110,7 @@ Kirsty Lee Garson, University of Cape Town, South Africa
 Linzy Elton, University College London, United Kingdom              
 Luria Leslie Founou, CEDBCAM-RI, Cameroon         
 Sam Oyola, International Livestock Research Institute, Kenya             
-Shavanthi Rajatileka, Wellcome Sanger Insitute, United Kingdom 
+Shavanthi Rajatileka, Wellcome Sanger Insitute, United Kingdom            
 Stanford Kwenda, National Institute for Communicable Diseases, South Africa              
 Tapfumanei Mashe, National Microbiology Research Laboratory, Zimbabwe              
   
