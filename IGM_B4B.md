@@ -31,6 +31,7 @@ This course is targeted at students, researchers and professionals dedicated to 
 The course material is available in Portuguese only
 
 [Course material repository](https://github.com/khourious/IGM-TRAIN)
+[Course lectures - YouTube playlist]([https://www.youtube.com/playlist?list=PL51nPOKxSjqgqaxipmHRNvZwrAxHc_1u7](https://youtube.com/playlist?list=PL51nPOKxSjqgqaxipmHRNvZwrAxHc_1u7&feature=shared)
 
 # Training team
 
