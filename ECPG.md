@@ -125,4 +125,6 @@ Any reuse of the course materials is encouraged with due acknowledgement.
 ## License
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Creative Commons Attribution-NonComecial-ShareAlike 4.0 International License</a>.
 
-<!-- ## How to cite    -->     
+## How to cite   
+
+COG-Train. (2023). Establishing Capacity for Pathogen Genomics 2023. Zenodo. https://doi.org/10.5281/zenodo.11108958
