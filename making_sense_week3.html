@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>making_sense_week3</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COG-Train_Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-file-lines"></span>
+     
+    Course Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Virtual Courses</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viral Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="vbioinfasia.html">VBioinf2022 Asia</a>
+        </li>
+        <li>
+          <a href="vbioinflac.html">VBioinf2022 LAC</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOCs</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Power of Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="power_of_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Swab to Server</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="swab_to_server_home.html">Home</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Making Sense</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="making_sense_home.html">Home</a>
+        </li>
+        <li>
+          <a href="making_sense_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="making_sense_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="making_sense_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Practical Guide</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="practical_guide_home.html">Home</a>
+        </li>
+        <li>
+          <a href="practical_guide_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="practical_guide_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="practical_guide_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pathogen Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="pathogen_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Hybrid Course</li>
+    <li>
+      <a href="scvo2b4b.html">SARS-CoV-2 B4B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">In Person Courses</li>
+    <li>
+      <a href="ECPG.html">Pathogen Genomics Capacity</a>
+    </li>
+    <li>
+      <a href="IGM_B4B.html">Bioinformática Decodificada</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Webinars</li>
+    <li>
+      <a href="Community.html">COG-Train Community</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Team
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cogteam.html">COG-Train Team</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/WCSCourses/COG-Train_Resources">
+    <span class="fa fa-brands fa-github"></span>
+     
+    Github
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="introduction-to-genomic-epidemiology-of-covid-19"
+class="section level1">
+<h1>INTRODUCTION TO GENOMIC EPIDEMIOLOGY OF COVID-19</h1>
+<p><img src="images/OC3_W3_cover.png" /><br />
+<sub><span class="citation">@Canva</span></sub></p>
+</div>
+<div id="the-importance-of-sample-and-data-consent"
+class="section level1">
+<h1>The importance of sample and data consent</h1>
+<!-- 3-2 -->
+<p>The major threat to global public health that SARS-CoV2 presented led
+to an unprecedented pace of much-needed research and vaccine
+development. This simultaneously meant the acceleration of ethical
+procedures that inform research and the performance of controversial
+studies e.g. controlled human infection studies (CHIs), where purposeful
+infection with COVID-19 to study its mechanism of infection is
+performed. Such research raised concern with regard to the ethical,
+legal, social and clinical implications of infecting healthy volunteers,
+where due process in any research is mandatory to consider the safety of
+the participant.</p>
+<p>In general, genomics research involving human samples raises a number
+of ethical challenges such as consent, privacy, and the collection,
+storage and release of genomic data. In order to obtain valid consent
+from individuals involved in genomics and medical research, including
+SARS-CoV-2 and COVID-19 research, they must be adequately informed and
+the research must be understood, undertaken voluntarily, and provided by
+someone competent to do so.</p>
+<p>Challenges exist in the designing and implementation of consent
+processes in regions with lower literacy levels. The provision of
+appropriate information in a comprehensible manner in genomics research
+is a critical challenge, as concepts around “genetics”, “genomics” and
+“data release” are complex to explain. Linking these concepts to more
+accessible levels of knowledge (e.g. that facial traits are inherited in
+families) may assist in narrowing this challenge. However, ensuring that
+all aspects of the genomics research are explained in this manner to
+obtain valid consent remains a critical obstacle.</p>
+<p>Another ethical issue around sample and data consent is that the
+information produced from this research may affect additional people
+other than the participating individual. Privacy protection measures
+exist where personal identifiers are removed from genomic data, lowering
+the risk of revealing personal information. Yet, it is still possible
+for potentially stigmatising information about populations, communities
+or families to be revealed, which may have direct adverse effects on the
+individuals that consented to be involved, and indirectly on those with
+a relation to them.</p>
+<p>These issues need to be addressed when designing consent processes
+for genomics research, even when faced with periods of emergency like
+the COVID-19 pandemic. Measures have been developed as guidelines
+through the collaborative development of informed consent document (ICD)
+templates. These are developed by and for genomics researchers in
+consultation with ethics committees, whereby discussions on consent
+procedures, challenges and best practices with researcher collaboration,
+participant privacy and safety, samples and data storage and so forth,
+take place.</p>
+<p><strong>Ethics review</strong></p>
+<p>Genomics research needs to obtain ethics approval from the relevant
+committees prior to the commencement of research. The review of genomics
+research can be challenging as the comprehension of the science may be
+difficult; the nature of the studies being hypothesis-generating rather
+than hypothesis-testing is complex. Teams must also consider how to
+generate a large amount of data that can be analysed numerous times in
+various ways, and which may also be shared amongst research groups.</p>
+<p>These are the main points of consideration that have been raised by
+ethics committees when assessing genomics studies:</p>
+<ul>
+<li>Ensuring participants give valid informed consent.<br />
+</li>
+<li>Justification of exporting samples and procedures pertaining to the
+return or destruction of samples at the conclusion of the project.<br />
+</li>
+<li>Ensuring the appropriate recognition of collaborative or local
+investigators and their contributions.<br />
+</li>
+<li>Ensuring no harm will be brought to participating individuals or
+populations.<br />
+</li>
+<li>Ways to assign benefits to the collaborating researchers or
+communities involved.</li>
+</ul>
+<p>There are additional significant issues to review when obtaining
+valid consent for genomics research, which involves the importance of
+privacy protection. All personal identifiers that link an individual to
+genomic datasets must be removed, in order to reduce the risk of
+identification and to ensure anonymity. When performing large-scale
+collaborative research, such as the international efforts in the
+COVID-19 pandemic, ethics approval from a multitude of global committees
+is undoubtedly necessary. Due to the complexity of issues of consent and
+privacy, with different continents, countries, states and even
+institutions having varying requirements, there are major challenges in
+genomics research.</p>
+<p><strong>Further reading</strong></p>
+<p><a href="http://dx.doi.org/10.1136/medethics-2020-106504">SARS- CoV-
+2 challenge studies: ethics and risk minimisation</a></p>
+<p><a href="https://doi.org/10.5334/dsj-2017-049">Genomic research data
+generation, analysis and sharing – challenges in the African
+setting</a></p>
+<p><a href="https://doi.org/10.1038/ejhg.2009.191">Ethical implications
+of the use of whole-genome methods in medical research</a></p>
+<p><a href="https://doi.org/10.1186/1472-6939-12-5">Ethical issues in
+human genomics research in developing countries</a></p>
+<p><a href="https://doi.org/10.1371/journal.pmed.0050192">Informed
+Consent in the Genomics Era</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="ethics-in-data-sharing" class="section level1">
+<h1>Ethics in data sharing</h1>
+<!-- 3-3 -->
+<p>Over the past two decades, major advances in the molecular, cell
+biology and biotechnology research fields can be attributed to the
+pooled efforts of research teams and consortiums globally. Much of this
+collaboration is dependent on data sharing between researchers, which
+maximises the use of data generated. However, data sharing itself
+introduces new ethical considerations pertaining to informed consent,
+intellectual property, and ethical review standards. Given the sensitive
+nature of biological data, this article highlights the importance of
+ethics in data sharing.</p>
+<p>Informed consent is a vital part of ethical research, ensuring that
+participants are not harmed or exploited. However, since widespread data
+sharing has become necessary for scientific innovation, concerns
+regarding the gaps in previous informed consent models have developed.
+Mainly that <em>(i)</em> data sharing can endanger the privacy of
+participant information, and <em>(ii)</em> current informed consent
+models do not account for the downstream uses of data that is stored or
+shared through biobanks. This means that new elements i.e., the concept
+of data sharing, awareness of the appropriate ethical authorities and
+boards, reasons for storing data/samples and timelines of how long
+data/samples can be stored in biobanks should be explained to
+participants. Beyond comprehension of the research parameters, informed
+consent should now also include continuous communication with
+participants at different parts of the research process. This will help
+facilitate trust in the research process.</p>
+<p>Re-use of data benefits researchers by overcoming barriers to access
+to experimental data, reducing costs and leaving room to explore
+research questions that may only come up in future. On a wider scale,
+reluctance to share data slows down the progress of socially beneficial
+breakthroughs such as the development of new therapies and vaccines.
+Yet, the underlying ethical obstacle, in this case, is fairness, equity,
+and ownership of intellectual property in data sharing. Once data is
+made public, researchers that have access to better technologies are at
+an advantage in ownership, as they can analyse data and publish results
+faster. When two labs in one region have access to the same data, the
+issue of ownership can be attributed to the competition: however, when
+sharing data between resource-rich and resource-poor countries, the
+latter risk exploitation due to a lack of access to high-speed analysis
+technologies. This is a problem that requires the active participation
+of ethical review boards to mitigate unfair collaboration practices.</p>
+<p>Ethics committees maintain and drive the standard for ethical
+research. Because the propensity for innovation in biosciences through
+data sharing is beneficial, there is a need for ethics boards to review
+access to shared data/samples. Data access committees determine the
+legal, ethical, and scientific eligibility of researchers requesting
+data/samples from biobanks. This eligibility could include the context
+of the researcher’s work to make sure it is relevant to their outcomes,
+as well as its applications pertinent to the needs of the community that
+the research group would serve. The process of developing quality
+ethical review will also have to develop alongside the practice of data
+sharing, as new challenges emerge.</p>
+<p>Data sharing in the scientific community has multiple benefits and
+shows promise in advancing knowledge and innovation in the bioscience
+and medical fields. This makes the appropriate measures for data sharing
+an important subject, as ethical standards for data sharing will prevent
+harm and promote fairness that benefits researchers and the communities
+they serve.</p>
+<p><strong>Further reading</strong></p>
+<p><a href="http://doi.org/10.5334/dsj-2017-049">Genomic Research Data
+Generation, Analysis and Sharing – Challenges in the African
+Setting</a></p>
+<p><a href="https://doi.org/10.1038/s41576-020-0257-5">Responsible,
+practical genomic data sharing that accelerates research</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="metadata-standardisation-and-collection-tools"
+class="section level1">
+<h1>Metadata: standardisation and collection tools</h1>
+<!-- 3-4 -->
+<div class="float">
+<img src="images/OC3_3-4_Fig1.png"
+alt="An interesting-looking graph with incomplete labelling" />
+<div class="figcaption">An interesting-looking graph with incomplete
+labelling</div>
+</div>
+<p><em>Source: <a
+href="https://foxhugh.files.wordpress.com/2012/02/graph_20060627_lg.jpg">Hugh
+Fox III</a></em></p>
+<p><a href="images/OC3_3-4_Fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_Fig45_alt-text.pdf">Download Figure 1 alt-text
+here</a></p>
+<p>Imagine coming across this interesting-looking graph in Figure 1
+above, but not knowing exactly what it’s trying to show you. The heading
+which read: “Competitive Eating Records” has been cropped off, and there
+are missing y-axis labels which should have shown that the yellow bars
+were the total weight of food ingested (kg) and the blue bars were the
+rate of ingestion (kg/min).</p>
+<p>This illustrates that even if you have the best quality data if your
+data has no context, you have no story.</p>
+<p>So what exactly is metadata, and why is it important?</p>
+<p>It is now easier than ever to access millions of sequenced datasets
+deposited in public databases. This <a
+href="https://doi.org/10.1007/s12551-018-0490-8">mining of data</a>
+enables us to do extensive meta-analyses to gain new and unexpected
+insights into the underlying biological mechanisms across viruses and
+the tree of life.</p>
+<p>However, this process is often hindered by a lack of accompanying
+metadata. <a
+href="https://doi.org/10.1186/s13059-021-02332-z">Metadata</a> comprises
+any data that describes the sample type, collection procedure,
+extraction, assay methods used, analysis with the chosen parameters,
+filtering steps, quality control, reporting of software versions, as
+well as any other phenotypic descriptions.</p>
+<p>Most of the time, some metadata is provided during data submissions,
+but this metadata is often unstandardized. A <a
+href="https://doi.org/10.1007/s12551-018-0490-8">standardised format</a>
+implies that there is a checklist which necessitates that a minimum
+amount of metadata must accompany the data and that free text is limited
+in favour of a controlled vocabulary.</p>
+<p>The COVID-19 pandemic has especially highlighted <a
+href="https://doi.org/10.1038/s41597-020-0524-5">how necessary it is to
+have informed data</a>. Metadata such as the time and the place where
+the samples were collected, which may have not been as important to
+genomic datasets before, suddenly became crucial. Many repositories such
+as <a href="https://www.ncbi.nlm.nih.gov/geo/">GEO</a> and <a
+href="https://www.ebi.ac.uk/ena/browser/home">ENA</a> now require
+research teams to use a metadata sheet with compulsory fields that must
+be populated when submitting data. Extensive efforts have also been made
+towards both manual curation and the automated assignment of metadata,
+through natural language processing (NLP) and the <a
+href="https://doi.org/10.1186/s13059-021-02332-z">use of machine
+learning models</a>.</p>
+<p>Describing the WHO, WHAT, HOW, WHERE, and WHEN of genomic data also
+contributes to the findable, accessible, interoperable and reproducible
+<a href="https://doi.org/10.1038/sdata.2016.18">(FAIR)</a> guiding
+principles, to support the reuse of scientific data, and very
+importantly, it helps to inform public health responses.</p>
+<p>Although we acknowledge the importance of accompanying genomic data
+with the appropriate metadata, we also have to be cognizant of the fact
+that the collection, anonymisation, storage and access to this data have
+to be carefully managed in a way that protects the donors. <a
+href="https://doi.org/10.1016/j.jbi.2021.103900">Submitting a data
+management plan as part of the research plan has therefore become an
+increasingly standard procedure</a>.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="ownership-of-analyses-tools-and-pipelines"
+class="section level1">
+<h1>Ownership of analyses tools and pipelines</h1>
+<!-- 3-5 -->
+<p>Bioinformatics provides tools to catalogue, analyse and manage
+biological research data and information, through tools like algorithms,
+databases and software. Accessibility to these tools is essential for
+the advancement of genomic research and the development of the
+bioinformatics discipline. It is important for investors and developers
+of these tools to be acknowledged, ensuring they receive their credit
+where it is due, which in turn encourages continued innovation and
+investment.</p>
+<p>Intellectual Property Rights (IPRs) is a model that ensures the
+protection of developers and economic incentives for investors. However,
+conflicts arise with the open and collaborative nature of
+bioinformatics. Intellectual interactions between the developers and
+research scientists using these tools or bioinformatics pipelines are
+essential to the successful reporting of results in publications and
+warrant the appropriate acknowledgements. If the research involves
+bioinformaticians that contribute to novel work, insight and advanced
+data analysis contributing to publications, this requires co-authorship
+and acknowledgement of the value of the contributor.</p>
+<p>Acknowledging the ownership of analysis tools and pipelines is
+recommended for:</p>
+<ul>
+<li>Substantive contributions to the research project through its
+conception, design or the input of original ideas;<br />
+</li>
+<li>Acquisition of data, its analysis and interpretation through the use
+of tools beyond routine practices;<br />
+</li>
+<li>Intellectual contribution to the manuscript through critical
+delivery of the content, such as the methodology involved in the use of
+the pipeline.</li>
+</ul>
+<p><strong>Further reading</strong></p>
+<p><a href="https://www.abrf.org/authorship-guidelines">Association of
+Biomolecular Resource Facilities (ABRF) Recommended Guidelines for
+Authorship on Manuscripts</a></p>
+<p><a
+href="https://ris.org.in/sites/default/files/2021-09/ABDR%20Nov-2014.pdf">Intellectual
+Property Protection in Bioinformatics and Open Bio Development</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="best-practices-for-data-sharing" class="section level1">
+<h1>Best practices for data sharing</h1>
+<!-- 3-7 -->
+<p>Today you can sequence the SARS-CoV-2 genome within hours once a case
+of COVID-19 positive is identified. This has enabled the creation of
+molecular diagnostic assays, improved global preparedness, and
+countermeasures, the development of vaccines and the prediction of newly
+emerging variants during the pandemic. Virus genome sequencing and
+predicting lineages also contribute to understanding the dynamics of
+viral epidemics and evaluating the efficacy of control measures.</p>
+<p>With the rapid sharing of the genome sequence data, accurate
+anonymized epidemiological and clinical metadata will have a positive
+impact on public health and maximise the impact of genomic sequencing in
+the public health response. There are several factors that are to be
+considered while sharing, analysing and publishing the sequence data.
+Below are some of the best practices put together by the SARS-CoV-2
+community that can be followed at every laboratory:</p>
+<ul>
+<li>Acknowledgement of those who are involved in collecting clinical
+samples and generating viral genome sequences.<br />
+</li>
+<li>When publicly available data is used, the data source, publications
+and pre-print articles have to be cited where available.<br />
+</li>
+<li>Funders, Journal editors and Peer-reviewers should encourage
+sustained data-sharing.<br />
+</li>
+<li>Sharing the anonymised sample metadata with the genomic sequence
+will lead to the optimal utility of the SARS-CoV-2 genomic
+sequence.<br />
+</li>
+<li>The date and place of sample collection should always be included in
+shared metadata, but extra metadata will considerably expand the
+sequence’s potential applications.<br />
+</li>
+<li>Data about the sample type, how the sequence was obtained, links to
+other sequenced viruses, patient travel history, and demographic or
+clinical information should all be included in metadata where
+available.<br />
+</li>
+<li>When any information is shared, it is important that patient
+anonymity is protected.</li>
+</ul>
+<p><a href="https://www.who.int/publications/i/item/9789240018440">WHO
+guidelines</a> provide recommendations on how to format the data before
+sharing. See some examples of sample-specific metadata format in the
+table below:</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metadata type</th>
+<th>Recommended format if applicable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Date of sample collection</td>
+<td>YYYY-MM-DD</td>
+</tr>
+<tr class="even">
+<td>Location</td>
+<td>Continent/country/region/city</td>
+</tr>
+<tr class="odd">
+<td>Host</td>
+<td>For example, human or mouse</td>
+</tr>
+<tr class="even">
+<td>Patient age</td>
+<td>For humans, give an age in years (e.g. 65) or age with the unit if
+under 1 year (e.g. 1 month, 7 weeks)</td>
+</tr>
+<tr class="odd">
+<td>Sex</td>
+<td>Male, female or unknown</td>
+</tr>
+<tr class="even">
+<td>Additional host information</td>
+<td>No standard format - for animals, this may include context, such as
+“domestic - farm”, “domestic - household”, “wild”, etc.</td>
+</tr>
+<tr class="odd">
+<td>Travel history</td>
+<td>No standard format - travel history in the 14 days preceding symptom
+onset should be obtained from patients where possible</td>
+</tr>
+<tr class="even">
+<td>Cluster or isolate name</td>
+<td>No standard format</td>
+</tr>
+<tr class="odd">
+<td>Date of symptom onset</td>
+<td>YYYY-MM-DD</td>
+</tr>
+<tr class="even">
+<td>Symptoms</td>
+<td>No standard format</td>
+</tr>
+<tr class="odd">
+<td>Clinical outcome if known</td>
+<td>No standard format</td>
+</tr>
+<tr class="even">
+<td>Specimen source, sample type</td>
+<td>No standard format - examples: “sputum”, “blood”, “serum”, “saliva”,
+“stool”, “nasopharyngeal swab”</td>
+</tr>
+</tbody>
+</table>
+<p>Additional Information regarding the sequencing data:</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metadata type</th>
+<th>Recommended format if applicable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sequencing technology</td>
+<td>No standard format - ideally, this should include the laboratory
+approach and sequencing platform (e.g. “Metagenomics on Illumina HiSeq
+2500” or “ARTIC PCR primer scheme on ONT MinION”)</td>
+</tr>
+<tr class="even">
+<td>Assembly method, consensus generation method</td>
+<td>No standard format</td>
+</tr>
+<tr class="odd">
+<td>Minimum sequencing depth required to call sites during consensus
+sequence generation</td>
+<td>e.g. 20x</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Further information</strong></p>
+<p><a href="https://www.youtube.com/watch?v=MbbejpuYd0g">Seminar: What
+are the gaps in knowledge and skills among researchers in LMICs to share
+and use COVID-19 data</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="data-quality-metrics" class="section level1">
+<h1>Data quality metrics</h1>
+<!-- 3-8 -->
+<p><strong>Large-scale sequencing - a limitation to the
+quality</strong></p>
+<p>Since the pandemic began multiple consortiums and collaborations
+between public and private sectors have been established to sequence and
+publish the SARS-CoV-2 genomes in real-time. As of 19th May 2022, there
+were 10,900,329 genome sequences available at <a
+href="https://www.gisaid.org/">GISAID</a> which is the largest number of
+whole-genome sequencing (WGS) carried out for any organism today. Even
+though there is an increased number of WGS that are being carried out,
+there is no universal agreement between different consortia as to what
+quality criteria have to be followed when sequencing or using the
+publicly available SARS-CoV-2 genomes for analysis.</p>
+<p><strong>Multiple laboratories, protocols and strategies are impacting
+the data generated</strong></p>
+<p>Currently, there are several sequencing strategies, with multiple
+protocols that are being used that are conserved for that consortium or
+the country as a whole. Public health laboratories follow their own
+sample selection criteria, library preparation and sequencing platforms,
+bioinformatics workflows, and data interpretation, resulting in
+inconsistent data quality standards and biases among SARS-CoV-2
+sequences generated in public databases.</p>
+<p>While these issues are not unique to public health laboratories,
+providing basic guidance on SARS-CoV-2 sequencing and data-sharing
+practices will improve coordination among laboratories that have been
+conducting sequencing and set expectations for public health
+laboratories that are currently expanding.</p>
+<p><strong>Following WHO standards is the key</strong></p>
+<p>In order to provide clear expectations and a basic standardisation
+across public health laboratories, WHO recommendations and protocols
+should be followed worldwide. The WHO recommendations for the Data
+Quality and Sharing Parameters guidelines are discussed below</p>
+<p><strong>Submission to multiple databases</strong></p>
+<p>Submitting to multiple public databases ensures public health and the
+broader research community access to SARS-CoV-2 sequencing data. To
+support this effort, public health laboratories are encouraged to submit
+SARS-CoV-2 consensus assemblies to the GISAID EpiCoV™ repository, the
+National Library of Medicine’s National Center for Biotechnology
+Information (NCBI), GenBank, and the NCBI Sequence Read Archive
+(SRA).</p>
+<p><strong>Best Practices for Quality Control</strong></p>
+<p>Quality control is the essential first step in the analysis of
+sequencing data before being used in any study. Several useful tools are
+available to help detect ambiguous bases, indels and frameshifts,
+including the <a
+href="https://docs.nextstrain.org/projects/nextclade/en/stable/user/algorithm/07-quality-control.html">Nextclade
+QC</a> metric feature, <a
+href="https://cov-glue.cvr.gla.ac.uk/">CoV-GLUE</a> and <a
+href="https://cov-lineages.org/">Pangolin</a> that can be used to
+evaluate the assemblies for basic quality metrics. QC methods can be
+carried out at several stages to identify multiple characteristics that
+may be linked to low-quality sequences.</p>
+<ul>
+<li>Removing sequences with ambiguous bases, indels or frameshifts based
+on unaligned/aligned sequences.<br />
+</li>
+<li>Removing sequences with &gt; 10% Ns in regions of interest may be
+appropriate in the first instance.<br />
+</li>
+<li>Sequences with suspected underlying sequencing errors (for example,
+induced by misassemblies) should be investigated, and usually
+removed.<br />
+</li>
+<li>Sequencing errors can manifest as high divergence compared with
+other sequences or as high numbers of substitutions in short regions
+that may indicate local misassemblies.<br />
+</li>
+<li>High numbers of non-ACGTN bases may be indicative of mixed viral
+populations as a result of contamination.<br />
+</li>
+<li>The sequences should have 90% or greater genome coverage.</li>
+</ul>
+<p><strong>Further reading</strong></p>
+<p><a href="https://www.who.int/publications/i/item/9789240018440">WHO
+Genomic sequencing of SARS-CoV-2: a guide to implementation for maximum
+impact on public health</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="pros-and-cons-of-public-databases-for-data-sharing"
+class="section level1">
+<h1>Pros and cons of public databases for data sharing</h1>
+<!-- 3-9 -->
+<p>The collaborative nature of bioinformatics and genomics research
+requires openness and data sharing amongst scientists, researchers and
+innovators. Bioinformatics databases represent organised bodies of data
+associated with computer software designed to update, query and retrieve
+components of the stored data. Ideally, these databases serve to provide
+easy access to information and facilitate data retrieval for analysis
+and comparative studies.</p>
+<p>Developers of large consortium studies such as the Human Genome
+Project state that data obtained from the research and stored in online
+repositories should be publicly available (e.g. <a
+href="https://www.ncbi.nlm.nih.gov/">National Centre for Biotechnology
+Information, NCBI</a>), on the basis that genomics research acceleration
+relies on the accessibility to this kind of information. In the era of
+COVID-19, open data sharing accelerated COVID-19 research and this
+concept benefitted millions of scientists around the world and was
+essential for a rapid response to the pandemic. However, developers and
+funders of research initiatives have alternative goals of economic
+benefit resulting in the creation of private genomic databases.</p>
+<p>The concept of open science that can be shared and freely used
+provides a useful alternative that assists bioinformaticians and
+scientists overcome the lack of access to their own data - for example
+in African countries, where the limited availability of funding requires
+the generation of experimental data in external institutions that are
+based in high-income countries.</p>
+<p>The advantages involved with open science include the provision of
+opportunities to verify original analyses; address new biological
+questions; the improvement of research reproducibility; enable testing
+of new and secondary hypotheses; develop and evaluation of new methods;
+produce new services through inter- and trans-disciplinary research;
+meta-analyses through the combination of datasets from different sources
+to achieve higher statistical power and new observations. Some cons or
+concerns involved in the practice of open data sharing include:
+endangering the privacy of research participants’ data; downstream uses
+of data not authorised in the initial informed consent retained.</p>
+<p>Several resources are available to address concerns with open science
+such as Data Access Committees (DACs), responsible for the release of
+data to external parties based on legal, ethical and scientific
+eligibility. The data repositories provide the infrastructural solutions
+that enable scientists to use the data in a safe and ethical manner
+while speeding up the transfer of knowledge among researchers across
+scientific fields. A growing number of funding agencies and publishers
+advocate for and enforce data management for open science, however,
+challenges still exist for the proper exploitation of the data. While
+most scientists desire open access to data from others, the same
+enthusiasm is hardly noted in the dissemination of their own data,
+unless the intellectual property is awarded.</p>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://www.embl.org/news/science/open-data-sharing-accelerates-covid-19-research/">Open
+data sharing accelerates COVID-19 research</a></p>
+<p><a href="https://doi.org/10.5334/dsj-2017-049">Genomic research data
+generation, analysis and sharing – challenges in the African
+setting</a></p>
+<p><a
+href="https://ris.org.in/sites/default/files/2021-09/ABDR%20Nov-2014.pdf">Intellectual
+Property Protection in Bioinformatics and Open Bio Development</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="when-and-why-to-obtain-sequencing-data" class="section level1">
+<h1>When and why to obtain sequencing data</h1>
+<!-- 3-11 -->
+<p>As humans, we have an innate ability and even need to spot patterns.
+Psychologists have found that <a
+href="https://doi.org/10.1016/j.neuron.2018.05.013">we use patterns to
+build rules</a> that guide us to make faster and more accurate
+decisions.</p>
+<p>So, what does this have to do with sequencing data? Everything!</p>
+<p>Let’s take a step back. What do we know about SARS-CoV-2? We know
+that it <a href="https://doi.org/10.1126/science.abd2161">accumulates
+~33 mutations per year per genome</a>. These mutations are important
+because we use them to track the spread and evaluate the effectiveness
+of our interventions. They also enable us to classify SARS-CoV-2 into
+lineages, clades and variants and to <a
+href="https://coronavirusexplained.ukri.org/en/article/und0001/">observe
+specific symptoms and the severity of the disease</a>.</p>
+<p>Sequencing data not only gives us insights into the size and growth
+rate of an epidemic but also monitors the evolution and spread of
+variants. In the long term, rapid and large-scale sequencing allows us
+to <a
+href="https://coronavirusexplained.ukri.org/en/article/und0001/">track
+new variants to aid in vaccine development</a>.</p>
+<p>So, we use a collection of sequenced data to spot trends and patterns
+during genomic comparison, so that we can classify data and respond to a
+crisis faster and more accurately than if we did not see a pattern. It
+allows us to make some predictions. Predictions such as, “we are due for
+another viral outbreak.”</p>
+<p><strong>When and why would a laboratory or an individual researcher
+want to obtain sequencing data?</strong></p>
+<p>When you have a biological sample and you do not have prior knowledge
+of where all the significantly expressed regions are, and so you cannot
+design primers to amplify those regions, but you really want to know
+which coding genes are present, which non-coding regions are expressed,
+as well as where all the mutations are across this genome. In this case,
+you can apply whole-genome sequencing.</p>
+<p>If you want to know where all the mutations in the protein-coding
+regions are, you can use whole-exome sequencing. If you are interested
+in which genes are differentially expressed in one sample versus
+another, you might use RNA sequencing. <a
+href="https://doi.org/10.1016/j.preteyeres.2016.06.001">There are many
+types of sequencing and technologies, depending on our research
+questions</a>.</p>
+<p>Another interesting justification for sequencing data is when you
+have a very little amount of sample, severely degraded samples, or a
+mixed sample. This is typically the case in forensics. For <a
+href="https://doi.org/10.1038/s41525-017-0041-4">these types of
+analyses</a>, the conventional PCR approach is not suitable, but
+sequencing can provide valuable insights.</p>
+<p>If you have a hypothesis you wish to test, but you don’t have any
+biological samples of your own, or you have samples, but you just don’t
+have enough to work with. To detect significant effects in your data you
+need a sufficient amount of data points to back it up and to actually
+see the patterns. You need to consider <a
+href="https://blog.minitab.com/en/understanding-statistics/how-much-data-do-you-really-need-check-power-and-sample-size">statistical
+power and sample size</a>.</p>
+<p>You can still do research without generating your own data. Data
+concerning many different sample types, such as virus or
+(micro)organism, geographical location, race, sex, age group and disease
+can be found in free data repositories. This data repository guidance
+from <a
+href="https://www.nature.com/sdata/policies/repositories">Scientific
+Data</a> will guide you to an array of public data repositories that you
+might find useful.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="how-and-where-to-obtain-the-public-data"
+class="section level1">
+<h1>How and where to obtain the public data</h1>
+<!-- 3-12 -->
+<!-- YT https://youtu.be/KSy8o2GpoAI -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/KSy8o2GpoAI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p>In this video, you are going to learn to access publicly available
+SARS-CoV-2 genomes and download them. You will also learn how to
+download the metadata associated with the genomes.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="challenges-and-limitations-of-data-sharing"
+class="section level1">
+<h1>Challenges and limitations of data sharing</h1>
+<!-- 3-13 -->
+<p>In this video, Dr Ewan Harris from Wellcome Sanger Institute shares
+his experiences dealing with legal considerations when sharing data
+among partners from different countries. Read more about the challenges
+and limitations of data sharing in the text below.</p>
+<p><strong>Obstacles to the release of data</strong></p>
+<p>We are living in an unprecedented era of information, leading to
+progress for open access to science and global research data. Funders
+around the world are increasingly mandating good data practices, such as
+data management plans and data sharing, and recognising the importance
+of global collaboration on infrastructure and best practices. Across the
+research community, policy, strategy, and working groups are building
+momentum toward a future in which research data is widely Findable,
+Accessible, Interoperable, and Reusable (FAIR). In this section, we
+discuss a variety of challenges associated with data sharing, such as
+obstacles to the release of data, privacy and confidentiality issues,
+and informed-consent issues.</p>
+<p>There are a variety of challenges associated with data release. Some
+are related to the concerns of the scientists who generated the data,
+some are related to the concerns of businesses or other organisations
+that paid for the data collection, and some are practical issues related
+to data administration.</p>
+<p><strong>Concerns about adversarial science</strong></p>
+<p>Regrettably, research can be highly contentious and confrontational
+at times. For example, industries that profit from the production or use
+of specific chemicals or goods may oppose research and/or data
+indicating that their specific chemicals or goods pose health risks.</p>
+<p><strong>Business considerations related to data sharing</strong></p>
+<p>When deciding whether to share data, businesses always consider a
+variety of factors. Two of the most significant are concerns about
+exposing themselves to liability and other costs, as well as concerns
+about losing the value of confidential business information.</p>
+<p><strong>The business value of data</strong></p>
+<p>There is also the question of who pays for access to data that a
+company has paid for. Regulatory agencies are generally required to
+safeguard the commercial value of data collected by businesses. The most
+important fact is that the data generated by industry researchers have
+commercial value. Companies that collected data deserve and expect to be
+compensated for supplying that data to others; however, where should
+that compensation come from? If another company wants to use the data,
+the answer is obvious; however, if academic researchers want to use the
+data, the answer is less clear.</p>
+<p><strong>Administrative issues</strong></p>
+<p>Data sharing is also complicated by a number of administrative
+issues, one of which is who owns the data. This is especially
+problematic when data has been collected by groups of companies or
+institutions. Other administrative challenges include the fact that
+organisational policies and procedures, as well as logistical issues,
+may differ from one organisation to the next. For example, different
+universities’ institutional review boards may have different rules
+governing data-sharing procedures.</p>
+<p><strong>The cost of Data-sharing</strong></p>
+<p>The cost of extensive data sharing is a major impediment. The issue
+is that most budgets do not cover the costs of data sharing. If data are
+to be made publicly available, the funds to do so must come from
+somewhere, perhaps from direct research support.</p>
+<p><strong>Privacy and confidentiality issues</strong></p>
+<p>One of the barriers to data release is ensuring the privacy of the
+persons whose data has been obtained as much as possible, as some of
+these data, such as medical history data or employment data, can be
+highly sensitive. Organisations are putting plans to share data on hold
+due to concerns over re-identification. A key question is how likely is
+re-identification of subjects in existing data sets that have had the
+obvious personal identifying information removed.</p>
+<p><strong>Informed consent issues</strong></p>
+<p>Before an individual can take part in a scientific or medical
+research study, it is generally necessary for that person to provide
+“informed consent.” The problem is that when you ask someone for
+consent, especially broad consent, neither the requestor nor the person
+being sought has any idea what that means in terms of how it will be
+utilised because we do not know what it will be used for down the road.
+The second point is that when people asked for consent a long time ago,
+we knew that consent meant you were not going to provide anything to
+someone else, but as long as we removed your name from it, it was
+fine.</p>
+<p><strong>Insufficient tools and technology</strong></p>
+<p>The technological challenges highlighted include transferring large
+datasets, particularly to the African region. Furthermore, technology is
+viewed as simplifying data-related operations rather than adding
+complexity. However, many alternative cloud data providers are now
+accessible, each with their own set of data access rules. As data teams
+continue to rapidly embrace numerous cloud data platforms, this
+heterogeneous patchwork of capabilities frequently fails to scale
+effectively across different cloud data platforms. As a consequence,
+either too tight data rules that prevent data exchange entirely, or
+overly wide policies that allow sensitive data to slip through the gaps,
+resulting in a data breach or leak.</p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://doi.org/10.12688/aasopenres.12968.1">Ethical and
+practical issues to consider in the governance of genomic and human
+research data and data sharing in South Africa: a meeting report</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="best-practices-for-presenting-your-data"
+class="section level1">
+<h1>Best practices for presenting your data</h1>
+<!-- 3-14 -->
+<p>Presentations are an important part of the research process and allow
+the researcher a chance to illustrate the heart of their research to a
+public audience. The use of graphs in presentations is a powerful way to
+portray the narrative that the data analysis is representing. However,
+there are a few tips and guidelines that every researcher should
+consider when using graphs in public presentations. Let’s go through a
+few of them:</p>
+<p><strong>Less is more</strong></p>
+<p>It is important not to overwhelm your viewers with busy graphs that
+are difficult to read and complex to interpret. When presenting your
+work, simplicity is often the best way to go as it helps prevent people
+from being distracted by the graphs and not listening to you present the
+content.</p>
+<p><strong>Highlight key data points</strong></p>
+<p>We all understand that as researchers we are proud of the data we
+have generated and analysed, but often there is too much data to consume
+in one presentation. When presenting, try to summarise the data and
+discuss the most important or exciting data points.</p>
+<p><strong>Be careful when displaying sensitive data</strong></p>
+<p>Sensitive information and data are often necessary and vital parts of
+the data generated in the research you may be undertaking. However, it
+is crucial that you, as the researcher, make sure that sensitive data is
+protected and anonymised, as well as consented to by those the data
+would impact.</p>
+<p><strong>Eliminate redundant labels</strong></p>
+<p>Clutter around your graphs makes it difficult to read and observe the
+audience listening to you. So, it is important to eliminate unnecessary
+labels and data points that have no bearing on the message that is
+potentially being portrayed.</p>
+<p><strong>Choose the charts that best tell your story</strong></p>
+<p>For example, a pie chart should only be used when you have two
+categories, or if you really want to push it, up to 6 categories. This
+is because a pie chart leaves it to the user to find the
+comparisons.</p>
+<p>Therefore, when multiple categories are compared, it may be more
+effective to use a bar graph (Figure 2). Similarly, when you use a line
+graph, the reader will expect to see changes over time. <a
+href="https://www.tableau.com/learn/articles/data-visualization-tips">Histograms</a>,
+on the other hand, should be used to show where your data is clustered.
+You will find more examples of when to use which graph in this <a
+href="https://www.tableau.com/learn/whitepapers/which-chart-or-graph-is-right-for-you?signin=10e1e0d91c75d716a8bdb9984169659c#form">article
+from Tableau</a>.</p>
+<div class="float">
+<img src="images/OC3_3-14_fig1.png"
+alt="A pie chart with too many categories, but the graphic on the right uses both colour intensity and a bar-like approach to quickly summarize the results of social customer service" />
+<div class="figcaption">A pie chart with too many categories, but the
+graphic on the right uses both colour intensity and a bar-like approach
+to quickly summarize the results of social customer service</div>
+</div>
+<p><em>Source: <a
+href="https://www.columnfivemedia.com/25-tips-to-upgrade-your-data-visualization-design/">Column
+Five Media</a></em></p>
+<p><a href="images/OC3_3-14_fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_3-14_fig2-3_alt-text.pdf">Download Figure 2-3
+alt-text here</a></p>
+<p><strong>Include a baseline</strong></p>
+<p>It’s common to find a graph which does not start at zero. “So what!”,
+you say. One can still see when one value exceeds the other. That is
+true, but as shown in Figure 3, these values may be grossly exaggerated
+when we don’t see the start line. Similarly, you may find a graph giving
+you a bunch of <a
+href="https://www.niddk.nih.gov/health-information/diabetes/overview/tests-diagnosis">fasting
+blood sugar levels for school kids</a>. How would you know which values
+are good/bad without a baseline stating that it should be below 99
+mg/dL?</p>
+<div class="float">
+<img src="images/OC3_3-14_fig2.png"
+alt="A bar graph without a baseline. The interpretation of the data may be over-exaggerated" />
+<div class="figcaption">A bar graph without a baseline. The
+interpretation of the data may be over-exaggerated</div>
+</div>
+<p><em>Source: <a
+href="http://www.chadskelton.com/2018/06/bar-charts-should-always-start-at-zero.html">Chad
+Skelton</a></em></p>
+<p><a href="images/OC3_3-14_fig2.png">Click here to enlarge the
+image</a></p>
+<p><strong>Use colours meaningfully</strong></p>
+<p>Colours are a crucial part of the graphs used to present your
+findings, as they are a powerful visual aid that will help your viewer
+easily interpret and remember the data. However, colour can also
+completely ruin the way you represent your data and become a stumbling
+block for your viewers. Firstly, choose a colour scheme with more
+neutral colours, as brighter colours are more likely to clash with
+others. Secondly, it is likely that some of your audience has some form
+of colourblindness, so you should consider the impact this may have. You
+could avoid certain colour schemes (the most common form of
+colourblindness is for red and green) and/or ensure there is sufficient
+differentiation between shades that colourblind people would
+nevertheless be able to appreciate the difference.</p>
+<p>Choose colours that allow the text colour to be easily read; you can
+change the text colour to white rather than the standard black, but it
+should be consistent. Similarly, think of the background colour of the
+presentation the data will be displayed against. It’s usually good
+practice to use solid or matte colours, rather than patterned effects.
+If using a gradient colour scheme, e.g. all data is in different shades
+of blue, then ensure there is sufficient differentiation between each
+gradient.</p>
+<p>Think carefully about colour associations the audience may make. For
+example, it may be confusing to have negative data shown in green while
+positive data is depicted in red.</p>
+<p>In general, try to keep a consistent colour scheme throughout your
+presentation to make it easier for your audience to follow.</p>
+<p><strong>Avoid using special effects</strong></p>
+<p>Avoid using excessive special effects, including dramatic slide
+transitions or animations, as they can be distracting and, in some
+cases, very unprofessional. Be wary when using special effects and only
+use them when they are truly necessary for the graphs.</p>
+<p><strong>Make sure you use the right text and fonts</strong></p>
+<p>One of the most overlooked aspects of a graph is the chosen font, as
+well as its size. We often want to have a cool and funky font to use for
+our graphs, but these fonts must be readable and professional. So, when
+choosing a font, think of what the head of the research group would be
+happy to see in your presentation.</p>
+<p><strong>Use white backgrounds</strong></p>
+<p>Try not to use colour backgrounds for graphs and use white
+backgrounds whenever you are adding graphs to your presentation. This is
+to ensure that all values and illustrations in the graph can be read and
+viewed by your audience.</p>
+<p>These are just a few tips and guidelines that will hopefully aid in
+you creating the best presentations.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="public-health-reports-and-sharing" class="section level1">
+<h1>Public health reports and sharing</h1>
+<!-- 3-15 -->
+<p>During the early 2000s, viral genomic sequencing gained more
+importance with the emergence of Severe Acute Respiratory Syndrome
+(SARS) and the Middle East Respiratory Syndrome (MERS) epidemics.</p>
+<p>Even though genomics was used to study the association between the
+virus concerned and epidemiology, it was not in real-time and was not on
+a large scale. When SARS-CoV-2 infection was first reported, within a
+month there were 6 sequences available in the public domain and within
+the following few months, the number of sequences rapidly reached
+several thousand. These genomes were generated, reported and shared
+within days of case identification and used to understand virus
+spread.</p>
+<p>The rapid and large-scale sequencing during the SARS-COV-2 pandemic
+and genomic analyses gave epidemiological dynamics of viral disease
+which was not possible with epidemiological data alone. Reporting these
+dynamics and the epidemiological significance of new emerging variants
+is of significant importance in public health management.</p>
+<p>WHO shares <a
+href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">weekly
+reports about the COVID-19</a> infections worldwide. You will find an
+example of these reports for download below.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="resources" class="section level1">
+<h1>Resources</h1>
+<!-- 3-18 -->
+<p><strong>Datasets for this course</strong></p>
+<p>Zenodo repository: <a
+href="https://zenodo.org/record/6652215#.YrB8D-zML0u">Making sense of
+genomic data: COVID-19 web-based bioinformatics</a></p>
+<p>Coronavirus biology: <a
+href="https://viralzone.expasy.org/9056">ViralZone</a><br />
+Coronavirus taxonomy: <a
+href="https://talk.ictvonline.org/taxonomy/">International Committee on
+Taxonomy of Viruses (ICTV)</a><br />
+<a
+href="https://www.sumanasinc.com/scienceinfocus/sif_coronavirus.html">SARS-CoV-2
+replication cycle</a> by Sultanas, Inc<br />
+Real-time tracking of pathogen evolution: <a
+href="https://nextstrain.org/ncov/gisaid/global">NextStrain</a><br />
+Lineages nomenclature: <a
+href="https://cov-lineages.org/index.html">Pango</a><br />
+Genomic data sharing: <a href="https://www.gisaid.org/">GISAID</a><br />
+Cloud Infrastructure for Big Data Microbial Bioinformatics: <a
+href="https://www.climb.ac.uk/">CLIMB</a><br />
+COVID-19 Genomics UK Consortium: <a
+href="https://www.cogconsortium.uk/">COG-UK</a><br />
+NCBI COVID-19 scientific literature: <a
+href="https://www.ncbi.nlm.nih.gov/research/coronavirus/">LitCovid</a><br />
+SARS-CoV-2 sequencing protocol: <a
+href="https://artic.network/ncov-2019">ARTIC protocol</a><br />
+Further training on Galaxy: <a
+href="https://training.galaxyproject.org/training-material/topics/galaxy-interface/tutorials/get-data/slides-plain.html">Getting
+data into Galaxy</a><br />
+Further information about COVID-19 reports: <a
+href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports">WHO
+COVID-19 reports</a> and <a
+href="https://www.cdc.gov/coronavirus/2019-ncov/lab/reporting-lab-data.html">CDC
+COVID-19 report format</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container-left {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.img-container-right {
+  float: right;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<hr>
+<div class="clearfix">
+  <div class="img-container-left">
+    <img src="assets/img/COG-Train_logo.png" alt="COG-Train" 
+style="width:200%">
+  </div>
+  <div class="img-container-right">
+    <img src="assets/img/WCS_Logo-Primary_Black.jpg" alt="Wellcome 
+Connecting Science" style="width:200%">
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

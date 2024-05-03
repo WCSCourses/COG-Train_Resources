@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>pathogen_genomics_week2</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COG-Train_Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-file-lines"></span>
+     
+    Course Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Virtual Courses</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viral Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="vbioinfasia.html">VBioinf2022 Asia</a>
+        </li>
+        <li>
+          <a href="vbioinflac.html">VBioinf2022 LAC</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOCs</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Power of Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="power_of_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Swab to Server</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="swab_to_server_home.html">Home</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Making Sense</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="making_sense_home.html">Home</a>
+        </li>
+        <li>
+          <a href="making_sense_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="making_sense_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="making_sense_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Practical Guide</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="practical_guide_home.html">Home</a>
+        </li>
+        <li>
+          <a href="practical_guide_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="practical_guide_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="practical_guide_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pathogen Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="pathogen_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Hybrid Course</li>
+    <li>
+      <a href="scvo2b4b.html">SARS-CoV-2 B4B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">In Person Courses</li>
+    <li>
+      <a href="ECPG.html">Pathogen Genomics Capacity</a>
+    </li>
+    <li>
+      <a href="IGM_B4B.html">Bioinformática Decodificada</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Webinars</li>
+    <li>
+      <a href="Community.html">COG-Train Community</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Team
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cogteam.html">COG-Train Team</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/WCSCourses/COG-Train_Resources">
+    <span class="fa fa-brands fa-github"></span>
+     
+    Github
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="pathogen-genomics-for-global-health" class="section level1">
+<h1>PATHOGEN GENOMICS FOR GLOBAL HEALTH</h1>
+<p><img src="images/OC5_3-7_illustrative.png" /><br />
+<sub><span class="citation">@Canva</span></sub></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="what-is-one-health" class="section level1">
+<h1>What is One Health?</h1>
+<!-- 2-2 -->
+<p>One Health is an approach to public health which recognises that
+people’s health is closely connected to the health of animals and the
+environment. It was developed in response to evidence of <a
+href="https://www.who.int/news-room/fact-sheets/detail/zoonoses">zoonotic
+diseases</a> spreading between species. This is caused by humans and
+animals, and their respective pathogens, coming into closer contact with
+each other as humans encroach on animal habitats. It’s an effective way
+to focus on health issues at the human-animal-environment interface.</p>
+<p>For example, a One Health approach can be applied to emerging,
+re-emerging, and endemic diseases, neglected tropical diseases,
+vector-borne diseases, and antimicrobial resistance. It involves a
+holistic approach with many disciples working together. In the public
+health arena, for example, it would include a coordinated approach among
+public health scientists, physicians, nurses, veterinarians, ecologists,
+and policymakers to ensure effective communication, collaboration and
+data sharing.</p>
+<p>A One Health approach to genomic surveillance can help in preparing
+for future pandemics. A combination of surveillance for known infectious
+diseases in human and animal metagenomics with surveillance of other
+pathogens in livestock or humans (e.g. in abattoirs and urban sewage),
+alongside other environmental samples from the wildlife of other
+vectors, could identify the emergence and spread of new infections
+(Figure 1).</p>
+<div class="float">
+<img src="images/OC5_2-2_fig1.png"
+alt="Taking One Health from theory to practice, as highlighted by the 4 Cs: Communication, Coordination, Collaboration, and Capacity building between a wide range of areas and sectors" />
+<div class="figcaption">Taking One Health from theory to practice, as
+highlighted by the 4 Cs: Communication, Coordination, Collaboration, and
+Capacity building between a wide range of areas and sectors</div>
+</div>
+<p><a href="images/OC5_2-2_fig1.png">Click here to enlarge the
+image</a></p>
+<p><em>Source: <a
+href="https://doi.org/10.1371/journal.ppat.1010537">Plos
+Pathogens</a></em></p>
+<p><a href="images/OC5_2-2_Alt-text.pdf">Download Figure 1 alt-text
+here</a></p>
+<p>More broadly a One Health approach can:</p>
+<ul>
+<li><p>Prevent outbreaks of zoonotic disease in animals and
+people.</p></li>
+<li><p>Reduce antimicrobial-resistant infections, thereby improving
+human and animal health.</p></li>
+<li><p>Protect biodiversity and conservation.</p></li>
+<li><p>Improve food safety and security.</p></li>
+<li><p>Contribute to future pandemic preparedness and response.</p></li>
+</ul>
+<p><strong>Further reading</strong></p>
+<p><a href="https://www.cdc.gov/onehealth/basics/index.html">CDC One
+Health</a></p>
+<p><a href="https://doi.org/10.1016/j.lanepe.2021.100210">Pandemics– One
+Health preparedness for the next</a></p>
+<p><a href="https://doi.org/10.1016/j.bsheal.2021.12.004">Towards One
+Health: Reflections and practices on the different fields of One Health
+in China</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="genomics-surveillance-in-one-health" class="section level1">
+<h1>Genomics surveillance in One Health</h1>
+<!-- 2-3 -->
+<p>As we have seen in the previous step, a One Health approach involves
+connecting several disciplines and sectors, acknowledging that health is
+connected: the health of people is closely connected to the health of
+animals and to the environment. Here we will focus on some examples from
+Colombia to show genomic surveillance using a One Health approach.</p>
+<p>In the past decade, a pilot of the programme ‘Integrated Surveillance
+of Antimicrobial Resistance’ in Colombia monitored Antimicrobial
+resistance (AMR) in the poultry chain. Traditional microbiology tools
+have shown that <em>Salmonella spp</em>. and <em>E. coli</em> isolates
+had a remarkably high antimicrobial resistance to ampicillin,
+cephalosporins and ciprofloxacin. Subsequent whole-genome sequencing
+(WGS) of <em>Salmonella</em> isolates from broilers and layers allowed
+<em>in silico</em> prediction of serovars using <a
+href="https://doi.org/10.1371/journal.pone.0147101">SISTR</a> (a
+bioinformatics platform used for performing analyses on draft
+<em>Salmonella</em> genome assemblies). WGS enabled the detection of AMR
+genes in different families of antibiotics as aminoglycosides,
+β-Lactamics, quinolones, streptothricin, sulfonamides and tetracyclines
+80% of the isolates were predicted to have multidrug resistance. In line
+with the widespread presence of resistance to quinolones
+(ciprofloxacin), genotypic analysis of ciprofloxacin-resistant isolates
+identified <a
+href="https://wmf2021-asm.ipostersessions.com/?s=34-DF-A0-DA-05-DE-2A-8C-78-DD-1B-3F-C1-E1-8B-65">21
+harbouring various resistance genes</a>.</p>
+<p><em>Klebsiella pneumoniae</em> is a pathogen that causes community
+and hospital-acquired infections. Carbapenem-resistant
+<em>K.pneumoniae</em> (CRKP) causes untreatable infections and high
+mortality. In Colombia, <em>K. pneumoniae</em> is the most frequent
+pathogen found in intensive care units, with resistance to carbapenems
+reported in up to 15.6% of isolates. The CRKP clones associated with
+KPC-type carbapenemases most commonly reported in Colombia are CG258,
+CG307, and CG14/15. Colombia’s National Reference Laboratory explored
+CRKP epidemiology by sequencing 425 CRKP isolates from the <a
+href="https://wmf2021-asm.ipostersessions.com/?s=34-DF-A0-DA-05-DE-2A-8C-78-DD-1B-3F-C1-E1-8B-65">21
+most-populated departments in the country</a>. From the sequenced
+isolates, 91.5% were carbapenemase-producing strains (carrying
+<em>blaKPC-3</em>, <em>blaKPC-2</em>, <em>NDM-1</em>, <em>blaNDM-9</em>,
+<em>blaVIM-2</em>, <em>blaVIM-4</em>, and <em>blaVIM-24</em> encoding
+carbapenemase genes). These data support a recent expansion and the
+endemicity of CRKP with the circulation of 7 high-risk clones, the most
+frequent being CG258 (48.39% of isolates).</p>
+<p>Genomic surveillance outlines the complex epidemiology of CRKP in
+Colombia. CG258 expanded clonally and carries specific carbapenemases in
+specific <a href="https://doi.org/10.1038/nrmicro1235">mobile genetic
+elements</a>, while the other previously identified high-risk clones
+(CG147, CG307, and CG152) present a more diverse complement of
+carbapenemases. This example stresses the importance of WGS-based
+surveillance to monitor evolutionary trends of sequence types, mobile
+genetic elements, and resistance and virulence genes.</p>
+<p>There is an increasing occurrence of multidrug-resistant bacteria
+with extended-spectrum β-lactamases (ESBLs) and/or plasmid-encoded AmpC
+(pAmpC) β-lactamases in clinical and environmental settings across the
+world. Samples from broiler farms, slaughterhouses, and retail stores
+were analysed to determine the prevalence and resistant profiles of
+<em>Salmonella enterica</em> in the Colombian poultry chain. WGS of
+these strains enabled the diversity of ESBL/pAmpC genes in
+extended-spectrum cephalosporin-resistant <em>Salmonella enterica</em>
+genes to be determined and the phylogeny of <a
+href="https://www.frontiersin.org/articles/10.3389/fmicb.2018.02431/full">ESBL/pAmpC-carrying
+<em>Salmonella</em> to be constructed</a>.</p>
+<p>WGS enabled <em>Salmonella</em> isolates to be compared locally,
+focusing on the resistance mechanisms involved in cephalosporin
+resistance and the genetic relatedness between the poultry chain
+production stages. Also, the WGS data generated allowed researchers to
+compare local data with global <em>Salmonella</em> genomic data to
+understand the regional dissemination of this pathogen (Figure 2). The
+resistance was mainly encoded by <em>blaCMY−2</em> and
+<em>blaCTX−M−165</em> genes on IncI1/ST12 and IncQ1 plasmids. The clonal
+expansion of ESBL/pAmpC mechanisms on IncI1 plasmids in two sub-clusters
+across the poultry chain supply showed there is a high diversity in
+Colombia. The long evolutionary distance with <em>Salmonella</em> from
+other countries suggests there was local dissemination of the
+extended-spectrum cephalosporin-resistant <em>Salmonella enterica</em>
+in Colombia. These findings alerted the Colombian food safety systems
+and the government.</p>
+<div class="float">
+<img src="images/OC5_2-3_fig1.png"
+alt="Geographical distribution of the 260 extended-spectrum cephalosporin-resistant Salmonella enterica in Colombia sampled between 2008 and 2013" />
+<div class="figcaption">Geographical distribution of the 260
+extended-spectrum cephalosporin-resistant <em>Salmonella enterica</em>
+in Colombia sampled between 2008 and 2013</div>
+</div>
+<p><a href="images/OC5_2-3_fig1.png">Click here to enlarge the
+image</a></p>
+<p><em>Source: <a
+href="https://doi.org/10.3389/fmicb.2018.02431">Frontiers in
+Microbiology</a></em></p>
+<p><a href="images/OC5_2-3_Alt-text.pdf">Download Figure 2 alt-text
+here</a></p>
+<p>In summary, WGS approaches in Colombia:</p>
+<ul>
+<li><p>Improved the understanding of the dissemination risks of AMR
+bacteria in the One Health Continuum.</p></li>
+<li><p>Enabled the identification of genes that are predictive of
+resistance to multiple families of antibiotics in a single analysis. At
+the same time, detecting several virulence factors facilitated the study
+of the pathogenesis of different infections.</p></li>
+<li><p>Advanced massive characterization complements the approaches
+required in surveillance and epidemiologic AMR investigations.</p></li>
+<li><p>Are essential tools for outbreak investigation. However, efforts
+must be coordinated nationally to achieve a more significant
+impact.</p></li>
+</ul>
+<p>Furthermore, metagenomic technologies using short and long-read
+next-generation sequencing data analyses help determine the local AMR
+gene diversity, abundance, and variations of bacterial pathogens. These
+monitoring tools could be strategic in AMR surveillance and
+investigation under the One Health approach. The results could be the
+basis for creating new policies.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="genomics-for-antimicrobial-resistance-surveillance"
+class="section level1">
+<h1>Genomics for antimicrobial resistance surveillance</h1>
+<!-- 2-5 -->
+<p>Antimicrobial resistance (AMR), which occurs when changes in bacteria
+cause the drugs used to treat infections to become less effective, has
+been largely driven by the misuse of antibiotics. The spread of AMR
+threatens many advances in modern medicine, for example impairing our
+ability to treat common infectious diseases, such as pneumonia and
+tuberculosis, and increasing the risks associated with organ
+transplantation, complex surgery, and cancer chemotherapy. It is a
+significant problem: in 2019 1.27 million deaths were directly
+attributed to AMR, with 4.9 million deaths indirectly attributed to AMR.
+Low-and-middle-income countries have a greater burden of AMR. The
+SARS-CoV-2 pandemic has demonstrated the potential and capacity for
+genomic surveillance to monitor and help combat AMR.</p>
+<p>Whole genome sequencing (WGS) can be used to monitor resistance
+against multiple microbes in parallel, help differentiate AMR evolution
+versus spread; and improve data sharing and create adaptable
+infrastructure for future <a
+href="https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01020-2/tables/1">pandemic
+responses</a>.</p>
+<p>The <a href="https://sedric.org.uk/">SEDRIC</a> genomics working
+group has made several policy recommendations on how genomics can be
+harnessed for AMR surveillance:</p>
+<p><strong>Increasing detection and control by Health
+Laboratories</strong></p>
+<ul>
+<li><p>Build capacity – including hub and spoke models to overcome
+differential sequencing costs in different geographical regions</p></li>
+<li><p>Develop new training competencies to develop a new workforce and
+upskill current staff</p></li>
+<li><p>Invest in AMR genomic surveillance innovations, especially
+research required to address uncharacterized associations with health
+outcomes.</p></li>
+</ul>
+<p><strong>Public Health Networks</strong></p>
+<ul>
+<li><p>Harmonise and standardise surveillance - by agreeing on a list of
+bug/drug combinations informed by local needs, develop clinical
+standards and support pathogen-specific expert review groups for
+interpretation guidelines.</p></li>
+<li><p>Agree on equitable data sharing and governance - maximise the
+benefits of open immediate data sharing, taking due consideration around
+stigmatisation and inequitable data contribution and use.</p></li>
+<li><p>Improve stakeholder interactions and relationships - improved
+trust and communications and partnerships among stakeholders are
+important. Policymakers need to define the key questions and researchers
+and health deliverers should consolidate and advocate clear use
+cases.</p></li>
+</ul>
+<p><strong>Recommend actions for policymakers and industry</strong></p>
+<ul>
+<li><p>Guide implementation</p></li>
+<li><p>Define goals and key outcomes</p></li>
+<li><p>Build key stakeholder relationships</p></li>
+</ul>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://www.who.int/news-room/fact-sheets/detail/antibiotic-resistance">WHO
+Antibiotic resistance</a></p>
+<p><a
+href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(22)00087-3/fulltext">The
+overlooked pandemic of antimicrobial resistance</a></p>
+<p><a
+href="https://genomemedicine.biomedcentral.com/articles/10.1186/s13073-022-01020-2">Exploiting
+genomics to mitigate the public health impact of antimicrobial
+resistance</a></p>
+<p><a
+href="https://www.sciencedirect.com/science/article/pii/S0140673621027240?via%3Dihub">Global
+burden of bacterial antimicrobial resistance in 2019: a systematic
+analysis</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="national-genome-surveillance-for-antimicrobial-resistance"
+class="section level1">
+<h1>National genome surveillance for antimicrobial resistance</h1>
+<!-- 2-6 -->
+<!-- YT https://youtu.be/_GoALMckpd8   -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/_GoALMckpd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC5_2-6_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this video, Prof Iruka Okeke from the University of Ibadan,
+Nigeria recounts how genomic AMR surveillance was set up in her
+country.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="regional-health-organisations-and-antimicrobial-resistance"
+class="section level1">
+<h1>Regional health organisations and antimicrobial resistance</h1>
+<!-- 2-7 -->
+<!-- YT https://youtu.be/V4tPcYLbkFU -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/V4tPcYLbkFU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC5_2-7_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this video, Prof Marcelo Galas and Dr Marcelo Melano from <a
+href="https://www.paho.org/en">PAHO (Pan-American Health
+Organisation)</a> discuss the importance of an integrated regional
+network to monitor and control the spread of antimicrobial
+resistance.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="how-is-the-influenza-vaccine-developed-each-year"
+class="section level1">
+<h1>How is the influenza vaccine developed each year?</h1>
+<!-- 2-8 -->
+<p>Seasonal influenza (flu) vaccines are designed each year to protect
+against the virus types most likely to spread and cause illness during
+the upcoming season. The components of the vaccine are selected based
+on:</p>
+<ul>
+<li><p>Which flu viruses are making people sick prior to the upcoming
+season and the extent to which they are spreading</p></li>
+<li><p>The ability of potential vaccine viruses to provide
+cross-protection against a range of related flu viruses</p></li>
+<li><p>How well the previous vaccines worked</p></li>
+</ul>
+<p>There are over 140 National Influenza Centres in more than 110
+countries conducting year-round surveillance for flu viruses. These
+centres receive and test thousands of flu virus samples as part of the
+World Health Organization (WHO) Global Influenza Surveillance and
+Response System <a
+href="https://www.who.int/initiatives/global-influenza-surveillance-and-response-system">(GISRS)</a>.</p>
+<p>A subset (10-20%) of all viruses received are selected for genetic
+sequencing and more detailed analysis. This sample includes viruses from
+particularly severe or fatal cases, those with potential antigenic
+variants and a general subset of circulating viruses.</p>
+<p>Genetic analyses are carried out to identify the emergence of new
+virus groups, the degree to which they vary from related viruses and how
+the currently circulating viruses are evolving. Genetic mutations,
+leading to different amino acids at key sites on the virus may impact
+how the virus behaves, whether it makes people sick and how it reacts to
+vaccines. Collecting lots of data on these mutations makes it easier to
+predict in future which changes will be important to consider for
+vaccine development. Finding these patterns also helps with general
+surveillance efforts and monitoring variants.</p>
+<p>Genomic analyses are also used to monitor whether viruses acquire
+mutations whilst being grown in the environments used to develop
+vaccines. This will also influence which components will be used in
+vaccine design. Updates sequence data are shared within GISRS and made
+publicly available via the GISAID EpiFlu database. Whole genome
+sequencing is particularly helpful in identifying animal viruses causing
+human infection as well as detecting reassortment events between
+co-circulating human or animal viruses.</p>
+<p>The WHO vaccine composition committee presents global flu data and
+recommends specific vaccine viruses for trivalent (three-virus
+component) and quadrivalent (four-virus component) flu vaccines. Each
+country then makes its own decision on the viruses that will be included
+in flu vaccines they licence.</p>
+<p>The current WHO recommendations for <strong>quadrivalent
+vaccines</strong> for use in the 2023 southern hemisphere influenza
+season contain the following (Figure 3):</p>
+<p><strong>Egg-based vaccines</strong></p>
+<ul>
+<li><p>An A/Sydney/5/2021 (H1N1)pdm09-like virus;</p></li>
+<li><p>An A/Darwin/9/2021 (H3N2)-like virus;</p></li>
+<li><p>A B/Austria/1359417/2021 (B/Victoria lineage)-like virus;
+and</p></li>
+<li><p>A B/Phuket/3073/2013 (B/Yamagata lineage)-like virus.</p></li>
+</ul>
+<p><strong>Cell culture- or recombinant-based vaccines</strong></p>
+<ul>
+<li><p>An A/Sydney/5/2021 (H1N1)pdm09-like virus;</p></li>
+<li><p>An A/Darwin/6/2021 (H3N2)-like virus;</p></li>
+<li><p>A B/Austria/1359417/2021 (B/Victoria lineage)-like virus;
+and</p></li>
+<li><p>A B/Phuket/3073/2013 (B/Yamagata lineage)-like virus.</p></li>
+</ul>
+<p>WHO recommends that <strong>trivalent vaccines</strong> for use in
+the 2023 southern hemisphere influenza season contain the following:</p>
+<p><strong>Egg-based vaccines</strong></p>
+<ul>
+<li><p>An A/Sydney/5/2021 (H1N1)pdm09-like virus;</p></li>
+<li><p>An A/Darwin/9/2021 (H3N2)-like virus; and</p></li>
+<li><p>A B/Austria/1359417/2021 (B/Victoria lineage)-like
+virus.</p></li>
+</ul>
+<p><strong>Cell culture- or recombinant-based vaccines</strong></p>
+<ul>
+<li><p>An A/Sydney/5/2021 (H1N1)pdm09-like virus;</p></li>
+<li><p>An A/Darwin/6/2021 (H3N2)-like virus; and</p></li>
+<li><p>A B/Austria/1359417/2021 (B/Victoria lineage)-like virus</p></li>
+</ul>
+<div class="float">
+<img src="images/OC5_2-8_fig1.png"
+alt="Diagram of the individual steps in the selection of candidate vaccine viruses and development of standardizing reagents for seasonal influenza and for a potential H5N1 influenza pandemic. For seasonal vaccines, the timelines are: Steps 1–4: the collection, isolation and thorough antigenic and genetic characterization of recent virus isolates continues throughout the year; Step 4a: comparisons of the recognition of representative recent viruses by vaccine-induced antibodies in human sera are conducted 2–3 weeks before the biannual WHO vaccine consultation meetings; Steps 5, 6a and 7a: candidate viruses for vaccine use are reviewed and selected, and high-growth reassortants prepared and characterized following identification of (potential) antigenic variants– these steps are not solely dictated by the recommendations of the WHO biannual vaccine virus consultations. Step 8: Evaluation of their growth properties is conducted in a timely manner around the time of the WHO vaccine virus consultations and prior to authorization of vaccine composition by national authorities. Step 9a: Preparation of the standardizing reagents for new vaccine components is initiated once the particular vaccine virus has been selected following the WHO recommendation" />
+<div class="figcaption">Diagram of the individual steps in the selection
+of candidate vaccine viruses and development of standardizing reagents
+for seasonal influenza and for a potential H5N1 influenza pandemic. For
+seasonal vaccines, the timelines are: Steps 1–4: the collection,
+isolation and thorough antigenic and genetic characterization of recent
+virus isolates continues throughout the year; Step 4a: comparisons of
+the recognition of representative recent viruses by vaccine-induced
+antibodies in human sera are conducted 2–3 weeks before the biannual WHO
+vaccine consultation meetings; Steps 5, 6a and 7a: candidate viruses for
+vaccine use are reviewed and selected, and high-growth reassortants
+prepared and characterized following identification of (potential)
+antigenic variants– these steps are not solely dictated by the
+recommendations of the WHO biannual vaccine virus consultations. Step 8:
+Evaluation of their growth properties is conducted in a timely manner
+around the time of the WHO vaccine virus consultations and prior to
+authorization of vaccine composition by national authorities. Step 9a:
+Preparation of the standardizing reagents for new vaccine components is
+initiated once the particular vaccine virus has been selected following
+the WHO recommendation</div>
+</div>
+<p><a href="images/OC5_2-8_fig1.png">Click here to enlarge the
+image</a></p>
+<p><em>Source: <a
+href="https://doi.org/10.1111/j.1750-2659.2011.00277.x">Influenza</a></em></p>
+<p><a href="images/OC5_2-8_Alt-text.pdf">Downlad Figure 3 alt-text
+here</a></p>
+<p>Learn more about the Influenza vaccine in this WHO Science in 5
+podcast episode</p>
+<!-- YT https://youtu.be/IaNHt5kX864 -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/IaNHt5kX864" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><sub>This video is hosted by a third party</sub></p>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://www.cdc.gov/flu/prevent/vaccine-selection.htm">Selecting
+Viruses for the Seasonal Influenza Vaccine</a></p>
+<p><a href="https://doi.org/10.1111/j.1750-2659.2011.00277.x">Improving
+influenza vaccine virus selectionReport of a WHO informal consultation
+held at WHO headquarters, Geneva, Switzerland, 14–16 June 2010</a></p>
+<p><a
+href="https://www.who.int/news/item/23-09-2022-new-recommendations-for-the-composition-of-influenza-vaccines-in-2023-for-the-southern-hemisphere">New
+recommendations for the composition of influenza vaccines in 2023 for
+the southern hemisphere</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="genomics-in-tuberculosis-drug-resistance"
+class="section level1">
+<h1>Genomics in tuberculosis drug-resistance</h1>
+<!-- 2-9 -->
+<audio controls>
+<source src="assets/OC5_2-9_audio.mp3" type="audio/ogg">
+</audio>
+<p><a href="assets/OC5_2-9_transcript.pdf">Donwload the transcript
+here</a></p>
+<p>Listen to Dr Linzy Elton explaining how genomics approaches can
+identify drug-resistant mutations in tuberculosis bacteria
+(<em>Mycobaterium tuberculosis</em>) and how it can help to tailor
+better treatment.</p>
+<p>Visit her <a
+href="https://linzyelton628749128.wordpress.com/">blog</a> and <a
+href="https://anchor.fm/linzy-elton/%20%5Banchor.fm%5D">podcast</a> for
+more interesting facts about microbiology and global health.</p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://www.cdc.gov/tb/topic/basics/default.htm">Basic TB
+Facts</a></p>
+<p><a
+href="https://www.who.int/news-room/fact-sheets/detail/tuberculosis">WHO
+Tuberculosis</a></p>
+<p><a href="https://doi.org/10.1128/jcm.00666-18">Direct Whole-Genome
+Sequencing of Sputum Accurately Identifies Drug-Resistant Mycobacterium
+tuberculosis Faster than MGIT Culture Sequencing</a></p>
+<p><a href="https://doi.org/10.21037/jtd-20-1232">Comparison of
+metagenomic next-generation sequencing technology, culture and GeneXpert
+MTB/RIF assay in the diagnosis of tuberculosis</a></p>
+<p><a href="https://doi.org/10.1016/S2666-5247(22)00116-1">Investigating
+resistance in clinical <em>Mycbacterium tuberculosis</em> complex
+isolates with genomic and phenotypic antimicrobial susceptibility
+testing: a multicentre observational study</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="genomics-for-tuberculosis-impact-and-challenges"
+class="section level1">
+<h1>Genomics for tuberculosis: impact and challenges</h1>
+<!-- 2-10 -->
+<!-- YT https://youtu.be/8M54e25n5PQ    -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/8M54e25n5PQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC5_2-10_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this video, Dr Andrea Cabibbe from IRCCS San Raffaele Scientific
+Institute in Italy discusses the advantages and challenges of
+implementing tuberculosis genomics worldwide.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="primer-to-malaria-genomic-surveillance" class="section level1">
+<h1>Primer to malaria genomic surveillance</h1>
+<!-- 2-11 -->
+<p><strong>Why is it important?</strong></p>
+<p>Malaria, a vector-borne parasitic disease, is a major health and
+economic burden in several developing countries. Genomic surveillance
+has played an important role in the control of malaria parasites and
+their mosquito vectors. At present, there are five species commonly
+known to infect humans namely, <em>Plasmodium falciparum</em>,
+<em>Plasmodium vivax</em>, <em>Plasmodium malariae</em>, <em>Plasmodium
+ovale</em> and <em>Plasmodium knowlesi</em>. The first two species cause
+health problems on a population scale.</p>
+<p><strong>What is the challenge?</strong></p>
+<p>Even though malaria elimination has been the focus of several global
+health initiatives for more than a decade, success is still elusive. The
+key challenge is the need to clear the pool of parasites from infected
+individuals, which is limited by drug resistance, access to health care
+and treatment adherence. An intensive elimination programme can
+significantly reduce the case number, but the pool of parasites that are
+capable of evading detection and treatment often returns when control
+measures are lacking. Hence, the genomic surveillance data is critical
+for the control and eventual elimination of malaria in each country. The
+genomic data, if collected systemically and analysed comprehensively,
+can track drug resistance and can determine the origin of the
+recalcitrant cohort.</p>
+<p><strong>What makes a surveillance project successful?</strong></p>
+<p>The genome of malaria parasites is relatively big. For example, the
+genome of <em>Plasmodium falciparum</em> is around 22 Megabases or
+roughly one thousand-fold the size of the SARS-CoV-2 genome. It also
+contains a lot of repetitive sequences. An easy yet useful approach to
+surveillance is targeted sequencing, which amplifies and sequences
+portions of the genome to track genetic markers for drug resistance and
+population movement. However, the genomic data can become powerful, when
+it is matched with the data from patients and cultivated parasites. It
+is equally important to have whole-genome references representing
+actively spreading parasites to ascertain the reliability of
+surveillance markers.</p>
+<p><a href="https://www.malariagen.net/">MalariaGEN</a> is one of the
+initiatives for creating genetic resources to support the control and
+elimination of malaria. They curate a worldwide <a
+href="https://www.malariagen.net/apps/pf7/">open database</a> of
+<em>Plasmodium falciparum</em> genomes aiming to strengthen malaria
+surveillance and decision-making management.</p>
+<p><strong>How to maximize the benefit?</strong></p>
+<p>The obvious and immediate outcome of an effective surveillance
+strategy is the ability to determine which antimalarial drugs are still
+effective against circulating malaria parasites, based on mutations
+associated with reduced treatment effectiveness. Genomic data can help
+track the movements of drug-resistant parasites between regions and
+countries. In addition, it can reveal whether the control measure leads
+to elimination or the locations where different parasite populations are
+spreading. However, these types of analyses require appropriate
+experience with genomic datasets; therefore, it is important to build
+the local talent pool. The investment in sequencing equipment and other
+building initiatives could be futile without a long-term effort to train
+local scientists.</p>
+<p><strong>What is the caveat?</strong></p>
+<p>The presence of a drug-resistant marker does not necessarily mean
+that a particular drug is no longer effective. The selection of
+resistant markers could be an associating factor for reduced
+effectiveness, but its presence does not directly lead to treatment
+failure.</p>
+<p><strong>How to prepare for the future?</strong></p>
+<p>Malaria genomic surveillance has been ongoing in many countries
+producing helpful information for malaria control. The next obvious step
+is to integrate it with the hosts namely, humans and mosquitoes. Human
+genetic information can be very helpful in developing a malaria
+treatment regimen because there is solid evidence linking genetic
+variations at the human <em>g6pd</em> gene to the side effect of
+Primaquine and Tafenoquine, two vital drugs needed for malaria
+elimination. The genetic variation in a human drug metabolising gene was
+also associated with treatment effectiveness.</p>
+<p>Genomic data from the mosquito is a powerful tool to follow
+resistance to insecticides used by national control programmes. Climate
+change and environmental deterioration have led to the movement of
+mosquitoes from their natural habitats or the modification of their
+feeding behaviour, leading to new pools of mosquitoes that can amplify
+existing vector-borne diseases or even bring emerging diseases with
+them. Considering the environmental crisis facing humanity, a
+comprehensive mosquito genomic surveillance programme is a matter of
+‘when’, not ‘if’.</p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://doi.org/10.1038/s41598-021-04572-2">Plasmodium
+falciparum genomic surveillance reveals spatial and temporal trends,
+association of genetic and physical distance, and household
+clustering</a></p>
+<p><a href="https://doi.org/10.1016/j.pt.2022.03.005">Leveraging genome
+editing to functionally evaluate <em>Plasmodium</em> diversity</a></p>
+<p><a href="https://doi.org/10.1371/journal.ppat.1010993">Resolving drug
+selection and migration in an inbred South American <em>Plasmodium
+falciparum</em> population with identity-by-descent analysis</a></p>
+<p><a href="https://doi.org/10.1126/science.aav5427">Major
+subpopulations of <em>Plasmodium falciparum</em> in sub-Saharan
+Africa</a></p>
+<p><a href="https://doi.org/10.1016/S1473-3099(19)30392-5">Evolution and
+expansion of multidrug-resistant malaria in southeast Asia: a genomic
+epidemiology study</a></p>
+<p><a href="https://doi.org/10.1128/CMR.00019-19"><em>Plasmodium</em>
+Genomics and Genetics: New Insights into Malaria Pathogenesis, Drug
+Resistance, Epidemiology, and Evolution</a></p>
+<p><a
+href="https://doi.org/10.1016/S0140-6736(13)60024-0">Malaria</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="disease-x-and-future-pandemics-in-the-age-of-climate-crisis"
+class="section level1">
+<h1>Disease X and future pandemics in the age of climate crisis</h1>
+<!-- 2-12 -->
+<p><strong>What is Disease X?</strong></p>
+<p>Disease X is the concept promoting preparedness for future pandemic
+events by stipulating potential pathogens capable of causing outbreaks
+on a large scale. The causative agent, which could be any microbe, is
+designated ‘Pathogen X’.</p>
+<p><strong>Why is it important?</strong></p>
+<p>The concept of Disease X allows the global community to know what to
+look for in microbes capable of causing major pandemics, and, most
+important of all, to prepare the necessary resources to control emerging
+infectious diseases.</p>
+<p>In fact, COVID-19 did fit this concept. Members of the Coronavirus
+family have always been considered potential threats since the inception
+of the Disease X concept because they were the causal agents of SARS and
+MERS. When the news of the emerging SARS-like Coronavirus, later
+designated SARS-CoV-2, became known at the end of 2019, the public
+health networks in several countries immediately started to monitor the
+outbreak situation and set up control measures.</p>
+<p><strong>What could be Pathogen X?</strong></p>
+<p>In principle, Pathogen X might come from any kind of microbes
+including viruses, bacteria, fungi and parasites. They could also be new
+strains of known disease-causing pathogens. Therefore, it is important
+to regularly monitor circulating microbes from the environment, wildlife
+and vector samples, making genomic surveillance a necessity.</p>
+<p><strong>How to monitor the unknown?</strong></p>
+<p>The key is regularly monitoring microbes in circulation to capture
+changes in microbial dynamics that may develop over time. The collection
+programmes should explore samples from the environment, wastewater,
+animal reservoir and vector insects. The state of technology now allows
+us to decode genetic materials without the need to fully cultivate
+microbes. Millions of sequencing reads can be deciphered to match
+existing genomes to determine the species, and even be used to identify
+unknown pathogens. Most importantly, the collection of sequencing data
+can eventually lead to the development of detection, prevention and
+treatment tools.</p>
+<p><strong>Risk amplification by climate and environmental
+crises</strong></p>
+<p>A major detrimental factor exacerbating the risk for emerging
+diseases is the ongoing climate and environmental crises. For example,
+bats forced out of their natural habitats need to move closer to humans
+and domestic animals for resources. This event led to the spillover of
+zoonotic viruses. Similar scenarios have become more common in recent
+years, which makes active investigations of microbial pools a
+priority.</p>
+<p><strong>Major caveats</strong></p>
+<p>Having the data showing the genomic repertoires of circulating
+microbes is vital for risk estimation. However, this alone does not lead
+to risk reduction. The development of methods and tools for prevention,
+diagnosis and treatment must be explored simultaneously to take full
+advantage of the genomic data. This means that the genomic data must be
+shared between countries; however, poorer nations are disadvantaged for
+a variety of reasons. This disparity will dissuade developing countries,
+often located in geographical areas prone to disease outbreaks, from
+open data sharing. Hence, global mechanisms to reward data transparency
+and data sharing must be considered.</p>
+<p>Another major concern is the safety issue associated with laboratory
+handling. Samples collected for genomic surveillance might contain novel
+microbes that can harm laboratory workers and communities nearby. Safety
+measures based on local laws and regulations must always be taken into
+account.</p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://doi.org/10.1016/S1473-3099(20)30123-7">Disease X:
+accelerating the development of medical countermeasures for the next
+pandemic</a></p>
+<p><a href="https://doi.org/10.1038/s41586-022-05506-2">Pathogen
+spillover driven by rapid changes in bat ecology</a></p>
+<p><a href="https://doi.org/10.1038/s41579-021-00665-x">Diversity and
+evolution of the animal virome</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div
+id="legionellosis-in-argentina-evolution-of-the-laboratory-diagnosis-strategy"
+class="section level1">
+<h1>Legionellosis in Argentina: evolution of the laboratory diagnosis
+strategy</h1>
+<!-- 2-13 -->
+<p>Legionnaires’ disease (LD) is severe acute pneumonia that occurs in
+sporadic or epidemic form and generally requires hospitalization. The
+bacterium <em>L. pneumophila</em> was first identified in 1977 as the
+cause of an outbreak of severe pneumonia in a convention centre in the
+USA in 1976. It has since been associated with outbreaks linked to
+poorly maintained artificial <a
+href="https://www.who.int/news-room/fact-sheets/detail/legionellosis">water
+systems</a>. <em>Legionella pneumophila</em> serogroup 1 is the
+principal etiological agent responsible for the most prevalent and
+virulent legionellosis disease.</p>
+<p>In August 2022, a cluster of six cases of bilateral pneumonia with no
+etiological cause was identified in San Miguel de Tucumán city, Tucuman
+Province, <a
+href="https://www.who.int/emergencies/disease-outbreak-news/item/2022-DON407">Argentina
+and notified to WHO</a>. One private health facility linked all the
+cases and there was a very tight period covering symptom onset. In
+addition to bilateral pneumonia, all cases presented with fever, and
+muscle and abdominal pain. By early September, 11 cases had been
+identified, and four of them had died. Three of the four deaths were
+among healthcare workers. Ten of these cases (including the four who
+died) had underlying conditions and/or risk factors for severe
+disease.</p>
+<p>The local public health laboratory returned negative tests on samples
+from these individuals for respiratory viruses, and other viral,
+bacterial, and fungal agents. Samples from the initial cases were sent
+to the National Reference Laboratory - Administración Nacional de
+Laboratorios e Institutos de Salud (ANLIS) for <a
+href="https://www.argentina.gob.ar/noticias/anlis-malbran-analiza-las-muestras-de-los-casos-de-neumonia-de-causa-desconocida-en-tucuman">additional
+testing</a>. The results were negative for COVID-19 (RT-PCR), Influenza,
+detection of antibodies for <em>Coxiella</em>, urinary antigen for
+<em>Legionella</em> spp., panel of 12 respiratory viruses, hantavirus
+(Elisa IgM), histoplasma (RT-PCR), <em>Yersinia pestis</em> (PCR) and
+micro agglutination for leptospirosis.</p>
+<p>A metagenomics approach, which involved a highly sensitive total DNA
+sequencing approach on two bronchoalveolar lavage samples, found
+readings compatible with <em>Legionella</em> spp. ANLIS subsequently
+reported that their results were compatible with <em>Legionella
+pneumophila</em> (after amplifying 16S ribosomal gene products from the
+samples and using multiple bioinformatics approaches). In summary,
+despite neither urinary antigen nor validated syndromic PCR panels
+returning positive results in all the patients in the Tucuman outbreak,
+targeted metagenomics allowed the rapid identification of
+<em>Legionella</em> sp. in clinical samples, leading to a prompt
+environmental risk assessment and intervention.</p>
+<p><a href="https://doi.org/10.1128/jcm.02916-20">Culture-independent
+metagenomics</a> and <a href="https://doi.org/10.1038/nbt.3935">targeted
+metagenomics</a> detection of microbial species has the potential to
+provide rapid and precise real-time diagnostics results. However, it has
+limitations, including sequencing and taxonomic classification errors
+and lack of quality standards. Therefore is critical before using <a
+href="https://doi.org/10.1038/s41576-019-0113-7">clinical
+metagenomics</a> as a response to a potential outbreak or public health
+emergency to demonstrate the test validation, reproducibility, and
+quality assurance.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="using-wastewater-to-monitor-covid-19" class="section level1">
+<h1>Using wastewater to monitor COVID-19</h1>
+<!-- 2-14 ​​-->
+<p>Tracking of wastewater has historically played an important role in
+the development of early warning systems (EWS) for various pathogens.
+Monitoring wastewater involves the collection and analysis of a pooled
+community sample and can provide information on community-level health
+risks. Unlike individual testing, wastewater surveillance is independent
+of health-seeking behaviour. To date, wastewater surveillance is
+recognised as an important complementary public health tool which can
+support clinical testing.</p>
+<p>Since March 2020, over 50 countries have successfully applied
+wastewater-based epidemiology (WBE) to track the spread of COVID-19. In
+many cases, <a
+href="https://www.who.int/publications/i/item/WHO-HEP-ECH-WSH-2022.1">SARS-CoV-2
+wastewater surveillance programmes</a> have also been used to monitor
+variants, including known variants of interest or concern, and in
+certain settings new and emerging variants. Sequencing the genomes of
+viruses is crucial to understand the evolution of several pathogens in
+relation to public health interventions. Scientists can now successfully
+study the evolution of the SARS-CoV-2 genome by continuously sequencing
+the order of nucleotides that make up its genetic code, not only within
+humans but also from an environmental source like <a
+href="https://doi.org/10.1038/s41586-022-05049-6">wastewater</a>.</p>
+<p>Two main methods are used for tracking variants in wastewater:
+reverse transcriptase quantitative polymerase chain reaction (RT-qPCR)
+and next-generation sequencing (NGS), both have <a
+href="https://doi.org/10.1038/s41591-022-01940-x">advantages and
+limitations</a>. Advanced NGS technologies have enabled scientists to
+sequence <a href="https://doi.org/10.3390/w13182503">long-</a> and <a
+href="https://doi.org/10.1128/mBio.02703-20">short-read</a> SARS-CoV-2
+fragments. Prior to sequencing the 30 Kb genome of the virus in the
+wastewater sample, scientists extract total RNA, run RT-PCR testing with
+SARS-CoV-2 primers and perform quantity and quality checks (Figure
+4).</p>
+<div class="float">
+<img src="images/OC5_2-14_fig1.png"
+alt="Sample collection, RNA extraction, RT-PCR testing and whole genome sequencing of SARS-CoV-2 from wastewater" />
+<div class="figcaption">Sample collection, RNA extraction, RT-PCR
+testing and whole genome sequencing of SARS-CoV-2 from wastewater</div>
+</div>
+<p><a href="images/OC5_2-14_fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC5_2-14_Alt-text.pdf">Download Figure 4 and 5
+alt-text here</a></p>
+<p>Sequencing the whole genome of SARS-CoV-2 enables scientists to
+closely monitor the changing order of nucleotides through base mutations
+that constitute the characteristics seen in variants of concern (VOCs).
+Phenotypic mutations may lead to aberrant changes in <a
+href="https://doi.org/10.1038/s41579-021-00573-0">virus biology</a>,
+which include transmissibility, infectivity, pathogenicity and
+antigenicity. Sequencing of viral genomes is thus a crucial aspect in
+the epidemiology and aetiology of SARS-CoV-2 VOCs survival. Once samples
+have been sequenced, the data needs to be processed, assessed for
+quality, and analysed to identify VOCs.</p>
+<p>It should be noted that compared to clinical samples, the
+identification of <a
+href="https://www.who.int/activities/tracking-SARS-CoV-2-variants/">SARS-CoV-2
+VOCs</a> through wastewater sequencing has its limitations. The most
+challenging is that the amplicons generated during sequencing are from
+viruses shed from thousands of individuals and it is therefore unlikely
+that mutations in different amplicons can reliably be associated with a
+single genome. One can however still detect signature mutations
+associated with specific VOCs. The schematic representation shown in
+Figure 5 gives an overview of a standard data analysis pipeline with
+examples of some of the frequently used tools.</p>
+<div class="float">
+<img src="images/OC5_2-14_fig2.png"
+alt="Schematic representation of the data analysis and variant identification pipeline showing the most frequently used tools" />
+<div class="figcaption">Schematic representation of the data analysis
+and variant identification pipeline showing the most frequently used
+tools</div>
+</div>
+<p><a href="images/OC5_2-14_fig2.png">Click to enlarge the image</a></p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://doi.org/10.3390/ijerph19159749">Wastewater
+sequencing - an innovative method for variant monitoring of SARS-CoV-2
+in populations</a></p>
+<p><a href="https://doi.org/10.1038/s41591-022-01940-x">Wastewater
+surveillance of pathogens can inform public health responses</a></p>
+<p><a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/pmc7112011/">Pathogen
+surveillance through monitoring of sewer systems</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="wastewater-monitoring-for-sars-cov-2-in-india"
+class="section level1">
+<h1>Wastewater monitoring for SARS-CoV-2 in India</h1>
+<!-- 2-15 -->
+<!-- YT https://youtu.be/2jYuPXxHdmU -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/2jYuPXxHdmU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC5_2-15_transcript.pdf">Download the transcript
+here</a></p>
+<p><a href="assets/OC5_2-15_slides.pdf">Download the PDF slides
+here</a></p>
+<p>In this video, Dr Farah Ishtiaq from the Tata Institute for Genetics
+and Society, India shares her experience using wastewater sampling to
+investigate the diversity and distribution of pathogens which have
+relevance to public health.</p>
+<p>If you are interested in learning more from her research, you can
+also watch this TEDx talk.</p>
+<!-- YT https://youtu.be/FcNZx7YxE1c -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/FcNZx7YxE1c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><sub>This video is hosted by a third party</sub></p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://www.nature.com/articles/d44151-022-00130-5">India
+must scale up wastewater analysis for health surveillance</a></p>
+<p><a href="https://doi.org/10.1016/j.lansea.2023.100151">SARS-CoV-2
+infection dynamics and genomic surveillance to detect variants in
+wastewater – a longitudinal study in Bengaluru, India</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="establishing-genomics-surveillance" class="section level1">
+<h1>Establishing genomics surveillance</h1>
+<!-- 2-16 -->
+<!-- YT https://youtu.be/Y8N-sHv2cuE -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/Y8N-sHv2cuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC5_2-16_transcript.pdf">Donwload the transcript
+here</a></p>
+<p>In this video, Prof Christine Carrington, Dr Richard Orton and Dr
+Thanat Chookajorn look back to discuss the challenges that they faced at
+the beginning of the COVID-19 pandemic to establish sequencing and
+bioinformatics protocols to investigate SARS-CoV-2.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="genomic-surveillance-of-cholera-in-south-america"
+class="section level1">
+<h1>Genomic surveillance of cholera in South America</h1>
+<!-- 2-18 -->
+<p>The COVID-19 pandemic has brought pathogen genomics into sharp
+relief, and the language of “variants”, “lineages”, and “mutations” has
+entered common parlance. The public is now very much aware of the power
+of genome sequencing to track pathogen spread and evolution, to identify
+lineages of potential concern, and to monitor changing dynamics of
+micro-organisms. Genomics has substantially refined our understanding of
+the current global cholera pandemic and of <em>Vibrio cholerae</em> (the
+organism which causes this diarrhoeal disease). This is an excellent
+example of how genomics is entering the context of global health, not
+least because modern epidemiology has its roots in historical studies of
+cholera, as exemplified by the seminal work of John Snow to map and
+control a <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7150208/#:~:text=John%20Snow%20conducted%20pioneering%20investigations,key%20source%20of%20the%20epidemics">cholera
+outbreak in London in the 1850s</a>.</p>
+<p>Genomic data have recently shown that the <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3736323/">ongoing
+seventh cholera pandemic</a> has been caused by a specific lineage of
+serogroup O1 <em>V. cholerae</em>, now dubbed “7PET” (the sixth
+pandemic, and possibly other historical pandemics, were caused by <a
+href="https://doi.org/10.1371/journal.pone.0004053">“Classical” lineage
+<em>V. cholerae</em></a>. The 7PET lineage has been transmitted around
+the world in several waves and has been repeatedly introduced into <a
+href="https://doi.org/10.1371%2Fjournal.pntd.0006379">Africa</a> and <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7530988/">Latin
+America</a> over recent years. Importantly from a global health
+perspective, genomics can be used to distinguish between 7PET and other
+“non-7PET” lineages of <em>V. cholerae</em>. The importance of these
+distinctions is illustrated by a comparison of the cholera epidemics in
+Latin America.</p>
+<p>Prior to 1991, Latin America had been <a
+href="https://iris.paho.org/handle/10665.2/38019">cholera-free</a> for
+nearly 100 years. However, in early 1991, a <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7360044/">large
+cholera epidemic began in Peru</a> and spread rapidly across the region.
+Cholera outbreaks and epidemics continued to be reported across Latin
+America and the Caribbean, until subsiding in the late 1990s, before
+resurging in <a
+href="https://www.cdc.gov/mmwr/preview/mmwrhtml/mm5943a4.htm">Haiti
+during 2010</a>. Genomic analyses have shown that two independent
+introductions of 7PET into Latin America occurred in the early 1990s;
+one sub-lineage was introduced into Peru, and a second discrete
+sub-lineage was <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4807371/">introduced
+into Mexico</a>. Both sub-lineages were toxigenic and associated with
+cholera cases, but their origins were distinct. <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3705451/">The Haiti
+outbreak in 2010</a> was caused by a third independently-introduced
+sub-lineage of 7PET, rather than being caused by a “resurgence” of
+either of the previous introductions.</p>
+<p>As well as the substantial disease burden caused by 7PET, other
+“non-7PET” <em>V. cholerae</em> have been identified. These bacteria
+were often isolated from clinical cases of diarrhoea and were members of
+the <em>V. cholerae</em> species, and could be toxigenic. However, they
+were not members of the 7PET lineage and – crucially – did not have the
+same burden of disease as 7PET. Multiple patterns of disease associated
+with different lineages of <em>V. cholerae</em> <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7530988/">have been
+described</a>, and just like how <a
+href="https://doi.org/10.1038/s41564-020-0770-5">SARS-CoV-2 variants and
+lineages</a> can behave differently, it is clear that different <em>V.
+cholerae</em> lineages have different abilities to cause outbreaks,
+epidemics, and pandemics. These observations could be made in Latin
+America because the enhanced surveillance for cholera in the region
+increased the number of non-pandemic <em>V. cholerae</em>, samples of
+which were <a
+href="https://doi.org/10.1038/s41467-020-18647-7">isolated, stored, and
+available for sequencing</a> (Figure 6).</p>
+<div class="float">
+<img src="images/OC5_2-18_fig1.png"
+alt="During the cholera epidemic of the 1990s, both O1 (“pandemic”) and non-O1 (“non-pandemic”) V. cholerae isolates were collected from the same places, at the same times, in Argentina. Such collections of isolates, obtained from the same places and times, are required to enable the comparison of dynamics between different lineages" />
+<div class="figcaption">During the cholera epidemic of the 1990s, both
+O1 (“pandemic”) and non-O1 (“non-pandemic”) <em>V. cholerae</em>
+isolates were collected from the same places, at the same times, in
+Argentina. Such collections of isolates, obtained from the same places
+and times, are required to enable the comparison of dynamics between
+different lineages</div>
+</div>
+<p><em>Source: <a
+href="https://doi.org/10.1038/s41467-020-18647-7">Nature
+Communications</a>.</em></p>
+<p><a href="images/OC5_2-18_fig1.png">Click to enlarge the image</a></p>
+<p><a href="images/OC5_2-18_Alt-text.pdf">Donwload Figure 6 alt-text
+here</a></p>
+<p>Cholera presents a major threat to public health, and its incidence
+is on the rise, with outbreaks reported in <a
+href="https://www.who.int/emergencies/disease-outbreak-news/item/2022-DON426">29
+countries in 2021</a>. It has been estimated that there are <a
+href="https://doi.org/10.1371/journal.pntd.0003832">~2.9 million cases
+of cholera <em>per annum</em></a>, but these figures are believed to be
+an underestimate. From a global health perspective, understanding the
+dynamics of <em>V. cholerae</em> lineages can provide useful
+information. For instance, <a
+href="https://doi.org/10.1038/s41467-020-18647-7">Argentina now uses
+genomic definitions</a> in its declaration of a cholera alert if <em>V.
+cholerae</em> is isolated from a patient. This is done by using
+whole-genome sequencing to examine whether or not a <em>V. cholerae</em>
+isolate is a member of a pandemic lineage. Continued genomic study of
+<em>V. cholerae</em> will be important in the future, both for
+continuing to research current pandemic and non-pandemic lineages, and
+for monitoring for potential new lineages which might display a
+different pattern of disease.</p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://doi.org/10.1073/pnas.0907787106">Comparative
+genomics reveals mechanism for short-term and long-term clonal
+transitions in pandemic <em>Vibrio cholerae</em></a></p>
+<p><a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4222100/">Genomic
+Epidemiology of the Haitian Cholera Outbreak: a Single Introduction
+Followed by Rapid, Extensive, and Continued Spread Characterized the
+Onset of the Epidemic</a></p>
+<p><a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3163938/">Population
+Genetics of <em>Vibrio cholerae</em> from Nepal in 2010: Evidence on the
+Origin of the Haitian Outbreak</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="cholera-in-yemen" class="section level1">
+<h1>Cholera in Yemen</h1>
+<!-- 2-19 -->
+<p>The cholera outbreak in Yemen is considered one of the largest in
+proportion and most protracted in duration ever recorded in recent
+history. The number of cases reported in the country since the outbreak
+started in 2016 has now surpassed <a
+href="https://www.emro.who.int/health-topics/cholera-outbreak/cholera-outbreaks.html">2.5
+million cases and over 4,000 deaths</a>.</p>
+<p>When the disease first appeared in October 2016, there was interest
+in knowing where the disease originated from before it first set a
+foothold in the country. At that time, outbreaks of cholera were
+reported in Iraq and other countries in the East Mediterranean region
+while small-scale outbreaks in East African countries such as Kenya,
+Tanzania, and Uganda were also being reported.</p>
+<p>Genomic epidemiology was identified as the most relevant tool to
+address this important public health question. As Yemen did not have
+genomic sequencing capacity, <em>Vibrio cholerae</em> isolates from
+Yemen and their genomic DNA extracts were sent to collaborating partners
+including the <a href="https://www.pasteur.fr/en">Pasteur Institute of
+Paris</a> and the <a href="https://www.sanger.ac.uk/">Wellcome Sanger
+Institute</a> for sequencing and genomic analysis.</p>
+<p>This analysis established that the sub-lineage of <em>Vibrio
+cholerae</em> that caused the outbreak in Yemen is closely related to
+sub-lineages responsible for <a
+href="https://doi.org/10.1038/s41586-018-0818-3">outbreaks of cholera in
+East African countries</a> such as Kenya, Tanzania, and Uganda. Even
+though genomic data did not present enough evidence for a precise route
+of transmission, it indicated that population movement may have been the
+route by which the disease arrived in Yemen. From there, it spread in
+large proportions within the country owing to the scarcity of clean
+water and the breakdown of <a
+href="https://www.who.int/health-topics/water-sanitation-and-hygiene-wash#tab=tab_1">water,
+sanitation and hygiene (WASH)</a> infrastructure, including the sewage
+systems, as a direct consequence of the war.</p>
+<p>As the outbreak continued, in late 2018, the bacteriology
+laboratories in Yemen reported <em>Vibrio cholerae</em> isolates that
+were becoming resistant to key antibiotics used for the treatment of the
+disease. Antibiotic therapy is not the mainstay for the treatment of
+cholera. However, antibiotics reduce the duration of illness and volumes
+of stool - both of which are important determinants in the transmission
+of the disease. There was a need to know whether the multidrug
+resistance pattern reported from the bacteriology laboratories was
+present at the genome level and to understand the molecular basis
+driving the rapid spread of the multidrug resistance clones in a short
+period of time.</p>
+<p>A total of 260 <em>Vibrio Cholerae</em> isolates collected from Yemen
+in 2018/19 were successfully sequenced in partner institutions. Genomic
+analysis revealed the timelines and the mechanism behind the spread of
+multidrug-resistant strains. It was shown that a minority clone of
+<em>Vibrio cholerae</em> - present in 6/89 (6.7%) of the sequenced
+isolates first emerged in late 2018. This clone had acquired an
+IncC-type plasmid carrying a multi-drug resistance (MDR) transposon that
+could confer resistance to a number of antibiotics useful for the
+treatment of cholera. By 2019, this minority clone rose to dominance and
+was present in 151/151 (100%) of sequenced isolates from 2019. Isolates
+carrying this plasmid were essentially resistant to key antibiotics that
+were being used for treatment in Yemen. After this report, the clinical
+guidelines for treatment with antibiotics were revised and antibiotics
+such as azithromycin and trimethoprim-sulfamethoxazole were no longer
+prescribed for patient treatment. Instead, doxycycline was then used to
+treat all cholera patients in Yemen. This work is reported in an article
+currently under peer review and a <a
+href="https://www.biorxiv.org/content/10.1101/2022.08.24.504966v1">preprint</a>
+is already accessible.</p>
+<p>Genomic surveillance was also crucial in confirming phenotypic
+characteristics of the strains, describing the spatiotemporal
+distribution of the strain causing annual successive waves of cases, and
+revealing genomic variation of <em>V. cholerae</em> strains within
+Yemen. This showed that the epidemic strain that spread globally
+co-occurred with diverse endemic strains, and exchanged genetic material
+with them, which is the likely mechanism for the emergence of the MDR
+strain.</p>
+<p>In summary, the experience of cholera and other infectious disease
+outbreaks, such as COVID-19 in Yemen, has shown that genomic
+surveillance/epidemiology is an indispensable tool in tackling disease
+outbreaks and in getting better outcomes from all the public health
+interventions, such as diagnostics, therapeutics, and control/prevention
+tools, aimed at tackling disease outbreaks.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container-left {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.img-container-right {
+  float: right;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<hr>
+<div class="clearfix">
+  <div class="img-container-left">
+    <img src="assets/img/COG-Train_logo.png" alt="COG-Train" 
+style="width:200%">
+  </div>
+  <div class="img-container-right">
+    <img src="assets/img/WCS_Logo-Primary_Black.jpg" alt="Wellcome 
+Connecting Science" style="width:200%">
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

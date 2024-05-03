@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>power_of_genomics_home</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COG-Train_Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-file-lines"></span>
+     
+    Course Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Virtual Courses</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viral Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="vbioinfasia.html">VBioinf2022 Asia</a>
+        </li>
+        <li>
+          <a href="vbioinflac.html">VBioinf2022 LAC</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOCs</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Power of Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="power_of_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Swab to Server</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="swab_to_server_home.html">Home</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Making Sense</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="making_sense_home.html">Home</a>
+        </li>
+        <li>
+          <a href="making_sense_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="making_sense_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="making_sense_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Practical Guide</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="practical_guide_home.html">Home</a>
+        </li>
+        <li>
+          <a href="practical_guide_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="practical_guide_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="practical_guide_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pathogen Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="pathogen_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Hybrid Course</li>
+    <li>
+      <a href="scvo2b4b.html">SARS-CoV-2 B4B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">In Person Courses</li>
+    <li>
+      <a href="ECPG.html">Pathogen Genomics Capacity</a>
+    </li>
+    <li>
+      <a href="IGM_B4B.html">Bioinformática Decodificada</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Webinars</li>
+    <li>
+      <a href="Community.html">COG-Train Community</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Team
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cogteam.html">COG-Train Team</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/WCSCourses/COG-Train_Resources">
+    <span class="fa fa-brands fa-github"></span>
+     
+    Github
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="the-power-of-genomics-to-understand-the-covid-19-pandemic"
+class="section level1">
+<h1>THE POWER OF GENOMICS TO UNDERSTAND THE COVID-19 PANDEMIC</h1>
+<p><img src="images/OC1_cover.jpeg" /></p>
+<div id="about-the-course" class="section level2">
+<h2>About the course</h2>
+<p>The world was devastated by the COVID-19 pandemic. Genomics is key to
+understanding and responding to the disease. This course, the first of a
+series of five, introduces key concepts in viral genomics and how they
+can be applied to the current pandemic. It explores lessons that can be
+applied to future pandemic preparedness.</p>
+<p><strong>Learning outcomes</strong></p>
+<ul>
+<li>Describe how viruses cause diseases and pandemics<br />
+</li>
+<li>Discuss the use of sequence data for detecting and tracking the
+SARS-CoV-2 virus and its variants<br />
+</li>
+<li>Describe the development and action of vaccines and therapeutics
+against SARS-CoV-2<br />
+</li>
+<li>Evaluate the role of genomic epidemiology in pandemic
+decision-making<br />
+</li>
+<li>Explain how data sharing contributes to developing effective
+strategies against the pandemic</li>
+</ul>
+<p><strong>Target audience</strong></p>
+<p>This course is designed for anyone interested in learning more about
+the genomics response to the current pandemic. While no prior knowledge
+about COVID-19 is required, it is likely to be most useful to
+researchers, healthcare professionals, science journalists,
+policymakers, and those working in public health.</p>
+</div>
+<div id="content" class="section level2">
+<h2>Content</h2>
+<p><strong><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#PANDEMICS_AND_THEIR_ORIGINS">Week
+1 - Pandemic and their origins</a></strong></p>
+<ul>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#Glossary">Glossary</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#Hypotheses_of_where_COVID-19_came_from">Hypotheses
+of where COVID-19 came from</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#What_is_a_Virus">What
+is a Virus?</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#The_SARS-CoV-2_virus">The
+SARS-CoV-2 virus</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#What_is_the_difference_between_pandemic,_epidemic,_and_outbreak">What
+is the difference between pandemic, epidemic, and outbreak?</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#Transmission_of_respiratory_viruses">Transmission
+of respiratory viruses</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#Genomic_technologies_for_tracking_COVID-19">Genomic
+technologies for tracking COVID-19</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#The_Great_Influenza_Pandemic_of_1918">The
+Great Influenza Pandemic of 1918</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#DNA,_RNA_and_PCR">DNA,
+RNA and PCR</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#What_is_Genome_Sequencing">What
+is Genome Sequencing?</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#Tracking_and_reacting_to_outbreaks_with_genomic_knowledge">Tracking
+and reacting to outbreaks with genomic knowledge</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set1.html#How_is_SARS-CoV-2_sequencing_done">How
+is SARS-CoV-2 sequencing done?</a></li>
+</ul>
+<p><strong><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html">Week
+2 - Viruses, Variants and Vaccines</a></strong></p>
+<ul>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#What_came_before_Comparison_with_other_coronaviruses_(MERSSARS)">What
+came before? Comparison with other coronaviruses (MERS/SARS)</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#The_disappearance_of_SARS">The
+disappearance of SARS</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#The_mechanism_of_viral_replication">The
+mechanism of viral replication</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#The_Coronavirus_Spike_Protein">The
+Coronavirus Spike Protein</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#What_is_a_vaccine">What
+is a vaccine?</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#Some_vaccine_approaches_used_for_COVID-19">Some
+vaccine approaches used for COVID-19</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#Up_next_-_sequencing_for_vaccine_development">Up
+next - sequencing for vaccine development</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#The_importance_of_sequencing_in_vaccine_trials">The
+importance of sequencing in vaccine trials</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#How_has_genomics_guided_therapeutic_design">How
+has genomics guided therapeutic design?</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#Variants_Explained:_Mutation,_Variant,_VOC">Variants
+Explained: Mutation, Variant, VOC</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#Tracking_across_a_nation">Tracking
+across a nation</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#SARS-CoV-2_Variants">SARS-CoV-2
+Variants</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set2.html#Variants_arising_all_over_the_world">Variants
+arising all over the world</a></li>
+</ul>
+<p><strong><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html">Week
+3 - Epidemiology and tracking in a pandemic</a></strong></p>
+<ul>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#How_to_tackle_a_respiratory_virus">How
+to tackle a respiratory virus?</a>.<br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Introduction_to_Phylogenetics">Introduction
+to Phylogenetics</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Surveillance_around_the_world">Surveillance
+around the world</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Identifying_transmission_clusters:_Hospital_outbreak_investigation_in_the_United_Kingdom">Identifying
+transmission clusters: Hospital outbreak investigation in the United
+Kingdom</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Surveillance_of_viruses_in_a_population">Surveillance
+of viruses in a population</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Genomic_surveillance_and_its_impacts">Genomic
+surveillance and its impacts</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Sequencing_surveillance_options">Sequencing
+surveillance options</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#What_can_we_do_better_for_the_pandemics_that_may_come">What
+can we do better for the pandemics that may come?</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/power_of_genomics_set3.html#Resources">Resources</a></li>
+</ul>
+</div>
+<div id="collaborators" class="section level2">
+<h2>Collaborators</h2>
+<p><strong>Educators</strong></p>
+<p>Leigh Jackson, University of Exeter, United Kingdom<br />
+Sophie Prosolek, United Kingdom<br />
+Stephanie Hutchings, Bristol Health Security Agency (UKHSA), United
+Kingdom<br />
+Teresa Cutiño-Moguel, Royal College of Pathology, Barts Health, United
+Kingdom</p>
+<p><strong>Contributors</strong></p>
+<p>Carlo Lapid, Philippine Genomics Center, Philippines<br />
+Carolina Torres, Argentine SARS-CoV-2 Genomics Consortium (PAIS
+Project), University of Buenos Aires, Argentina<br />
+Charlotte Williams, UCL Genomics, University College London, United
+Kingdom<br />
+Gerald Mboowa, Africa Centres for Disease Control and Prevention,
+Ethiopia<br />
+Mariana Viegas, Argentine SARS-CoV-2 Genomics Consortium (PAIS Project),
+Argentinean Scientific and Technical Research Council (CONICET),
+Argentina Paola Niola, University College London, United Kingdom<br />
+Rachel Williams, UCL Genomics, University College London, United
+Kingdom<br />
+Sandra Cantinela, University College London, United Kingdom<br />
+Sunando Roy, University College London, United Kingdom<br />
+Stephen Bridgett, Queen’s University Belfast, United Kingdom<br />
+Tapfumanei Mashe, Ministry of Health and Child Care, Zimbabwe<br />
+Thanat Chookajorn, COVID-19 Network Investigations Alliance, Genomics
+and Evolutionary Medicine Unit, Mahidol University, Thailand</p>
+<p><strong>Reviewers</strong></p>
+<p>Camila Romano, Hospital das Clínicas, School of Medicine, University
+of São Paulo, Brazil<br />
+Charles Masembe, Makerere University, Uganda<br />
+Varun Shamanna, Central Research Laboratory, Kempegowda Institute of
+Medical Sciences, India</p>
+<p><strong>Education developers</strong></p>
+<p>Jorge Batista da Rocha, Wellcome Connecting Science, United
+Kingdom<br />
+Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom</p>
+<p><strong>COG-UK contributors</strong></p>
+<p>Sharon Peacock, University of Cambridge, United Kingdom<br />
+Alistair Darby, University of Liverpool, United Kingdom<br />
+Catherine Ludden, University of Cambridge, United Kingdom<br />
+Darren Smith, Northumbria University, United Kingdom<br />
+Anna Markov, University of Cambridge, United Kingdom<br />
+Peter McEwan, University of Cambridge, United Kingdom</p>
+<p><strong>Wellcome Connecting Science contributors</strong></p>
+<p>Treasa Creavin, Wellcome Connecting Science, United Kingdom<br />
+Alice Matimba, Wellcome Connecting Science, United Kingdom<br />
+Rachel Berkson, Wellcome Connecting Science, United Kingdom<br />
+Mel Sharpe, Wellcome Connecting Science, United Kingdom<br />
+Dusanka Nikolic, Wellcome Connecting Science, United Kingdom</p>
+</div>
+<div id="original-version" class="section level2">
+<h2>Original version</h2>
+<p><strong>Original platform:</strong> FutureLearn<br />
+<strong>Original course page:</strong> <a
+href="https://www.futurelearn.com/courses/genomics-covid-19/2">The power
+of genomics to understand the COVID-19 pandemic</a><br />
+<strong>Launch of the original version:</strong> 7 February 2022<br />
+<strong>Launch of the reviewed version:</strong> 4 July 2022</p>
+<p><strong>Data collected on 31 May 2023</strong><br />
+<strong>Number of joiners:</strong> 4,466<br />
+<strong>Number of countries reached:</strong> 132<br />
+<strong>Review score:</strong> 4.6/5 (37 reviews)</p>
+<hr />
+<p>Any reuse of the course materials is encouraged with due
+acknowledgement.</p>
+</div>
+<div id="license" class="section level2">
+<h2>License</h2>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This
+work is licensed under a
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative
+Commons Attribution 4.0 International License</a>.</p>
+</div>
+<div id="how-to-cite" class="section level2">
+<h2>How to cite</h2>
+<p>COG-Train. (2022). The Power of Genomics to Understand the COVID-19
+Pandemic. Zenodo. <a href="https://doi.org/10.5281/zenodo.8164924"
+class="uri">https://doi.org/10.5281/zenodo.8164924</a></p>
+</div>
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container-left {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.img-container-right {
+  float: right;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<hr>
+<div class="clearfix">
+  <div class="img-container-left">
+    <img src="assets/img/COG-Train_logo.png" alt="COG-Train" 
+style="width:200%">
+  </div>
+  <div class="img-container-right">
+    <img src="assets/img/WCS_Logo-Primary_Black.jpg" alt="Wellcome 
+Connecting Science" style="width:200%">
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>practical_guide_week2</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COG-Train_Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-file-lines"></span>
+     
+    Course Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Virtual Courses</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viral Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="vbioinfasia.html">VBioinf2022 Asia</a>
+        </li>
+        <li>
+          <a href="vbioinflac.html">VBioinf2022 LAC</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOCs</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Power of Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="power_of_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Swab to Server</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="swab_to_server_home.html">Home</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Making Sense</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="making_sense_home.html">Home</a>
+        </li>
+        <li>
+          <a href="making_sense_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="making_sense_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="making_sense_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Practical Guide</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="practical_guide_home.html">Home</a>
+        </li>
+        <li>
+          <a href="practical_guide_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="practical_guide_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="practical_guide_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pathogen Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="pathogen_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Hybrid Course</li>
+    <li>
+      <a href="scvo2b4b.html">SARS-CoV-2 B4B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">In Person Courses</li>
+    <li>
+      <a href="ECPG.html">Pathogen Genomics Capacity</a>
+    </li>
+    <li>
+      <a href="IGM_B4B.html">Bioinformática Decodificada</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Webinars</li>
+    <li>
+      <a href="Community.html">COG-Train Community</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Team
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cogteam.html">COG-Train Team</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/WCSCourses/COG-Train_Resources">
+    <span class="fa fa-brands fa-github"></span>
+     
+    Github
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="library-preparation-and-sequencing" class="section level1">
+<h1>LIBRARY PREPARATION AND SEQUENCING</h1>
+<p><img src="images/OC4_W1_Act4.png" /><br />
+<sub><span class="citation">@Canva</span></sub></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="how-to-isolate-good-quality-nucleic-acids"
+class="section level1">
+<h1>How to isolate good quality nucleic acids</h1>
+<!-- 2-2 -->
+<p>The extraction of RNA from viral samples is an important step for
+pathogen research. Viral nucleic acid extraction is the first step for
+downstream genomic analysis. Analysis of viruses in biological and
+environmental samples requires efficient methods for viral nucleic acids
+that are amenable to a variety of sample types. Successful genome
+sequencing of SARS-CoV-2 depends on the quality of the nucleic acids
+extracted from the primary sample. Each sample type has unique
+requirements for optimal nucleic acid extraction and isolation.</p>
+<p>Different types of samples are used for SARS-CoV-2 testing
+including:</p>
+<ul>
+<li>Swabs (nasopharyngeal and oropharyngeal)</li>
+<li>Saliva</li>
+<li>Sputum<br />
+</li>
+<li>Other samples - bronchoalveolar lavage (BAL) and other respiratory
+research samples, urine, whole blood, plasma, tissue, stool, cell-free
+body fluids, and even wastewater</li>
+</ul>
+<p>Due to the delicate nature of RNA, the RNA purification process
+consists of a variety of unique challenges, one of which is ribonuclease
+(RNAse) contamination. RNases are abundant in the environment and even a
+trace amount of RNase contamination can sabotage RNA-based experiments.
+Several precautions such as the use of RNase-free reagents, dedicated
+pipettes, glassware, gloves, and working in an RNAse-free environment
+need to be followed to achieve a good RNA yield.</p>
+<p>Often minute amounts (low viral load per ml, typically 1000-5000
+particles/ml) of viral RNA need careful extraction from samples such as
+tissues, nasopharyngeal/oropharyngeal swabs, sputum, blood, plasma, or
+other body fluids. Viral RNA might also be extracted from clinical
+samples, water or other environmental samples. Sometimes investigators
+might need to quantify the viral particles contaminating medicinal
+products such as vaccines. Since the viral load of these biological,
+medicinal, and environmental samples is usually exceptionally low, RNA
+isolation consists of two major steps: virus concentration followed by
+RNA extraction. Viral concentration is usually achieved by applying
+various precipitation, flocculation, and filtration techniques.</p>
+<p><strong>The Organic Extraction Method</strong></p>
+<p>The organic extraction method is the most tried-and-tested method for
+RNA extraction and removal of cellular proteins. Here, RNA isolation is
+achieved through organic extraction followed by RNA precipitation. This
+technique involves lysis or extraction in a monophasic solution of
+phenol and guanidine isothiocyanate. Chloroform is then added. The
+phenol-chloroform mixture is immiscible with water. Therefore, when
+centrifuged, the sample forms two distinct phases: the lower (organic)
+phase and phase interface contain denatured proteins, while the
+less-dense upper (aqueous) phase contains the RNA. The aqueous phase
+containing the RNA is carefully removed by pipetting, without touching
+the interface or the lower organic phase, as this can contaminate the
+sample. The RNA is then precipitated with isopropanol and then
+rehydrated for further analysis.</p>
+<p>Organic extraction protocols are well-established and are useful for
+most sample types (Figure 1). Proteins are rapidly denatured, and RNA is
+quickly stabilised. The process is scalable and can be completed in
+30-60 minutes. However, this method is not amenable to high-throughput
+processing and is difficult to automate. New users find the phase
+separation and careful pipetting of the aqueous phase challenging to
+master. A chemical fume hood is required due to the use of the hazardous
+chemicals, which then need to be disposed of appropriately. Manual
+handling of a large number of samples is cumbersome.</p>
+<div class="float">
+<img src="images/OC4_2-2_fig1.png"
+alt="Workflow of an organic extraction protocol" />
+<div class="figcaption">Workflow of an organic extraction protocol</div>
+</div>
+<p><a href="images/OC4_2-2_fig1.png">Click to enlarge the image</a></p>
+<p><a href="images/OC4_2-2_Alt-text.pdf">Download Figure 1, 2 and 3
+alt-text here</a></p>
+<p><strong>The Spin-Column Based Method</strong></p>
+<p>The easiest and safest method, readily available in a kit format, is
+the spin-column-based method (Figure 2). The binding element in
+spin-column systems is usually composed of glass particles or powder,
+silica matrices, diatomaceous earth, and ion exchange carriers. In this
+method, nucleic acid binding is optimised with specific buffer solutions
+and extremely precise pH and salt concentrations. Sample lysates are
+passed through the silica membrane using centrifugal force, with the RNA
+binding to the silica gel at the appropriate pH. The membrane containing
+residual proteins and salt is then washed to remove impurities, and the
+flow-through is discarded. RNA is subsequently eluted with RNase-free
+water.</p>
+<div class="float">
+<img src="images/OC4_2-2_Fig2.png"
+alt="Diagram showing the steps for viral RNA isolation using a standard commercial kit" />
+<div class="figcaption">Diagram showing the steps for viral RNA
+isolation using a standard commercial kit</div>
+</div>
+<p><a href="images/OC4_2-2_Fig2.png">Click to enlarge the image</a></p>
+<p>Column-based RNA extraction is one of the best techniques among the
+options available, playing a vital role in ion exchange methods, as it
+provides a robust stationary phase for rapid and reliable buffer
+exchange and thus nucleic acid extraction. This method is fast and
+reproducible, and its main drawback is the need for a small centrifuge.
+Vacuum-based systems can also be used in place of centrifugation to
+separate impurities. Researchers can also combine the organic extraction
+method with the spin column method for faster and greater RNA yield.
+This method is fast (20 minutes) and amenable to large-scale and
+high-throughput processing, including automated methods. Protein or DNA
+contamination is possible if the sample amount is large or remains
+incompletely homogenised or lysed. Incomplete lysis can also lead to low
+yields of viral RNA. Automation can be complex and expensive due to the
+need for setting up centrifugation or vacuum-based separation
+systems.</p>
+<p><strong>The Magnetic Bead-Based Method</strong></p>
+<p>The magnetic bead-based method relies on the use of magnetic beads
+and reagents optimised for RNA extraction (Figure 3). The beads have a
+paramagnetic core, usually coated with silica for nucleic acid binding.
+The sample is lysed in a buffer with RNase inhibitors and then incubated
+with magnetic beads, allowing the particles to bind RNA molecules. The
+magnetic beads can then be quickly collected by being placed in
+proximity to an external magnetic field. The supernatant is removed, and
+beads are subsequently washed in a suitable wash buffer with the removal
+of the magnetic field. This process can be easily repeated for multiple
+washes. The RNA is eluted from the magnetic beads with RNase-free water
+into a solution, and the supernatant (containing the pure RNA) can then
+be transferred.</p>
+<div class="float">
+<img src="images/OC4_2-2_Fig3.png"
+alt="Schematic of RNA isolation using magnetic bead-based technology" />
+<div class="figcaption">Schematic of RNA isolation using magnetic
+bead-based technology</div>
+</div>
+<p><a href="images/OC4_2-2_Fig3.png">Click to enlarge the image</a></p>
+<p>The magnetic bead collection steps are simple and quick to perform.
+There is a reduced risk of clogging as no column is involved. This
+technique is the most amenable to scale-up, high-throughput separation,
+and automation. The clean-up is more effective due to the movement of
+the beads. However, viscous samples could impede the movement of the
+beads and, occasionally, the final sample may be contaminated with
+magnetic beads. A magnetic stand is required for manual separation and a
+magnetic particle handler for the automation of this process.</p>
+<p><strong>Automated viral nucleic acid purification
+systems</strong></p>
+<p>For fast, easy, and effective high-throughput sample processing, RNA
+extraction protocols are automated. Automated viral RNA extraction
+protocols for the silica plate-based protocol use a vacuum manifold to
+achieve buffer flow/wash and are available for a variety of liquid
+handlers. Automated viral RNA extraction protocol for magnetic bead
+protocol uses a magnetic comb which carries the separated nucleic acids
+from the lysis step through wash steps and finally, viral RNA is eluted
+into an elution buffer.</p>
+<p><em>Table 1 - Summary of key differences between spin column-based
+and magnetic bead-based viral RNA isolation</em></p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Organic extraction</th>
+<th>Spin column-based</th>
+<th>Magnetic bead-based</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Purity</td>
+<td>Medium</td>
+<td>High</td>
+<td>Highest</td>
+</tr>
+<tr class="even">
+<td>Organic solvent hazardous waste</td>
+<td>Yes</td>
+<td>None</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td>Difficulties</td>
+<td>Phase separation difficult for new users</td>
+<td>Handling several samples is tedious. Centrifuge/vacuum required</td>
+<td>Magnetic stand required</td>
+</tr>
+<tr class="even">
+<td>High-throughput friendly</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Concern of clogging</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Important considerations</strong></p>
+<p><em>Precaution 1:</em> Samples may be fresh or frozen, but if frozen,
+should not be thawed more than once. Repeated freeze-thawing of plasma
+samples will lead to reduced viral titers and should be avoided for
+optimal sensitivity. Cryoprecipitates accumulate when samples are
+subjected to repeated freeze-thaw cycles which may lead to clogging of
+the silica membrane used for purification.</p>
+<p><em>Precaution 2:</em> RNA extraction is a delicate process, as cells
+and the environment secrete high concentrations of enzymes that destroy
+nucleic acids, therefore, the process must be carried out in a careful
+and quick manner.</p>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://www.kbdna.com/publishinglab/viral-RNA-isolation-methods-reviewed-spin-vs-magnetic">Viral
+RNA Isolation Methods Reviewed: Spin vs. Magnetic</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="what-a-targeted-sequencing-protocol" class="section level1">
+<h1>What a targeted sequencing protocol</h1>
+<!-- 2-3 -->
+<p>Different targeted methods have been developed to library preparation
+and sequence full-length SARS-CoV-2 genomes from specimens containing
+both viral and human nucleic acids. Due to the size difference between
+the SARS-CoV-2 (~30kb) and human (~6.4 Gb) genomes, sequencing the
+sample without enriching or amplifying the viral genome could result in
+&gt;99% of the sequencing reads being human.</p>
+<p><strong>SARS-CoV-2 WGS – amplicon sequencing methods</strong></p>
+<p>In amplicon sequencing, the SARS-CoV-2 genome is amplified by RT-PCR
+(reverse transcription-polymerase chain reaction) on overlapping
+fragments, which can differ in length. The most commonly used primers
+are the ARTIC primers designed by Josh Quick (University of Birmingham)
+which produce 400bp fragments. Other primer designs include those used
+in the Oxford Nanopore <a
+href="https://doi.org/10.1101/2021.12.28.21268461">Midnight
+protocol</a>. Amplifying longer amplicons (as achieved with <a
+href="https://academic.oup.com/ve/article/7/1/veab006/6128533">Entebbe
+primers</a>) has the advantage of requiring less primer pairs to cover
+the full-length genome (which may reduce the number of times the primer
+design needs to be updated to incorporate new variants), although they
+are unlikely to amplify SARS-CoV-2 in degraded samples as well as the
+ARTIC primers. However, more amplicons mean more opportunities for
+amplicon dropout leading to technical <a
+href="https://wellcomeopenresearch.org/articles/6-305">artefacts in the
+consensus sequence</a>. Amplicons are prepared for sequencing using
+commercially available library preparation kits or open-source
+protocols.</p>
+<p>The tailed PCR method is a variation of the standard amplicon
+sequencing approach in which a second PCR step replaces the need for
+library preparation. Non-homologous sequences containing the information
+required for NGS are added to the end of the ARTIC primers (‘tail’) and
+are therefore incorporated into the amplified fragments. A second round
+of PCR using indexing primers generates fragments <a
+href="https://doi.org/10.1186/s12864-020-07283-6">ready to be
+sequenced</a>. This approach is cost-effective as there is no library
+preparation although the likelihood of contamination occurring may
+increase compared to some methods due to the second round of PCR.</p>
+<p>The Wellcome Sanger Institute provided large-scale and
+high-throughput sequencing of SARS-CoV-2 for COG-UK using a different
+tailed amplicon approach, whereby the first PCR step was with the ARTIC
+primers followed by a second PCR with a mix of tailed versions of the <a
+href="https://www.protocols.io/view/covid-19-artic-v4-1-illumina-library-construction-j8nlk4b36g5r/v2">ARTIC
+primers plus the indexing primers</a>.</p>
+<p>The tailed PCR method has been further developed using a <a
+href="https://doi.org/10.1016/j.jcv.2021.104993">reverse complement-PCR
+strategy (RC-PCR)</a> in which indexed libraries ready for Illumina
+sequencing are generated in a single PCR step. This approach has been
+used in the UK for monitoring SARS-CoV-2 in wastewater with an <a
+href="https://www.protocols.io/view/wastewater-sequencing-using-the-easyseq-rc-pcr-sar-81wgb7bx3vpk/v2">open-source
+protocol</a> available .</p>
+<p><strong>SARS-CoV-2 WGS – bait/probe capture</strong></p>
+<p>In bait/probe capture the library is enriched for the viral genome
+using small fragments (baits/probes) complementary to the viral sequence
+which are then captured on a solid support. Various probe panels (both
+RNA and DNA) have been designed against SARS-CoV-2. An advantage of
+using this approach is that one bait set can be designed to target
+multiple viruses, for example, multiple respiratory viruses, meaning
+coinfections can be detected and sequenced from the same sample.
+Combined with deep sequencing, this approach can identify minority
+populations within a sample, allowing for analysis of the evolution of
+resistance mutations and informing treatment.</p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://doi.org/10.1186/s13073-021-00839-5">CoronaHiT:
+high-throughput sequencing of SARS-CoV-2 genomes</a></p>
+<p><a href="https://doi.org/10.1101/2021.12.28.21268461">Rapid
+turnaround multiplex sequencing of SARS-CoV-2: comparing tiling amplicon
+protocol performance</a></p>
+<p><a href="https://doi.org/10.1016/j.jcv.2021.104993">SARS-CoV-2
+whole-genome sequencing using reverse complement PCR: For easy, fast and
+accurate outbreak and variant analysis</a></p>
+<p><a href="https://doi.org/10.1186/s12967-022-03307-9">Mini-XT, a
+miniaturized tagmentation-based protocol for efficient sequencing of
+SARS-CoV-2</a></p>
+<p><a href="https://doi.org/10.1186/s12864-020-07283-6">A rapid,
+cost-effective tailed amplicon method for sequencing SARS-CoV-2</a></p>
+<p><a href="https://doi.org/10.1038/nrmicro.2016.182">Clinical and
+biological insights from viral genome sequencing</a></p>
+<p><a href="https://doi.org/10.1016/j.fsigen.2019.102201">Reverse
+Complement PCR: A novel one-step PCR system for typing highly degraded
+DNA for human identification</a></p>
+<p><a href="https://doi.org/10.1101/2020.09.04.283077">Improvements to
+the ARTIC multiplex PCR method for SARS-CoV-2 genome sequencing using
+nanopore</a></p>
+<p><a href="https://doi.org/10.1101/2020.04.30.069039">SARS-CoV-2
+genomes recovered by long amplicon tiling multiplex approach using
+nanopore sequencing and applicable to other sequencing platforms</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="how-sars-cov-2-primer-sets-were-designed"
+class="section level1">
+<h1>How SARS-CoV-2 primer sets were designed</h1>
+<!-- 2-4 -->
+<!-- YT: https://youtu.be/mxA9Adx8CWo -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/mxA9Adx8CWo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC4_2-4_transcript.pdf">Donwload the transcript
+here</a></p>
+<p><a href="assets/OC4_2-4_slides.pdf">Download the PDF slides
+here</a></p>
+<p>In this video, learn from Dr Naomi Park how to take into
+consideration genome coverage and viral evolution when designing primer
+sets for whole-genome sequencing.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="producing-sars-cov-2-amplicons" class="section level1">
+<h1>Producing SARS-CoV-2 amplicons</h1>
+<!-- 2-5 -->
+<p>Deoxyribonucleic acid (DNA) and ribonucleic acid (RNA) hold the
+genetic information required to make proteins, and therefore all life on
+earth.</p>
+<p>The sequence in which DNA bases occur provides the genetic code. Some
+viruses, such as SARS-CoV-2, use RNA rather than DNA as their genetic
+material. To read the genetic code of SARS-CoV-2, its RNA must first be
+converted to DNA – allowing it to be ‘read’ by the sequencer. The
+conversion method used is called reverse transcription-polymerase chain
+reaction (RT-PCR) and it consists of two steps.</p>
+<p>The first step synthesises complementary DNA (cDNA) from RNA by
+reverse transcription (i.e the opposite of transcription). In this
+process an enzyme (reverse transcriptase) adds complementary bases to
+the single-stranded RNA, creating cDNA. The second step is PCR, which
+amplifies the cDNA using an enzyme (DNA polymerase), creating enough
+double-stranded DNA to go into downstream library preparation for
+sequencing.</p>
+<p>SARS-CoV-2 samples contain contaminating human material, so the ARTIC
+PCR is designed to amplify SARS-CoV-2 cDNA. This is done using a
+‘multiplex tiling PCR’. A multiplex PCR is the simultaneous
+amplification of multiple targets, and ‘tiling’ means overlapping
+amplicons that can be aligned bioinformatically to determine the
+full-length genome. The SARS-CoV-2 ARTIC primer pairs each amplify 400b
+regions of the SARS-CoV-2 genome. The ARTIC primer pairs are split into
+two pools, with adjacent primer pairs in different pools to prevent
+primers from competing for the same part of the genome, hence creating a
+more efficient amplification. The result of the PCR is two pools of
+400bp SARS-CoV-2 amplicons which are pooled and subsequently, the
+library is prepared for sequencing.</p>
+<p>The ARTIC PCR is also different to a typical 3-step (denaturation,
+annealing, extension) PCR in that it has a combined annealing and
+elongation, thereby only having two steps. This annealing/elongation
+step is longer than typical PCR annealing and elongation times, which is
+required in multiplex PCRs as there are more primers to anneal, and more
+targets to amplify.</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>PCR protocol step</th>
+<th>Number of cycles</th>
+<th>Typical 3-step</th>
+<th>Multiplex 2-step</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Initial denaturation</td>
+<td>1</td>
+<td>95°C 30s</td>
+<td>not applicable</td>
+</tr>
+<tr class="even">
+<td>Heat activation</td>
+<td>1</td>
+<td>not applicable</td>
+<td>98°C 30s</td>
+</tr>
+<tr class="odd">
+<td>Denaturation</td>
+<td>30 for Taq; 35 for ARTIC</td>
+<td>95°C 15-30s</td>
+<td>98°C 15s</td>
+</tr>
+<tr class="even">
+<td>Annealing</td>
+<td>30 for Taq; 35 for ARTIC</td>
+<td>45-68°C 15-60s</td>
+<td>65°C 5m</td>
+</tr>
+<tr class="odd">
+<td>Extension</td>
+<td>30 for Taq; 35 for ARTIC</td>
+<td>68°C 1m per kb</td>
+<td>65°C 5m</td>
+</tr>
+<tr class="even">
+<td>Final Extension</td>
+<td>1</td>
+<td>72°C 5m</td>
+<td>not applicable</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://international.neb.com/protocols/0001/01/01/protocol-for-a-routine-taq-pcr-reaction">Protocol
+for a Routine Taq PCR</a></p>
+<p><a
+href="https://www.protocols.io/view/ncov-2019-sequencing-protocol-v3-locost-bp2l6n26rgqe/v3?step=9">nCoV-2019
+sequencing protocol v3 (LoCost) V.3</a></p>
+<p><a
+href="https://www.protocols.io/view/sars-cov-2-genome-sequencing-using-long-pooled-amp-kxygxeob4v8j/v1">SARS-CoV-2
+Genome Sequencing Using Long Pooled Amplicons on Illumina
+Platforms</a></p>
+<p><a href="https://pubs.acs.org/doi/10.1021/acscentsci.0c00501">Assay
+Techniques and Test Development for COVID-19 Diagnosis</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="checking-the-quality-of-amplicons" class="section level1">
+<h1>Checking the quality of amplicons</h1>
+<!-- 2-6 -->
+<p>Genome sequencing of SARS-CoV-2 involves performing PCR using ARTIC
+or Midnight protocol. PCR amplification is the common step involved in
+both protocols. In order to confirm successful PCR amplification, PCR
+amplicons need to be analysed. Before pooling the PCR products obtained
+from Pool A and B, the PCR amplicons are either loaded on an agarose gel
+or QIAxcel to confirm successful amplification. The PCR products are
+then pooled and quantified using Qubit.</p>
+<p>Depending on the information desired, there are different methods to
+analyse the products of a PCR reaction. Agarose gel electrophoresis,
+capillary gel electrophoresis and fragment analysis are the methods used
+to analyse the PCR amplicons. Mutation detection methods, such as
+denaturing gradient gel electrophoresis (DGGE) and temporal temperature
+gel electrophoresis (TTGE), which use acrylamide gel to assist with
+identifying mutations in the PCR product, are also available.</p>
+<p>Quality checks of the SARS-CoV-2 amplicons can be performed by:</p>
+<ul>
+<li>Running the PCR amplicons - Slab gel electrophoresis, Capillary gel
+electrophoresis</li>
+<li>Quantifying of PCR amplicons - Qubit</li>
+</ul>
+<p><strong>Agarose gel Electrophoresis (Slab gel
+electrophoresis)</strong></p>
+<p><a
+href="https://www.technologynetworks.com/analysis/articles/agarose-gel-electrophoresis-how-it-works-and-its-uses-358161">Agarose
+gel electrophoresis</a> is a common technique to detect the presence or
+absence of the target sequence and the length of the fragment (Figure
+4). Nucleic acid fragments are separated by their length while moving
+through an agarose matrix. By adding a dye or an intercalating agent
+like ethidium bromide (EtBr), these fragments can be visualised under
+ultraviolet light. The intensity of the band can be used to estimate the
+amount of product of a given molecular weight relative to a ladder. Gel
+electrophoresis also shows the specificity of the reaction, where the
+presence of multiple bands indicates secondary amplification
+products.</p>
+<div class="float">
+<img src="images/OC4_2-6_fig1.png"
+alt="Principle of Agarose gel electrophoresis" />
+<div class="figcaption">Principle of Agarose gel electrophoresis</div>
+</div>
+<p><a href="images/OC4_2-6_fig1.png">Click to enlarge the image</a></p>
+<p><a href="images/OC4_2-6_Alt-text.pdf">Download Figure 4, 5, and 6
+alt-text here</a></p>
+<p>Slab gel electrophoresis (SGE) is a widely used technique for the
+analysis of PCR fragments. While SGE is a relatively inexpensive and
+easy-to-use technique, the amount of information, which can be derived
+with little effort from slab gels, is limited. Typically, size and
+concentration information is estimated by the scientist through visual
+comparison to the appropriate size and mass ladders which have been run
+in separate lanes on the gel. These estimations might be appropriate for
+experiments where a simple yes-or-no answer is adequate.</p>
+<p>While gel electrophoresis is relatively easy to adopt in any
+laboratory, it has a number of disadvantages, including highly
+labour-intensive preparation of slab gels, and user exposure to
+hazardous chemicals such as ethidium bromide as a staining agent.
+Moreover, separation times can be rather long, depending on the
+experimental settings, and slab gels usually do not provide the high
+resolution required to meet today’s research demands.</p>
+<p><strong>Capillary gel Electrophoresis (CGE)</strong></p>
+<p>Separation of analyte ions via differential migration in an electric
+field, coupled with the electro-osmotic flow of the mobile phase.
+Capillary electrophoresis (CE) is a process used to separate ionic
+fragments by size.</p>
+<p>There are two different forms of capillary gel electrophoresis:</p>
+<ul>
+<li>Sequencer-based CGE</li>
+<li>QIAxcel-based CGE</li>
+</ul>
+<p><strong>Sequencer-based CGE (SCGE)</strong></p>
+<p>Sequencer-based capillary gel electrophoresis (SCGE) as an
+alternative to conventional gel electrophoresis, using 5′-end
+fluorescein-labelled primers and the AB 310 Genetic Analyzer (Applied
+Biosystems, Carlsbad, USA) with a 41-cm capillary loaded with a POP4
+gel. This method was highly reproducible (the standard deviation of peak
+sizes was ±0.5 bp), independent of the reagents used, and had much
+higher discriminatory power than conventional agarose gel
+electrophoresis.</p>
+<p>The use of fluorescein-labelled primers increases the sensitivity
+and, also, the cost of the method. SCGE requires access to a DNA
+sequencer, which may cause a delay if PCR products are referred to an
+external sequencing facility, and the cost of consumables per isolate is
+greater ($6 to $7, including primers, labels, PCR reagents, and SCGE,
+including a component for equipment cost) than for QCGE. SCGE requires
+the use of a more expensive instrument.</p>
+<p>SCGE is not used for analysing the SARS-CoV-2 PCR amplicons, as SCGE
+requires fluorescent tagging of the primers.</p>
+<p><strong>QIAxcel-based CGE</strong></p>
+<p>The automated commercial CGE method, QIAxcel (Qiagen, Hilden,
+Germany), is used in many SARS-CoV-2 studies for analysing the PCR
+amplicons, which does not require the use of fluorescein-labelled
+primers (Figure 5).</p>
+<div class="float">
+<img src="images/OC4_2-6_fig2.png"
+alt="Sample separation using the QIAxcel Advanced System" />
+<div class="figcaption">Sample separation using the QIAxcel Advanced
+System</div>
+</div>
+<p><a href="images/OC4_2-6_fig2.png">Click to enlarge the image</a></p>
+<p>QIAxcel is an automated electrophoresis platform that can deal with
+up to 96 samples per run with high efficiency and a turnaround time of
+0.2 to 1.5h depending on the number of specimens. It is simple to
+perform, and potentially suitable for a clinical laboratory.</p>
+<p>The results can be exported in either electropherogram or gel-view
+format (Figure 6). The major costs are for the setup of the QIAxcel
+system hardware and BioCalculator analysis software and for consumables
+(cartridges), making the cost per sample around $3 to $4. However,
+compared with SCGE, QCGE has limited sensitivity and discriminatory
+power, making it unable to clearly distinguish between amplicons with a
+3-5bp difference.</p>
+<div class="float">
+<img src="images/OC4_2-6_fig3.png"
+alt="QIAxcel gel image of PCR amplicons with different sizes" />
+<div class="figcaption">QIAxcel gel image of PCR amplicons with
+different sizes</div>
+</div>
+<p><a href="images/OC4_2-6_fig3.png">Click to enlarge the image</a></p>
+<p><strong>Advantages and disadvantages of PCR amplicon analysis
+methods</strong></p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Agarose gel electrophoresis</td>
+<td>Inexpensive; Easy to use technique; Cost effective</td>
+<td>Unsafe when EtBr is used; Low resolution; Time consuming; Labour
+intensive; Requires high concentration of Nucleic acids for
+detection</td>
+</tr>
+<tr class="even">
+<td>Capillary gel electrophoresis</td>
+<td>Rapid analysis of up to 96 samples without manual intervention; Safe
+and Convenience with ready-to-use gel cartridges l; Robust results for
+nucleic acid concentrations as low as 0.1 ng/µl; Standardised and
+accurate analysis with a resolution down to 3–5 bp</td>
+<td>Expensive compared to SGE</td>
+</tr>
+</tbody>
+</table>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="what-is-a-sequencing-library-and-how-is-it-prepared"
+class="section level1">
+<h1>What is a sequencing library and how is it prepared?</h1>
+<!-- 2-7 -->
+<p>Next-generation sequencing has revolutionised genomic research,
+allowing high-throughput profiling of genomes, transcriptomes,
+DNA-protein interactions and more. This is achieved by performing
+millions to billions of massively parallel short read (50-500bp)
+reactions in each run. In order for this to happen, each reaction must
+first be localised to a solid substrate, such as a bead or a glass
+slide, before being clonally amplified and sequenced in-situ. On
+Illumina systems, this process is referred to as clustering.</p>
+<p>Before sequencing can begin, DNA or RNA samples must first be
+converted into molecules compatible with the sequencing platform of
+choice. We refer to this converted sample as a library, and the
+processes used to generate it are referred to as library preparation.
+Optional steps can be added before, during and after library preparation
+in order to enrich, select, deplete or convert the sample for specific
+content prior to sequencing (for example to enrich for pathogen DNA over
+host DNA).</p>
+<p>If the input is RNA, such as for the SARS-CoV-2 virus genome, it must
+first be converted to DNA – a process known as reverse transcription.
+From here, there are three common steps in library preparation,
+summarised as follows:</p>
+<p><strong>1. Fragmentation and end-repair</strong></p>
+<p>Short-read sequences, such as Illumina, do not read long DNA
+fragments, so molecules must be fragmented to typical lengths of
+100-300bp. Fragmentation of DNA can be performed physically, chemically
+or enzymatically. After fragmentation, these molecules require blunting,
+(so that each strand is of equal length with no unpaired bases),
+phosphorylation and A-tailing. Phosphorylation and A-tailing allow for
+T-tailed adapters to be ligated at the next step.</p>
+<p><strong>2. Adapter ligation</strong></p>
+<p>Synthetic DNA molecules, known as adapters, are attached to the ends
+of each library molecule. These adapters have multiple functions,
+containing domains to allow each molecule to be immobilised and
+amplified, along with domains for sequencing primer binding and domains
+containing sample-specific indexes. The use of sample indexes allows for
+many samples to be pooled prior to sequencing, thus maximising the
+output of each sequencing run. This is known as multiplex
+sequencing.</p>
+<p><strong>3. PCR amplification (optional)</strong></p>
+<p>PCR can be used to select library molecules that have successfully
+ligated adapters at each end, whilst boosting library yield for
+sequencing (Figure 7). P5/P7 and index sequences can also be added at
+this step, if not added at the adapter ligation step. PCR can cause bias
+in sequencing libraries as GC-rich sequences do not amplify well. If DNA
+input is sufficiently high, this step can be skipped, reducing PCR
+bias.</p>
+<div class="float">
+<img src="images/OC4_2-7_fig2.png"
+alt="Schematic of a typical library molecule (Illumina). P5 and P7 are complementary to DNA sequences found attached to the surface of the flow cell, allowing for each molecule to be captured and amplified. Index 1 and Index 2 are sample-specific indexes that allow for multiple samples to be pooled prior to sequencing. By reading each index, each DNA insert can be assigned to its sample of origin at the end of the sequencing run" />
+<div class="figcaption">Schematic of a typical library molecule
+(Illumina). P5 and P7 are complementary to DNA sequences found attached
+to the surface of the flow cell, allowing for each molecule to be
+captured and amplified. Index 1 and Index 2 are sample-specific indexes
+that allow for multiple samples to be pooled prior to sequencing. By
+reading each index, each DNA insert can be assigned to its sample of
+origin at the end of the sequencing run</div>
+</div>
+<p><a href="images/OC4_2-7_fig2.png">Click to enlarge the image</a></p>
+<p><a href="images/OC4_2-7_Alt-text.pdf">Download Figure 7 and 8
+alt-text here</a></p>
+<p><strong>4. Tagmentation</strong></p>
+<p>An alternative method to the more traditional fragmentation and
+adapter ligation is a process known as tagmentation whereby a
+transposome (transposase enzyme plus DNA adapter sequence)
+simultaneously fragments and adapter tails DNA (Figure 8). Transposases
+are enzymes that mediate the movement of DNA within a genome (sometimes
+called a “jumping gene”). Tagmentation is much more efficient than
+standard fragmentation and ligation, allowing for more sensitive
+applications that typically have less DNA input. The tagmentation
+process has recently been simplified by attaching these transposomes to
+magnetic beads, thus allowing for fixed amounts of DNA to be captured,
+whilst undergoing uniform fragmentation and adapter addition. This
+removes the requirement for each library to be quantified before
+sequencing, reducing turnaround times and hands-on steps whilst
+facilitating automation.</p>
+<div class="float">
+<img src="images/OC4_2-7_fig3.png"
+alt="Bead linked transposomes simultaneously capture a fixed amount of DNA and fragment to a uniform length, whilst adding Illumina adapter sequences" />
+<div class="figcaption">Bead linked transposomes simultaneously capture
+a fixed amount of DNA and fragment to a uniform length, whilst adding
+Illumina adapter sequences</div>
+</div>
+<p><em>Source: <a
+href="https://www.illumina.com/products/by-type/sequencing-kits/library-prep-kits/nextera-dna-flex.html">Illumina</a></em></p>
+<p><a href="images/OC4_2-7_fig3.png">Click to enlarge the image</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="comparing-library-preparation-methods" class="section level1">
+<h1>Comparing library preparation methods</h1>
+<!-- 2-8 -->
+<p>Library preparation is the first step of next-generation sequencing
+(NGS), preparing your samples to allow them to bind to the flow cell and
+be identified. This article will briefly guide you through standard
+library preparation for NGS using Illumina and Oxford Nanopore
+Technologies (ONT) sequencing, comparing the differences and
+similarities between these two methods.</p>
+<p>The steps for ligation-based library preparation of any NGS are
+broadly the same. These consist of the following (Figure 9):</p>
+<div class="float">
+<img src="images/OC4_2-8_fig1.png"
+alt="General next-generation sequencing ligation-based library preparation workflow. Diagram created using Biorender.com" />
+<div class="figcaption">General next-generation sequencing
+ligation-based library preparation workflow. Diagram created using <a
+href="https://biorender.com/">Biorender.com</a></div>
+</div>
+<p><a href="images/OC4_2-8_fig1.png">Click to enlarge the image</a></p>
+<p><a href="images/OC4_2-8_Alt-text.pdf">Download Figure 9, 10 and 11
+alt-text here</a></p>
+<p><strong>Sample preparation</strong></p>
+<p>The first step for COVID-19 library preparation is the reverse
+transcription of extracted viral RNA to cDNA.</p>
+<p><strong>First quality check and quantification</strong></p>
+<p>Starting material should always be quality-checked first before
+beginning the library preparation. This quality check should include
+quantification to ensure sufficient starting material, and
+investigating, any signs of contamination as prior clean-up may be
+required.</p>
+<p><strong>End-repair and dA tailing</strong></p>
+<p>DNA fragments are end-repaired and dA-tailed. This, therefore,
+requires converting fragmented DNA to blunt-end DNA containing a
+5’-phosphate and 3’-hydroxyl groups via a polymerase, and adding a
+tailing module to prepare fragments for subsequent ligation steps.</p>
+<p><strong>Addition of adapters</strong></p>
+<p>A ligase enzyme covalently links the adapter and end-repaired DNA
+fragments, producing DNA fragments that can be loaded to a flow cell.
+These adapters serve multiple functions; they predominantly attach the
+sequences to the flow cell to allow sequencing, and they can also
+include barcodes to identify samples and permit multiplexing.</p>
+<p><strong>Size selection</strong></p>
+<p>Another step shared between the protocols is size selection. Although
+performed at different stages, this step involves including or excluding
+fragments of DNA most of interest in relation to their size. This is
+either done using sample purification beads, or can be done simply by
+gel electrophoresis and band excision.</p>
+<p><strong>Second quality check and quantification</strong></p>
+<p>A final important step which remains constant in both protocols is
+quantification and validation of the library prior to flowcell loading,
+thereby ensuring there is sufficient DNA for sequencing and checks for
+contamination of controls and samples.</p>
+<p>Where Illumina and Nanopore differ is in Illumina’s inability to read
+long fragments, meaning that Illumina sequencing samples are first
+fragmented into uniform pieces to make them amenable for sequencing.
+This is often done by nebulisation, but other methods include
+sonication, chemical or enzyme-based fragmentation. Generally, this will
+mean Illumina libraries are subsequently PCR amplified, which also
+allows for significantly lower DNA input.</p>
+<p>Both methodologies allow for the <a
+href="https://emea.illumina.com/techniques/sequencing/ngs-library-prep/multiplexing.html">multiplexing
+of samples</a>, which is regularly used when performing high throughput
+sequencing of COVID-19 samples. This step is often incorporated with the
+adapter ligation stage for Illumina library preparation (Figure 10). For
+ONT, barcoding is a separate step prior to adaptor ligation with
+separate subsequent clean-up steps required (Figure 11).</p>
+<div class="float">
+<img src="images/OC4_2-8_fig2.png"
+alt="Illumina sequencing workflow. Diagram created using Biorender.com" />
+<div class="figcaption">Illumina sequencing workflow. Diagram created
+using <a href="https://biorender.com/">Biorender.com</a></div>
+</div>
+<p><a href="images/OC4_2-8_fig2.png">Click to enlarge the image</a></p>
+<div class="float">
+<img src="images/OC4_2-8_fig3.png"
+alt="Oxford Nanopore Technologies sequencing workflow. Diagram created using Biorender.com" />
+<div class="figcaption">Oxford Nanopore Technologies sequencing
+workflow. Diagram created using <a
+href="https://biorender.com/">Biorender.com</a></div>
+</div>
+<p><a href="images/OC4_2-8_fig3.png">Click to enlarge the image</a></p>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://www.future-science.com/doi/10.2144/000114133">Library
+construction for next-generation sequencing: Overviews and
+challenges</a></p>
+<p><a
+href="https://nanoporetech.com/sites/default/files/s3/posters/pdf/p17003-libprep-web.pdf">Versatile
+sequencing library preparation methods for MinION, GridION and
+PromethION</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="illumina-pooling-samples-and-loading-cartridges"
+class="section level1">
+<h1>Illumina: pooling samples and loading cartridges</h1>
+<!-- 2-9 -->
+<!-- YT: https://youtu.be/x3HtNDlG7ZA -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/x3HtNDlG7ZA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC4_2-9_trancript.pdf">Download the transcript
+here</a></p>
+<p>In this video, you will follow Dr Paola Niola preparing a sequencing
+library for Illumina methodology.</p>
+<p>Libraries prepared using technologies that attach Illumina adaptors
+to the fragmented DNA are sequenced on Illumina platforms. Libraries
+made from different samples that have had unique indexes (barcodes)
+incorporated are pooled together to go onto the same sequencing run.
+Tip: libraries can be pooled prior to a final clean-up and the pool
+cleaned, rather than cleaning individual libraries and then pooling. The
+final pool is quantified by Qubit and the peak size is determined by
+fragment analysis e.g. TapeStation.</p>
+<p>The double-stranded DNA is denatured, diluted to the appropriate
+loading concentration and pipetted into the cartridge, which is loaded
+into the sequencer, along with the flow cell and buffer bottle (if
+applicable).</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="nanopore-pooling-samples-and-loading-flow-cells"
+class="section level1">
+<h1>Nanopore: pooling samples and loading flow cells</h1>
+<!-- 2-10 -->
+<p><strong>Multiplexing and pooling samples</strong></p>
+<p>As discussed in the library preparation module, there is an optional
+step of library preparation which allows for the multiplexing of
+numerous samples, where DNA fragments from different samples can be
+pooled and sequenced together. This is regularly used within COVID-19
+sequencing, where hundreds of samples need to be sequenced at once, and
+it makes efficient use of the full capacity of a flow cell.</p>
+<p><a
+href="https://www.illumina.com/techniques/sequencing/ngs-library-prep/multiplexing.html">Multiplexing</a>
+describes the method by which individual unique “barcode” sequences,
+often 8-10 nucleotides long, are added to each DNA fragment in a sample
+so that each read can be identified and sorted during final analysis. In
+Oxford Nanopore Technologies (ONT) sequencing, this step comes just
+before adapter ligation, and for Illumina sequencing barcoding is
+incorporated with adapter ligation. Samples are pooled after barcoding
+and then loaded into the flow cell (Figure 12)</p>
+<div class="float">
+<img src="images/OC4_2-10_Fig1.png"
+alt="Overview of multiplexing samples during an NGS library preparation and sequencing" />
+<div class="figcaption">Overview of multiplexing samples during an NGS
+library preparation and sequencing</div>
+</div>
+<p><em>Source: <a
+href="https://www.illumina.com/techniques/sequencing/ngs-library-prep/multiplexing.html">Illumina</a>.
+Adapted using <a
+href="https://biorender.com/">Biorender.com</a>.</em></p>
+<p><a href="images/OC4_2-10_Fig1.png">Click to enlarge the image</a></p>
+<p><a href="images/OC4_2-10_Alt-text.pdf">Download Figure 12 alt-text
+here</a></p>
+<p><strong>Flow cell loading</strong></p>
+<p>Flow cell loading is the process whereby your final library of pooled
+multiplexed samples is prepped and loaded to the flow cell for
+sequencing. For ONT sequencing, flow cell loading can be difficult as it
+involves loading the library directly onto the flow cell, this remains
+the same for all ONT sequencing platforms. There are extensive ONT
+resources that carefully describe how this procedure is carried out, the
+process of flow cell loading for ONT can be seen in the video below.</p>
+<!-- YT: https://youtu.be/Pt-iaemrM88 -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/Pt-iaemrM88" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><sub>This video is hosted by a third party</sub></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="how-sars-cov-2-has-been-sequenced-around-the-world"
+class="section level1">
+<h1>How SARS-CoV-2 has been sequenced around the world</h1>
+<!-- 2-11 -->
+<!-- YT: https://youtu.be/BcmUuKKI3Xo -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/BcmUuKKI3Xo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC4_2-11_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this video, learn from our global experts what methodologies they
+have used in their laboratories to sequence SARS-CoV-2.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="comparing-manual-and-automated-methodologies"
+class="section level1">
+<h1>Comparing manual and automated methodologies</h1>
+<!-- 2-12 -->
+<!-- YT: https://youtu.be/oKui_Due0Zs -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/oKui_Due0Zs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC4_2-12_transcript.pdf">Download the transcript
+here</a></p>
+<p>What are the differences between protocols using manual and automated
+methods? In this video, you will watch the procedures and learn the
+details of both protocols.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="how-to-avoid-contamination" class="section level1">
+<h1>How to avoid contamination</h1>
+<!-- 2-13 -->
+<!-- YT https://youtu.be/h_kRXZx_lxE -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/h_kRXZx_lxE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/Oc4_2-13_transcript.pdf">Download the transcript
+here</a></p>
+<p>Watch Dr Rachel Williams, Charlotte Williams and Luz Marina Martin
+Bernal discuss in a video call how to avoid contamination in the
+sequencing process. How contamination can be observed, what procedures
+to take in case it happens and how it can be prevented are some of the
+topics you will learn from them.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="coordinating-human-resources-in-a-pandemic"
+class="section level1">
+<h1>Coordinating human resources in a pandemic</h1>
+<!-- 2-14 -->
+<!-- YT https://youtu.be/SU-9GsLCKmM -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/SU-9GsLCKmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC4_2-14_transcript.pdf">Download the transcript
+here</a></p>
+<p>Our global experts are back to discuss how they coordinated human
+resources during the COVID-19 pandemic. They will tell you about
+teamwork and the challenges of training new members.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="how-to-plan-ordering-and-tracking-of-reagents"
+class="section level1">
+<h1>How to plan ordering and tracking of reagents</h1>
+<!-- 2-15 -->
+<!-- YT https://youtu.be/PMVWrWMkClI -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/PMVWrWMkClI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC4_2-15_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this video, you will see how to use spreadsheets to automatically
+calculate ordering quantities by a number of samples.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="legacies-of-the-covid-19-pandemic" class="section level1">
+<h1>Legacies of the COVID-19 pandemic</h1>
+<!-- 2-16 -->
+<!-- YT https://youtu.be/KHeoB_kN_58 -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/KHeoB_kN_58" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC4_2-16_trancript.pdf">Download the transcript
+here</a></p>
+<p>In this video, global experts discuss the lessons they learned during
+the COVID-19 pandemics: what would they do differently for the next
+public health emergency? What are the tips and tricks they would like to
+share with us? Watch the video to find out.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container-left {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.img-container-right {
+  float: right;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<hr>
+<div class="clearfix">
+  <div class="img-container-left">
+    <img src="assets/img/COG-Train_logo.png" alt="COG-Train" 
+style="width:200%">
+  </div>
+  <div class="img-container-right">
+    <img src="assets/img/WCS_Logo-Primary_Black.jpg" alt="Wellcome 
+Connecting Science" style="width:200%">
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

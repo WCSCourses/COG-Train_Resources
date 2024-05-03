@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>power_of_genomics_set2</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COG-Train_Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-file-lines"></span>
+     
+    Course Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Virtual Courses</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viral Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="vbioinfasia.html">VBioinf2022 Asia</a>
+        </li>
+        <li>
+          <a href="vbioinflac.html">VBioinf2022 LAC</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOCs</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Power of Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="power_of_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Swab to Server</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="swab_to_server_home.html">Home</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Making Sense</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="making_sense_home.html">Home</a>
+        </li>
+        <li>
+          <a href="making_sense_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="making_sense_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="making_sense_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Practical Guide</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="practical_guide_home.html">Home</a>
+        </li>
+        <li>
+          <a href="practical_guide_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="practical_guide_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="practical_guide_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pathogen Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="pathogen_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Hybrid Course</li>
+    <li>
+      <a href="scvo2b4b.html">SARS-CoV-2 B4B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">In Person Courses</li>
+    <li>
+      <a href="ECPG.html">Pathogen Genomics Capacity</a>
+    </li>
+    <li>
+      <a href="IGM_B4B.html">Bioinformática Decodificada</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Webinars</li>
+    <li>
+      <a href="Community.html">COG-Train Community</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Team
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cogteam.html">COG-Train Team</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/WCSCourses/COG-Train_Resources">
+    <span class="fa fa-brands fa-github"></span>
+     
+    Github
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="viruses-variants-and-vaccines" class="section level1">
+<h1>VIRUSES, VARIANTS AND VACCINES</h1>
+<p><img src="images/OC1_W2_cover.png" /><br />
+<sub><span class="citation">@Canva</span></sub></p>
+</div>
+<div id="what-came-before-comparison-with-other-coronaviruses-merssars"
+class="section level1">
+<h1>What came before? Comparison with other coronaviruses
+(MERS/SARS)</h1>
+<!-- 2-2 -->
+<p>As you will almost certainly have been aware before this course, the
+current pandemic is caused by a coronavirus, but this is not the first
+coronavirus outbreak in recent times. Severe acute respiratory syndrome
+(SARS) and Middle East respiratory syndrome (MERS) were discovered in
+the first and second decades of this century, respectively.</p>
+<p>The first reported cases of SARS were in Foshan, China in November
+2002. By February 2003, more than 300 cases had been reported with over
+a third of those in healthcare workers. By April 2003 WHO-led efforts
+had identified SARS-CoV as the causative agent of the disease. Due to
+the infection control measures, no further cases were identified after
+July 2003. Overall the pandemic ended with 8096 reported cases and 774
+deaths across 27 countries.</p>
+<p>MERS was first identified in June 2012, following the death of a man
+in Saudi Arabia from acute pneumonia and renal failure. In contrast to
+the SARS timeline, MERS-CoV was isolated from the sputum of this index
+case, demonstrating the advances in pathogen genomics during the
+intervening years. There was a cluster of travel-related cases in the UK
+in September 2012 and in 2015 a hospital-related (nosocomial) outbreak
+in South Korea involving 16 hospitals and 186 patients, but the
+overwhelming majority of cases were observed in Saudi Arabia. As of
+January 2020, there had been 2,494 laboratory-confirmed cases notified
+to WHO across 27 countries and resulting in 858 deaths.</p>
+<p>Similarities between these two coronavirus outbreaks include the
+likely zoonotic origin (potentially from <a
+href="https://urldefense.proofpoint.com/v2/url?u=https-3A__www.science.org_doi_10.1126_science.300.5624.1351a&amp;d=DwMGaQ&amp;c=D7ByGjS34AllFgecYw0iC6Zq7qlm8uclZFI0SqQnqBo&amp;r=BIi1VwYifOhJ7pwUPr5jXze5qiUo9NNI0oV0eYcgVb8fohvdGgKCJjPD64xrL_e1&amp;m=0-AqYgT50QMsDh2aKDLwk1tSxhZDZHsbXgdgY4ro5WsnL8cnCtWSYn9lQywbEHdf&amp;s=ADliXScEB6f1hO6opgubeJ3t732LT1KB7HABq2uD_Do&amp;e=">civets
+in a wet market for SARS</a> and <a
+href="https://urldefense.proofpoint.com/v2/url?u=https-3A__pubmed.ncbi.nlm.nih.gov_25248734_&amp;d=DwMGaQ&amp;c=D7ByGjS34AllFgecYw0iC6Zq7qlm8uclZFI0SqQnqBo&amp;r=BIi1VwYifOhJ7pwUPr5jXze5qiUo9NNI0oV0eYcgVb8fohvdGgKCJjPD64xrL_e1&amp;m=0-AqYgT50QMsDh2aKDLwk1tSxhZDZHsbXgdgY4ro5WsnL8cnCtWSYn9lQywbEHdf&amp;s=gLd4Svn9wWsoed7NsH3av9jB1NKsyd_JWVQ3OHJRR2U&amp;e=">dromedary
+camels for MERS</a>), and the high percentage of nosocomial cases
+involving both patients and healthcare personnel. This is likely due to
+the late peak viral shedding observed around 10 days after the onset of
+infection, at which time individuals had already been hospitalised.</p>
+<p>However, the case fatality rate differed in both pandemics - ~10% for
+SARS and ~36% for MERS. In the current pandemic, the unprecedented
+amount of testing, surveillance and tracing has led to a far greater
+ascertainment of cases. Despite the recent case fatality rate being
+significantly lower than that of SARS and MERS, the absolute number of
+deaths is much higher, due to the global spread of SARS-CoV-2.</p>
+<p>These previous coronavirus pandemics provided both genomic and
+clinical guidance in the early stages of the current pandemic.</p>
+<p>In Figure 1, you can observe a timeline of previous pandemics and
+public health emergencies in history. The death toll of SARS-CoV-2 is
+significantly higher than the previous coronavirus epidemics of
+SARS-CoV-1 and MERS. Learn more about the history of pandemics in <a
+href="https://www.visualcapitalist.com/history-of-pandemics-deadliest/">this
+article from Visual Capitalist</a>.</p>
+<div class="float">
+<img src="images/OC1_2-1_Fig1.jpeg"
+alt="History of pandemics timeline" />
+<div class="figcaption">History of pandemics timeline</div>
+</div>
+<p><em>Source: <a
+href="https://www.visualcapitalist.com/history-of-pandemics-deadliest/">Visual
+Capitalis</a></em></p>
+<p><a href="images/OC1_2-1_Fig1.jpeg">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_2-2_Fig1_alt-text.pdf">Download Figure 1 alt-text
+here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="the-disappearance-of-sars" class="section level1">
+<h1>The disappearance of SARS</h1>
+<!-- 2-3 -->
+<!-- YT: https://youtu.be/Q4BsQ3YSVDQ -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/Q4BsQ3YSVDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC1_2-3_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this video, Sophie Prosolek explains what happened in the previous
+SARS epidemic and why SARS-CoV-2 is different.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="the-mechanism-of-viral-replication" class="section level1">
+<h1>The mechanism of viral replication</h1>
+<!-- 2-4 -->
+<p>Viruses multiply within host cells – they require the host’s genetic
+replication machinery to express their own genetic code. Outside the
+host, viruses can’t multiply – but they can remain dangerous even on
+their own. Viruses can live for hours or even days, in water droplets in
+the air or on hard surfaces in the home – that’s why maintaining good
+ventilation and washing your hands regularly can help keep an infection
+at bay.</p>
+<p>In order to complete their replication cycle, viruses must enter a
+host cell, hijack its genetic replication machinery, and reassemble -
+exiting the host as new viral particles (Figure 2).</p>
+<div class="float">
+<img src="images/OC1_2-4_Fig2.png" alt="Schematic viral replication" />
+<div class="figcaption">Schematic viral replication</div>
+</div>
+<p><a href="images/OC1_2-4_Fig2.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_2-4_Fig2_alt-text.pdf">Download Figure 2 alt-text
+here</a></p>
+<p>SARS-CoV-2 reaches human cells through the upper airway tract –
+entering the body through the mouth or nose. Spike proteins on the
+surface of SARS-CoV-2 help it attach to the human host cells. It can
+then inject its own genetic material. SARS-CoV-2 hijacks the host’s
+genetic replication machinery, ensuring that its own structural proteins
+are transcribed. Once the virus has replicated everything it needs - it
+re-assembles into new and complete virus particles. The new, complete
+viruses then prepare for ejection from the host cell – a process called
+‘budding’.</p>
+<p>Finally, the virus undergoes one last modification - a cleavage of
+its Spike protein by a host cell enzyme. This cleavage primes the virus
+to go on and infect more host cells. Some variants have a higher
+proportion of the snipped Spike protein – this is why it’s so important
+to understand variant profiles alongside the mechanism of viral
+infection.</p>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://www.fpm.org.uk/blog/covid-19-sars-cov-2-pandemic/">COVID-19/SARS-CoV-2
+Pandemic</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="the-coronavirus-spike-protein" class="section level1">
+<h1>The Coronavirus Spike Protein</h1>
+<!-- 2-5 -->
+<p>The spike protein is a defining characteristic of coronaviruses.
+Coronaviruses were named after “corona” the Latin word for crown, due to
+the spikes on the virus’s surface. The spike protein binds to cell
+surface proteins allowing the virus to gain entry. Spike proteins are
+found all over the virus surface.</p>
+<p>In Figure 3 you can see a graphical representation of the SARS-CoV-2
+spike protein. There are antibodies bound to the spike in this
+representation. The image represents the amino acids that form spike and
+antibody proteins, shown in magenta and yellow, respectively. The image
+was adapted from the <a href="https://www.rcsb.org">Protein Data
+Bank</a>’s <a href="https://pdb101.rcsb.org/motm/256">molecule of the
+month series</a>. Feel free to explore that page for additional
+information.</p>
+<div class="float">
+<img src="images/OC1_2-5_Fig3.png"
+alt="Tridimensional structure of the Spike protein binding to antibodies" />
+<div class="figcaption">Tridimensional structure of the Spike protein
+binding to antibodies</div>
+</div>
+<p><em>Source: <a href="https://pdb101.rcsb.org/motm/256">RCSB PDB
+101</a></em></p>
+<p><a href="images/OC1_2-5_Fig3.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_2-5_Fig3_alt-text.pdf">Download Figure 3 alt-text
+here</a></p>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://theconversation.com/new-coronavirus-variant-what-is-the-spike-protein-and-why-are-mutations-on-it-important-152463">New
+coronavirus variant: what is the spike protein and why are mutations on
+it important?</a></p>
+<p><a
+href="https://www.snexplores.org/article/explainer-what-is-a-spike-protein">Explatiner:
+what is a spike protein?</a></p>
+<p><a href="https://doi.org/10.1038/s41401-020-0485-4">Structural and
+functional properties of SARS-CoV-2 spike protein: potential antivirus
+drug development for COVID-19</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="what-is-a-vaccine" class="section level1">
+<h1>What is a vaccine?</h1>
+<!-- 2-7 -->
+<!-- YT:https://youtu.be/-muIoWofsCE -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/-muIoWofsCE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC1_2-7_transcript.pdf">Downlod the transcript
+here</a></p>
+<p>This video explains how vaccines help our bodies to recognise and
+fight diseases. You can learn more at the <a
+href="https://vk.ovg.ox.ac.uk/vk/how-do-vaccines-work">Vaccine Knowledge
+Project website</a>:</p>
+<p><strong>How do vaccines work?</strong></p>
+<p>A vaccine is a preparation that is used to stimulate the body’s
+immune response against diseases.</p>
+<p>Live vaccines are active vaccines such as attenuated strains that
+replicate in a host. The pathogen, such as a virus or bacterium, has
+been weakened to reduce virulence to cause none or very mild disease in
+healthy people, which acts like a natural infection. Live vaccines
+stimulate the closest response to actual infection and therefore elicit
+good, strong, long-lasting immune responses.</p>
+<p>A non-live vaccine does not have any live biological material and
+can’t cause the disease it is protecting. An adjuvant (a substance used
+to increase the immune response to the vaccine) is required, and several
+doses of inactivated vaccines may be required to evoke a sufficient
+immune response.</p>
+<p>Some examples of these are highlighted below:</p>
+<ul>
+<li><strong>Inactivated vaccines:</strong> suspensions of whole intact
+killed pathogens e.g. whole-cell pertussis (bacteria), inactivated
+poliovirus<br />
+</li>
+<li><strong>Sub-unit vaccines:</strong> contain one or a few components
+(sub-units) of the pathogen which is important in protection
+e.g. hepatitis B vaccine which uses only surface proteins of the
+virus<br />
+</li>
+<li><strong>Conjugate vaccines:</strong> These conjugate a poorly
+immunogenic antigen and a protein carrier that is highly immunogenic,
+providing a lasting immune response e.g. <em>Haemophilus influenzae
+B</em> (Hib) vaccine uses bacterial polysaccharides combined with its
+capsule proteins</li>
+<li><strong>Toxoid vaccines:</strong> based on the toxin produced by
+bacteria that evades the bloodstream and causes most of the disease
+symptoms e.g. Tetanus and diphtheria vaccines<br />
+</li>
+<li><strong>mRNA vaccine:</strong> Messenger RNA (mRNA) vaccines give
+information to cells on how to make a protein that will trigger an
+immune response e.g. SARS-CoV-2 vaccine</li>
+</ul>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="some-vaccine-approaches-used-for-covid-19"
+class="section level1">
+<h1>Some vaccine approaches used for COVID-19</h1>
+<!-- 2-9 -->
+<!-- YT: https://youtu.be/cxAbEZ4jrmw -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/cxAbEZ4jrmw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><sub>This video is hosted by a third party</sub></p>
+<p><a href="assets/OC1_2-9_transcript.pdf">Download the transcript
+here</a></p>
+<p>This video explains the various types of vaccines used for SARS-CoV-2
+virus and COVID-19 disease. The cell is compared to a factory, and this
+example is used to explain the various kinds of vaccines and how these
+interact with a cell.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="up-next---sequencing-for-vaccine-development"
+class="section level1">
+<h1>Up next - sequencing for vaccine development</h1>
+<!-- 2-10 -->
+<!-- YT: https://youtu.be/R8ieQ2r6VTI  -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/R8ieQ2r6VTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC1_2-10_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this video, Sophie Prosolek explains why sequencing is important
+for vaccine development.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="the-importance-of-sequencing-in-vaccine-trials"
+class="section level1">
+<h1>The importance of sequencing in vaccine trials</h1>
+<!-- 2-11-->
+<p><strong>Introduction</strong></p>
+<p>Viruses replicate and evolve constantly. These changes may alter how
+effective a vaccine is against the currently circulating viruses. The
+best way of detecting these alterations is by genomic sequencing.</p>
+<p>When a virus or bacterium enters a host, such as humans, the host has
+an innate (nonspecific) immune defence and an adaptive (specific) immune
+response. The innate response includes cell membranes, mucus, enzymes,
+cytokines, Toll-like receptors, and macrophage cells. The adaptive
+immune response includes antibodies, B- and T- lymphocyte cells (part of
+the ’white blood cells).</p>
+<p>A vaccine aims to stimulate the adaptive immune response so that it
+‘remembers’ and will more quickly recognise and protect against future
+infections by the targeted pathogen.</p>
+<p>Figure 4 shows how antibodies (produced by the adaptive immune
+system’s B-cells) can attach to the surface of the virus or bacterium.
+These attached antibodies can prevent the virus from attaching to and
+entering the cell by blocking the binding site at the tip of the virus
+spikes. They can also activate a complement cascade, and flag to immune
+cells, such as macrophages to engulf (phagocytose) the virus.</p>
+<div class="float">
+<img src="images/OC1_2-11_fig1.png"
+alt="Antibodies attaching to the Spike protein on the surface of the SARS-CoV-2 virus, to prevent the virus from attaching to ACE2 Receptors on human cells" />
+<div class="figcaption">Antibodies attaching to the Spike protein on the
+surface of the SARS-CoV-2 virus, to prevent the virus from attaching to
+ACE2 Receptors on human cells</div>
+</div>
+<p><em>Source: <a
+href="https://www.nih.gov/news-events/news-releases/clinical-trials-monoclonal-antibodies-prevent-covid-19-now-enrolling">NIH</a></em></p>
+<p><a href="images/OC1_2-11_fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_Fig4-5_alt-text.pdf">Download Figure 4 alt-text
+here</a></p>
+<p>A vaccine can also stimulate the development of a T-cell response,
+for example, CD4 T-cells can increase the antibody response, and CD8
+T-cells identify and remove host cells that have been infected by the
+virus.</p>
+<p><strong>Vaccine development</strong></p>
+<p>Before COVID-19, developing and testing a new vaccine could take 10
+to 15 years due to the time to identify and test targets, run clinical
+trials, the time the regulatory agencies take to evaluate the data
+presented and other factors related to vaccine development. However,
+vaccine technology has evolved over the years:</p>
+<ul>
+<li>Attenuated (weakened, eg. heat-treated) live vaccines were the first
+vaccines used (eg. Anthrax, BCG);<br />
+</li>
+<li>Recombinant DNA inserted into yeast was later used to synthesise a
+surface protein from a virus or bacteria (eg. Hepatitis B surface
+antigen).<br />
+</li>
+<li>More recently <a
+href="https://www.nature.com/articles/s41541-021-00292-w">mRNA enclosed
+in lipid droplets or inside another viral vector</a>, can be used so the
+host body’s cells synthesize a part of the viral protein (eg. the
+SARS-CoV-2 Spike protein).</li>
+</ul>
+<p>The unprecedented speedy development of COVID-19 vaccines was a
+result of available state-of-the-art vaccine technologies united to the
+parallelisation of clinical trial phases. Additionally, in response to
+this public health emergency, regulatory agencies processed COVID-19
+vaccines as a top priority.</p>
+<p>In vaccine development, ‘Original Antigenic Sin (OAS)’ is an
+important phenomenon where “the <a
+href="https://doi.org/10.4049/jimmunol.1801149">development of immunity
+against pathogens/antigens is shaped by the first exposure to a related
+pathogen/antigen.”</a>. For example, if someone is first vaccinated
+using the Spike protein, then the body remembers the immune response it
+produced (eg. antibodies from B-cells, and T-cell response). If they are
+later exposed to the actual complete virus or even a different viral
+variant, the immune system will tend to respond in a similar way as it
+had to the Spike protein vaccination.</p>
+<p>Different antibodies are produced in response to the COVID-19 vaccine
+(and to the virus itself), which bind to several positions on Spike.
+Knowledge of the RNA sequence and resulting protein structure and shape
+can help understand how antibodies to the existing vaccine spike protein
+would interact with the evolving virus. Figure 5 illustrates how
+different classes of antibodies bind to the receptor-binding domain
+(RBD) on the Spike protein. <a
+href="https://www.cell.com/cell/fulltext/S0092-8674(21)00884-9">Tong et
+al (2021)</a> explain that “seven major epitopic regions of SARS-CoV-2
+spike are consistently targeted by human antibodies”.</p>
+<div class="float">
+<img src="images/OC1_2-11_Fig2.png"
+alt="Characterizing SARS-CoV-2 antibodies, showing each class of antibody bound to the Receptor-Binding Domain (RBD) (grey) of the Spike protein. Each of the SARS-CoV-2 virus spikes is composed of three identical copies of the Spike protein, each having its own RDB. This is based on cryo-electron microscopy imaging" />
+<div class="figcaption">Characterizing SARS-CoV-2 antibodies, showing
+each class of antibody bound to the Receptor-Binding Domain (RBD) (grey)
+of the Spike protein. Each of the SARS-CoV-2 virus spikes is composed of
+three identical copies of the Spike protein, each having its own RDB.
+This is based on cryo-electron microscopy imaging</div>
+</div>
+<p><em>Source: <a
+href="https://cen.acs.org/analytical-chemistry/structural-biology/Characterizing-SARS-CoV-2-antibodies/98/i40">C&amp;EN</a></em></p>
+<p><a href="images/OC1_2-11_Fig2.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_Fig4-5_alt-text.pdf">Download Figure 5 alt-text
+here</a></p>
+<p><strong>Vaccines Trials</strong></p>
+<p>In developing a new vaccine, it is very important to determine, as
+early as possible, <a
+href="https://www.jnj.com/innovation/the-5-stages-of-covid-19-vaccine-development-what-you-need-to-know-about-how-a-clinical-trial-works">how
+safe and effective the new vaccine is, and how long its effectiveness
+will last</a>. Clinical trials of a new vaccine have four phases:</p>
+<ul>
+<li>Phase 1: the first time the vaccine is tested in humans, using a
+small group of healthy adults, to assess safety (recording side-effects)
+and immune response.<br />
+</li>
+<li>Phase 2a/2b: determines the most effective dose and generates more
+safety experience. It is tested on more people.<br />
+</li>
+<li>Phase 3: determines how effective the vaccine is. Volunteers are
+given either the vaccine or a placebo, observed for side effects, and
+followed up to see who subsequently develops an infection, and its
+severity. This is tested on hundreds or thousands of volunteers, as
+using a large number of people gives greater statistical power to the
+study. The results are submitted for approval to one of the
+international regulators (eg. MHRA/EMA/FDA).<br />
+</li>
+<li>Phase 4: monitors if the approved/licensed vaccine stays safe and
+effective when it is rolled out to the public.</li>
+</ul>
+<p>In phase 3, ideally, a fixed number of weeks after receiving the
+vaccine or placebo, each volunteer would be given a similar dose of
+identical strains of the pathogen, to compare the effectiveness of the
+vaccine versus the placebo. However, the severe, potentially fatal,
+effect of the SARS-CoV-2 in some volunteers, means that intentionally
+infecting participants could pose ethical challenges.</p>
+<p><strong>Sequencing of Virus variants</strong></p>
+<p>Some types of viruses and bacteria have fairly stable genomes over
+time, whereas others change (drift or evolve) to become more infectious
+and/or evade or suppress immunity in the host population or generate
+different symptoms that can be more or less severe. For example, the
+initial Wuhan SARS-CoV-2 lineage, replaced by Alpha, then later Delta,
+led to the emergence of a Delta+ (AY.4.2) variant, and <a
+href="https://covid19.sanger.ac.uk/lineages/raw">recently replaced by
+Omicron</a> varied in terms of rates of infection and severity of
+symptoms. Not all variants or lineages will spread Worldwide and these
+events are random and scattered geographically.</p>
+<p>The current COVID-19 vaccines are mostly based on the original Wuhan
+variant, so these vaccines would be expected to be most effective
+against virus variants with a Spike protein most similar to Wuhan, and
+potentially less effective against variants with Spike proteins that
+differ significantly. Recent trials have looked at the benefits of
+updated vaccines focussed on Omicron sequences, however <a
+href="https://www.nature.com/articles/d41586-022-01771-3">caution is
+required when predicting which is the best vaccine to use</a> in an
+ever-changing viral landscape.</p>
+<p>Sequencing of the virus variants can <a
+href="https://doi.org/10.2478/jvetres-2021-0029">benefit vaccine
+research</a>, including during the phase 3 and 4 trials.</p>
+<p>In Phase 3, sequencing enables comparison of the viral variants that
+subsequently infect people in the placebo with those in vaccinated
+groups, and between different age/risk groups. Thus, for example, an
+increased proportion of a particular viral variant in the vaccinated
+group (relative to the placebo group and relative to the current strains
+circulating in the population) could indicate that the vaccine is less
+effective against that variant. If some viral variants are associated
+with more severe symptoms than others, identifying the variant could
+help to determine whether there is an association between a particular
+variant and the severity of symptoms.</p>
+<p>The developing COVID-19 pandemic necessitated fast development and
+trials of vaccines, with the subsequent application for ‘emergency-use’
+authorisation (EUA) from regulatory authorities to enable faster
+roll-out of vaccination programmes, to reduce the number of deaths.
+However, concerns have been raised that this speed resulted in data
+integrity issues in <a href="https://doi.org/10.1136/bmj.n2635">Pfizer
+phase 3 COVID-19 vaccine trials</a>. The shorter than typical phase 3
+trials (median 2-month follow-up for EUA rather than the more usual FDA
+median of 1-4 years) mean that phase 4 has increased importance.</p>
+<p>Virus sequencing can also be of benefit in Phase 4, especially in
+identifying the viral variants in ‘break-through’ infections - ie. in
+people who have been partially or fully vaccinated. Sequencing can also
+identify how the emerging variants in the general population are
+changing over time and any correlation between symptom severity and new
+variants. Genomic data can also inform decision-making on booster
+vaccinations, and whether the vaccine should be modified to use mRNA
+sequenced in more recent viral variants.</p>
+<p>COVID-19 has become endemic: it can re-infect people who have been
+vaccinated or have had COVID-19. As such, similar to influenza
+vaccinations, annual or 6-monthly booster vaccinations may be needed for
+those at risk for many years, at least until a very effective treatment
+is developed to treat those at most risk. Thus, long-term sequencing of
+the virus will be needed to guide future development and trials of
+improved vaccines.</p>
+<p><strong>Summary</strong></p>
+<p>Vaccines are an effective way to limit infection and spread of
+infectious diseases, and reduce the severity of symptoms. The ongoing
+COVID-19 pandemic has hastened the development and trials of several
+vaccines. Sequencing of the virus variants assists in vaccine
+development, and in phase 3 and 4 vaccine trials, and guides booster
+vaccine improvements for possible new viral variants for which existing
+vaccines may be less effective.</p>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://www.technologynetworks.com/immunology/articles/innate-vs-adaptive-immunity-335116">Innate
+vs adaptive immunity</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="how-has-genomics-guided-therapeutic-design"
+class="section level1">
+<h1>How has genomics guided therapeutic design?</h1>
+<!-- 2-12 -->
+<p>Therapeutics are required for individuals who become sick following
+COVID-19 infection, especially those who experience severe disease and
+are hospitalised. The severity of the disease can depend on several
+factors: previous COVID-19 vaccination, the strength of the immune
+system and factors yet to be discovered. As information evolves, the
+World Health Organisation has provided <a
+href="https://www.who.int/publications/i/item/WHO-2019-nCoV-therapeutics-2021.3">living
+guidelines</a> about therapeutics, which are updated by experts as
+studies emerge and new drugs are brought to the market. Genomics can
+help us monitor the effectiveness of therapeutics as the pandemic
+progresses.</p>
+<p>By using genomics, we can detect whether there are <a
+href="https://www.thelancet.com/journals/lanmic/article/PIIS2666-5247(21)00121-X/fulltext">changes
+in the viral genome</a> that can influence how the virus behaves in a
+human body. There may be certain variants which can impact human health,
+increasing the severity of disease or the likelihood of someone being
+infected. Genomics can help us to understand why some medications may
+work better in some people than others and how we can we make
+therapeutics more effective.</p>
+<p>The use of genomics has provided a database of information that can
+be used to improve and monitor therapeutic use. Openly shared
+international databases such as <a
+href="https://www.gisaid.org/phylodynamics/global/nextstrain/">GISAID</a>
+provide information on viral genomes across the world. This shared data
+has enabled the design and manufacture of therapeutics that target
+regions of the SARS-CoV-2 viral genome. Most of them target the Spike
+protein, the region in the virus associated with entry into cells. The
+databases are regularly updated so that researchers and healthcare
+professionals across the world can be informed if variants emerge that
+can alter the effectiveness of a therapeutic option.</p>
+<p>Once therapeutics are available to treat patients, we can use genetic
+sequencing to detect mutations in the SARS-CoV-2 genome in the
+individual sequences which may alter therapeutic effectiveness.
+Treatment of individual patients with medications can be paired with
+genomic testing, and this information updates researchers to allow for
+therapeutic options to be updated.</p>
+<p>Genomic sequencing can detect variations in the human genome which
+can affect how the immune system works to fight off COVID-19 infection.
+Because all humans have a genetic code that is unique to them, a
+particular therapy might be more effective in one person compared to
+another. Studies such as <a href="https://genomicc.org/results/">The
+Genetics Of Mortality in Critical Care (GENOMICC)</a> have identified
+genes involved in antiviral immunity and lung inflammation that can make
+people susceptible to life-threatening COVID-19. This study identified
+mechanisms that are amenable to <a
+href="https://www.nature.com/articles/s41586-020-03065-y">targeted
+treatment with existing drugs</a>.</p>
+<p>The <a href="https://sars2.cvr.gla.ac.uk/cog-uk/">COG-UK mutation
+explorer</a> platform can be used to identify important changes in the
+SARS-CoV-2 genome and provides information on mutations of potential or
+known importance (Figure 6). This can enable studies that recognise the
+impact of the immune system on therapeutics.</p>
+<div class="float">
+<img src="images/OC1_2-12_Fig6.png"
+alt="Bar plot demonstrating the emergence of SARS-CoV-2 variants over time in the United Kingdom" />
+<div class="figcaption">Bar plot demonstrating the emergence of
+SARS-CoV-2 variants over time in the United Kingdom</div>
+</div>
+<p><em>Source: <a
+href="https://sars2.cvr.gla.ac.uk/cog-uk/">COG-UK/Mutation
+Explorer</a></em></p>
+<p><a href="images/OC1_2-12_Fig6.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_2-12_fig6_alt-text.pdf">Download Figure 6
+alt-text here</a></p>
+<p>Monoclonal antibodies (mAb) are proteins produced in a laboratory
+that use similar processes to the human immune system to combat
+pathogens including viruses. <a
+href="https://www.ema.europa.eu/en/medicines/human/EPAR/ronapreve">Ronapreve</a>
+is a combination of two human antibodies (casirivimab and imdevimab)
+which bind to the SARS-CoV-2 spike protein, preventing entry into human
+cells. The <a href="https://sars2.cvr.gla.ac.uk/cog-uk/">COG-UK mutation
+explorer</a> has presented genomic pairing with monoclonal antibody
+performance, outlining the frequency of SARS-CoV-2 mutations emerging
+which affect the Ronapreve monoclonal antibody response.</p>
+<p>It is essential that we increase the level of rapid international
+genomic surveillance to keep therapeutic options available and
+successful as the SARS-CoV-2 virus mutates and new variants emerge.
+International collaboration is crucial for future therapeutic
+design.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="variants-explained-mutation-variant-voc"
+class="section level1">
+<h1>Variants Explained: Mutation, Variant, VOC</h1>
+<!-- 2-13 -->
+<!-- YT https://youtu.be/md7r9cDhCkY -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/md7r9cDhCkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/Oc1_2-13_transcript.pdf">Download the transcript
+here</a></p>
+<p><a
+href="https://www.cam.ac.uk/about-this-site/terms-and-conditions">Terms
+and Conditions to reproduce the video</a></p>
+<p>In the video, the Variant Hunters, part of a team of scientists
+working in the UK’s sequencing effort to combat COVID-19 discuss their
+work tracking SARS-CoV-2 variants.</p>
+<p>The SARS-CoV-2 virus has genetically changed gradually over time from
+the original Wuhan-1 strain at beginning of the pandemic. This has led
+to multiple variants of the virus circulating globally. Some of these
+variants, based on the mutations in the genome, have been classified as
+VOCs and VUIs as they carry an increased risk to global public health.
+This could be in the form of increased transmissibility, increased
+virulence or decreased effectiveness of public health measures for VOCs.
+Variants are classified as VUIs if they carry predicted genetic changes
+that could increase transmissibility, severity or immune escape and have
+been shown to cause community transmission in multiple countries
+alongside the increasing number of cases over time.</p>
+<p>Classification of these variants and associated lineages is primarily
+done by three large working groups <a
+href="https://cov-lineages.org/index.html">Pango</a>, <a
+href="https://nextstrain.org/">NextStrain</a> and <a
+href="https://www.gisaid.org/">GISAID</a>. The VOC/VUI nomenclature for
+variants is primarily used in the UK. The <a
+href="https://www.who.int/en/activities/tracking-SARS-CoV-2-variants/">WHO</a>
+classifies variants as VOC, Variants of Interest (VOI) and Variants
+under Monitoring (VUM). <a
+href="https://www.ecdc.europa.eu/en/covid-19/variants-concern">ECDC</a>
+primarily follows the WHO classification but also has an additional
+category of De-escalated Variants. The <a
+href="https://www.cdc.gov/coronavirus/2019-ncov/variants/variant-info.html">CDC</a>
+nomenclature includes Variant Being Monitored (VBM), VOI, VOC, and
+Variant of High Consequence (VOHC).</p>
+<p>Although some of the terms used in the classification overlap between
+these organisations, the list of variants defined within each group
+differs slightly between each organization. In the steps ahead you will
+see a table of VOC/VUI defined by UK Health Security Agency along with
+variants that are being monitored. Relevant classification from other
+organizations is also provided.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="tracking-across-a-nation" class="section level1">
+<h1>Tracking across a nation</h1>
+<!-- 2-14 -->
+<!-- YT https://youtu.be/HsM5OtvT8cI -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/HsM5OtvT8cI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC1_2-14_transcript.pdf">Download the transcript
+here</a></p>
+<p><a href="assets/OC1_2-14_slides.pdf">Download the presentation slides
+here</a></p>
+<p>Being able to track viruses across a nation requires an entire
+network of scientists and health workers. In this recorded lecture you
+will hear from Dr Mariana Viegas, from the <a
+href="http://pais.qb.fcen.uba.ar/">Proyecto Argentino Interinstitucional
+de genómica de SARS-CoV-2 (PAIS)</a> on how this network was used for
+genomic surveillance and tracking of coronaviruses in Argentina.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="sars-cov-2-variants" class="section level1">
+<h1>SARS-CoV-2 Variants</h1>
+<!-- 2-15 -->
+<p>The World Health Organisation (WHO) <a
+href="https://www.who.int/en/activities/tracking-SARS-CoV-2-variants/">classifies
+variants</a> according to criteria which include the variant make-up and
+the spread of the variant virus.</p>
+<p>Pango is short for <a
+href="https://cov-lineages.org/resources/pangolin.html">PANGOLIN</a>
+classification. PANGOLIN stands for Phylogenetic Assignment of Named
+Global Outbreak Lineages. This is a tool that allows a user to classify
+a coronavirus based on its genetic relatedness to others. Genetic
+relatedness is rooted in its genetic lineage (the virus strain which
+came before it). Phylogenetics is the study of the genetic evolutionary
+lineage of an organism.</p>
+<p>Other largely used systems to classify and name SARS-CoV-2 variants
+are <a
+href="https://nextstrain.org/blog/2021-01-06-updated-SARS-CoV-2-clade-naming">Nextstrain
+clade</a> and <a
+href="https://www.gisaid.org/resources/statements-clarifications/clade-and-lineage-nomenclature-aids-in-genomic-epidemiology-of-active-hcov-19-viruses/">GISAID
+clade</a></p>
+<p><strong>Variants of concern (VOC)</strong></p>
+<p>To be considered a VOC, a VOI must meet one or more of the following
+criteria, at a level that has a significant effect on public health:</p>
+<ul>
+<li><p>Increase in transmissibility or detrimental change in COVID-19
+epidemiology; OR</p></li>
+<li><p>Increase in virulence or change in clinical disease presentation;
+OR</p></li>
+<li><p>Decrease in the effectiveness of public health and social
+measures or available diagnostics, vaccines or therapeutics.</p></li>
+</ul>
+<p><em>Table 1 - SARS-CoV-2 variants of concern. In June 2022 only
+Omicron is considered a variant of concern (VOC). Alpha, Beta, Gamma and
+Delta are previously circulating VOCs.</em></p>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>WHO Label</th>
+<th>Pango lineage</th>
+<th>GISAID clade</th>
+<th>Nextstrain clade</th>
+<th>Earliest documented samples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alpha</td>
+<td>B.1.1.7</td>
+<td>GRY</td>
+<td>20I (V1)</td>
+<td>United Kingdom Sep-2020</td>
+</tr>
+<tr class="even">
+<td>Beta</td>
+<td>B.1.351</td>
+<td>GH/501Y.V2</td>
+<td>20H (V2)</td>
+<td>South Africa May-2020</td>
+</tr>
+<tr class="odd">
+<td>Gamma</td>
+<td>P1</td>
+<td>GR/501Y.V3</td>
+<td>20J (V3)</td>
+<td>Brazil Nov-2020</td>
+</tr>
+<tr class="even">
+<td>Delta</td>
+<td>B.1.617.2</td>
+<td>G/478K.V1</td>
+<td>21A, 21I, 21J</td>
+<td>India Oct-2020</td>
+</tr>
+<tr class="odd">
+<td><strong>Omicron</strong></td>
+<td><strong>B.1.1.529</strong></td>
+<td><strong>GR/484A</strong></td>
+<td><strong>21K, 21L, 21M, 22A, 22B, 22C</strong></td>
+<td><strong>Multiple countries Nov-2002</strong></td>
+</tr>
+</tbody>
+</table>
+<p>NB: Omicron lineage includes BA.1, BA.2, BA.3, BA.4, BA.5 and
+descendent lineages.</p>
+<p><em>Source: <a
+href="https://www.who.int/en/activities/tracking-SARS-CoV-2-variants/">WHO</a>.</em></p>
+<p><strong>Variants of concern under monitoring (VOC-LUM)</strong></p>
+<p>Since its emergency Omicron has already displaced other
+co-circulating SARS-CoV-2 variants. Thus, WHO has added a new category
+termed VOC-LUM to identify VOC lineages that may require prioritised
+attention and monitoring.</p>
+<p>A VOC-LUM is:</p>
+<ul>
+<li><p>A variant that, according to phylogenetic analysis, belongs to a
+currently circulating VOC; AND</p></li>
+<li><p>Shows signals of transmission advantage compared to other
+circulating VOC; AND</p></li>
+<li><p>Has additional amino acid changes that are known or suspected to
+confer the observed change in epidemiology and fitness advantage as
+compared to other circulating variants.</p></li>
+</ul>
+<p>#Variants of interest (VOI)#</p>
+<p>There is no current circulating VOI. To be considered at VOI, a
+SARS-CoV-2 variant must meet these two criteria:</p>
+<ul>
+<li><p>With genetic changes that are predicted or known to affect virus
+characteristics such as transmissibility, disease severity, immune
+escape, diagnostic or therapeutic escape;</p></li>
+<li><p>Identified to cause significant community transmission or
+multiple COVID-19 clusters, in multiple countries with increasing
+relative prevalence alongside an increasing number of cases over time,
+or other apparent epidemiological impacts to suggest an emerging risk to
+global public health.</p></li>
+</ul>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="variants-arising-all-over-the-world" class="section level1">
+<h1>Variants arising all over the world</h1>
+<!-- 2-16 -->
+<!-- YT https://youtu.be/KEfs8LB7ETM -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/KEfs8LB7ETM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC1_2-16_transcript.pdf">Download the transcript
+here</a></p>
+<p>With genomic surveillance networks hard at work within their own
+countries, the world is able to unite its data so that global movements
+in the pandemic can be understood.</p>
+<p>In this video, you will see variants tracked from the beginning of
+the pandemic until the end of December 2021. This video was made using
+<a href="https://nextstrain.org">Nextstrain</a> - an open-source project
+to harness the scientific and public health potential of pathogen genome
+data. NextStrain uses data aggregated by GISAID. <a
+href="https://www.gisaid.org">GISAID</a> is a non-profit organisation
+that encourages rapid data sharing for influenza and coronaviruses.
+GISAID was <a href="https://www.gisaid.org/about-us/history/">formed</a>
+in response to the influenza outbreaks in 2006, and years later has
+proven to be critical for responding to coronaviruses causing
+COVID-19.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container-left {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.img-container-right {
+  float: right;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<hr>
+<div class="clearfix">
+  <div class="img-container-left">
+    <img src="assets/img/COG-Train_logo.png" alt="COG-Train" 
+style="width:200%">
+  </div>
+  <div class="img-container-right">
+    <img src="assets/img/WCS_Logo-Primary_Black.jpg" alt="Wellcome 
+Connecting Science" style="width:200%">
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

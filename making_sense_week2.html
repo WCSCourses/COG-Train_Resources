@@ -1,0 +1,2205 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>making_sense_week2</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COG-Train_Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-file-lines"></span>
+     
+    Course Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Virtual Courses</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viral Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="vbioinfasia.html">VBioinf2022 Asia</a>
+        </li>
+        <li>
+          <a href="vbioinflac.html">VBioinf2022 LAC</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOCs</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Power of Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="power_of_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Swab to Server</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="swab_to_server_home.html">Home</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Making Sense</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="making_sense_home.html">Home</a>
+        </li>
+        <li>
+          <a href="making_sense_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="making_sense_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="making_sense_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Practical Guide</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="practical_guide_home.html">Home</a>
+        </li>
+        <li>
+          <a href="practical_guide_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="practical_guide_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="practical_guide_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pathogen Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="pathogen_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Hybrid Course</li>
+    <li>
+      <a href="scvo2b4b.html">SARS-CoV-2 B4B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">In Person Courses</li>
+    <li>
+      <a href="ECPG.html">Pathogen Genomics Capacity</a>
+    </li>
+    <li>
+      <a href="IGM_B4B.html">Bioinformática Decodificada</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Webinars</li>
+    <li>
+      <a href="Community.html">COG-Train Community</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Team
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cogteam.html">COG-Train Team</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/WCSCourses/COG-Train_Resources">
+    <span class="fa fa-brands fa-github"></span>
+     
+    Github
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="exploring-the-pipelines-available" class="section level1">
+<h1>EXPLORING THE PIPELINES AVAILABLE</h1>
+<p><img src="images/OC3_W2_cover.png" /><br />
+<sub><span class="citation">@Canva</span></sub></p>
+</div>
+<div
+id="garbage-ingarbage-out-importance-of-generating-good-data-and-cleaning-up"
+class="section level1">
+<h1>Garbage in/Garbage out: importance of generating good data and
+cleaning up</h1>
+<!-- 2-2 -->
+<p>Taking data and proceeding with analysis without first cleaning your
+data (also known as data wrangling) or without doing the necessary
+quality control can lead to inaccurate or even totally misleading
+conclusions.</p>
+<p><a href="https://doi.org/10.3390/data5020050">Data wrangling</a>
+includes correcting incomplete, inaccurate, irrelevant, corrupt or
+incorrectly formatted data, and finally organising the data before the
+core analysis begins.</p>
+<p>Ask most data analysts/scientists and they will tell you that data
+wrangling can take up about 80% of their work. <a
+href="https://doi.org/10.13140/RG.2.2.13981.03047">Why spend so much
+time on just this one task?</a> Well, because your output is only as
+good as your input data – which is where the acronym <a
+href="https://www.researchgate.net/profile/Nelson-Hendler/publication/360182023_Inherent_GIGO_Problems_with_Medical_AI/links/62670273ee24725b3ec613d5/Inherent-GIGO-Problems-with-Medical-AI.pdf">“garbage
+in, garbage out” (GIGO)</a> comes from.</p>
+<p>Take a look at Figures 1 and 2 below at what happens when you <a
+href="https://chance.amstat.org/2020/02/data-cleaning/">don’t consider
+the consequence of missing values in your data</a> - often encoded as
+“99” in your data set. In the top image, missing values were not
+removed. In the bottom image, removing these values results in a graph
+which demonstrates more clearly the correlation between education and
+annual income.</p>
+<div class="float">
+<img src="images/OC3_2-2_Fig1.jpeg"
+alt="Building a model without accounting for missing values" />
+<div class="figcaption">Building a model without accounting for missing
+values</div>
+</div>
+<p><em>Source: <a
+href="https://chance.amstat.org/2020/02/data-cleaning/">Chance</a>.</em></p>
+<p><a href="images/OC3_2-2_Fig1.jpeg">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-2_Fig1-2_alt-text.pdf">Download Figure 1
+alt-text here</a></p>
+<div class="float">
+<img src="images/OC3_2-2_Fig2.png"
+alt="Building a model removing missing values" />
+<div class="figcaption">Building a model removing missing values</div>
+</div>
+<p><em>Source: <a
+href="https://chance.amstat.org/2020/02/data-cleaning/">Chance</a>.</em></p>
+<p><a href="images/OC3_2-2_Fig2.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-2_Fig1-2_alt-text.pdf">Download Figure 2
+alt-text here</a></p>
+<p>Besides handling missing data, some other data cleaning steps may
+include filtering unwanted outliers (data values that are very different
+to the rest of the values). The general rule is to look at your data
+with and without outliers and to make sure that the outliers do not take
+the focus away from the main results or that you use a robust method
+that can <a href="https://doi.org/10.3390/data5020050">handle
+outliers</a>.</p>
+<p><a
+href="https://towardsdatascience.com/the-art-of-cleaning-your-data-b713dbd49726">Standardising
+your data may also significantly improve your data</a>. For example, if
+you are comparing SARS-CoV-2 outbreaks on a per-country level, and you
+are looking at the data from the USA, you would want to include city or
+state-level data like Chicago and New York under the USA. Similarly,
+different variations of the country name USA, like America and the US,
+or misspellings of the country’s name, or even something as simple as
+matching the case of the word (“usa” versus “USA”), would all need to be
+fixed.</p>
+<p>Other data cleaning efforts include handling low-quality, duplicate
+and incomplete data and getting rid of unwanted/insecure data. With
+sequenced data, this may mean removing sequenced reads that are of low
+quality (Bernasconi, 2021). Removing unwanted data may be similar to a
+filtering step. For example, you may want to only look at data based on
+nose swabs, so you would remove data collected from throat swabs. You
+should also check for insecure data, which may identify a user or an
+organisation and therefore breaches their privacy.</p>
+<p>Sometimes you will just have plain <a
+href="https://doi.org/10.1016/B978-0-12-809633-8.20458-5">incorrect data
+due to human error</a>. The person may have just completely misread what
+was asked for and entered something that does not make sense. For
+example, they may enter a date in the geographical coordinates field,
+because they never looked at the column heading, but just saw existing
+values which looked similar to dates.</p>
+<p>Ultimately data cleaning, quality control and curation allow us to
+more easily explore and understand our models/graphs. And most
+importantly, it allows us to make more accurate conclusions when
+observing the outcomes/results.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="data-cleaning-and-quality-control" class="section level1">
+<h1>Data cleaning and quality control</h1>
+<!-- 2-4 -->
+<p>Machines may be less error-prone than humans, but even machines can
+make mistakes. Or at the very least, they are only as good as the
+person/team who programmed them.</p>
+<p>The garbage in; garbage out (GIGO) concept therefore also applies to
+Bioinformatics, or in our case, sequenced data.</p>
+<p><strong>What is sequenced biological data?</strong></p>
+<p>After the extraction of your biological sample (RNA and/or DNA), the
+sample is sent for sequencing, <a
+href="https://doi.org/10.1093/bioinformatics/bty654">which returns a
+human and machine-readable FASTQ file</a>. From this file, you will be
+able to obtain information about the lengths of the reads (the stretches
+of nucleotides that were sequenced), as well as the actual nucleotide
+bases within that genome and the <a
+href="https://doi.org/10.1093/bioinformatics/bty560">quality score</a>
+assigned to each nucleotide.</p>
+<p>The quality control and preprocessing of these FASTQ files are
+essential because they impact the accuracy of all downstream analyses.
+For example, you may want to know which variants are present in your
+SARS-CoV-2 sample. After running a variant calling tool, how would you
+know if the variant you are seeing is a true variant and not a result of
+adapter contamination, biases in the nucleotide bases, overrepresented
+sequences or errors caused by the library preparation?</p>
+<p>Fortunately, you don’t have to write any code to carry out the
+necessary quality control and data cleaning yourself. FastQC for example
+is a tool which outputs a summary file which tells you the quality of
+your bases in the form of a table and graphs. It also tells you whether
+you have adapter sequencing which may need to be trimmed and various
+additional metrics related to your reads.</p>
+<p>Figure 3 is an example of good quality data, where the yellow bars
+representing the average base qualities are above 20 (called Q20) (top
+image). Q20 is called a PHRED quality score. It represents a logarithmic
+property which tells us how confident we are that the base was called
+correctly. A score of Q20 means that the probability that the base is
+called incorrectly is 1 in 100, or that it has a 99% accuracy. You may
+<a
+href="https://www.illumina.com/documents/products/technotes/technote_Q-Scores.pdf">read
+more about PHRED scores on this resource website</a>. Figure 3 also
+shows that each nucleotide represents about 25% of the total sequenced
+reads (bottom image). Except for certain genomes which may have a higher
+GC- or AT content, such as Mycobacterium tuberculosis and many insects,
+respectively, you would ideally want each nucleotide to have an equal
+representation (25% each).</p>
+<div class="float">
+<img src="images/OC3_2-4_Fig1.png"
+alt="Two sample graphs from a FastQC output. The top image shows us the average quality of the bases. Ideally one would want the yellow bars above the quality of 20. The bottom image shows that except for the first few bases, the average composition of each base/nucleotide is about 25%" />
+<div class="figcaption">Two sample graphs from a FastQC output. The top
+image shows us the average quality of the bases. Ideally one would want
+the yellow bars above the quality of 20. The bottom image shows that
+except for the first few bases, the average composition of each
+base/nucleotide is about 25%</div>
+</div>
+<p><a href="images/OC3_2-4_Fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-4_Fig3-4_alt-text.pdf">Download Figure 3
+alt-text here</a></p>
+<p>Similarly, after aligning your FASTQ files to your reference genome,
+you will produce an aligned file called a BAM file. To ascertain the
+quality of the alignment (also called mapping), a tool called <a
+href="https://doi.org/10.1093/bioinformatics/bts503">QualiMap BAMQC</a>
+was developed to help us observe the percentages of reads that were
+correctly mapped to the reference genome and additional quality metrics
+to help us make informed decisions. The aligned reads in Figure 3 show
+an average mapping quality of 60 – which is a very good score.</p>
+<div class="float">
+<img src="images/OC3_2-4_Fig2.png"
+alt="The average quality of the aligned reads is ~60, which is representative of a good score" />
+<div class="figcaption">The average quality of the aligned reads is ~60,
+which is representative of a good score</div>
+</div>
+<p><a href="images/OC3_2-4_Fig2.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-4_Fig3-4_alt-text.pdf">Download Figure 4
+alt-text here</a></p>
+<p>You can learn more about FastQC report in the video below.</p>
+<!-- YT https://youtu.be/GnWSXwQeJ_U -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/GnWSXwQeJ_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><sub>This video is hosted by a third party</sub></p>
+<p>Using the FastQC and BAMQC reports, one can determine which bad bases
+can be removed or whether that data should even be used at all.</p>
+<p>Finally, whether your final step is variant calling or generating a
+phylogenetic tree, you will be doing quality control and data cleaning
+along the way. Sticking to best practices for doing these analyses is
+always advised to prevent us from missing important steps that may
+produce false positives or other spurious results.</p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://doi.org/10.1093/bioinformatics/bts503">Qualimap:
+evaluating next-generation sequencing alignment data</a></p>
+<p><a
+href="http://qualimap.conesalab.org/doc_html/analysis.html">QualiMap
+resources</a></p>
+<p><a
+href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">FastQC
+A Quality Control tool for High Throughput Sequence Data</a></p>
+<p><a href="https://doi.org/10.1093/bioinformatics/bty560">Fastp: an
+ultra-fast all-in-one FASTQ preprocessor</a></p>
+<p><a href="https://doi.org/10.1093/bioinformatics/bty654">MinIONQC:
+fast and simple quality control for MinION sequencing data</a></p>
+<p><a
+href="https://cmte.ieee.org/futuredirections/2018/09/06/humans-vs-machines-whos-winning-ii/">Humans
+vs machines: Who’s winning?</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="fastqc-and-multiqc-tools" class="section level1">
+<h1>FastQC and MultiQC tools</h1>
+<!-- 2-5 -->
+<p><strong>FastQC</strong></p>
+<p>In order to analyse the quality of the raw data generated from
+next-generation high throughput sequencers, quality control (QC) reports
+need to be generated. FastQC is a popular tool that provides such a
+report, with an overview of basic QC metrics and by spotting any
+problems that originate from the sequencer or the starting library
+material.</p>
+<p>FastQC is available on the Galaxy hub and can be run for the
+immediate analysis of a small number of FASTQ files using an interactive
+mode. A non-interactive mode is used for the systematic processing of a
+large number of files in an analysis pipeline.</p>
+<p><strong>Evaluating results</strong></p>
+<p>This tool imports data in BAM, SAM, FASTQ or Fastq.gz file formats
+and runs different QC analyses called modules. The output is a permanent
+report in an HTML file format that can be viewed in your browser.</p>
+<p>The report is presented as graphical or list data, and each result
+section represents a FastQC module that was run. In addition, there are
+flag assignments of “Passed” (green tick), “Warn” (orange exclamation
+mark) or “Fail” (red cross) to the modules, which should be interpreted
+with caution. The thresholds for flag assignment are based on what type
+of sequence data was imported and are specifically tuned for good
+quality whole-genome shotgun DNA sequencing, while less reliable for
+other types e.g. mRNA-Seq; targeted amplicon sequencing. Thus, when
+receiving a “Warn” or “Fail” flag, researchers should consider what the
+results mean in the context of the particular sample and the type of
+sequencing that was run, using the evaluation as pointers to where you
+should concentrate.</p>
+<p><strong>Analysis modules of a standard report</strong></p>
+<ul>
+<li><p><em>Basic Statistics</em> - this module provides a simple
+overview of the input file: the file name; file type; encoding; total
+sequences; filtered sequences; sequence length. This module never flags
+a warning or failure.</p></li>
+<li><p><em>Per Base Sequence Quality</em> - a BoxWhisker plot is
+generated that shows an overview of the range of quality values across
+all bases at each position of the input file. FastQC attempts to
+automatically determine which encoding method was used and the title of
+the graph describes this method. Warnings and failures can be raised for
+this module for specific unmet thresholds. The quality values
+represented in this graph and those proceeding are known as “Phred
+Quality Scores”. Phred quality scores, observed on the y-axis plots as
+shown in the previous module, are used to indicate the measure of base
+quality in sequencing. Greater values of Phred indicate the high
+consistency of a sequenced base. A Phred score of 30 indicates the
+likelihood of finding 1 incorrect base call among 1000 bases. In other
+words, the precision of the base call is 99.9% and further
+interpretation can be seen in the table below:</p></li>
+</ul>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Phred quality score</th>
+<th>Probability of incorrect base call</th>
+<th>Base call accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td>1 in 10</td>
+<td>90%</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>1 in 100</td>
+<td>99%</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>1 in 1,000</td>
+<td>99.9%</td>
+</tr>
+<tr class="even">
+<td>40</td>
+<td>1 in 10,000</td>
+<td>99.99%</td>
+</tr>
+<tr class="odd">
+<td>50</td>
+<td>1 in 100,000</td>
+<td>99.999%</td>
+</tr>
+<tr class="even">
+<td>60</td>
+<td>1 in 1,000,000</td>
+<td>99.9999%</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 1 - The probability values of a Phred quality score and the
+interpretation of their base-calling accuracy.</em></p>
+<ul>
+<li><p><em>Per Sequence Quality Scores</em> - this module is presented
+as a line graph and shows whether a subset of your sequences has
+low-quality values universally. If an overall low quality is detected
+for a significant proportion of the sequences, this may indicate a
+systematic problem. This is indicated by warnings and failures being
+raised for specific unmet thresholds.</p></li>
+<li><p><em>Per Base Sequence Content</em> - this module displays a line
+graph plotting the proportion of each base position from the input file,
+for which each of the four normal DNA bases (GATC) has been called. In
+general, there is little to no difference expected between the bases and
+they should run parallel to each other. Warnings and failures can be
+raised for this module when specific thresholds are not met, whereby
+biases for single bases can indicate contaminating overrepresented
+sequences or systematic errors during sequencing.</p></li>
+<li><p><em>Per Base GC Content</em> - this module plots a line graph of
+the C content of each base position from the input file. This line is
+expected to run horizontally, reflecting the overall GC content of the
+underlying genome being investigated. However, warnings and failures are
+raised when specific thresholds are not met and can indicate similar
+biases stated above.</p></li>
+<li><p><em>Per Sequence GC Content</em> - this module displays the
+measure of GC content across each sequence from the input file in
+comparison to a modelled normal distribution. A normal GC content
+distribution is generally expected with the central peak corresponding
+to the underlying genome. Unusual shapes or shifted peaks can indicate
+contamination or systematic bias which may be reflected by warnings and
+failure flags.</p></li>
+<li><p><em>Per Base N Content</em> - this module functions by
+substituting a conventional base call with low confidence to an N and
+plots the percentage of base calls at each position for which N was
+called. Warnings and failure flags raised can infer that the analysis
+was unable to interpret the data to make valid base calls.</p></li>
+<li><p><em>Sequence Length Distribution</em> - in general, high
+throughput sequencers generate fragments of uniform length, but some may
+have reads of varying lengths. This module displays a graph which plots
+this distribution of fragment sizes, whereby warnings and failures are
+raised for different or zero lengths.</p></li>
+<li><p><em>Duplicated Sequences</em> - Low levels of duplication can
+indicate high levels of coverage of targeted sequences, whilst high
+levels of duplication can indicate enrichment biases. This module counts
+and plots the relative degree of duplication for every sequence.
+Warnings and failure flags are raised for this module when non-unique
+sequences are over-represented according to specific
+thresholds.</p></li>
+<li><p><em>Overrepresented Sequences</em> - Diverse sets of sequences
+are generally expected with a single occurrence observed. However,
+overrepresented sequences can indicate high biological significance,
+library contamination, or low diversity. This module lists all sequences
+making up 0.1% of the total, but only from the analysis of the first
+200,000 sequences due to computational memory conservation requirements.
+In addition, the best hits to a database of common contaminants are
+reported. Warnings and failure flags are raised for specific thresholds
+of this module.</p></li>
+<li><p><em>Overrepresented K-mers</em> - K-mers refers to all of a
+sequence’s subsequences of length. This module counts the enrichment of
+every 5-mer within the sequence library and calculates the expected
+level at this k-mer should be observed. This is based on the entire base
+content of the library, which is plotted as the observed/expected ratio
+for the top six hits of enrichment across the reads. Warnings and
+failure flags for these modules are based on a three-, five- or ten-fold
+threshold of enrichment at any individual base position.</p></li>
+</ul>
+<p><strong>MultiQC</strong></p>
+<p>Due to the nature of FastQC producing reports on a per-sample basis,
+tools were needed to address the time-consuming and complex process of
+compiling QC results. MultiQC is a tool that was developed to scan the
+individual QC reports, creating a single summary report to visualise the
+combined results across all samples. This tool enables the fast and easy
+analysis of key statistics as presented in Figure 1 below.</p>
+<div class="float">
+<img src="images/OC3_2-5_Fig1.png"
+alt="The top of a typical MultiQC report. The general statistics table can be seen with metrics from a number of different tools gathered for each sample that was generated from the FastQC analysis" />
+<div class="figcaption">The top of a typical MultiQC report. The general
+statistics table can be seen with metrics from a number of different
+tools gathered for each sample that was generated from the FastQC
+analysis</div>
+</div>
+<p><a href="images/OC3_2-5_Fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-5_Fig5_alt-text.pdf">Download Figure 5 alt-text
+here</a></p>
+<p>MultiQC is also available on the Galaxy hub enabling the aggregation
+of the FastQC logs generated from your analysis into a single
+self-contained HTML report, which can be visualised in any modern web
+browser. With this report, researchers will be able to make accurate
+comparisons between their samples, minimise the risk of confounding
+factors through detecting batch effects and, improve the quality of QC
+and reporting.</p>
+<p><strong>Futher reading</strong></p>
+<p><a href="https://doi.org/10.1093/bioinformatics/btw354">MultiQC:
+summarize analysis results for multiple tools and samples in a single
+report</a></p>
+<p><a href="https://dnacore.missouri.edu/PDF/FastQC_Manual.pdf">FastQC
+Manual</a></p>
+<p><a
+href="https://hbctraining.github.io/Intro-to-ChIPseq/lessons/02_QC_FASTQC.html">FastQC
+for quality assessment</a></p>
+<p><a
+href="https://rtsf.natsci.msu.edu/sites/_rtsf/assets/File/FastQC_TutorialAndFAQ_080717.pdf">FastQC
+Tutorial and FAQ</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="assess-quality-with-fastqc" class="section level1">
+<h1>Assess quality with FastQC</h1>
+<!-- 2-6 -->
+<p>Let’s inspect a Per Base Sequence Quality Plot generated from FastQC
+and interpret the results.</p>
+<p>Upon running FastQC on Galaxy with the “Raw read data from your
+current history” parameter, an HTML file will be generated for your
+inspection. For now, try looking at the example plot in Figure 6 to make
+sure you understand how to read this kind of output:</p>
+<div class="float">
+<img src="images/OC3_2-6_fig1.png"
+alt="An example of a plot generated from FastQC analysis showing the Per Base Sequence Quality across a sample" />
+<div class="figcaption">An example of a plot generated from FastQC
+analysis showing the Per Base Sequence Quality across a sample</div>
+</div>
+<p><a href="images/OC3_2-6_fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-6_Fig6_alt-text.pdf">Download Figure 6 alt-text
+here</a></p>
+<p>The x-axis on the plot shows the base position in the read. For each
+position, a BoxWhisker plot is drawn with:</p>
+<ul>
+<li>The median value, represented by the central red line<br />
+</li>
+<li>The interquartile range (25-75%), represented by the yellow
+box<br />
+</li>
+<li>The 10% and 90% values in the upper and lower whiskers<br />
+</li>
+<li>The mean quality, represented by the blue line</li>
+</ul>
+<p>The y-axis shows the quality scores. The higher the score, the better
+the base call, whereby a range from very good quality scores (green),
+scores of reasonable quality (orange), and reads of poor quality (red)
+can be observed. A detailed tutorial on the use of FastQC on short and
+long reads and the interpretation of the results can be found on the <a
+href="https://training.galaxyproject.org/training-material/topics/sequence-analysis/tutorials/quality-control/tutorial.html">Galaxy
+hub</a>.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="assembly-of-sars-cov-2-genome-and-sequence-alignment"
+class="section level1">
+<h1>Assembly of SARS-CoV-2 genome and sequence alignment</h1>
+<!-- 2-7 -->
+<p>Did you ever ask someone what a new delicacy tastes like, and they
+respond with: “It tastes like chicken.”?</p>
+<p>The truth is, that we use references all the time. It gives us a
+place to start. A “reference” point to narrow things down to. When you
+ask for directions, the person giving you directions will first check
+whether you are familiar with certain landmarks. We do the same when it
+comes to sequencing reads.</p>
+<p><strong>De novo versus reference genome assembly</strong></p>
+<p>When your reads are obtained from the sequencing machine, here are <a
+href="https://doi.org/10.1371/journal.pcbi.1002821">two methods of
+assembling your reads</a>. As shown in Figure 7, we can align the reads
+from scratch (de novo assembly); usually by way of overlapping the reads
+until they form a continuous long read called a contig. The contigs are
+then overlapped in the same way until they eventually become a full
+genome. Either the reads are aligned by overlapping all the reads, until
+contigs and eventually, a complete reference genome is created.
+Alternatively, a reference genome may already exist. We would then just
+align the newly sequenced reads by comparing them to the reference
+genome. Usually, this method is used to compare the reads, to find
+variations which exist in our sample compared to the reference
+genome.</p>
+<div class="float">
+<img src="images/OC3_2-7_Fig1.png"
+alt="Two types of reads assembly methods" />
+<div class="figcaption">Two types of reads assembly methods</div>
+</div>
+<p><em>Source: <a
+href="https://doi.org/10.1371/journal.pcbi.1002821">PLoS Computational
+Biology</a>.</em></p>
+<p><a href="images/OC3_2-7_Fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-7_Fig7-8_alt-text.pdf">Download Figure 7
+alt-text here</a></p>
+<p>A reference genome of a species is therefore a genome that was
+constructed in this way, by <a
+href="https://www.hudsonalpha.org/sequencing-from-scratch-reference-genomes-and-de-novo-sequence-assembly/">using
+the sequenced reads of a member of that species</a>. This is normally
+stored in a FASTA file.</p>
+<p>The second method involves using an already available reference
+genome as a guide, to align the reads of our sample more accurately <a
+href="https://doi.org/10.1371/journal.pcbi.1002821">(resequencing)</a>.
+But the ultimate aim of resequencing is to compare our reads to the
+reference genome and to find variations.</p>
+<p>In Figure 8, the reference genome shows that there is a nucleotide
+“T” at a particular position. However, the aligned read from your sample
+shows a “C”. This is a possible mutation. But this is definitely not a
+process that you would want to complete manually if you have thousands
+or billions of reads.</p>
+<div class="float">
+<img src="images/OC3_2-7_Fig2.png"
+alt="Identification of a point mutation" />
+<div class="figcaption">Identification of a point mutation</div>
+</div>
+<p><em>Source: adapted from <a
+href="https://www.yourgenome.org/facts/how-do-you-find-out-the-significance-of-a-genome-after-sequencing">Your
+Genome</a>.</em></p>
+<p><a href="images/OC3_2-7_Fig2.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-7_Fig7-8_alt-text.pdf">Download Figure 8
+alt-text here</a></p>
+<p>Fortunately, the tools required for doing alignments already exist.
+For short reads (&lt; 300 bp long) produced by a sequencer such as
+Illumina, we can align the reads to the reference genome using an
+aligner called <a
+href="https://doi.org/10.1093/bioinformatics/btp324">BWA-MEM</a>. For
+longer reads (&gt; 10kb long) produced by a sequencer like Oxford
+Nanopore, we could align using <a
+href="https://doi.org/10.1093/bioinformatics/bty191">minimap2</a>.</p>
+<p>For resequencing, these tools always require a reference genome
+(FASTA file) and the FASTQ files containing your reads. You may also
+need to submit files containing the locations of the primer and adapter
+sequences that your tool needs to take into consideration when doing the
+alignment, or which you can use to do prior trimming of your reads
+before you start the alignment/mapping process.</p>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://www.differencebetween.com/difference-between-nanopore-and-illumina-sequencing/">Difference
+between Nanopore and Illumina sequencing article</a>.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="assembly-tutorial" class="section level1">
+<h1>Assembly tutorial</h1>
+<!-- 2-8 -->
+<p>Two of the most common lengths of sequenced reads are:</p>
+<ol style="list-style-type: decimal">
+<li><em>short reads</em> less than 400bp<br />
+</li>
+<li><em>long reads</em> greater than 400bp</li>
+</ol>
+<p>You may recall that when your raw reads (FASTQ files) are returned
+from the sequencing facility, you will need to perform quality control
+and data cleaning before starting your analysis.</p>
+<p>Some of this may include running a tool to remove human reads from
+your samples, checking the quality of the bases and, finally, trimming
+off adapter sequences and bad-quality bases.</p>
+<p>At this stage, we will assume that you are familiar with uploading
+your datasets to Galaxy and that you are familiar with the processing
+steps like FASTP/FASTQC. We will also assume that you are now left with
+trimmed and cleaned FASTQ files.</p>
+<p>To do any alignment/mapping, you need your sample reads (fastQ files)
+and the reference genome (fastA file).</p>
+<p><strong>Tutorial</strong></p>
+<p>As an example, we will show you how to upload a pair of raw RNA-seq
+reads and the reference file to Galaxy. These files were taken from <a
+href="https://training.galaxyproject.org/training-material/topics/variant-analysis/tutorials/sars-cov-2-variant-discovery/tutorial.html">another
+Galaxy SARS-CoV2 variant calling tutorial</a>.</p>
+<ol style="list-style-type: decimal">
+<li>NB! If you are following this tutorial on your own, please do not
+forget to log on first to <a
+href="https://usegalaxy.eu/">Galaxy</a></li>
+</ol>
+<div class="float">
+<img src="images/OC3_2-8_fig1.png" alt="Galaxy homepage" />
+<div class="figcaption">Galaxy homepage</div>
+</div>
+<p><a href="images/OC3_2-8_fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-8_fig9-26_alt-text.pdf">Download Figure 9-26
+alt-text here</a></p>
+<ol start="2" style="list-style-type: decimal">
+<li>You may choose to <strong>Rename</strong> the
+<strong>History</strong> to anything appropriate.</li>
+</ol>
+<div class="float">
+<img src="images/OC3_2-8_Fig2.png" alt="Rename history" />
+<div class="figcaption">Rename history</div>
+</div>
+<p><a href="images/OC3_2-8_Fig2.png">Click here to enlarge the
+image</a></p>
+<ol start="3" style="list-style-type: decimal">
+<li>If you would like to try this tutorial, you can find testing data in
+our <a href="https://zenodo.org/record/6652215#.YrTjB-zMKre">Zenodo
+resources</a>. On Galaxy click on <strong>Upload Data</strong>.</li>
+</ol>
+<div class="float">
+<img src="images/Oc3_2-8_fig3.png" alt="Upload data" />
+<div class="figcaption">Upload data</div>
+</div>
+<p><a href="images/Oc3_2-8_fig3.png">Click here to enlarge the
+image</a></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Then click on <strong>Paste/Fetch data</strong> button or drop your
+files in the indicated box.</li>
+</ol>
+<div class="float">
+<img src="images/Oc3_2-8_fig4.png" alt="Upload window" />
+<div class="figcaption">Upload window</div>
+</div>
+<p><a href="images/Oc3_2-8_fig4.png">Click here to enlarge the
+image</a></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Upload your files in the window and click
+<strong>Start</strong></li>
+</ol>
+<div class="float">
+<img src="images/OC3_2-8_fig5.png" alt="Start upload" />
+<div class="figcaption">Start upload</div>
+</div>
+<p><a href="images/OC3_2-8_fig5.png">Click here to enlarge the
+image</a></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Close this screen once it’s done</li>
+</ol>
+<div class="float">
+<img src="images/OC3_2-8_Fig6.png" alt="Uploaded files" />
+<div class="figcaption">Uploaded files</div>
+</div>
+<p><a href="images/OC3_2-8_Fig6.png">Click here to enlarge the
+image</a></p>
+<p>It may take a while for the files to process and be available in
+Galaxy. As it’s processing, it will turn <strong>yellow</strong> and
+then <strong>green</strong> once it is done. Make sure that your
+datasets are in the correct <strong>fastsanger.gz</strong> format. This
+is usually done automatically, but you may want to consult your previous
+Galaxy tutorials to choose the correct file
+<strong>datatype</strong>.</p>
+<div class="float">
+<img src="images/OC3_2-8_Fig7.png" alt="Processing files" />
+<div class="figcaption">Processing files</div>
+</div>
+<p><a href="images/OC3_2-8_Fig7.png">Click here to enlarge the
+image</a></p>
+<div class="float">
+<img src="images/Oc3_2-8_Fig8.png" alt="Files processed" />
+<div class="figcaption">Files processed</div>
+</div>
+<p><a href="images/Oc3_2-8_Fig8.png">Click here to enlarge the
+image</a></p>
+<ol start="7" style="list-style-type: decimal">
+<li>Now to make running the tools easier, let’s pair up the data.
+<strong>Unclick</strong> the <strong>Operations on multiple
+datasets</strong> box, and you will see boxes next to each file. You can
+now select your datasets.</li>
+</ol>
+<div class="float">
+<img src="images/Oc3_2-8_fig9.png" alt="Enabling file selection" />
+<div class="figcaption">Enabling file selection</div>
+</div>
+<p><a href="images/Oc3_2-8_fig9.png">Click here to enlarge the
+image</a></p>
+<ol start="8" style="list-style-type: decimal">
+<li>Select <strong>only</strong> your <strong>FASTQ</strong> files</li>
+</ol>
+<div class="float">
+<img src="images/OC3_2-8_Fig10.png" alt="Selecting files" />
+<div class="figcaption">Selecting files</div>
+</div>
+<p><a href="images/OC3_2-8_Fig10.png">Click here to enlarge the
+image</a></p>
+<ol start="9" style="list-style-type: decimal">
+<li>Then click on the <strong>“For all Selected”</strong> drop-down and
+select the option to <strong>“Build List of Dataset Pairs”</strong></li>
+</ol>
+<div class="float">
+<img src="images/Oc3_2-8_fig11.png"
+alt="Building list of dataset pairs" />
+<div class="figcaption">Building list of dataset pairs</div>
+</div>
+<p><a href="images/Oc3_2-8_fig11.png">Click here to enlarge the
+image</a></p>
+<ol start="10" style="list-style-type: decimal">
+<li>You will see that it already determined a pattern it can use to
+group the pairs because the forward files have a “_1” in them and the
+reverse files have a “_2” in them.</li>
+</ol>
+<p>Give the selection a <strong>name</strong> and click on
+<strong>“Create collection”</strong></p>
+<div class="float">
+<img src="images/OC3_2-8_fig12.png" alt="Creating a collection" />
+<div class="figcaption">Creating a collection</div>
+</div>
+<p><a href="images/OC3_2-8_fig12.png">Click here to enlarge the
+image</a></p>
+<ol start="11" style="list-style-type: decimal">
+<li><strong>Click</strong> on the square box which you originally
+clicked to create the collection and the boxes to the left of the names
+will disappear</li>
+</ol>
+<div class="float">
+<img src="images/OC3_2-8_fig13.png"
+alt="Disabling operation in multiple datasets" />
+<div class="figcaption">Disabling operation in multiple datasets</div>
+</div>
+<p><a href="images/OC3_2-8_fig13.png">Click here to enlarge the
+image</a></p>
+<ol start="12" style="list-style-type: decimal">
+<li>Now let’s do our alignment. Search for <strong>“bwa-mem”</strong>
+under <strong>Tools</strong> and choose <strong>“Map with
+BWA-MEM”</strong></li>
+</ol>
+<div class="float">
+<img src="images/OC3_2-8_fig14.png" alt="SChoosing alignment tool" />
+<div class="figcaption">SChoosing alignment tool</div>
+</div>
+<p><a href="images/OC3_2-8_fig14.png">Click here to enlarge the
+image</a></p>
+<ol start="13" style="list-style-type: decimal">
+<li>Once again. We are going to assume that we have already cleaned and
+trimmed these FASTQ files and we are just going to do the
+alignment.</li>
+</ol>
+<div class="float">
+<img src="images/OC3_2-8_fig15.png" alt="Setting up the aligment" />
+<div class="figcaption">Setting up the aligment</div>
+</div>
+<p><a href="images/OC3_2-8_fig15.png">Click here to enlarge the
+image</a></p>
+<p><strong>Choose the following parameters of the Tool.</strong></p>
+<p><em>Will you select a reference genome from your history or use a
+built-in index?</em> <strong>Use a genome from history and build
+index</strong><br />
+You will see that it will automatically select your FASTA file.</p>
+<p><em>Single or Paired-end reads.</em> Change it to <strong>Paired
+collection</strong><br />
+It will once again automatically select the collection you created</p>
+<p><em>Select analysis mode:</em> <strong>Simple Illumina
+mode</strong><br />
+Since this is the most common, it’s already there as a default</p>
+<p>Leave the rest as the default options.</p>
+<p>Click <strong>Execute</strong> at the bottom. It may take a while to
+run. (You may need to scroll down or zoom out if you cannot see this
+button)</p>
+<ol start="14" style="list-style-type: decimal">
+<li>The output of this execution should be two BAM files. You can
+explore them by clicking on the finished results and then selecting “the
+eye icon”.</li>
+</ol>
+<p>For further information on how to interpret all the output check the
+following resources:</p>
+<p><a href="https://samtools.github.io/hts-specs/SAMv1.pdf">Sequence
+Alignment/Map Format Specification</a><br />
+<a
+href="http://www.cpwardell.com/2015/02/24/understanding-bam-files-part-1/">Understanding
+BAM files; part 1</a><br />
+<a
+href="http://www.cpwardell.com/2015/02/24/understanding-bam-files-part-2/">Understanding
+BAM files; part 2</a><br />
+<a href="https://en.wikipedia.org/wiki/SAM_(file_format)">Wikipedia
+entry for SAM (file format)</a></p>
+<p>But for now, we will focus on some of the output columns that are
+important.</p>
+<p><strong>Results and Discussion</strong></p>
+<p>These are some of the results that you will see if you click on the
+eye icon for file <strong>ERR5949463</strong> under the batch called
+<strong>“Map with BWA-MEM on collection…..”</strong></p>
+<div class="float">
+<img src="images/OC3_2-8_Fig16.png" alt="How to view the results" />
+<div class="figcaption">How to view the results</div>
+</div>
+<p><a href="images/OC3_2-8_Fig16.png">Click here to enlarge the
+image</a></p>
+<p>These are some of the meanings of the columns as taken from the
+resources provided above, which you will use to answer the questions
+which follow.</p>
+<p><em>1) QNAME: the name of the query sequence e.g. a read name like
+HWI-ST886:247:D2G2MACXX:3:2102:4127:4699.</em></p>
+<p><em>2) FLAG: a bitwise flag. You’ll want to read Understanding BAM
+files; part 2 for an explanation.</em></p>
+<p><em>3) RNAME: the name of the reference contig the sequence is
+aligned to, e.g. 1 (chromosome 1).</em></p>
+<p><em>4) POS: the position on the reference contig that the alignment
+starts at, e.g. 123456 (in this case, the 123,456th base of chromosome
+1).</em></p>
+<p><em>5) MAPQ: the mapping quality of the read; maximum value is
+usually 60. This number is Phred scaled, meaning that they’re
+logarithmically scaled. For example:</em></p>
+<p><em>a) MAPQ of 10 means a 1/10 chance that the mapping is
+wrong.</em></p>
+<p><em>b) MAPQ of 20 means a 1/100 chance that the mapping is
+wrong.</em></p>
+<p><em>c) MAPQ of 60 means a 1/1,000,000 chance that the mapping is
+wrong.</em></p>
+<p><em>6) CIGAR: this string tells us how to match the query sequence to
+the reference sequence. In the simplest case, such as if the read is 100
+bases along and matches perfectly, CIGAR would be 100M. However, you can
+encode mismatches, insertions and deletions, and it quickly becomes very
+complicated.</em></p>
+<p><em>7) RNEXT: the name of the reference contig that the other read in
+the pair aligns to. If identical to this read, an equals sign (“=”) is
+used.</em></p>
+<p><em>8) PNEXT: the position on the reference contig that the other
+read in the pair aligns to. This depends on the size of the DNA
+fragments in the sequencing library and will usually be a few hundred
+base pairs away (see TLEN, below).</em></p>
+<p><em>9) TLEN: the length of the template fragment. This is the
+distance from the leftmost base of the first read to the rightmost base
+of the second read of a pair. This value is signed (+/-), so you can
+infer the orientation of the reads, too.</em></p>
+<p><em>10) SEQ: the DNA sequence of the query sequence. This will be
+identical to the sequence in the FASTQ file that was aligned to the
+reference genome.</em></p>
+<p><em>11) QUAL: the corresponding base quality scores of the SEQ. This
+will be identical to the scores in the original FASTQ file. Note that
+it’s encoded as ASCII+33, so all the letters and punctuation symbols
+actually correspond to regular integers.</em></p>
+<p>In the <a
+href="https://en.wikipedia.org/wiki/SAM_(file_format)">Wikipedia
+entry</a> you will find the following information:</p>
+<p>The FLAG attributes are summed to get the final value, e.g. a SAM row
+resulting from an Illumina paired-end FASTQ record having the FLAG value
+2145 would indicate:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Flag value</th>
+<th>Meaning</th>
+<th>Flag sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>read is paired</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>32</td>
+<td>read2 was reverse complemented</td>
+<td>33</td>
+</tr>
+<tr class="odd">
+<td>64</td>
+<td>read1</td>
+<td>97</td>
+</tr>
+<tr class="even">
+<td>2048</td>
+<td>Supplementary alignment</td>
+<td>2145</td>
+</tr>
+</tbody>
+</table>
+<div class="float">
+<img src="images/OC3_2-8_fig17.jpeg"
+alt="Snippet of the BAM file - part 1" />
+<div class="figcaption">Snippet of the BAM file - part 1</div>
+</div>
+<p><a href="images/OC3_2-8_fig17.jpeg">Click here to enlarge the
+image</a></p>
+<div class="float">
+<img src="images/OC3_2-8_fig18.jpeg"
+alt="Snippet of the BAM file - part 2" />
+<div class="figcaption">Snippet of the BAM file - part 2</div>
+</div>
+<p><a href="images/OC3_2-8_fig18.jpeg">Click here to enlarge the
+image</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="variant-calling-and-annotation" class="section level1">
+<h1>Variant calling and annotation</h1>
+<!-- 2-9 -->
+<p><strong>Introduction</strong></p>
+<p>Identifying genomic variants can play an important role in scientific
+discovery as exemplified by the ongoing SARS-CoV-2 global surveillance.
+Variant calling involves identifying single nucleotide polymorphisms
+(SNPs), and small (&lt; 50 bp) insertions and deletions (indels) from
+various input data e.g. whole-genome sequence data. Herein, SNPs and
+indels are collectively referred to as small nucleotide variations
+(SNVs).</p>
+<p>Since NGS-generated reads aligned to the reference genome can be
+visualised using tools such as the <a
+href="https://igv.org/app/">Integrative Genomics Viewer (IGV)</a>, it is
+possible to visually inspect sites that have potential variants as shown
+in Figure 27. However, visual inspection of variants would be
+intractable for the whole genome, hence the need for variant calling
+tools.</p>
+<div class="float">
+<img src="images/OC3_2-9_fig1.png"
+alt="GV visualisation of a SARS-CoV-2 variant site" />
+<div class="figcaption">GV visualisation of a SARS-CoV-2 variant
+site</div>
+</div>
+<p><em>Reference sequence <a
+href="https://www.ncbi.nlm.nih.gov/nuccore/NC_045512.2?report=genbank">NC_045512.2</a></em></p>
+<p><a href="images/OC3_2-9_fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-9_Fig27-30_at-text.pdf">Download Figure 27-30
+alt-text here</a></p>
+<p>Commonly used variant calling tools include the following;</p>
+<ul>
+<li><a href="http://www.htslib.org/download/">BCFtools</a><br />
+</li>
+<li><a href="https://gatk.broadinstitute.org">Genomic Analysis Toolkit
+(GATK) HaplotypeCaller</a><br />
+</li>
+<li><a
+href="https://github.com/google/deepvariant">DeepVariant</a><br />
+</li>
+<li><a href="https://github.com/Illumina/strelka">Strelka2</a><br />
+</li>
+<li><a href="http://www.htslib.org/download/">SAMtools</a><br />
+</li>
+<li><a
+href="https://github.com/DecodeGenetics/graphtyper">GraphTyper</a><br />
+</li>
+<li><a href="https://github.com/jts/nanopolish">Nanopolish</a></li>
+</ul>
+<p>Major computational steps in variant calling are outlined in Figure
+28. For variant calling from short-read data (e.g. Illumina), we
+recommend using GATK HaplotypeCaller, DeepVariant or GraphTyper.
+DeepVariant has also been validated as highly accurate when using PacBio
+(long-read) data as input. Nanopolish is the recommended tool for Oxford
+Nanopore data. For an in-depth benchmark of some of the variant callers
+above, please see the paper by <a
+href="https://doi.org/10.1186/s12864-022-08365-3">Barbitoff and
+colleagues</a>.</p>
+<div class="float">
+<img src="images/OC3_2-9_fig2.png"
+alt="High-level overview of the variant calling process. BAM – Binary Alignment Map. VCF – Variant Call Format" />
+<div class="figcaption">High-level overview of the variant calling
+process. BAM – Binary Alignment Map. VCF – Variant Call Format</div>
+</div>
+<p><a href="images/OC3_2-9_fig2.png">Click here to enlarge the
+image</a></p>
+<p>It is important to note that different variant callers have different
+underlying algorithms for detecting and genotyping variants, as well as
+different approaches for variant quality control and filtering.</p>
+<p><strong>Joint discovery vs single sample variant calling</strong></p>
+<p>During variant calling, it might be necessary to perform joint
+discovery rather than single-sample variant calling. In single sample
+calling, sample BAM files are analysed individually, and individual
+variant call-sets are combined in downstream steps. However, during
+joint calling, SNVs are called simultaneously across all sample BAMs,
+thus generating a merged call-set for the entire cohort. Joint variant
+calling provides advantages such as facilitating filtering out false
+positive SNV calls, greater sensitivity for low-frequency variants and
+enhancing the distinction between homozygous reference sites and sites
+with missing data. For more insight into the advantages of joint variant
+calling, please see the <a
+href="https://gatk.broadinstitute.org/hc/en-us/articles/360035890431-The-logic-of-joint-calling-for-germline-short-variants">GATK
+article</a>. Although joint variant discovery offers these advantages,
+there is still a lot of value in performing single sample variant
+calling – however, the accuracy of the variant calls would depend on
+multiple factors e.g. the quality of the input data, alignment tool used
+and the variant caller.</p>
+<p><strong>The Variant Call Format</strong></p>
+<p>A summary of key components in the Variant Call Format can be found
+at <a href="http://vcftools.sourceforge.net/VCF-poster.pdf">this
+resource page</a>. More detailed format descriptions are discussed by <a
+href="https://doi.org/10.1093/bioinformatics/btr330">Danecek and
+colleagues</a> and in at <a
+href="https://samtools.github.io/hts-specs/VCFv4.2.pdf">SAM tools
+resources</a>. Figure 29 shows a screenshot of an example VCF for a
+SARS-CoV-2 sample.</p>
+<div class="float">
+<img src="images/OC3_2-9_fig3.png"
+alt="Example VCF output (simplified) after running a variant calling pipeline. The variant NC_045512.2.g.8393G&gt;A is a SNP, while variants NC_045512.2.g.6512AGTT&gt;A and NC_045512.2.g.A&gt;AGCCAGAAGA are deletion and insertion variants, respectively" />
+<div class="figcaption">Example VCF output (simplified) after running a
+variant calling pipeline. The variant NC_045512.2.g.8393G&gt;A is a SNP,
+while variants NC_045512.2.g.6512AGTT&gt;A and
+NC_045512.2.g.A&gt;AGCCAGAAGA are deletion and insertion variants,
+respectively</div>
+</div>
+<p><a href="images/OC3_2-9_fig3.png">Click here to enlarge the
+image</a></p>
+<p><strong>Variant annotation</strong></p>
+<p>Variant annotation is the process of assigning additional information
+to mutations called from sequence data – this information could include
+the effect of a variant on protein structure and function, frequency of
+the variant (if existing) in well-studied populations, variant
+identifiers or position of the variant in the context of possible
+transcripts, proteins, overlapping genes etc. ( Figure 30).</p>
+<div class="float">
+<img src="images/OC3_2-9_fig4.png"
+alt="Example of a VCF file output after annotation by snpEff" />
+<div class="figcaption">Example of a VCF file output after annotation by
+snpEff</div>
+</div>
+<p><a href="images/OC3_2-9_fig4.png">Click here to enlarge the
+image</a></p>
+<p>The Ensembl <a href="https://www.ensembl.org">Variant Effect
+Predictor (VEP)</a> and <a
+href="http://pcingola.github.io/SnpEff">snpEff</a> are the most popular
+tools used for variant annotation. Both VEP and snpEff are commonly used
+for annotating variants in the human genome, but they have been adapted
+to facilitate the annotation of SARS-CoV-2 mutations since the start of
+the COVID-19 pandemic. There is a dedicated Ensembl <a
+href="https://covid-19.ensembl.org/info/docs/tools/vep/index.html">VEP
+for SARS-CoV-2</a>, while the snpEff version(s) for SARS-CoV-2 can be
+run via the Galaxy web platform.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="variant-calling-tutorial" class="section level1">
+<h1>Variant calling tutorial</h1>
+<!-- 2-10 -->
+<!-- YT https://youtu.be/Lz0l2_SMTF8 -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/Lz0l2_SMTF8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC3_2-10_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this tutorial, you will be using DeepVariant on the <a
+href="https://usegalaxy.eu/">Galaxy platform</a> for calling SNVs in a
+SARS-CoV-2 genomic sample followed by variant annotation using
+snpEff.</p>
+<p>The test dataset for this exercise was obtained by downsampling
+SARS-CoV-2 sequence data from <a
+href="https://www.ebi.ac.uk/ena/browser/view/PRJNA794330?show=reads">ENA
+browser</a>. You can download the downsampled BAM file (and its index)
+and the NC_045512.2 reference sequence (and its index) below.</p>
+<p><a href="assets/OC3_2-10_dataset.zip">Donwload the dataset
+here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="using-and-interpreting-nextclade" class="section level1">
+<h1>Using and interpreting Nextclade</h1>
+<!-- 2-11 -->
+<!-- YT https://youtu.be/-bnYO55FHdw -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/-bnYO55FHdw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC3_2-11_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this tutorial, you will learn how to assign clade and lineage to
+the assembled SARS-CoV-2 genomes.</p>
+<p>You can download this dataset if you would like to try and test the
+tutorial. If you prefer, you can just watch the video to learn how to
+assign SARS-CoV-2 clades using <a
+href="https://clades.nextstrain.org/">Nextclade</a></p>
+<p><a href="assets/OC3_2-11_dataset.zip">Donwload the dataset
+here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="signatures-of-co-infection-recombination-and-contamination"
+class="section level1">
+<h1>Signatures of co-infection, recombination and contamination</h1>
+<!-- 2-12 -->
+<p>A number of free and open-source platforms are available to assist
+with SARS-CoV-2 bioinformatic analysis. One of the most commonly used is
+Pangolin, which was developed by the COVID-19 Genomics UK (COG-UK)
+Consortium team at the University of Edinburgh. Pangolin has emerged as
+the standard tool for lineage assignment of SARS-CoV-2 genomes and is
+available both as <a
+href="https://github.com/cov-lineages/pangolin">standalone code</a> and
+as a <a href="https://pangolin.cog-uk.io/">web server</a>.</p>
+<ol style="list-style-type: decimal">
+<li>This tutorial describes how to use <a
+href="https://pangolin.cog-uk.io">Pangolin</a> (Figure 31).</li>
+</ol>
+<div class="float">
+<img src="images/OC3_2-12_fig1.png" alt="Pangolin input page" />
+<div class="figcaption">Pangolin input page</div>
+</div>
+<p><a href="images/OC3_2-12_fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-2_Fig1-2_alt-text.pdf">Download Figures 31-33
+alt-text here</a></p>
+<ol start="2" style="list-style-type: decimal">
+<li>The dataset used for this tutorial is available for download. The
+first step is to upload the consensus sequence Signatures_consensus.fa.
+Note: A FASTA file has the file extension .fa or .fasta This file
+contains a single string of nucleotides that encodes the most common
+viral genome within your specimen. The SARS-CoV-2 genome is
+approximately 30,000 nucleotides in length.</li>
+</ol>
+<p><a href="assets/OC3_2-12_dataset.zip">Donwload the dataset
+here</a></p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Once uploaded press <strong>Start Analysis</strong> (top left of
+screen):</p></li>
+<li><p>Record the SARS-CoV-2 lineage obtained for the consensus
+sequence.</p></li>
+<li><p>Explore the geographical distribution of the lineage by clicking
+on the UK map icon, the world map icon and the information
+icon.</p></li>
+<li><p>Navigate to the <a href="https://igv.org/app/">IGV webpage</a>,
+select the reference genome SARS-CoV-2 and upload the mapping file
+(Signatures.bam) and the corresponding index file
+(Signatures.bam.bai).</p></li>
+<li><p>In IGV, explore the lineage-defining mutation positions for the
+lineage you detected in Step 4 above. You can find lineage-defining
+positions in the <a
+href="https://cov-lineages.org/constellations.html">constellations
+table</a> provided by Pangolin curators.</p></li>
+</ol>
+<p>Hint 1: Mutations are given either as nucleotide coordinates (from 1
+to 29,903, the length of the SARS-CoV-2 genome) or as amino acid
+positions within each protein. For example, <strong>S:E484Q</strong>
+denotes a mutation in Spike (S), affecting the amino acid at position
+484, which is changed from E (glutamic acid) in the reference genome to
+Q (glutamine) in the variant strain.</p>
+<p>Hint 2: If you are having difficulty identifying lineage-defining
+positions, consider looking at the regions shown below (Figures 32 and
+33):</p>
+<div class="float">
+<img src="images/OC3_2-12_Fig3.png"
+alt="Detailed view of region 22,009-22,051" />
+<div class="figcaption">Detailed view of region 22,009-22,051</div>
+</div>
+<p><a href="images/OC3_2-12_Fig3.png">Click here to enlarge the
+image</a></p>
+<div class="float">
+<img src="images/OC3_2-12_Fig4.png"
+alt="Detailed view of region 23,022-23,062" />
+<div class="figcaption">Detailed view of region 23,022-23,062</div>
+</div>
+<p><a href="images/OC3_2-12_Fig4.png">Click here to enlarge the
+image</a></p>
+<p><strong>Additional resources</strong></p>
+<p><a
+href="https://www.who.int/southeastasia/news/detail/03-12-2021-who-south-east-asia-region-confirms-first-few-cases-of-omicron-countries-urged-to-step-up-covid-19-response-measures">WHO
+South-East Asia Region confirms first few cases of Omicron, countries
+urged to step up COVID-19 response measures</a></p>
+<p><a
+href="https://www.abc.net.au/news/2021-11-28/travellers-test-positive-to-omicron-covid-sydney/100657076">First
+Australian cases of Omicron COVID-19 strain confirmed in Sydney
+travellers from southern Africa, NSW Health says - ABC News</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="what-are-clades-lineages-and-variants" class="section level1">
+<h1>What are clades, lineages and variants?</h1>
+<!-- 2-13 -->
+<p>Pathogen genomics helps us to track the spread of an outbreak and to
+identify significant changes in the genome of a pathogen. This, in turn,
+<a href="https://doi.org/10.1093/ve/veab064">helps us to identify the
+emergence of new variants or lineages</a>, both nationally and
+internationally.</p>
+<p>Phylogenetics using web interfaces like <a
+href="https://cov-lineages.org/resources/pangolin.html">Pangolin</a> and
+<a href="https://nextstrain.org/ncov/open/global/6m">Nextstrain</a> to
+help us with genomic surveillance has been extremely important during
+the pandemic period. We use it to differentiate one transmission chain
+from another (e.g. local nosocomial versus school outbreaks). However,
+in order to do this, we needed to create categories into which we could
+classify the diversity. This was done by <a
+href="https://doi.org/10.1038/s41564-020-0770-5">dividing the groups
+into clades and lineages</a>.</p>
+<p><strong>What are clades, lineages and variants?</strong></p>
+<p>A clade is a very broad way of grouping SARS-CoV-2 isolates. Hence,
+it gives us a sense of the diversity patterns over the years. The
+samples also need to have a minimum size and persistence.</p>
+<p>The <a href="https://doi.org/10.1038/s41564-020-0770-5">lineage rules
+for SARS-CoV-2</a> were proposed to help us to describe the diversity we
+are observing while the pandemic is happening and attempts to describe a
+significant epidemiological event. For example, a new lineage may be
+assigned if that specific group shows an increase in transmission
+compared to another group. There are no criteria for minimum size and
+persistence. Hence a lineage may contain a small number of isolates or a
+very large number. For example, there are over <a
+href="https://doi.org/10.1093/ve/veab064">1,000 Pango lineages</a>,
+compared to less than 20 clades.</p>
+<p>Lastly, a <a href="https://doi.org/10.1016/j.yamp.2021.06.006">virus
+variant</a> has mutations that have a biological significance (for
+example, it is associated with a virulence factor). The most significant
+variants are currently called <a
+href="https://doi.org/10.1128/jvi.02077-21">Alpha, Beta, Gamma, Delta
+and Omicron</a>.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="prediction-of-minor-variants-and-drug-resistance"
+class="section level1">
+<h1>Prediction of minor variants and drug resistance</h1>
+<!-- 2-14 -->
+<p>Several therapeutic agents have been identified that have some
+activity against SARS-CoV-2. These include monoclonal antibodies (mAbs),
+which bind the spike protein to prevent cellular infection and specific
+antivirals that interfere with viral replication. By convention, the
+names of therapeutics indicate their mode of action: antibodies end with
+‘-ab’, while antiviral drugs end in ‘-vir’. As the virus continues to
+evolve, immune escape by new variants is likely to reduce the
+effectiveness of some existing therapeutics. Recently, the FDA and
+several other regulators withdrew authorisation for sotrovimab use due
+to <a
+href="https://www.fda.gov/drugs/drug-safety-and-availability/fda-updates-sotrovimab-emergency-use-authorization">lack
+of effectiveness against the BA.2 Omicron variant</a></p>
+<p>The following tutorial explains how to identify genomic polymorphisms
+conferring resistance to antiviral agents.</p>
+<ol style="list-style-type: decimal">
+<li>Navigate to the <a href="https://igv.org/app/">IGV webpage</a>. If
+you would like to try and test the tutorial, you can use the available
+dataset below which contains the mapping file (Prediction.bam) and the
+corresponding index file (Prediction.bam.bai) in course resources.</li>
+</ol>
+<p><a href="assets/OC3_2-14_dataset.zip">Download the dataset
+here</a></p>
+<ol start="2" style="list-style-type: decimal">
+<li>In the drop-down menu Genome select the reference genome SARS-CoV-2
+(ASM985889v3)</li>
+</ol>
+<div class="float">
+<img src="images/OC3_2-14_fig1.png"
+alt="Selection of reference genome" />
+<div class="figcaption">Selection of reference genome</div>
+</div>
+<p><a href="images/OC3_2-14_fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-14_Fig34-39_alt-text.pdf">Download Figures 34 -
+39 alt-text here</a></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Your annotated reference should look like this:</li>
+</ol>
+<div class="float">
+<img src="images/OC3_2-14_fig2.png" alt="SARS-CoV-2 reference genome" />
+<div class="figcaption">SARS-CoV-2 reference genome</div>
+</div>
+<p><a href="images/OC3_2-14_fig2.png">Click here to enlarge the
+image</a></p>
+<p>Note: the blue annotations depict the open reading frames (ORF),
+coding DNA sequence (CDS) and genes that make up the SARS-CoV-2
+genome.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Using the Tracks dropdown menu, upload the reference-based
+mapping file and its index. These files have the file extensions .bam
+and .bam.bai Note: BOTH files must be uploaded at the same
+time.</p></li>
+<li><p>The genome and reference-based mapping should look like
+this:</p></li>
+</ol>
+<div class="float">
+<img src="images/Oc3_2-14_fig3.png" alt="Mapping to reference" />
+<div class="figcaption">Mapping to reference</div>
+</div>
+<p><a href="images/Oc3_2-14_fig3.png">Click here to enlarge the
+image</a></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Zoom in to investigate the reads that support individual mutations.
+Left-click on the coloured mutations to see a breakdown of the number of
+reads and nucleotides encoding each mutation. If you are finding it
+difficult to replicate, zoom in to 21840bp</li>
+</ol>
+<div class="float">
+<img src="images/OC3_2-14_fig4.png" alt="Zooming in a mutation" />
+<div class="figcaption">Zooming in a mutation</div>
+</div>
+<p><a href="images/OC3_2-14_fig4.png">Click here to enlarge the
+image</a></p>
+<ol start="7" style="list-style-type: decimal">
+<li>Using the Settings wheel icon to the right of the reference genomic,
+turn on Three-frame translation of the reference genome.</li>
+</ol>
+<div class="float">
+<img src="images/Oc3_2-14_fig5.png"
+alt="Translating the amino acid codons" />
+<div class="figcaption">Translating the amino acid codons</div>
+</div>
+<p><a href="images/Oc3_2-14_fig5.png">Click here to enlarge the
+image</a></p>
+<p>You should now see the amino acid sequence below the reference, in
+all three possible reading frames (only one of these will be appropriate
+for each gene).</p>
+<ol start="8" style="list-style-type: decimal">
+<li>You can investigate the read populations and mutations in the S
+sotrovimab binding epitope to determine if this patient’s viral
+population contains mutations that confer sotrovimab resistance.</li>
+</ol>
+<p>Hint 1: Sotrovimab-conferring mutations may occur at nucleotide
+positions 22580-22582 (amino acid position 340 in the spike protein
+sequence). The reduction in sotrovimab activity is 10 to 297-fold,
+depending on the non-synonymous mutation encoded:</p>
+<div class="float">
+<img src="images/OC3_2-14_fig6.png"
+alt="Sotrovimab epitope mutations" />
+<div class="figcaption">Sotrovimab epitope mutations</div>
+</div>
+<p><a href="images/OC3_2-14_fig6.png">Click here to enlarge the
+image</a></p>
+<p>NB: Non-terminal domain (NTD), Receptor binding domain (RBD),
+Receptor binding motif (RBM)</p>
+<p>When mutations affect the majority of sequence reads this is known as
+a consensus mutation, and when it affects only a minority of reads it
+can be called sub-consensus mutations, minority frequency mutations, or
+intrahost single-nucleotide variants (iSNVs). If the mutation is
+advantageous to virus survival in a host, positive selection will act to
+increase its frequency over time. If the mutation becomes the dominant
+population it is said to become ‘fixed’ as the consensus.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="identification-of-recombinants" class="section level1">
+<h1>Identification of recombinants</h1>
+<!-- 2-15 -->
+<p>Recombination, the process of exchanging fragments of RNA, is a
+common phenomenon among many viruses, including the coronavirus family,
+and it has recently been detected in SARS-CoV-2. Recombination occurs
+when two different viral variants co-infect the same cell, and the
+polymerase enzyme responsible for copying viral RNA “hops” from one
+variant’s genome to the other’s, in a process called template <a
+href="https://www.nature.com/articles/s42003-021-02858-9">switching</a>.
+In order to detect recombination, the two “parent” genomes need to have
+sufficient lineage-defining mutations to make them easily
+distinguishable from one another. Because SARS-CoV-2 is a recently
+emerged virus, it has only recently accumulated enough genetic diversity
+to make recombinants between distinct variants (lineages)
+identifiable.</p>
+<p>In this tutorial, you will learn how to identify a circulating
+recombinant lineage of SARS-CoV-2 from consensus genetic data. If you
+would like to try out the tutorial for yourself, there is an example
+dataset available for download.</p>
+<ol style="list-style-type: decimal">
+<li>Please navigate to <a href="https://pangolin.cog-uk.io">Pangolin</a>
+to upload the FASTA file [Recombinants_consensus.fa]. Run the analysis
+using the ”Start Analysis” button to determine the lineage for this
+sample.</li>
+</ol>
+<p><a href="assets/OC3_2-15_dataset.zip">Download the dataset
+here</a></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Navigate to the <a href="https://igv.org/app/">IGV webpage</a>,
+select the reference genome SARS-CoV-2 and upload the mapping file
+(Recombinants.bam) and the corresponding index file
+(Recombinants.bam.bai) in course resources.</p></li>
+<li><p>In IGV, explore the sequence of your sample at the
+lineage-defining mutation positions for omicron variants BA.1 and BA.2.
+Recall that you can find lineage-defining positions in the <a
+href="https://cov-lineages.org/constellations.html">constellations
+table</a>.</p></li>
+</ol>
+<p>Hint: Try looking at some of the positions Pangolin lists as defining
+XE: nuc:C3241T, nuc:T5386G, nuc:C14599T, nuc:C12880T, nuc:A29510C,
+nuc:C14599T</p>
+<ol start="4" style="list-style-type: decimal">
+<li>A recombination breakpoint is the inferred position of the template
+switch event, where the sequence of one parental lineage swaps over to
+the sequence of the other lineage (in this case, BA.1 and BA.2).</li>
+</ol>
+<p>Hint: find the lineage-defining mutations for BA.1 and BA.2. The
+breakpoint is defined as the region between two mutations that match
+different lineages.</p>
+<div class="float">
+<img src="images/OC3_2-15_fig1.png"
+alt="Schematic illustration of SARS-CoV-2 recombination breaking points" />
+<div class="figcaption">Schematic illustration of SARS-CoV-2
+recombination breaking points</div>
+</div>
+<p><em>Source: <a
+href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1063424/Tech-Briefing-39-25March2022_FINAL.pdf">United
+Kingdom Health Security Agency</a></em></p>
+<p><a href="images/OC3_2-15_fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-15_Fig40-alt-text.pdf">Download Figure 40
+alt-text here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="introduction-to-phylogenetics-tools-and-models"
+class="section level1">
+<h1>Introduction to phylogenetics: tools and models</h1>
+<!-- 2-16 -->
+<p>Within the first year of the coronavirus disease 2019 (COVID-19)
+pandemic, almost 400,000 whole or partial severe acute respiratory
+syndrome coronavirus 2 (SARS-CoV-2) genomes were generated and shared
+openly, marking an unprecedented worldwide response in pathogen genome
+sequencing.</p>
+<p>Phylogenetic tools have proven increasingly important in the public
+health management of a variety of viral epidemics, but the COVID-19
+pandemic is the first global health emergency in which large-scale,
+real-time genomic sequencing and analysis have guided public health
+decisions. SARS-CoV-2 has been evolving at an estimated nucleotide
+substitution rate ranging between <a
+href="https://doi.org/10.1093/molbev/msaa314">10e−3 and 10e−4
+substitutions per site and per year</a>. The global epidemiological and
+virological situation changed constantly during the pandemic, and
+genomic sequence analysis was crucial in <a
+href="https://doi.org/10.1038/s41576-022-00483-8">tracking the changing
+scenario</a> (Figure 41).</p>
+<div class="float">
+<img src="images/OC3_2-16_fig1.png"
+alt="Phylodynamic approaches to the investigation of SARS-CoV-2 transmission" />
+<div class="figcaption">Phylodynamic approaches to the investigation of
+SARS-CoV-2 transmission</div>
+</div>
+<p><em>Source: <a
+href="https://doi.org/10.1038/s41576-022-00483-8">Nature Reviews
+Genetics</a></em></p>
+<p><a href="images/OC3_2-16_fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-16_Fig41-42_alt-text.pdf">Download Figures
+41-42 alt-text here</a></p>
+<p>Phylogenetic tools like <a
+href="https://cov-lineages.org/resources/pangolin.html">Pangolin</a> and
+<a href="https://clades.nextstrain.org/">Nextclade</a> can unlock
+information from sampled genomes combined with epidemiological data
+like:</p>
+<ul>
+<li>Quantifying international virus spread<br />
+</li>
+<li>Identifying outbreaks and transmission chains in specific
+settings<br />
+</li>
+<li>Estimating growth rates and reproduction numbers<br />
+</li>
+<li>Identifying and tracking mutations of interest<br />
+</li>
+<li>Discovering and analysing variants of concern<br />
+</li>
+<li>Investigating intra-host virus evolution</li>
+</ul>
+<p>Different approaches to building the phylogenetic tree:</p>
+<p>Parsimony approach - <a
+href="https://doi.org/10.1186/1748-7188-7-9">Maximum Parsimony</a> is a
+character-based approach that infers a phylogenetic tree by minimising
+the total number of evolutionary steps required to explain a given set
+of data assigned on the leaves. Tools that use parsimony include <a
+href="http://iqtree.cibiv.univie.ac.at/">IQTREE</a> though it should be
+noted this is a tool to generate ML trees and <a
+href="https://genome.ucsc.edu/cgi-bin/hgPhyloPlace">USHER</a>.</p>
+<p>Maximum likelihood approach- <a
+href="http://scholarship.claremont.edu/scripps_theses/46">Maximum
+Likelihood (ML)</a> is a method for the inference of phylogeny. It
+evaluates a hypothesis about evolutionary history in terms of the
+probability that the proposed model and the hypothesised history would
+give rise to the observed data set. The supposition is that history with
+a higher probability of reaching the observed state is preferred to
+history with a lower probability. The method searches for the tree with
+the highest probability or likelihood. ML is implemented on <a
+href="http://www.microbesonline.org/fasttree/">FasTree</a>, <a
+href="https://raxml-ng.vital-it.ch/#/">RAxML</a>.</p>
+<p><strong>How to read a phylogenetic tree:</strong></p>
+<p>There are 2 parts to the phylogenetic tree. The nodes and the
+branches (Figure 42). The nodes on the tip of the tree represent the
+cases having some ancestry that existed as a putative virus in an
+individual. And the internal nodes between the branches make up the
+ancestor cases that are carrying the mutations from which further
+diversion was possible. The branches represent the transmission chains,
+which are a combination of numerous transmission events taking place and
+is represented by the branch length.</p>
+<div class="float">
+<img src="images/OC3_2-16_Fig2.png"
+alt="Different graphic representations of a phylogenetic tree." />
+<div class="figcaption">Different graphic representations of a
+phylogenetic tree.</div>
+</div>
+<p><a href="images/OC3_2-16_Fig2.png">Click here to enlarge the
+image</a></p>
+<p>Bootstrapping: Bootstrap values in a phylogenetic tree indicate that
+out of 100, how many times the same branch is observed when repeating
+the generation of a phylogenetic tree on a resampled set of data. If we
+get this observation 100 times out of 100, then this supports our
+result.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div
+id="transmission-detection-travel-associated-hospital-and-community-transmission"
+class="section level1">
+<h1>Transmission detection: travel-associated, hospital and community
+transmission</h1>
+<!-- 2-17 -->
+<p>The clinical spectrum of coronavirus disease 2019 (COVID-19)
+infection is wide, ranging from asymptomatic infection to severe viral
+pneumonia leading to death. SARS-CoV-2 is highly transmissible by
+droplet and indirect contact. Viral load in asymptomatic patients may be
+similar to those who are symptomatic.</p>
+<p>Healthcare workers (HCWs) may be a source of infection for patients
+and colleagues via asymptomatic carriage and transmissibility prior to
+the onset of symptoms. Studies describing the risk and events of
+SARS-CoV-2 intra-hospital transmission are discrepant.</p>
+<p>During an epidemic, when there is frequent viral transmission in the
+community, it is not always clear whether the patients are infected due
+to local transmission or through the HCWs. As the pandemic is constantly
+evolving, a new awareness of specific variants has soared from fear of
+strains more transmissible, pathogenic and likely to evade immunisation
+efforts. As outbreak definitions vary and outbreak reports mainly depend
+on epidemiological data with SARS-CoV-2 test results, the true
+transmission patterns remain uncertain. An aggregation of infected HCWs
+in a ward over some days or weeks does not necessarily imply
+intra-hospital transmission or a local outbreak.</p>
+<p><a href="https://doi.org/10.1093/infdis/jiab483">A study</a> showed
+how they were able to detect how the intra-hospital transmission of
+COVID-19 infections occurred. They subjected all samples from patients
+as well as staff to reverse-transcription polymerase chain reaction
+(RT-PCR). Samples with a positive RT-PCR result (with a cycle threshold
+of &lt; 35) and suggestive epidemiological linkage were subjected to
+whole-genome sequencing. The SNP analysis of these samples revealed that
+there were multiple outbreaks which occurred during the study period
+(Figure 43). They could differentiate the outbreaks by identifying the
+uniqueness of the samples such as common lineage detection, unique
+mutations, timeline analysis etc.</p>
+<div class="float">
+<img src="images/OC3_2-17_fig2.png"
+alt="The position highlighted in red at position 12052 shows that the mutation G&gt;T is a marker which was used to distinguish between the outbreak isolates and the community samples. This study by Francis et.al concluded that this outbreak started through an asymptomatic patient and further spread through HCW to the patients in the ward who carried the same mutation and belonged to B.1.1.17 variant." />
+<div class="figcaption">The position highlighted in red at position
+12052 shows that the mutation G&gt;T is a marker which was used to
+distinguish between the outbreak isolates and the community samples.
+This study by Francis et.al concluded that this outbreak started through
+an asymptomatic patient and further spread through HCW to the patients
+in the ward who carried the same mutation and belonged to B.1.1.17
+variant.</div>
+</div>
+<p><em>Source: <a href="https://doi.org/10.1093/infdis/jiab483">The
+Journal of Infectious Diseases</a></em></p>
+<p><a href="images/OC3_2-17_fig2.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-17_Fig%2043_alt-text.pdf">Download Figure 43
+alt-text here</a></p>
+<p>A similar kind of study can be conducted with cases having a history
+of travel. It is very evident throughout that there is a direct link
+between infection and travel history. Phylogenetic studies can help us
+identify the route of transmission so that as far as possible
+appropriate travel restrictions and quarantine measures can be adopted
+to control the virus spread.</p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://doi.org/10.1038/s41591-020-0997-y">Rapid SARS-CoV-2
+whole-genome sequencing and analysis for informed public health
+decision-making in the Netherlands</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="tutorial-on-phylogenetics" class="section level1">
+<h1>Tutorial on phylogenetics</h1>
+<!-- 2-18 -->
+<!-- YT https://youtu.be/yY0Z5NJ11h8 -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/yY0Z5NJ11h8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC3_2-18_transcript.pdf">Download the transcript
+here</a></p>
+<p>The first step to reconstruct a phylogenetic tree of SARS-CoV-2
+genomes is generating a multiple sequence alignment using <a
+href="https://mafft.cbrc.jp/alignment/server/">MAFFT</a>. Then we will
+reconstruct a tree using <a
+href="http://iqtree.cibiv.univie.ac.at/">IQtree webserver</a>. Further,
+you will be visualising the phylogeny and the metadata provided on <a
+href="https://microreact.org/upload">Microreact.org</a>.</p>
+<p>Sometimes when you align a large number of sequences using MAFFT it
+may introduce large sequences of gaps and a visual inspection is
+recommended. The alignment can be assessed using a genomic viewer like
+<a href="https://software.broadinstitute.org/software/igv/">IGV</a> or
+<a href="https://www.ncbi.nlm.nih.gov/projects/msaviewer/">NCBI Multiple
+Sequence Alignment Viewer</a>. Inaccurate gaps must be manually removed
+before the phylogenetic tree reconstruction.</p>
+<p>If you would like to test this tutorial, there is a multi-FASTA file
+containing the SARS-CoV-2 genomes and the metadata file containing
+epidemiological data related to it available for download. In this
+tutorial, we have provided high-quality data and no gaps must be removed
+from the alignments, but you can still upload it on <a
+href="https://www.ncbi.nlm.nih.gov/projects/msaviewer/">NCBI Multiple
+Sequence Alignment Viewer</a> to inspect it.</p>
+<p><a href="assets/OC3_2-18_dataset.zip">Download the dataset
+here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="quality-control-in-phylogenetics" class="section level1">
+<h1>Quality control in phylogenetics</h1>
+<!-- 2-19 -->
+<p>Even though there are different quality control (QC) steps followed
+before performing the phylogeny, there are several factors that
+influence the SARS-CoV-2 phylogenies and will be a bottleneck to
+interpreting them.</p>
+<p>Some of the challenges in interpreting the SARS-CoV-2 trees with a
+huge number of samples are:</p>
+<ul>
+<li>It is difficult to infer a reliable phylogeny due to a large number
+of sequences in conjunction with the low number of mutations.<br />
+</li>
+<li>Rooting the inferred phylogeny with confidence by applying novel
+computational methods to the ingroup phylogeny may not be
+credible.<br />
+</li>
+<li>Phylogeny can be numerically challenging because of the large number
+of highly similar sequences and lead to a low phylogenetic signal.</li>
+</ul>
+<p>To overcome these shortcomings there are some QC steps that you can
+perform to generate high-quality phylogenies:</p>
+<ol style="list-style-type: decimal">
+<li>Mid-point root the tree before taking it for further analysis.<br />
+</li>
+<li>Remove the sequences which are relatively highly divergent from the
+rest of the cluster.<br />
+</li>
+<li>Remove sequences in which the divergence is substantially greater or
+less than expected.<br />
+</li>
+<li>Examine the methods used or reiterate the bioinformatics steps when
+a divergent sequence is predicted.<br />
+</li>
+<li>Use tools like <a
+href="https://doi.org/10.1093/molbev/msaa015">IQ-TREE 2</a>, and <a
+href="https://genome.ucsc.edu/cgi-bin/hgPhyloPlace">UShER</a> that have
+been developed to handle SARS-CoV-2 genomes and build phylogenies
+considering homoplasies, convergent evolution, and potential
+recombination events.</li>
+</ol>
+<div class="float">
+<img src="images/OC3_2-19_fig1.png"
+alt="An unrooted maximum-likelihood phylogeny generated from an alignment of complete and incomplete SARS-CoV-2 genomes, showing a spurious long branch where one genome was misaligned relative to the others. This is a very extreme case. Small misassembles or short misalignment zones can lead to a terminal branch that is longer than typical. Different node colours represent different lineages" />
+<div class="figcaption">An unrooted maximum-likelihood phylogeny
+generated from an alignment of complete and incomplete SARS-CoV-2
+genomes, showing a spurious long branch where one genome was misaligned
+relative to the others. This is a very extreme case. Small misassembles
+or short misalignment zones can lead to a terminal branch that is longer
+than typical. Different node colours represent different lineages</div>
+</div>
+<p><a href="images/OC3_2-19_fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_2-19_Fig44_alt-text.pdf">Download Figure 44
+alt-text here</a></p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://doi.org/10.1093/molbev/msaa314">Phylogenetic
+Analysis of SARS-CoV-2 Data Is Difficult</a></p>
+<p><a href="https://apps.who.int/iris/handle/10665/338480">Genomic
+sequencing of SARS-CoV-2: a guide to implementation for maximum impact
+on public health</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container-left {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.img-container-right {
+  float: right;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<hr>
+<div class="clearfix">
+  <div class="img-container-left">
+    <img src="assets/img/COG-Train_logo.png" alt="COG-Train" 
+style="width:200%">
+  </div>
+  <div class="img-container-right">
+    <img src="assets/img/WCS_Logo-Primary_Black.jpg" alt="Wellcome 
+Connecting Science" style="width:200%">
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

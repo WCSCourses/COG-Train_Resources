@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>practical_guide_home</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COG-Train_Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-file-lines"></span>
+     
+    Course Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Virtual Courses</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viral Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="vbioinfasia.html">VBioinf2022 Asia</a>
+        </li>
+        <li>
+          <a href="vbioinflac.html">VBioinf2022 LAC</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOCs</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Power of Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="power_of_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Swab to Server</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="swab_to_server_home.html">Home</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Making Sense</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="making_sense_home.html">Home</a>
+        </li>
+        <li>
+          <a href="making_sense_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="making_sense_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="making_sense_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Practical Guide</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="practical_guide_home.html">Home</a>
+        </li>
+        <li>
+          <a href="practical_guide_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="practical_guide_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="practical_guide_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pathogen Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="pathogen_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Hybrid Course</li>
+    <li>
+      <a href="scvo2b4b.html">SARS-CoV-2 B4B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">In Person Courses</li>
+    <li>
+      <a href="ECPG.html">Pathogen Genomics Capacity</a>
+    </li>
+    <li>
+      <a href="IGM_B4B.html">Bioinformática Decodificada</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Webinars</li>
+    <li>
+      <a href="Community.html">COG-Train Community</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Team
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cogteam.html">COG-Train Team</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/WCSCourses/COG-Train_Resources">
+    <span class="fa fa-brands fa-github"></span>
+     
+    Github
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="a-practical-guide-for-sars-cov-2-whole-genome-sequencing"
+class="section level1">
+<h1>A PRACTICAL GUIDE FOR SARS-COV-2 WHOLE-GENOME SEQUENCING</h1>
+<p><img src="images/OC4_cover.jpeg" /></p>
+<div id="about-the-course" class="section level2">
+<h2>About the course</h2>
+<p>SARS-CoV-2 genomics surveillance has been proven pivotal for the
+management and control of the COVID-19 pandemic. However, genomics
+capacity is still limited, particularly in low-and-middle-income
+countries (LMICs). This course will provide tools and resources for
+capacity building aiming to strengthen the genomics surveillance
+approaches</p>
+<p><strong>Learning outcomes</strong></p>
+<ul>
+<li>Compare sequencing methodologies</li>
+<li>Critically evaluate different approaches to determine SARS-CoV-2
+genomes and variants</li>
+<li>Identify ways in which to scale up SARS-CoV-2 sequencing</li>
+<li>Describe SARS-CoV-2 analysis pipelines</li>
+</ul>
+<p><strong>Target audience</strong></p>
+<p>This course is designed for diagnostic and healthcare professionals,
+researchers, and anyone involved in the testing and analysis of COVID-19
+samples.</p>
+</div>
+<div id="content" class="section level2">
+<h2>Content</h2>
+<p><strong><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#FUNDAMENTALS_OF_VIRAL_SEQUENCING">Week
+1 Fundamentals of viral sequencing</a></strong></p>
+<ul>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#Glossary">Glossary</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#Introduction_to_viral_genomes">Introduction
+to viral genomes</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#Learning_more_about_SARS-CoV-2_genome">Learning
+more about SARS-CoV-2 genome</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#Why_viral_genome_sequencing_is_important">Why
+viral genome sequencing is important</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#How_to_sequence_using_Illumina_technology">How
+to sequence using Illumina technology</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#Why_was_Nanopore_sequencing_used_in_the_SARS-CoV-2_pandemic">Why
+was Nanopore sequencing used in the SARS-CoV-2 pandemic?</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#Using_metagenomics_to_investigate_infections">Using
+metagenomics to investigate infections</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#What_is_viral_whole-genome_sequencing">What
+is viral whole-genome sequencing</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#Using_sequencing_to_investigate_SARS-CoV-2">Using
+sequencing to investigate SARS-CoV-2</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#SARS-CoV-2_sequencing_workflow">SARS-CoV-2
+sequencing workflow</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#Why_you_should_collect_metadata">Why
+you should collect metadata</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#How_to_handle_primary_samples">How
+to handle primary samples</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#Storing_high-quality_samples">Storing
+high-quality samples</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#What_happens_to_samples_after_sequencing">What
+happens to samples after sequencing</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week1.html#Assessing_the_quality_of_nucleic_acid">Assessing
+the quality of nucleic acid</a></li>
+</ul>
+<p><strong><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#LIBRARY_PREPARATION_AND_SEQUENCING">Week
+2 Library preparation and sequencing</a></strong></p>
+<ul>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#How_to_isolate_good_quality_nucleic_acids">How
+to isolate good quality nucleic acids</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#What_a_targeted_sequencing_protocol">What
+a targeted sequencing protocol</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#How_SARS-CoV-2_primer_sets_were_designed">How
+SARS-CoV-2 primer sets were designed</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#Producing_SARS-CoV-2_amplicons">Producing
+SARS-CoV-2 amplicons</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#Checking_the_quality_of_amplicons">Checking
+the quality of amplicons</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#What_is_a_sequencing_library_and_how_is_it_prepared">What
+is a sequencing library and how is it prepared?</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#Comparing_library_preparation_methods">Comparing
+library preparation methods</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#Illumina:_pooling_samples_and_loading_cartridges">Illumina:
+pooling samples and loading cartridges</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#Nanopore:_pooling_samples_and_loading_flow_cells">Nanopore:
+pooling samples and loading flow cells</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#How_SARS-CoV-2_has_been_sequenced_around_the_world">How
+SARS-CoV-2 has been sequenced around the world</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#Comparing_manual_and_automated_methodologies">Comparing
+manual and automated methodologies</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#How_to_avoid_contamination">How
+to avoid contamination</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#Coordinating_human_resources_in_a_pandemic">Coordinating
+human resources in a pandemic</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#How_to_plan_ordering_and_tracking_of_reagents">How
+to plan ordering and tracking of reagents</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week2.html#Legacies_of_the_COVID-19_pandemic">Legacies
+of the COVID-19 pandemic</a></li>
+</ul>
+<p><strong><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#SEQUENCING_ANALYSIS_AND_INTERPRETATION">Week
+3 Sequencing analysis and interpretation</a></strong></p>
+<ul>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#What_are_sequencing_metrics">What
+are sequencing metrics</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#Accessing_and_using_sequencing_data">Accessing
+and using sequencing data</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#How_to_generate_a_consensus_sequence">How
+to generate a consensus sequence</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#User-friendly_tools_for_quality_control">User-friendly
+tools for quality control</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#Why_high-quality_data_is_important">Why
+high-quality data is important</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#What_are_clades,_lineages_and_variants">What
+are clades, lineages and variants?</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#SARS-CoV-2_Variants">SARS-CoV-2
+Variants</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#Interpreting_Nextclade_quality_metrics">Interpreting
+Nextclade quality metrics</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#Lineages_classification_using_Pangolin">Lineages
+classification using Pangolin</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#Introduction_to_phylogenetics:_tools_and_models">Introduction
+to phylogenetics: tools and models</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#How_to_detect_an_outbreak">How
+to detect an outbreak</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#Generating_public_health_reports">Generating
+public health reports</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#How_to_prevent_sequencing_and_sampling_bias">How
+to prevent sequencing and sampling bias</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#Using_sequencing_data_to_identify_outbreaks_in_a_hospital">Using
+sequencing data to identify outbreaks in a hospital</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#The_importance_of_sample_and_data_consent">The
+importance of sample and data consent</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#Establishing_collaborations_in_a_pandemic">Establishing
+collaborations in a pandemic</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#Challenges_and_how_to_overcome_them">Challenges
+and how to overcome them</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/practical_guide_week3.html#Resources">Resources</a></li>
+</ul>
+</div>
+<div id="collaborators" class="section level2">
+<h2>Collaborators</h2>
+<p><strong>Educators</strong></p>
+<p>Angie Beckett, University of Portsmouth, United Kingdom<br />
+Charlotte Williams, University College London Genomics (UCLG), United
+Kingdom<br />
+Geetha Nagaraj, Central Research Laboratory, Kempegowda Institute of
+Medical Sciences (CRL, KIMS), India<br />
+Pablo Tsukayama, Universidad Peruana Cayetano Heredia, Peru<br />
+Rachel Williams, University College London Genomics (UCLG), United
+Kingdom</p>
+<p><strong>Contributors</strong></p>
+<p>Christian Happi, African Centre of Excellence for Genomics of
+Infectious Diseases (ACEGID), Redeemer’s University, Nigeria<br />
+Geetika Patel, Parul Sevashram Hospital, Parul Institute of Medical
+Sciences &amp; Research, India<br />
+Hannah Dent, University of Portsmouth, United Kingdom<br />
+Helena Tutill, University College London, United Kingdom<br />
+Jo Herbert, University of Portsmouth, United Kingdom<br />
+Judith Breuer, University College London, United Kingdom<br />
+Julianne Brown, Great Ormond Street Hospital for Children NHS Foundation
+Trust, United Kingdom<br />
+Kate Cook, Ineos Oxford Institute, University of Oxford, United
+Kingdom<br />
+Krunal Shah, Parul Institute of Medical Sciences and Research, Parul
+University, India<br />
+Leysa Forrest, University College London, United Kingdom<br />
+Luz Marina Martin Bernal, University College London, United
+Kingdom<br />
+Murali Dharan Bashyam, Centre for DNA Fingerprinting and Diagnostics
+(CDFD), India<br />
+Muthumeenakshi Bhaskaran, Central Research Laboratory, Kempegowda
+Institute of Medical Sciences (KIMS), India<br />
+Naomi Park, Wellcome Sanger Institute, United Kingdom<br />
+Oscar Enrique Torres Montaguth, University College London, United
+Kingdom<br />
+Paola Niola, University College London, United Kingdom<br />
+Paola Resende, Oswaldo Cruz Foundation (FIOCRUZ), Brazil<br />
+Patricia Dyal, University College London, United Kingdom<br />
+Ramalingam Bethunaickan, Indian Council of Medical Research (ICMR),
+National Institute for Research in Tuberculosis, India<br />
+Richard Orton, Medical Research Council, University of Glasgow, Centre
+for Virus Research, United Kingdom<br />
+Rijo Joseph John, Central Research Laboratory, Kempegowda Institute of
+Medical Sciences (KIMS), India<br />
+Sam Robson, University of Portsmouth, United Kingdom<br />
+Sandra Cantilena, Great Ormond Street Hospital for Children NHS
+Foundation Trust, United Kingdom<br />
+Senjuti Saha, Child Health Research Foundation, Bangladesh<br />
+Tony Brooks, University College London, United Kingdom<br />
+Varun Shamanna, Central Research Laboratory, Kempegowda Institute of
+Medical Sciences (KIMS), India</p>
+<p><strong>Reviewers</strong></p>
+<p>Ana Carolina Soares de Oliveira, University of São Paulo,
+Brazil<br />
+Ariel Amadio, Universidad Nacional de Rafaela and IDICAL, INTA-CONICET,
+Argentina<br />
+Matthew Cotten, MRC/UVRI &amp; London School of Hygiene and Tropical
+Medicine, Uganda</p>
+<p><strong>Education developer</strong></p>
+<p>Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom</p>
+<p><strong>COG-UK contributors</strong></p>
+<p>Sharon Peacock, University of Cambridge, United Kingdom<br />
+Alistair Darby, University of Liverpool, United Kingdom<br />
+Darren Smith, Northumbria University, United Kingdom<br />
+Catherine Ludden, Genomics England, United Kingdom<br />
+Leigh Jackson, University of Exeter, United Kingdom<br />
+Anna Markov, University of Cambridge, United Kingdom<br />
+Ellena Brooks, University of Cambridge, United Kingdom<br />
+Kim Smith, University of Cambridge, United Kingdom<br />
+Laia Delgado Callico, University of Cambridge, United Kingdom<br />
+Peter McEwan, University of Cambridge, United Kingdom</p>
+<p><strong>Wellcome Connecting Science contributors</strong></p>
+<p>Alice Matimba, Wellcome Connecting Science, United Kingdom<br />
+Dusanka Nikolic, Wellcome Connecting Science, United Kingdom<br />
+Jorge Batista da Rocha, Wellcome Connecting Science, United
+Kingdom<br />
+Mel Sharpe, Wellcome Connecting Science, United Kingdom<br />
+Rachel Berkson, Wellcome Connecting Science, United Kingdom<br />
+Treasa Creavin, Wellcome Connecting Science, United Kingdom</p>
+</div>
+<div id="original-version" class="section level2">
+<h2>Original version</h2>
+<p><strong>Original platform:</strong> FutureLearn<br />
+<strong>Original course page:</strong> <a
+href="https://www.futurelearn.com/courses/a-practical-guide-for-sars-cov-2-whole-genome-sequencing/1">https://www.futurelearn.com/courses/a-practical-guide-for-sars-cov-2-whole-genome-sequencing/1</a><br />
+<strong>Launch of the original version:</strong> 19 September 2022</p>
+<p>Data collected on 31 May 2023<br />
+<strong>Number of joiners:</strong> 2,011<br />
+<strong>Number of countries reached:</strong> 128<br />
+<strong>Review score:</strong> 4.6/5 (31 reviews)</p>
+<hr />
+<p>Any reuse of the course materials is encouraged with due
+acknowledgement.</p>
+</div>
+<div id="license" class="section level2">
+<h2>License</h2>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This
+work is licensed under a
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative
+Commons Attribution 4.0 International License</a>.</p>
+</div>
+<div id="how-to-cite" class="section level2">
+<h2>How to cite</h2>
+<p>COG-Train. (2022). A practical guide for SARS-CoV-2 whole-genome
+sequencing. Zenodo. <a href="https://doi.org/10.5281/zenodo.8200187"
+class="uri">https://doi.org/10.5281/zenodo.8200187</a></p>
+</div>
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container-left {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.img-container-right {
+  float: right;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<hr>
+<div class="clearfix">
+  <div class="img-container-left">
+    <img src="assets/img/COG-Train_logo.png" alt="COG-Train" 
+style="width:200%">
+  </div>
+  <div class="img-container-right">
+    <img src="assets/img/WCS_Logo-Primary_Black.jpg" alt="Wellcome 
+Connecting Science" style="width:200%">
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

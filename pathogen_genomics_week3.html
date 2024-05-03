@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>pathogen_genomics_week3</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COG-Train_Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-file-lines"></span>
+     
+    Course Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Virtual Courses</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viral Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="vbioinfasia.html">VBioinf2022 Asia</a>
+        </li>
+        <li>
+          <a href="vbioinflac.html">VBioinf2022 LAC</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOCs</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Power of Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="power_of_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Swab to Server</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="swab_to_server_home.html">Home</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Making Sense</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="making_sense_home.html">Home</a>
+        </li>
+        <li>
+          <a href="making_sense_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="making_sense_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="making_sense_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Practical Guide</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="practical_guide_home.html">Home</a>
+        </li>
+        <li>
+          <a href="practical_guide_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="practical_guide_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="practical_guide_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pathogen Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="pathogen_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Hybrid Course</li>
+    <li>
+      <a href="scvo2b4b.html">SARS-CoV-2 B4B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">In Person Courses</li>
+    <li>
+      <a href="ECPG.html">Pathogen Genomics Capacity</a>
+    </li>
+    <li>
+      <a href="IGM_B4B.html">Bioinformática Decodificada</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Webinars</li>
+    <li>
+      <a href="Community.html">COG-Train Community</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Team
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cogteam.html">COG-Train Team</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/WCSCourses/COG-Train_Resources">
+    <span class="fa fa-brands fa-github"></span>
+     
+    Github
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="communicating-genomics-surveillance-with-impact"
+class="section level1">
+<h1>COMMUNICATING GENOMICS SURVEILLANCE WITH IMPACT</h1>
+<p><img src="images/OC5_3-11_illustrative.png" /><br />
+<sub><span class="citation">@Canva</span></sub></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="effective-communication" class="section level1">
+<h1>Effective communication</h1>
+<!-- 3-2 -->
+<p>As the world becomes more integrated, the threat of disease outbreaks
+has become an increasing public health concern.</p>
+<p>The widespread availability of media and communication platforms and
+tools risks worsening this threat by creating conducive conditions for
+the spread of misinformation, conspiracy theories and cynicism about
+public health messages. Scientific evidence and data are important to
+overcoming harmful information and other barriers that impede
+communication on health behaviours. This week we will cover the skills
+required for effective communication of scientific evidence and how to
+apply them to engage different audiences. We will address topics such as
+understanding effective communication, preparing to communicate with
+different audiences, crafting messages according to purpose, choosing
+channels for different purposes, and dealing with the media.</p>
+<p><strong>What is effective communication?</strong></p>
+<p>Communication is best positioned to achieve its purpose when the
+communicator understands:</p>
+<ul>
+<li><p>The meaning of effective communication.</p></li>
+<li><p>The interdependent roles of senders and receivers in ensuring
+meaning is mutually understood.</p></li>
+<li><p>How to anticipate and overcome barriers to effective
+communication of scientific evidence.</p></li>
+</ul>
+<p><strong>Preparing to communicate with different
+audiences</strong></p>
+<p>Effective communication requires an understanding of how unique
+characteristics inform the information needs and response behaviours of
+different audiences. The communicator must be aware of the importance of
+audience segmentation, the information and media habits of different
+audiences, and how their beliefs, perceptions, knowledge, and attitudes
+inform their responses to health recommendations.</p>
+<p><strong>Crafting messages according to purpose</strong></p>
+<p>Different audiences have different needs when it comes to messaging
+on scientific data of public health importance. It is essential that the
+goal or outcome intended informs the nature and content of messages.
+Effective communication will incorporate different types of messages,
+including informative, persuasive, and instructional. The communicator
+also needs to understand the importance of matching audience needs to
+message types and the complementarity of verbal and non-verbal cues in
+ensuring message clarity and effectiveness.</p>
+<p><strong>Choosing channels for different purposes and
+audiences</strong></p>
+<p>Different audiences have different information habits and practices
+that determine the channels and platforms they prefer to receive and
+send information. Individual channels also have different
+characteristics and capacities that will make some better suited for a
+specific communication activity than others. When selecting the
+appropriate channels, the communicator should consider the strengths and
+weaknesses of the channel, the importance of matching audience habits
+and needs with channel characteristics and making channel choices based
+on the goals underpinning the communicative action.</p>
+<p><strong>Dealing with the media</strong></p>
+<p>The media are a double-edged sword, with the power to both help and
+hurt the realisation of public health outcomes. Scientific data and
+information must be used to leverage the opportunities that the media
+offer. Thus, it is important to understand how the media work and its
+implications for the effective communication of scientific evidence and
+learn how to both engage the media as allies and use the media to reach
+public audiences.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="ethics-of-communication" class="section level1">
+<h1>Ethics of communication</h1>
+<!-- 3-3 -->
+<!-- YT https://youtu.be/sAdZZJckRTM -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/sAdZZJckRTM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC5_3-3_transcript.pdf">Download the transcript
+here</a></p>
+<p><a href="assets/OC5_3-3_slides.pdf">Download the PDF slides
+here</a></p>
+<p>In this video lecture, Dr Euzebiusz Jamrozik discusses how to
+ethically collect and communicate data to prevent stigmatisation.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="communicating-with-the-public" class="section level1">
+<h1>Communicating with the public</h1>
+<!-- 3-4 -->
+<p>For several years, pathogen genomics has informed public health
+responses to infectious diseases, as well as the global health response
+to disease outbreaks and epidemics. The COVID-19 pandemic has
+highlighted not only the importance of pathogen genomics in epidemics
+but also that there is a need to focus on effective communication of
+pathogen genomic data. This information must be properly communicated by
+healthcare professionals, scientists, policymakers and the media, and it
+should consider the current context and happenings.</p>
+<p>In most cases of infectious disease control, communication strategies
+have mainly focused on the individual and involve one-to-one
+communication between the healthcare provider and the individual about
+the diagnosis and treatment plan. However, with advances in genomics
+sequencing, it is likely that diagnosis for an infectious disease that
+may have genomic information of the infectious agent (pathogen) will be
+available as part of the diagnosis. How the healthcare provider
+communicates this information to their client may have an impact not
+only on the individual (e.g. their privacy) but also on their community.
+For example, take the case where HIV testing and surveillance also
+reveal hotspot areas. This could lead to stigmatisation and
+discrimination of people in that community, which is likely to be worse
+for those who are already part of stigmatised or marginalised
+groups.</p>
+<p>Public engagement and communication of pathogen genomic information
+during disease outbreaks is key to the public health response.
+Generally, the public health responses to disease outbreaks are aimed at
+effective containment of the outbreak through:</p>
+<ul>
+<li><p>Bringing it to an end as soon as possible.</p></li>
+<li><p>Taking care of those affected by the outbreak.</p></li>
+<li><p>Contact tracing and surveillance to identify new cases or disease
+hotspots.</p></li>
+<li><p>Taking care of people who have become ill from the infectious
+agent and preventing new cases of the disease.</p></li>
+</ul>
+<p>Information about these public health measures should therefore be
+included in messages to the public. More recently, genomic information
+about the causative pathogen may be included in the first announcements
+of an outbreak or a new strain of concern.</p>
+<p>Public communication and engagement strategies during an outbreak
+response would ideally involve a mix of media approaches (e.g. print
+media, radio, TV, social media, press releases from various
+stakeholders, announcements in community and religious gatherings), seek
+to engage diverse stakeholders and be tailored to each stakeholder group
+(e.g. children of school going age, healthcare workers, policymakers).
+It is also worth noting that social media has transformed public
+engagement and communication in science, as well as how people consume
+information. Irrespective of the engagement and communication strategy
+that will be used, it must be designed and implemented following good
+practices.</p>
+<p><strong>Best practices for public engagement and communication during
+outbreaks</strong></p>
+<ul>
+<li><p>Have a pre-existing public engagement and communication plan;
+identify key stakeholders, and define the role and responsibilities of
+each stakeholder.</p></li>
+<li><p>Build public trust in the public health system; empathic
+messaging and communicating style, including honesty in situational
+reports and the expertise of the messenger, are key.</p></li>
+<li><p>Be transparent about outbreak origins, new strains, progress and
+uncertainties, what is known and unknown, public health measures that
+will be used and why, and the different methods public officials will
+use for communication.</p></li>
+<li><p>Respect public concerns about the outbreak.</p></li>
+<li><p>Be sensitive to local practices and culture.</p></li>
+<li><p>Consider the unpredictability of outbreaks.</p></li>
+</ul>
+<p>Furthermore, communication of pathogen genomic information will be
+shaped by a variety of factors, including but not limited to:</p>
+<ul>
+<li><p>Political climate (democratic vs authoritative governments) will
+determine the flow and depth of information that can be covered during
+public engagement and communication.</p></li>
+<li><p>Economic resources where there are fewer resources to support
+outbreak response, national governments may want to limit media coverage
+for fear of raising public anxiety or causing economic disruption by
+being forced to adopt certain measures, such as lockdowns.</p></li>
+<li><p>International diplomacy may influence reporting of new outbreaks
+and or new strains of concern. Some countries may fear discrimination of
+citizens at the global level or that reporting of genomic information
+may easily link them to the origins, thereby leading to
+discrimination.</p></li>
+<li><p>Availability of public health authorities and scientists to
+communicate and respond to public concerns without heightening
+anxiety.</p></li>
+<li><p>Cultural context and behavioural patterns of
+communities.</p></li>
+<li><p>Public literacy/knowledge about the infectious agent or disease.
+For example, the communication strategy for Ebola in many West African
+countries today would be very different from that of a new emerging
+infectious disease.</p></li>
+</ul>
+<p>It is worth noting that whilst public communication of pathogen
+genomic information during disease outbreaks is key to the global health
+response, it can fuel public anxiety and lead to the stigmatisation of
+certain groups. It also needs to be recognised that competition amongst
+scientists, media houses and institutions to be the first to report on
+an outbreak or a new strain can lead to exaggeration of the outbreak and
+control measures, perpetuate discrimination, increase public anxiety,
+and lead to a breakdown of public trust in science.</p>
+<p>To conclude, it is important for scientists, public health officials
+and media personnel to have some understanding of how their communities
+or the public perceive risks during disease outbreaks, and to frame
+their messages with these perceptions in mind.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="how-to-prevent-misinformation" class="section level1">
+<h1>How to prevent misinformation</h1>
+<!-- 3-5 -->
+<!-- YT https://youtu.be/iPV8tmizuUE -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/iPV8tmizuUE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC5_3-5_transcript.pdf">Download the transcript
+here</a></p>
+<p><a href="assets/OC5_3-5_slides.pdf">Download the PDF slides
+here</a></p>
+<p>In this video, Dr Anastasia Koch tells us about her experience
+working at <a href="https://ehwoza.com/">Eh!woza</a> and building trust
+within communities to make a real impact in public engagement.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="media-and-the-public" class="section level1">
+<h1>Media and the public</h1>
+<!-- 3-6 -->
+<!-- YT https://youtu.be/hNQP13-X8v0 -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/hNQP13-X8v0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC5_3-6_transcript.pdf">Download the transcript
+here</a></p>
+<p>The discussion in this video is about the challenges in disseminating
+scientific information to the general public. Watch Christine, Emma,
+Richard and Thanat share their experiences communicating with the press
+and media.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div
+id="informing-public-health-professionals-viet-nam-case-study-part-1"
+class="section level1">
+<h1>Informing public health professionals: Viet Nam case study part
+1</h1>
+<!-- 3-7 -->
+<p>To examine how research impacts policy-making and what lessons we
+have learnt as scientists and policymakers from the pandemic, we are
+going to focus on a case study from Viet Nam’s <a
+href="https://www.tropicalmedicine.ox.ac.uk/research/oucru">Oxford
+University Clinical Research Unit (OUCRU)</a>. In the first part of this
+case study, we will think about how scientific evidence is used to
+inform policy.</p>
+<p>OUCRU, with more than 30-year experience in conducting health
+research in Viet Nam, has set a new vision of having a local, regional,
+and global impact on health by leading a locally driven research
+programme on infectious diseases in Southeast Asia.</p>
+<p>By reviewing Ministry of Health guidelines, case studies and
+conducting interviews with key stakeholders, the team at OUCRU were able
+to begin to understand the policy development processes, how to use
+evidence in decision-making, challenges and opportunities to policy and
+research engagement, as well as how to improve engagement between
+policymakers and research communities.</p>
+<p>OUCRU found several factors that increased the likelihood of
+policymakers’ accepting research findings including the timeliness of
+research, the relevance of topics, accessibility of research results,
+unequivocal nature of findings, quality of research methods and
+long-term trusted collaborations.</p>
+<p>Apart from government officials and local authorities, other key
+informants like international organisations, local non-governmental
+organisations, civil society organisations, or activists also had a role
+in each step of the policy development process. For advocacy approaches
+to be successful they needed researchers to build their capacity and
+understanding of policy processes, to engage early with policymakers and
+over the whole course of a study, and use explicit and systematic
+advocacy approaches and engage in frequent communication.</p>
+<p>Policy development in Viet Nam is continuous with scientists and
+management institutions participating in the process. In the past ten
+years, improvements in how genomic evidence is used, and the involvement
+of scientists, have resulted in better application of research results
+into health care and public health practice. Policy development was fast
+and Viet Nam had better access to updated information globally. However,
+obstacles still existed: time pressure, lack of information, limited
+capacity, and lack of standard procedures for policy development caused
+difficulties in the policy formulation process.</p>
+<p>Policies in Viet Nam were found to be evidence-informed but
+influenced by other considerations such as contextual factors and
+available resources. Policymakers selected evidence for decision-making
+based on the strength of evidence, the quality of research studies, the
+appropriateness with the context of Viet Nam, and the source of
+evidence.</p>
+<p>However, the engagement between researchers and policymakers is not
+particularly close in Viet Nam. The two communities saw things
+differently and had different priorities. Researchers’ unwillingness to
+share data, policymakers’ time constraints and the high rate of staff
+turnover were commonly mentioned as obstacles.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="engaging-with-policymakers-viet-nam-case-study-part-2"
+class="section level1">
+<h1>Engaging with policymakers: Viet Nam case study part 2</h1>
+<!-- 3-8 -->
+<p>The team at <a
+href="https://www.tropicalmedicine.ox.ac.uk/research/oucru">Oxford
+University Clinical Research Unit (OUCRU)</a> developed a series of
+recommendations based on their work that may be relevant in many
+different contexts. They conducted a series of in-depth interviews
+between November 2019 and March 2020, so it’s helpful to remember that a
+lot of these issues are not unique to the SARS-CoV-2 pandemic, but can
+be considered for a variety of pathogen outbreaks.</p>
+<p>OUCRU’s findings demonstrated that while researchers often do engage
+with policymakers, this is often not systematic and that it is also hard
+to quantify, track and assess the impact of these interactions.
+Accordingly, they suggested some key recommendations to improve
+engagement with policymakers going forwards:</p>
+<ul>
+<li><p>Researchers would benefit from more education about the
+policymaking process, as this will help them to target their
+communication with policy stakeholders in a way that is more likely to
+produce the desired uptakes of their research data.</p></li>
+<li><p>Policy engagement needs to be better embedded into the research
+culture of the organisation so that researchers are familiar with the
+concept and terminology and are able to plan engagement activities as
+part of their research practice.</p></li>
+<li><p>Researchers should include policy engagement activities in their
+grant applications and cost them accordingly.</p></li>
+<li><p>Researchers should be recognised for their policy engagement
+work.</p></li>
+<li><p>There needs to be a channel (or many channels) in place for
+policy stakeholders to be able to access the research community, and a
+corresponding channel in place for researchers to be able to access the
+stakeholders.</p></li>
+<li><p>When thinking about systemic policy engagement, we do not need to
+have the projects completed and research results in place before that
+engagement takes place, and it is preferable if engagement is happening
+throughout the entire research life cycle.</p></li>
+<li><p>Policy engagement outputs should be centrally collected in a
+systematic way, and regular reports produced.</p></li>
+</ul>
+<p><strong>Further reading</strong></p>
+<p><a href="https://doi.org/10.1057/s41599-019-0232-y">The dos and
+don’ts of influencing policy: a systematic review of advice to
+academics</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="scientific-evidence-and-policy" class="section level1">
+<h1>Scientific evidence and policy</h1>
+<!-- 3-9 -->
+<p>One of the ways policymakers identify effective policies and
+interventions, and how best to implement them, is through scientific
+evidence. Yet those who produce scientific knowledge are often trained
+to communicate with fellow specialists and not with non-academic
+audiences. It is important for researchers and scientists engaged in
+policy-related work to develop the skills needed to effectively
+communicate the value of their research to policymakers.</p>
+<p><strong>Understanding the policy community </strong></p>
+<p>The policy process is complex, involving a range of actors within and
+outside government who play diverse roles in initiating, formulating,
+implementing, and evaluating policies. Communicators must identify the
+various stakeholders in the policy process and learn how to segment and
+analyse audiences that make up the policy community.</p>
+<p><strong>Clarifying the purposes of policy communication</strong></p>
+<p>The policy process involves a series of stages. Those who want to
+influence policy must first understand the policy cycle, the various
+purposes relating to each phase of the cycle, and the form of
+communication best suited to each purpose. This includes the different
+stages involved in the policy cycle, the process of policy communication
+(target, rationale, benefit, expected outcomes of communication, etc.),
+and how to identify the type of communication needed in the continuum of
+engagement (e.g. informing, consulting, collaborating, deciding,
+disseminating).</p>
+<p><strong>Understanding the communication needs of policy
+stakeholders</strong></p>
+<p>The uptake of research depends on several factors, including:</p>
+<ul>
+<li>The four key characteristics that make information useful to
+policy:</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><p>To help to solve problems</p></li>
+<li><p>To be actionable</p></li>
+<li><p>To have consequences</p></li>
+<li><p>To be publicly accessible</p></li>
+</ol>
+<ul>
+<li><p>The need to identify relevant scientific evidence to address
+questions raised in the policy space.</p></li>
+<li><p>How to adapt scientific evidence to suit policymakers.</p></li>
+<li><p>How to strengthen links between policy actors and those who want
+to share scientific evidence.</p></li>
+</ul>
+<p><strong>Techniques and tools of engagement</strong></p>
+<p>There are tactics and tools available to effectively engage
+audiences, ranging from those suited to face-to-face interactions
+(e.g. public, and private meetings, forums, festivals, town hall
+meetings, policy durbars, consultative group meetings, workshops) to
+mediated forms of communication (traditional media, websites, social
+media, etc). Effective communication must consider which platforms and
+tools to use in communicating scientific evidence to policymakers and
+other stakeholders. It is important to have communication strategies and
+plans, engagement techniques (e.g. planning and facilitating public
+consultations and debates, soliciting media coverage, convening press
+conferences), and the knowledge and skills required to produce press
+releases and policy documents such as policy briefs, memoranda, and
+communique.</p>
+<p><strong>Familiar challenges in policy communication</strong></p>
+<p><a href="https://doi.org/10.1186/s12992-016-0209-1">Getting research
+into policy and practice (GRIPP)</a> requires scientists to communicate
+evidence to policymakers in ways that can lead to decisions and action.
+Not only must research be relevant, but the language of engagement must
+be appropriate. It is important to discuss barriers to effective policy
+communication including language/translation, cultural barriers,
+audience scepticism and the importance of compelling storytelling to
+drive home the message.</p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://doi.org/10.1177%2F0033354918788880">The importance
+of policy change for addressing public health problems</a></p>
+<p><a href="https://doi.org/10.1186/1478-4505-7-s1-s3">SUPPORT Tools for
+evidence-informed health Policymaking (STP) 3: Setting priorities for
+supporting evidence-informed policymaking</a></p>
+<p><a href="https://doi.org/10.1186/1478-4505-7-30">Evidence-informed
+health policy: are we beginning to get there at last?</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="informing-policymakers" class="section level1">
+<h1>Informing policymakers</h1>
+<!-- 3-10 -->
+<!-- YT https://youtu.be/pI0HwnfT6dY -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/pI0HwnfT6dY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC5_3-10_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this roundtable discussion, our colleagues talk about transparency
+when disseminating scientific data. They also discuss how data sharing
+can impact national and international decision-making.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="research-and-public-health" class="section level1">
+<h1>Research and public health</h1>
+<!-- 3-11 -->
+<p>The COVID-19 pandemic has shown the importance of positive
+interaction between public health agencies and academia, as well as
+industry, journalism, and even unconventional information sources
+(e.g. social networks).</p>
+<p>Countries, where good relationships between academia and public
+health agencies existed, took quicker and more effective resolutions
+during the pandemic, whereas those with less auspicious relationships
+based their decisions on non-scientific, often politically led opinions.
+For example, in Latin America (one of the regions in the world that were
+most affected by COVID-19), <a
+href="https://doi.org/10.1136/bmj.m3575">Uruguay</a> involved academics
+in the early-pandemic strategies, by integrating universities and
+research centres into diagnosis, surveillance, and treatment
+assessments. This allowed them to control quickly COVID-19 transmission,
+reaching outstanding low levels of infections and mortality in 2020. In
+the same region, Uruguay´s neighbours Brazil and Argentina (that used a
+political, non-academic based approach) counted the infections in
+millions and the mortality in hundreds of thousands.</p>
+<p><strong>Indirect communication</strong></p>
+<p>Academia has an important role in training the public health workers
+that will be part of the public health agencies and health ministries.
+Education at undergraduate and postgraduate levels should be continuous
+to provide state-of-the-art tools to public health authorities in order
+for them to make good decisions. This also means that communication
+between academia and health agencies continues indirectly through
+education.</p>
+<p>Another major role of academia in public health is to conduct
+research (basic and applied) that can be useful for decision-making.
+Even though public health authorities are responsible for taking
+decisions, they should be built on systematically acquired results. This
+type of indirect communication between academia and government health
+agencies should be encouraged, as research evidence is the most powerful
+instrument to fully understand and try to solve a problem that affects
+the general population.</p>
+<p>Finally, <a
+href="https://www.ncbi.nlm.nih.gov/books/NBK221242/">academia should
+engage with the community</a>, to understand public health problems and
+effectively communicate science. However, one of the main challenges
+faced by researchers, and public health officials, during the current
+pandemic is effective communication with the public, so that the reasons
+behind public health policy are understood.</p>
+<p><strong>Direct communication</strong></p>
+<p>Communication between academia and ministries of health often
+develops from already existing contacts and relationships. It is vital
+that trustworthy communication is established prior to a public health
+emergency (such as the COVID-19 pandemic) as, without bidirectional
+interaction, important information may not be properly communicated.
+Trust is the base of any communication, and reliance depends on the
+interlocutors and their communication lines. For example, is more
+difficult to build effective communication channels in countries with
+weak public health institutions that change authorities repeatedly,
+compared with those with long-term strategies. Likewise, in countries
+with a weak academic culture, it will be difficult for their public
+health agencies to find a continuous and reliable interlocutor.</p>
+<p>Academics advise public health authorities and policymakers on
+up-to-date evidence and data interpretation, and, additionally, they can
+also offer personal opinions based on experience. However, authorities
+must recognize when they are getting one or the other. Information
+provided by academics must be transparent and free of conflicts of
+interest, and it also should be open to public scrutiny in terms of
+getting different expert opinions when it is considered necessary.
+Public health agencies also need to be open to receiving advice,
+especially during a public health emergency, as this will facilitate
+academic work such as research and education.</p>
+<p>The last responsibility of academia is to give feedback (and
+criticism when necessary) on the decisions taken by public health
+agencies and ministries of health. Academia plays an important role in
+seeking evidence to determine if a decision was taken accurately or not.
+That was probably the most difficult task for researchers during the
+COVID-19 pandemic, as when criticised, some authorities ignored
+academics, blocked their research work, or even limited their free
+speech. It is undeniable that academia played an important role during
+the pandemic, however, most of its valuable work was diluted due to not
+interacting successfully with public health agencies.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="health-policy-lessons-from-covid-19" class="section level1">
+<h1>Health policy lessons from COVID-19</h1>
+<!-- 3-12  -->
+<p>The best way to learn how to engage with policymakers is to listen to
+the experiences of scientists who have worked closely with them and from
+policymakers themselves. Read below the answers from experienced
+professionals.</p>
+<p><strong>What are the main challenges in communicating with
+policymakers?</strong></p>
+<p>In countries where political crises are not uncommon and institutions
+are weak, a big challenge is the constant change of policymakers,
+authorities and civil servants. Researchers might describe detailed
+scientific information when engaging with policymakers, which might not
+be useful to the policymaker as they are more concerned with actionable
+research that can be translated into policy; so knowledge transfer has
+to be strengthened between the two sectors.</p>
+<p>Another big challenge is that in several countries in Latin America,
+there is no formal system for scientific advising (this is no formal and
+regular communication channels between academia and policymakers), which
+has resulted in a lack of trust between these groups. As a result, in
+countries where this is an issue, engagement with policymakers has to be
+approached differently.</p>
+<p>The biggest challenge the scientists and public health professionals
+face is establishing effective communication with authorities because it
+also depends on them. This means that even if you are willing to
+collaborate, and policymakers don’t accept suggestions, communication
+won’t be possible. For that reason, authorities need to understand they
+can ask for advice from researchers, especially when they lack the
+necessary expertise within their authority.</p>
+<p>There are key challenges in engaging with policy stakeholders:</p>
+<ul>
+<li><p>Difficulty in getting approvals, and administrative
+burdens</p></li>
+<li><p>Stakeholders’ limited capacity and infrastructure to collaborate
+in research</p></li>
+<li><p>Different priorities than researchers</p></li>
+<li><p>High turnover among staff at stakeholder institutions</p></li>
+<li><p>Stakeholder time constraints</p></li>
+</ul>
+<p><strong>What are the key learnings from interactions with
+policymakers during the pandemic?</strong></p>
+<p>As evidence changes over time, conveying how this may affect policy
+decisions is crucial. It’s important to communicate that the information
+you shared with them is the most current evidence but can change over
+time, and the advice might need to be revised periodically.</p>
+<p>Lessons learnt from the management of pandemic crises in advisory
+boards include:</p>
+<ul>
+<li><p>The strongest engagements were those where the scientists were
+able to provide rapid technical advice to policy stakeholders with whom
+they already had an existing relationship.</p></li>
+<li><p>Bringing together multiple stakeholders for a single meeting was
+very challenging because stakeholders were over-committed.</p></li>
+<li><p>Stakeholders need engagement and advice during an emergency in a
+very fast timeframe - which provides a considerable burden for
+researchers in the emergency response.</p></li>
+<li><p>Stakeholders preferred to engage in short, online
+meetings.</p></li>
+</ul>
+<p>Clarity around the benefits and costs of implementing a policy can
+help communications. This should be balanced with discussions about the
+costs and consequences of not action on the evidence.</p>
+<p>It’s helpful if interactions with policymakers are part of
+wider/general collaboration framework. However, many government
+organisations will require signing Memoranda of Understanding (MoUs),
+collaboration agreements or some sort of formal link.</p>
+<p><strong>What is the advice to other researchers in communicating with
+policymakers?</strong></p>
+<p>Policy engagement is a communication exercise, and it is most
+effective when it is two-way. This means that researchers need to
+provide opportunities for policy stakeholders to engage with them and be
+willing to listen and respond.</p>
+<p>Policy stakeholders tend to ask to be involved or informed about
+research at very early stages. They do not want to dictate the research
+agenda, but they do want to be sure that research is designed in ways
+that can produce useful outcomes for policy. The best way to do this is
+to find ways to build consultation into research throughout the research
+lifecycle.</p>
+<p>Partnering with civil society organisations and advocacy groups to
+work on the specific subject is recommended. This can help have a
+stronger message delivery mechanism. Identifying local champions can
+boost the delivery of these messages.</p>
+<p>Another helpful way to maintain the engagement is to establish a
+structure to feed into policymaking (e.g. establish annual meetings or
+spaces for regular dialogue with policymakers and government
+committees).</p>
+<p>As a final piece of advice, try to give the stakeholders key points
+of action to work with. Try not to load them with vast amounts of
+evidence, summarise findings and suggest solutions instead.</p>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://network.febs.org/posts/ten-tips-for-scientists-to-connect-science-and-policymaking">Ten
+tips for scientists to connect science and policymaking</a></p>
+<p><a
+href="https://www.civilservant.org.uk/library/2013-Tyler-Top_20_things_scientists_need_to_know_about_policy.pdf">Top
+20 things scientists need to know about policymaking</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="impacting-public-health-policy" class="section level1">
+<h1>Impacting public health policy</h1>
+<!-- 3-13 -->
+<p>Public health policy requires individuals from many disciplines to
+collect as much useful data as possible, analyse and interpret it, and
+communicate it to decision-makers who will then use it to set government
+policies.</p>
+<p>Under ordinary circumstances, setting these policies is a balancing
+act between competing interests; scientists, civil servants and
+government officials must work together to find solutions that are both
+effective and acceptable to the public.</p>
+<p>The COVID-19 pandemic crashed into this finely balanced system with
+little warning. New people, institutions and data needed to be brought
+urgently into the policy process. In the United Kingdom, this included
+an unprecedented level of genomic pathogen surveillance data to
+complement information about case testing, hospital capacity, and
+deaths. From very early in the pandemic, the UK used its strength in
+pathogen genomics to build a national surveillance system that could
+detect new mutations in the virus and track their spread geographically.
+This genomic surveillance swiftly provided insights into the <a
+href="https://doi.org/10.1016/j.cell.2020.11.020">early evolution of the
+virus</a>, but it wasn’t clear how these discoveries could meaningfully
+influence policy. In the summer of 2020, local clusters of highly
+similar genomes were observed from <a
+href="https://www.bbc.co.uk/news/uk-england-wiltshire-53652437">“superspreader”
+events</a> during an otherwise quiet time in the pandemic in the UK, but
+because the sequences were only available a few weeks after the events
+occurred, there was no opportunity for public health action.</p>
+<p>The value of genomic surveillance in the UK became apparent in
+December 2020, when an otherwise unexplained increase in cases in Kent,
+in South East England, was discovered to be due to a <a
+href="https://www.theguardian.com/world/2021/apr/03/has-everyone-in-kent-gone-to-illegal-rave-on-variant-trail-with-covid-detectives">new
+variant (later dubbed the ‘Alpha’ variant) of the Coronavirus</a>. The
+team of academic and public health scientists who discovered the new
+variant alerted the broader pandemic science policy community. Within
+ten days, an unimaginably short time in the usual process of scientific
+discovery, the Prime Minister, Boris Johnson, imposed strict
+restrictions on social mixing during the Christmas holiday in large
+parts of England. By early January 2021, it was clear that the Alpha
+variant had spread widely in the UK, and a second national lockdown was
+required.</p>
+<p>The Alpha variant, along with the simultaneous discovery of the Beta
+variant in South Africa, moved genomic surveillance from a niche
+interest among scientists to one of the most prominent data streams in
+pandemic policymaking. Would new variants spread so easily that
+lockdowns couldn’t contain them? Would they cause more severe disease?
+Could they evade the protection offered by vaccines?</p>
+<p>The UK Health Security Agency needed to coordinate these data to
+provide timely, understandable, actionable input for policymakers. They
+convened a Variant Technical Group to serve as a regular forum for
+academic and public health scientists to use genomic surveillance data
+to improve the modelling of future waves, evaluate new variants in
+laboratory tests, and determine their effect on vaccines. The group
+regularly published <a
+href="https://www.gov.uk/government/publications/investigation-of-sars-cov-2-variants-technical-briefings">technical
+reports</a> to ensure scientists and policymakers around the world had
+access to the latest research. A number of public-facing <a
+href="https://covid19.sanger.ac.uk/">websites</a> were created to share
+anonymised genomic surveillance data in near real-time, thus allowing
+members of the press and public to see the new variant data that was
+being used to influence policy on travel, local restrictions and vaccine
+and treatment roll-out. This public focus also led to active (and
+sometimes vitriolic) debates on social media about policy responses to
+new variants of the virus. Organisations like the <a
+href="https://www.sciencemediacentre.org/">Science Media Centre</a>
+helped to coordinate academics unaccustomed to that level of attention
+to share information so the press could accurately report on new
+developments.</p>
+<p>The COVID-19 pandemic presented a unique challenge to science
+communication for public health policy. This included, for the first
+time, building a genomic surveillance system for a new pathogen,
+continuously improving the speed and interpretability of the
+intelligence it produced, and creating new channels of communication
+from scientists to policymakers. While created in emergency
+circumstances, there is now an opportunity to build a sustainable way
+for genomic surveillance to aid public health policy.</p>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://www.bsg.ox.ac.uk/research/covid-19-government-response-tracker">COVID-19
+Government response tracker</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="how-we-can-be-prepared" class="section level1">
+<h1>How we can be prepared</h1>
+<!-- 3-14 -->
+<!-- YT https://youtu.be/_BYESs3GMeI -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/_BYESs3GMeI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC5_3-14_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this video, Christine, Emma, Richard and Thanat review what
+resources were in place before the COVID-19 emergency and how we can
+apply what has been developed so far for the next public health
+threats.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="covid-19-in-the-european-union" class="section level1">
+<h1>COVID-19 in the European Union</h1>
+<!-- 3-15 -->
+<p>Since the outbreak of COVID-19, the European Union (EU) has worked
+with its member states to protect the health and well-being of EU
+citizens. Nevertheless, EU institutions have limited authority in the
+health system of each member state, as, instead, their primary role is
+to make recommendations and coordinate joint action.</p>
+<p>In March 2020, four priorities to guide the EU’s emergency response
+to the COVID-19 pandemic were determined. These included:</p>
+<ul>
+<li><p>Limiting the spread of the virus</p></li>
+<li><p>Ensuring the provision of medical equipment, particularly masks
+and respirators</p></li>
+<li><p>Promoting research for treatments and vaccines</p></li>
+<li><p>Tackling the socio-economic consequences of the pandemic</p></li>
+</ul>
+<p>In order to limit the spread of the SARS-CoV-2 virus, the EU’s
+external borders were temporarily closed and non-essential travel to the
+EU was restricted.</p>
+<p>To meet the need for emergency medical equipment, in March 2020, the
+EU created a reserve of medical equipment which could be quickly
+mobilised in emergencies. At the same time, the EU enabled its member
+states to participate in joint public procurement tenders for protective
+gear, ventilators and testing kits. The EU’s Emergency Response
+Coordination Centre (ERCC) then, via its EU Civil Protection Mechanism,
+processed requests and coordinated the distribution of equipment and
+support to the countries which needed it most. The EU has also
+coordinated with European industry to increase production and has
+regulated the export of key supplies from the EU to third countries.</p>
+<p>Furthermore, to promote research for treatments and vaccines,
+research funds and financial support were deployed to develop treatments
+and vaccines. The European <a
+href="https://www.covid19dataportal.org/">COVID-19 Data Platform</a> was
+launched to enable the rapid collection and sharing of available
+research data.</p>
+<p><strong>The EU Vaccines Strategy</strong></p>
+<p>The development and distribution of safe and effective vaccines
+against COVID-19 represented a cornerstone of the EU’s response to the
+COVID-19 pandemic. The EU Vaccines Strategy was presented on 17 June
+2020 to accelerate the development, manufacturing and deployment of
+vaccines against COVID-19. The EU coordinated a joint effort to secure
+the production and delivery of a sufficient quantity of vaccines to its
+member states, who received the vaccines under the same conditions and
+at the same time. The COVID-19 vaccination campaigns started on 27
+December 2020 across the Union. By December 2022, eight out of ten
+adults in the EU population (82%) were fully vaccinated against
+COVID-19. The European Medicines Agency has so far authorised seven
+COVID-19 vaccines for use within the EU.</p>
+<p><strong>Global cooperation</strong></p>
+<p>On 4 May 2020, the Coronavirus Global Response Initiative was
+launched, following the global call for action launched by the World
+Health Organization (WHO) on 24 April 2020. This initiative aimed to
+make COVID-19 treatment, tests and vaccines available worldwide. Despite
+the name, the Coronavirus Global Response also has the broader aims of
+strengthening health systems everywhere and supporting economic recovery
+in the world’s most fragile regions and communities.</p>
+<p>On 18 September 2020, the European Commission confirmed its
+participation in the <a href="https://www.gavi.org/covax-facility">COVAX
+Facility</a> for equitable access to affordable COVID-19 vaccines. COVAX
+is part of the Access to COVID-19 Tools (ACT) Accelerator, a global
+collaboration to accelerate the development, production, and equitable
+access to COVID-19 tests, treatments, and vaccines. Team Europe (formed
+by the EU and its member states) is one of the lead donors of COVAX.</p>
+<p><strong>Pandemic preparedness</strong></p>
+<p>The European Commission established the <a
+href="https://commission.europa.eu/about-european-commission/departments-and-executive-agencies/health-emergency-preparedness-and-response-authority_en">Health
+Emergency and Response Authority (HERA)</a> to tackle all areas of
+health preparedness, including detection, prevention, research,
+international cooperation, response, investment, and the fight against
+disinformation.</p>
+<p>In December 2022, HERA and WHO launched a new partnership to boost
+capacities at national, regional, and global levels for better
+preparedness for and response to health emergencies. Within this
+partnership, HERA will fund four global initiatives:</p>
+<ul>
+<li><p>Supporting the scaling up of national capacities for SARS-CoV-2
+and emerging pathogens detection, including genomic surveillance in
+Africa</p></li>
+<li><p>The COVID-19 Technology Access Pool (C-TAP) to ensure a
+successful global effort to develop and facilitate access to
+technologies to fight COVID-19</p></li>
+<li><p>Epidemic and pandemic intelligence, including access to and
+sharing of data and analytics through the WHO Hub for Pandemic and
+Epidemic Preparedness</p></li>
+<li><p>Research to address antimicrobial resistance (AMR)</p></li>
+</ul>
+<p>Through this programme, HERA and WHO will strengthen global
+capacities to detect, prevent, and respond to global health threats by
+providing information, capacities, and tools against health
+emergencies.</p>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://www.consilium.europa.eu/en/policies/coronavirus/">The EU’s
+response to the COVID-19 pandemic</a></p>
+<p><a href="https://www.consilium.europa.eu/en/covid-eu-solidarity/">5
+ways the EU and member states work together against COVID-19</a></p>
+<p><a
+href="https://commission.europa.eu/strategy-and-policy/coronavirus-response/public-health/eu-vaccines-strategy_en">EU
+Vaccines Strategy</a></p>
+<p><a
+href="https://www.consilium.europa.eu/en/policies/coronavirus/covid-19-research-and-vaccines/">COVID-19:
+research and vaccines</a></p>
+<p><a
+href="https://www.who.int/news/item/08-12-2022-the-european-union-and-who-further-enhance-their-partnership-for-stronger-pandemic-preparedness-and-response">The
+European Union and WHO further enhance their partnership for stronger
+pandemic preparedness and response</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="the-biggest-lessons-learnt" class="section level1">
+<h1>The biggest lessons learnt</h1>
+<!-- 3-17 -->
+<!-- YT https://youtu.be/5DZP8movpYM -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/5DZP8movpYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC5_3-17_transcript.pdf">Download the transcript
+here</a></p>
+<p>The COVID-19 pandemic is remarkable for not only how fast the disease
+spread around the globe, but also how fast existing technologies were
+repurposed and new approaches were developed to tackle the disease.</p>
+<p>In this video, Prof Christine Carrington, Dr Emma Hodcroft, Dr
+Richard Orton and Dr Thanat Chookajorn share the main lessons they
+learnt from COVID-19.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="resources" class="section level1">
+<h1>Resources</h1>
+<!-- 3-19 -->
+<p>Viral biology: <a
+href="https://viralzone.expasy.org/">ViralZone</a><br />
+Viral taxonomy: <a
+href="https://talk.ictvonline.org/taxonomy/">International Committee on
+Taxonomy of Viruses (ICTV)</a><br />
+Real-time tracking of pathogen evolution: <a
+href="https://nextstrain.org/">NextStrain</a><br />
+SARS-CoV-2 Lineages nomenclature: <a
+href="https://cov-lineages.org/index.html">Pango</a><br />
+Genomic data sharing: <a href="https://www.gisaid.org/">GISAID</a><br />
+Cloud Infrastructure for Big Data Microbial Bioinformatics: <a
+href="https://www.climb.ac.uk/">CLIMB</a></p>
+<p><strong>Podcasts:</strong><br />
+<a
+href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/media-resources/science-in-5">WHO
+Science in 5</a><br />
+<a href="https://asm.org/Podcasts/TWiM">This week in
+Microbiology</a><br />
+<a href="https://www.microbe.tv/twiv/">This week in Virology</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container-left {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.img-container-right {
+  float: right;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<hr>
+<div class="clearfix">
+  <div class="img-container-left">
+    <img src="assets/img/COG-Train_logo.png" alt="COG-Train" 
+style="width:200%">
+  </div>
+  <div class="img-container-right">
+    <img src="assets/img/WCS_Logo-Primary_Black.jpg" alt="Wellcome 
+Connecting Science" style="width:200%">
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

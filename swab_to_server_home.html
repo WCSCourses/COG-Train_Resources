@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>swab_to_server_home</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COG-Train_Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-file-lines"></span>
+     
+    Course Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Virtual Courses</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viral Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="vbioinfasia.html">VBioinf2022 Asia</a>
+        </li>
+        <li>
+          <a href="vbioinflac.html">VBioinf2022 LAC</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOCs</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Power of Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="power_of_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Swab to Server</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="swab_to_server_home.html">Home</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Making Sense</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="making_sense_home.html">Home</a>
+        </li>
+        <li>
+          <a href="making_sense_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="making_sense_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="making_sense_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Practical Guide</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="practical_guide_home.html">Home</a>
+        </li>
+        <li>
+          <a href="practical_guide_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="practical_guide_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="practical_guide_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pathogen Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="pathogen_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Hybrid Course</li>
+    <li>
+      <a href="scvo2b4b.html">SARS-CoV-2 B4B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">In Person Courses</li>
+    <li>
+      <a href="ECPG.html">Pathogen Genomics Capacity</a>
+    </li>
+    <li>
+      <a href="IGM_B4B.html">Bioinformática Decodificada</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Webinars</li>
+    <li>
+      <a href="Community.html">COG-Train Community</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Team
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cogteam.html">COG-Train Team</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/WCSCourses/COG-Train_Resources">
+    <span class="fa fa-brands fa-github"></span>
+     
+    Github
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div
+id="from-swab-to-server-testing-sequencing-and-sharing-during-a-pandemic"
+class="section level1">
+<h1>FROM SWAB TO SERVER: TESTING, SEQUENCING AND SHARING DURING A
+PANDEMIC</h1>
+<p><img src="images/OC2_cover.jpeg" /> <sub><span
+class="citation">@Pixabay</span></sub></p>
+<div id="about-the-course" class="section level2">
+<h2>About the course</h2>
+<p>Sampling and testing are key to understanding where a disease is
+spreading. In the COVID-19 pandemic, the number of samples taken,
+analysed, tracked and shared have far surpassed any previous pandemic.
+This course follows the journey of a sample from the swab to the
+processed data used by experts in pandemic response. It discusses how to
+share data across teams and internationally, and the ethical and
+practical implications of using mass data on a pandemic scale.</p>
+<p><strong>Learning outcomes</strong></p>
+<ul>
+<li>Outline the journey from sample collection, through PCR to
+sequencing and data linkage<br />
+</li>
+<li>Compare the different sample types and how sampling strategy affects
+test performance</li>
+<li>Explain the importance of linking genomic data to clinical and
+epidemiological data sets to address public health and scientific
+questions</li>
+<li>Identify and explore ethical, legal and social implications of data
+use and sharing</li>
+</ul>
+<p><strong>Target audience</strong></p>
+<p>This course is for researchers, healthcare and public health
+professionals, diagnostic professionals, or any person involved in
+testing and analysis of disease samples.</p>
+</div>
+<div id="content" class="section level2">
+<h2>Content</h2>
+<p><strong><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week1.html#THE_JOURNEY_OF_A_SAMPLE">Week
+1 - The journey of a sample</a></strong></p>
+<ul>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week1.html#Glossary">Glossary</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week1.html#The_testing_pathway">The
+testing pathway</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week1.html#Comparing_different_types_of_testing">Comparing
+different types of testing</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week1.html#PCR_testing_in_the_COVID-19_pandemic">PCR
+testing in the COVID-19 pandemic</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week1.html#Sample_types_for_testing">Sample
+types for testing</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week1.html#Walkthrough_of_the_sequencing_process">Walkthrough
+of the sequencing process</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week1.html#How_to_avoid_the_pitfalls_and_get_trustable_results">How
+to avoid the pitfalls and get trustable results?</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week1.html#Understanding_the_different_sources_of_samples_for_testing">Understanding
+the different sources of samples for testing</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week1.html#Importance_of_taking_an_appropriate_sample">Importance
+of taking an appropriate sample</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week1.html#The_role_of_quality_management">The
+role of quality management</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week1.html#High-throughput_testing_during_pandemic_response">High-throughput
+testing during pandemic response</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week1.html#Scaling_up:_implementation_and_how_to_overcome_limitations">Scaling
+up: implementation and how to overcome limitations</a></li>
+</ul>
+<p><strong><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#HOW_TO_MAKE_DATA_RICHER">Week
+2 - How to make data richer</a></strong></p>
+<ul>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#How_different_countries_tackled_the_pandemic:_an_example">How
+different countries tackled the pandemic: an example</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#Introduction_to_biobanking">Introduction
+to biobanking</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#Walking_through_a_biobank">Walking
+through a biobank</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#What_is_metadata">What
+is metadata?</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#Types_of_metadata">Types
+of metadata</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#Data_collection_tools">Data
+collection tools</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#Public_databases_benefit_epidemiology">Public
+databases benefit epidemiology</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#Ensuring_sampledata_consent_and_ownership">Ensuring
+sample/data consent and ownership</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#Data_enrichment_benefits_to_epidemiology">Data
+enrichment benefits to epidemiology</a><br />
+</li>
+<li><a
+href="​​https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#Benefits_and_challenges_of_integrating_clinical_data">Benefits
+and challenges of integrating clinical data</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#Practical_challenges:_setting_up_a_laboratory_during_lockdown">Practical
+challenges: setting up a laboratory during lockdown</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week2.html#De-centralising_genomic_surveillance">De-centralising
+genomic surveillance</a></li>
+</ul>
+<p><strong><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#A_SAMPLE_WITHOUT_DATA_IS_NOTHING">Week
+3 - A sample without data is nothing</a></strong></p>
+<ul>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#Lessons_learnt:_how_to_be_prepared_for_the_next_pandemic">Lessons
+learnt: how to be prepared for the next pandemic</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#Data_sharing_in_%E2%80%9Cpeace%E2%80%9D_and_%E2%80%9Cwar%E2%80%9D_time">Data
+sharing in “peace” and “war” time</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#Stakeholders_for_data_sharing_and_the_importance_to_share">Stakeholders
+for data sharing and the importance to share</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#Opportunities_for_global_collaboration_in_pathogen_genomics">Opportunities
+for global collaboration in pathogen genomics</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#Challenges_and_limitations_of_data_sharing">Challenges
+and limitations of data sharing</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#Data_sharing_best_practices">Data
+sharing best practices</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#The_FAIR_principles">The
+FAIR principles</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#How_do_FAIR_principles_apply_in_a_public_health_emergency">How
+do FAIR principles apply in a public health emergency</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#No_database_is_perfect:_beware_of_errors_in_sequence_databases">No
+database is perfect: beware of errors in sequence databases</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#How_to_establish_fruitful_and_fair_collaboration:_an_example">How
+to establish fruitful and fair collaboration: an example</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#How_to_promote_data_sharing">How
+to promote data sharing</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#Importance_of_implementing_local_capacity">Importance
+of implementing local capacity</a><br />
+</li>
+<li><a
+href="https://wcscourses.github.io/COG-Train_Resources/swab_to_server_week3.html#Resources">Resources</a></li>
+</ul>
+</div>
+<div id="collaborators" class="section level2">
+<h2>Collaborators</h2>
+<p><strong>Educators</strong></p>
+<p>Ana Filipe, MRC-University of Glasgow Centre for Virus Research,
+United Kingdom<br />
+Leigh Jackson, University of Exeter, United Kingdom<br />
+Moses Luutu Nsubuga, Makerere University, Uganda<br />
+Rogers Kamulegeya, Makerere University, Uganda</p>
+<p><strong>Contributors</strong></p>
+<p>Angela Beckett, University of Portsmouth, United Kingdom<br />
+Camila Romano, Universidade de São Paulo, Brazil<br />
+Collins Otieno, African Society for Laboratory Medicine, Ethiopia<br />
+Dodge Lim, Research Institute for Tropical Medicine, Philippines<br />
+Emma Thomson, MRC-University of Glasgow Centre for Virus Research,
+United Kingdom<br />
+Emmanuel Nasinghe, Makerere University, Uganda<br />
+Faith Nakazzi, Makerere University, Uganda<br />
+Gideon Nsubuga, Makerere University, Uganda<br />
+Hanna Pymont, United Kingdom Health Security Agency, United
+Kingdom<br />
+Harper VanSteenhouse, BioClavis Ltd, United States of America<br />
+Kirstyn Brunker, University of Glasgow, United Kingdom<br />
+Lei Lanna Dancel, Research Institute for Tropical Medicine,
+Philippines<br />
+Malebo Malope, Stellenbosch University, South Africa<br />
+Maria Magdalene Namaganda, Makerere University, Uganda<br />
+Ma. Ricci Gomez, Research Institute for Tropical Medicine,
+Philippines<br />
+Mark Webber, Quadram Institute, United Kingdom<br />
+Muhammad Yasir, Quadram Institute, United Kingdom<br />
+Nathan Moore, Hampshire Hospitals NHS Foundation Trust, United
+Kingdom<br />
+Newton Lwanga, Makerere University, Uganda<br />
+Paúl Cárdenas, Universidad San Francisco de Quito, Ecuador<br />
+Rodrigue Bikangui, Centre de Recherches Médicales de Lambaréné,
+Gabon<br />
+Sam Robson, University of Portsmouth, United Kingdom<br />
+Sarah Mwang, Africa CDC, Ethiopia<br />
+Senjuti Saha, Child Health Research Foundation, Bangladesh<br />
+Sharon Glaysher, University of Portsmouth, United Kingdom<br />
+Stephanie Hutchings, United Kingdom Health Security Agency, United
+Kingdom<br />
+Sunando Roy, University College of London, United Kingdom</p>
+<p><strong>Reviewers</strong></p>
+<p>Cassandra Soo, Wellcome Connecting Science, United Kingdom<br />
+Ricardo Khouri, Universidade Federal da Bahia and FIOCRUZ Bahia,
+Brazil</p>
+<p><strong>Education developer</strong></p>
+<p>Liã Bárbara Arruda, Wellcome Connecting Science, United Kingdom</p>
+<p><strong>COG-UK contributors</strong></p>
+<p>Sharon Peacock, University of Cambridge, United Kingdom<br />
+Alistair Darby, University of Liverpool, United Kingdom<br />
+Catherine Ludden, University of Cambridge, United Kingdom<br />
+Darren Smith, Northumbria University, United Kingdom<br />
+Ewan Harrison, Wellcome Sanger Institute, United Kingdom<br />
+Anna Markov, University of Cambridge, United Kingdom<br />
+Ellena Brooks, University of Cambridge, United Kingdom<br />
+Kim Smith, University of Cambridge, United Kingdom<br />
+Peter McEwan, University of Cambridge, United Kingdom</p>
+<p><strong>Wellcome Connecting Science contributors</strong></p>
+<p>Alice Matimba, Wellcome Connecting Science, United Kingdom<br />
+Dusanka Nikolic, Wellcome Connecting Science, United Kingdom<br />
+Jorge Batista da Rocha, Wellcome Connecting Science, United
+Kingdom<br />
+Mel Sharpe, Wellcome Connecting Science, United Kingdom<br />
+Rachel Berkson, Wellcome Connecting Science, United Kingdom<br />
+Treasa Creavin, Wellcome Connecting Science, United Kingdom</p>
+</div>
+<div id="original-version" class="section level2">
+<h2>Original version</h2>
+<p><strong>Original platform:</strong> FutureLearn<br />
+<strong>Original course page:</strong> <a
+href="https://www.futurelearn.com/courses/from-swab-to-server-testing-sequencing-sharing-during-a-pandemic/1">Swab
+to server: testing, sequencing and sharing during a pandemic</a><br />
+<strong>Launch of the original version:</strong> 9 May 2022</p>
+<p><strong>Data collected on 31 May 2023</strong><br />
+<strong>Number of joiners:</strong> 2,701<br />
+<strong>Number of countries reached:</strong> 139<br />
+<strong>Review score:</strong> 4.7/5 (49 reviews)</p>
+<hr />
+<p>Any reuse of the course materials is encouraged with due
+acknowledgement.</p>
+</div>
+<div id="license" class="section level2">
+<h2>License</h2>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This
+work is licensed under a
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative
+Commons Attribution 4.0 International License</a>.</p>
+</div>
+<div id="how-to-cite" class="section level2">
+<h2>How to cite</h2>
+<p>COG-Train. (2022). From Swab to Server: Testing, Sequencing and
+Sharing during a Pandemic. Zenodo. <a
+href="https://doi.org/10.5281/zenodo.8164995"
+class="uri">https://doi.org/10.5281/zenodo.8164995</a></p>
+</div>
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container-left {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.img-container-right {
+  float: right;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<hr>
+<div class="clearfix">
+  <div class="img-container-left">
+    <img src="assets/img/COG-Train_logo.png" alt="COG-Train" 
+style="width:200%">
+  </div>
+  <div class="img-container-right">
+    <img src="assets/img/WCS_Logo-Primary_Black.jpg" alt="Wellcome 
+Connecting Science" style="width:200%">
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

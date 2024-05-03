@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>power_of_genomics_set1</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COG-Train_Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-file-lines"></span>
+     
+    Course Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Virtual Courses</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viral Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="vbioinfasia.html">VBioinf2022 Asia</a>
+        </li>
+        <li>
+          <a href="vbioinflac.html">VBioinf2022 LAC</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOCs</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Power of Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="power_of_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Swab to Server</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="swab_to_server_home.html">Home</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Making Sense</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="making_sense_home.html">Home</a>
+        </li>
+        <li>
+          <a href="making_sense_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="making_sense_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="making_sense_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Practical Guide</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="practical_guide_home.html">Home</a>
+        </li>
+        <li>
+          <a href="practical_guide_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="practical_guide_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="practical_guide_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pathogen Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="pathogen_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Hybrid Course</li>
+    <li>
+      <a href="scvo2b4b.html">SARS-CoV-2 B4B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">In Person Courses</li>
+    <li>
+      <a href="ECPG.html">Pathogen Genomics Capacity</a>
+    </li>
+    <li>
+      <a href="IGM_B4B.html">Bioinformática Decodificada</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Webinars</li>
+    <li>
+      <a href="Community.html">COG-Train Community</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Team
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cogteam.html">COG-Train Team</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/WCSCourses/COG-Train_Resources">
+    <span class="fa fa-brands fa-github"></span>
+     
+    Github
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="pandemics-and-their-origins" class="section level1">
+<h1>PANDEMICS AND THEIR ORIGINS</h1>
+<p><img src="images/OC1_W1_cover.png" /><br />
+<sub><span class="citation">@Canva</span></sub></p>
+</div>
+<div id="glossary" class="section level1">
+<h1>Glossary</h1>
+<!-- 1-6 -->
+<ul>
+<li><strong>Amino acids:</strong> the subunit molecules that form
+proteins</li>
+<li><strong>Antibody:</strong> a protein produced by the host immune
+system that recognises an antigen and triggers an immune response<br />
+</li>
+<li><strong>Antigen:</strong> a molecule or particle that can trigger an
+immune response<br />
+</li>
+<li><strong>COVID-19:</strong> coronavirus disease 2019<br />
+</li>
+<li><strong>cDNA:</strong> complementary DNA, a DNA molecule synthesised
+from an RNA template molecule<br />
+</li>
+<li><strong>CDC:</strong> Centers for Disease Control and Prevention,
+based in the United States<br />
+</li>
+<li><strong>Cladogram:</strong> it is a graphic representation of the
+ancestry relationship between organisms<br />
+</li>
+<li><strong>Codon:</strong> a group of three nucleotides that encode an
+amino acid<br />
+</li>
+<li><strong>DNA:</strong> deoxyribonucleic acid, an information molecule
+forming the “base code” for a living organism<br />
+</li>
+<li><strong>ECDC:</strong> European Centre for Diseases Prevention
+Control<br />
+</li>
+<li><strong>Endemic:</strong> it refers to a disease that is prevalent
+in or restricted to a particular location, region, or population<br />
+</li>
+<li><strong>Epidemic:</strong> it is an increase in the expected number
+of cases of a disease in a particular population and area<br />
+</li>
+<li><strong>Immune response:</strong> a reaction from the organism to
+defend itself against a threat<br />
+</li>
+<li><strong>mRNA:</strong> messenger RNA, the template for protein
+production<br />
+</li>
+<li><strong>NGS:</strong> next-generation sequencing, a high throughput
+sequencing methodology<br />
+</li>
+<li><strong>Nucleotides:</strong> the subunit molecules that form DNA
+and RNA molecules<br />
+</li>
+<li><strong>Outbreak:</strong> it is a sudden increase in the expected
+number of cases of a disease in a limited area<br />
+</li>
+<li><strong>Pandemic:</strong> it refers to an epidemic that has spread
+over several countries or continents, usually affecting a large number
+of people<br />
+</li>
+<li><strong>Pathogen:</strong> a microorganism or infectious agent that
+can cause disease e.g virus, bacterium, protozoan, prion or fungus<br />
+</li>
+<li><strong>PCR:</strong> Polymerase Chain Reaction, a technique to
+amplify DNA molecules<br />
+</li>
+<li><strong>Phylogenetic tree:</strong> is a graphic representation of
+ancestry relationships, like a cladogram, but taking into account
+inferences on the genetic code similarities between the organism
+involved in the analysis<br />
+</li>
+<li><strong>PPE:</strong> personal protective equipment, devices used to
+protect a person against risks to their health<br />
+</li>
+<li><strong>Polymer:</strong> a chain of molecules or a large molecule
+composed of many repeating subunits<br />
+</li>
+<li><strong>Replication:</strong> viral replication is the mechanism to
+generate new viruses during the infection, it is the process of virus
+multiplication<br />
+</li>
+<li><strong>Real-time PCR:</strong> A PCR method that uses fluorescent
+dye labels to detect and quantify copies of DNA during the amplification
+process.<br />
+</li>
+<li><strong>Reverse transcription:</strong> the process of synthesising
+a cDNA molecule from a template RNA using the enzyme reverse
+transcriptase.<br />
+</li>
+<li><strong>RNA:</strong> ribonucleic acid, an information molecule, can
+be the “base code” for viruses.<br />
+</li>
+<li><strong>RT-qPCR:</strong> Reverse Transcriptase Quantitative PCR,
+also known as reverse transcriptase real-time PCR. A PCR method to
+quantify RNA copies present in a sample; includes a step to synthesise
+cDNA from the template RNA before the PCR amplification.<br />
+</li>
+<li><strong>SARS-CoV-2:</strong> Severe acute respiratory syndrome
+coronavirus 2<br />
+</li>
+<li><strong>Sequencing:</strong> the process of “reading” genomic
+material such as DNA or RNA<br />
+</li>
+<li><strong>Taxon (plural taxa):</strong> in biology, is a unit that
+represents one organism, a group of organisms or a population that
+shares similar characteristics<br />
+</li>
+<li><strong>Tagmented/Tagmentation:</strong> A method of fragmenting DNA
+while adding a “tag” of nucleotides that can be tracked in the
+analysis<br />
+</li>
+<li><strong>Viral variant:</strong> a virus that has one or more
+mutations in its genome<br />
+</li>
+<li><strong>VOC:</strong> variant of concern, according to <a
+href="https://www.who.int/en/activities/tracking-SARS-CoV-2-variants/">WHO</a>
+it is a SARS-CoV-2 variant which meets the definition of a VOI and that
+has been demonstrated to be associated with one or more of the following
+changes at a degree of global public health significance: a) increase in
+transmissibility or detrimental change in COVID-19 epidemiology; or b)
+increase in virulence or change in clinical disease presentation; or c)
+decrease in the effectiveness of public health and social measures or
+available diagnostics, vaccines and therapeutics<br />
+</li>
+<li><strong>VOI:</strong> variant of interest, according to <a
+href="https://www.who.int/en/activities/tracking-SARS-CoV-2-variants/">WHO</a>
+it is a SARS-CoV-2 variant a) with genetic changes that are predicted or
+known to affect virus characteristics such as transmissibility, disease
+severity, immune escape, diagnostic or therapeutic escape; and b)
+identified to cause significant community transmission or multiple
+COVID-19 clusters, in multiple countries with increasing relative
+prevalence alongside an increasing number of cases over time, or other
+apparent epidemiological impacts to suggest an emerging risk to global
+public health<br />
+</li>
+<li><strong>WGS:</strong> Whole-genome sequencing<br />
+</li>
+<li><strong>WHO:</strong> World Health Organisation</li>
+</ul>
+<p><a href="assets/OC1_glossary.pdf">Download the PDF here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="hypotheses-of-where-covid-19-came-from" class="section level1">
+<h1>Hypotheses of where COVID-19 came from</h1>
+<!-- 1-8 -->
+<p><strong>Wuhan, wildlife and ‘wet markets’</strong></p>
+<p>On the 31st December 2019, the Wuhan Municipal Health Commission
+(China) reported a <a
+href="https://www.who.int/csr/don/05-january-2020-pneumonia-of-unkown-cause-china/en/">cluster
+of cases of pneumonia of unknown cause</a> Many of these cases could be
+linked to a wet market nearby that sold a variety of wild animals for
+their meat. Though the exact origins of the virus remain hotly debated,
+many scientists believe that the Huanan Seafood Market represents a
+crucial location in the narrative history of SARS-CoV-2 (the virus which
+causes COVID-19 disease), as the site of significant transmission
+events.</p>
+<p>The viral ancestor of SARS-CoV-2 is thought to have spread between
+animals. Evidence suggests that SARS-CoV-2 is a ‘zoonotic’ virus –
+meaning that it is a virus that has jumped from an animal to a human and
+causes disease. This is not surprising given that other coronaviruses
+are known to cause the common cold in humans and the SARS and MERS
+epidemics (which occurred earlier this century) were caused by related
+viruses of zoonotic origin. Such viruses might be widespread and of
+minor impact in their original animal population, but when they jump to
+humans they can cause symptomatic disease which, because of no prior
+exposure and therefore a lack of immunity to infection, may be severe in
+some people. Scientists were able to link SARS-CoV-2 to viruses in <a
+href="https://www.nature.com/articles/nm.3985">horseshoe bats</a> by
+comparing their genetic codes. Viral genome analyses revealed a striking
+similarity between SARS-CoV-2 and bat coronaviruses, suggesting that the
+virus causing human disease might have evolved from a virus that was
+previously present in bats. In fact, it is suggested that the lineage
+responsible for giving rise to SARS-CoV-2 has been circulating unnoticed
+for decades in bats.</p>
+<p>However, bats were not available for sale at the Huanan market;
+therefore this virus might have <a
+href="https://www.nature.com/articles/s41419-020-02995-9">first emerged
+in another location</a>. However, it remains possible that the market
+was the site of a ‘super spreader’ event, where one individual infected
+many others.</p>
+<p><strong>The Evolution of SARS-CoV-2</strong></p>
+<p>Making the leap from one species to another is a rare event, and it
+represents a key turning point in the evolution of SARS-CoV-2 (Figure
+1). In 2007, coronavirus scientists compared the prevalence of similar
+viruses in horseshoe bats to <a
+href="https://journals.asm.org/doi/10.1128/cmr.00023-07?permanently=true">“a
+time bomb” that “should not be ignored”</a> – only 12 years later,
+SARS-CoV-2 - the evolutionary product of the predecessors these and
+other scientists warned of - emerged.</p>
+<!-- Figure 1 -->
+<div class="float">
+<img src="images/OC1_1-8_viral_particle_illustrative.png"
+style="width:50.0%"
+alt="Schematic illustration representing a SARS-CoV-2 viral particle" />
+<div class="figcaption">Schematic illustration representing a SARS-CoV-2
+viral particle</div>
+</div>
+<p><a href="images/OC1_1-8_viral_particle_illustrative.png">Click here
+to enlarge the image</a></p>
+<p><a href="images/OC1_1-8_Fig1_alt-text.pdf">Download Figure 1 alt-text
+here</a></p>
+<p>New coronaviruses evolve when subtle changes occur in their genetic
+code. These genetic changes (also known as ‘mutations’) can sometimes
+confer advantages to the virus, increasing its infectivity, and
+transmissibility, or even enabling it to cross the species barrier. The
+SARS-CoV-2 virus has continued to evolve and mutate, as seen in the
+Omicron variant which has around 50 mutations compared to the original
+Wuhan virus, around 30 of these in the Spike protein that we will learn
+about next week. The virus is likely to continue to find new ways to
+evade the immune system and transmit with higher efficiency. This
+process of evolution has occurred as part of the natural history of
+every infectious disease including the <a
+href="https://www.cdc.gov/flu/pandemic-resources/1918-commemoration/1918-pandemic-history.htm">Great
+Flu of 1918</a>, and the first <a
+href="https://www.who.int/health-topics/severe-acute-respiratory-syndrome#tab=tab_1">SARS
+outbreak of 2003</a>.</p>
+<p><strong>Sequencing the virus’ genetic code</strong></p>
+<p>Reading the genetic code of the virus has enabled scientists to
+explore its origin. Genomic sequencing (the method by which the virus’
+genetic code is ‘read’) continues to play a vital role in global public
+health and policymaking. In this course, you will learn about the
+fundamentals of SARS-CoV-2 genetics, the process of viral genome
+sequencing and how SARS-CoV-2 genome data can be used by clinicians,
+public health bodies and policymakers in the global fight against
+COVID-19.</p>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://www.nature.com/articles/s41591-020-0820-9?fbclid=IwAR3QtKR9Z6C5wyVclIetOkzHggkgS_H10Sk-_y8CDoTINs10NXQo4QQEU1Q">The
+proximal origin of SARS-CoV-2</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="what-is-a-virus" class="section level1">
+<h1>What is a Virus?</h1>
+<!-- 1-9 -->
+<p>Viruses are sub-microscopic infectious agents - much smaller than
+most bacteria - which infect cells, multiply by using the host’s normal
+replicative functions and become released from the cell they have
+infected. Viruses can’t reproduce on their own – they need the host’s
+genetic machinery in order to replicate their own genetic code.</p>
+<p>The virus core contains its genetic content – this can be DNA or RNA.
+The genetic material is then covered by a protective protein coat called
+a ‘capsid’, and some viruses have an additional ‘envelope’ layer (Figure
+2). This may give the virus <a
+href="https://www.ncbi.nlm.nih.gov/books/NBK8174/">a greater range
+between hosts (the ability to survive outside a host for longer and
+travel further) and aid in immune escape</a>. The type of genetic
+material and its conformation are used to classify viruses according to
+the <a href="https://viralzone.expasy.org/254">Baltimore
+classification</a>.</p>
+<!-- Figure 2 -->
+<div class="float">
+<img src="images/OC1_1-9_viral_particle.png"
+alt="A viral particle structure. The viral genome is protected by a protein coat known as a capsid. Proteins required for viral replication are also packed into the capsid. Some viruses have an envelope membrane with surface proteins that bind to the host cell surface during infection" />
+<div class="figcaption">A viral particle structure. The viral genome is
+protected by a protein coat known as a capsid. Proteins required for
+viral replication are also packed into the capsid. Some viruses have an
+envelope membrane with surface proteins that bind to the host cell
+surface during infection</div>
+</div>
+<p><em>Source: <a
+href="https://www.nature.com/articles/s41579-021-00535-6">Nature Reviews
+Biotechnology</a></em></p>
+<p><a href="images/OC1_1-9_viral_particle.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_1-9_fig2_alt-text.pdf">Download Figure 2 alt-text
+here</a></p>
+<p>Even though viruses are simple structures, they exist in a variety of
+shapes and sizes. Some viruses, like SARS-CoV-2, are relatively large –
+measuring around 100th of a millimetre in diameter. Others like the
+rhinovirus (which causes the common cold) are much smaller – around
+one-third of the size of SARS-CoV-2. Some viral capsids are covered by a
+spiky protein envelope (such as SARS-CoV-1 and SARS-CoV-2), whereas
+others have no envelope at all (such as Poliovirus). Some viruses exist
+in more complex shapes – resembling a lunar lander, or a spider. <a
+href="https://www.sciencedirect.com/science/article/pii/S1369848614720103?via%3Dihub">Some
+people debate whether they’re a true form of life</a></p>
+<p>Viruses infect all known species of life and they require an actively
+growing cell to replicate. They are usually specific to one type of
+cell, which ranges from a single free-living cell such as amoebae, up to
+a cell that forms part of a bigger multi-cellular organism like us.
+Viruses have a reputation for being the cause of disease – but not all
+of them do! <a
+href="https://www.bbc.com/future/article/20200617-what-if-all-viruses-disappeared">The
+World needs viruses to function</a> – and can even prove useful as <a
+href="https://blog.addgene.org/using-virus-in-your-research-a-primer-for-beginners">vital
+tools for scientific research</a>.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="the-sars-cov-2-virus" class="section level1">
+<h1>The SARS-CoV-2 virus</h1>
+<!-- 1-10 -->
+<p>SARS-CoV-2 is an RNA virus. RNA can be either single or
+double-stranded and the SARS-CoV-2 genome is composed of single-stranded
+RNA of just under 30,000 bases.</p>
+<p>To enter a cell, the virus must recognise and bind to a receptor.
+SARS-CoV-2 Spike uses as receptors two specific cell-surface proteins <a
+href="https://www.sciencedirect.com/science/article/pii/S0092867420302294">(ACE2
+and TMPRSS2)</a>, most frequently found on cells in the upper and lower
+respiratory system. TMPRSS2 is found in higher quantities in the lungs
+than in the upper respiratory tract whereas the opposite is true for
+ACE2. It has been suggested that Omicron requires <a
+href="https://www.nature.com/articles/d41586-022-00292-3">more ACE2
+receptors to enter the cell and is less efficient at using the TMPRSS
+pathway</a>, perhaps explaining the observed preference for upper
+respiratory tract infections with this variant. After entering host
+cells, the SARS-CoV-2 genome uses the cell machinery to produce copies
+of itself. In this process, called replication, the virus multiplies its
+RNA genetic code and generates its proteins. Two large proteins (ORF1a
+and ORF1b) are generated and will be broken down into the non-structural
+viral proteins (nps1-16). The <a
+href="https://www.sciencedirect.com/science/article/pii/S0888754320308764">genome
+also encodes the structural proteins Spike (S), Envelope (E), Membrane
+(M) and Nucleoprotein (N)</a> and a few other proteins that interact
+with the cell function (Figure 3).</p>
+<!-- Figure 3 -->
+<div class="float">
+<img src="images/OC1_1-10_Fig_1_sarscov2_ptn.png"
+alt="A schematic illustration of the SARS-CoV-2 viral particle in the centre. The surrounding arc depicts the genome organisation. Structural and non-structural viral proteins are coloured in green and blue shades, respectively" />
+<div class="figcaption">A schematic illustration of the SARS-CoV-2 viral
+particle in the centre. The surrounding arc depicts the genome
+organisation. Structural and non-structural viral proteins are coloured
+in green and blue shades, respectively</div>
+</div>
+<p><em>Source: <a
+href="https://pdb101.rcsb.org/learn/flyers-posters-and-other-resources/flyer/sars-cov-2-genome-and-proteins">RCSB
+PDB</a></em></p>
+<p><a href="images/OC1_1-9_viral_particle.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_1-10_Fig3-4_alt-text.pdf">Download Figure 3
+alt-text here</a></p>
+<p>All these pieces are then assembled into new viral particles and
+released from the cell to infect new cells. Some viruses may enter the
+bloodstream and find their way to organs other than the lungs such as
+the heart, brain and kidney. This may cause additional damage and
+wide-ranging symptoms.</p>
+<p>Figure 4 shows a schematic of SARS-CoV-2 replication within the host
+cell as well as the route from the lungs to secondary organs. Also shown
+are components of the host immune system which act to destroy the virus.
+Learn more about the different <a
+href="https://www.ncbi.nlm.nih.gov/books/NBK27092/">components of the
+immune system.</a></p>
+<!-- Figure 4 -->
+<div class="float">
+<img src="images/OC1_1-10_Fig2_infection_scheme.png"
+alt="The SARS-CoV-2 replication and pathogenesis. (a) SARS-CoV-2 infects the upper and lower respiratory tract. (b) The virus replication from 1 to 12 has been described as: (1-2) The virus identifies the ACE-2 receptor. (2) The Spike (S) protein of SARS-CoV-2 binds to the ACE-2 receptor. (3, 4) The virus-receptor internalization occurs and a membrane fusion is carried out followed by the release of the viral genome inside the cell. (5–7) Replication of viral genetic code and generation of viral proteins. (8–10) Assembly of new viral particles. (11–12) Budding of recently formed viral particles from the infected cell. (c) The virus disseminates to the other part of the body through blood affecting the brain, heart, liver spleen, large intestine and kidneys" />
+<div class="figcaption">The SARS-CoV-2 replication and pathogenesis. (a)
+SARS-CoV-2 infects the upper and lower respiratory tract. (b) The virus
+replication from 1 to 12 has been described as: (1-2) The virus
+identifies the ACE-2 receptor. (2) The Spike (S) protein of SARS-CoV-2
+binds to the ACE-2 receptor. (3, 4) The virus-receptor internalization
+occurs and a membrane fusion is carried out followed by the release
+of the viral genome inside the cell. (5–7) Replication of viral genetic
+code and generation of viral proteins. (8–10) Assembly of new viral
+particles. (11–12) Budding of recently formed viral particles from the
+infected cell. (c) The virus disseminates to the other part of the body
+through blood affecting the brain, heart, liver spleen, large intestine
+and kidneys</div>
+</div>
+<p><em>Source: <a
+href="https://doi.org/10.1186/s12931-020-01581-z">Respiratory
+Research</a></em></p>
+<p><a href="images/OC1_1-10_Fig2_infection_scheme.png">Click here to
+enlarge the image</a></p>
+<p><a href="images/OC1_1-10_Fig3-4_alt-text.pdf">Download Figure 4
+alt-text here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="what-is-the-difference-between-pandemic-epidemic-and-outbreak"
+class="section level1">
+<h1>What is the difference between pandemic, epidemic, and
+outbreak?</h1>
+<!-- 1-11 -->
+<!-- YT: https://youtu.be/uhu7fQ5PEoY -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/uhu7fQ5PEoY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/Pandemic_epidemic_etc_with_audio_7_1_22.pdf">Download
+the transcript here</a></p>
+<p>In this recorded lecture, Dr Teresa Cutiño-Moguel from Barts Health,
+United Kingdom explains the differences between the terms: pandemic,
+epidemic, endemic and outbreak. Each is related to the spread and
+presence of a disease, but all have different meanings.</p>
+<p>Do you recognise the diseases mentioned in the video? Are there other
+diseases causing epidemics in your country? Please share in the comments
+below!</p>
+<p><em>Erratum: After the video editing we noticed a mistake. At 3:00
+Teresa says: “Well, <strong>epidemic</strong> is the baseline level of a
+disease”. She meant to say “<strong>endemic</strong> is the baseline
+level of a disease.”</em></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="transmission-of-respiratory-viruses" class="section level1">
+<h1>Transmission of respiratory viruses</h1>
+<!-- 1-12 -->
+<p>Viral transmission is the process through which viruses spread
+between hosts and includes the spread to members of the same host
+species or different species.</p>
+<p><strong>Transmissibility</strong></p>
+<p>Transmissibility is how easily a disease-causing pathogen can spread
+from an infected person to a susceptible person. It is determined by the
+infectivity of the pathogen, the susceptibility of the exposed
+individual, the contagiousness of the infected individual, the amount of
+contact between these two and other environmental factors such as air
+movement during the transmission event. To estimate transmissibility in
+the population, mathematical models are used with the aid of
+surveillance data. The basic reproduction number (R0) or secondary
+attack rate (SAR) is used as a measure of transmissibility.</p>
+<p><strong>Modes of transmission</strong></p>
+<p><a
+href="https://www.nature.com/articles/s41579-021-00535-6">Respiratory
+viruses are transmitted</a> through the release of a viral particle from
+the respiratory tract of an infected person and transferred to the
+respiratory tract of a susceptible one. There are different modes
+through which this can happen. All of them can be modified by the
+environment and many modes are generally involved during transmission
+including direct and indirect contact (fomites - any object or surface
+that can facilitate transmission), droplets and aerosols. Early studies
+of pulmonary tuberculosis calculated that particles of less than 5 μm
+would deposit in the lungs, whereas larger ones (over 5 μm) would only
+reach the nasal cavity. More recently, it has been suggested that
+particles between 30-100 μm can produce aerosols, which are a suspension
+of solid and liquid particles in the air. By contrast, droplets are
+larger liquid particles that cannot remain suspended and fall to the
+ground in a shorter time and over a shorter distance. The surrounding
+and exhaled air also have an effect on the propulsion of particles
+(composition, humidity, airflow, temperature) thus allowing “larger”
+particles to travel further than would be expected based on their size
+only (Figure 5).</p>
+<p>Due to its ability to replicate in the upper gastrointestinal tract,
+SARS-CoV-2, like some other beta-coronaviruses, also has been shown to
+transmit via a faecal-oral route.</p>
+<!-- Figure 5 -->
+<div class="float">
+<img src="images/OC1_1-12_Fig_1.png"
+alt="Modes of transmission. During an acute respiratory virus infection, an infected individual (infector; red) may shed the virus in exhaled breath droplets and aerosols, and may also contaminate their immediate bodily surfaces (for example, skin and clothes) or surrounding objects and surfaces (for example, tables) with their respiratory secretions. In general, if a susceptible individual (infectee; grey) is close to the infector, the short-range transmission may occur when the infectee breathes in the virus-laden droplets or aerosols released by the infector, during direct (physical) contact with the infector or during physical contact with objects or surfaces contaminated (fomite) by the infector. If the infected are at a distance from the infector, the long-range transmission may occur when the infectee breathes in the virus-laden aerosols released by the infector or during physical contact with a fomite. However, the terminology and the defining features of each mode of respiratory virus transmission, especially regarding redefining the particle size threshold between droplets and aerosols, is under active discussion (see the section Terminology and defining features of modes of transmission)" />
+<div class="figcaption">Modes of transmission. During an acute
+respiratory virus infection, an infected individual (infector; red) may
+shed the virus in exhaled breath droplets and aerosols, and may also
+contaminate their immediate bodily surfaces (for example, skin and
+clothes) or surrounding objects and surfaces (for example, tables) with
+their respiratory secretions. In general, if a susceptible individual
+(infectee; grey) is close to the infector, the short-range transmission
+may occur when the infectee breathes in the virus-laden droplets or
+aerosols released by the infector, during direct (physical) contact with
+the infector or during physical contact with objects or surfaces
+contaminated (fomite) by the infector. If the infected are at a distance
+from the infector, the long-range transmission may occur when the
+infectee breathes in the virus-laden aerosols released by the infector
+or during physical contact with a fomite. However, the terminology and
+the defining features of each mode of respiratory virus transmission,
+especially regarding redefining the particle size threshold between
+droplets and aerosols, is under active discussion (see the section
+Terminology and defining features of modes of transmission)</div>
+</div>
+<p><em>Source: <a
+href="https://www.nature.com/articles/s41579-021-00535-6">Nature Reviews
+Microbiology</a></em></p>
+<p><a href="images/OC1_1-12_Fig_1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_1-12_Fig5_alt-text.pdf">Download Figure 5
+alt-text here</a></p>
+<p><strong>Determinants of transmission</strong></p>
+<p>Viral, host and environmental factors determine the success of a
+transmission event. The structure of a virus (i.e. envelope vs
+non–enveloped, RNA vs DNA genome) will determine how stable it is in the
+environment. Viral proteins (such as the spike protein in SARS-CoV-2)
+determine the affinity of the virus for host cellular receptors. The
+environment can facilitate transmission by allowing the survival of the
+virus on fomites or suspended as aerosols, or it can affect the
+behaviour of the host. Factors that can affect survival include
+temperature, salinity, pH, humidity, the material of contaminated
+objects or surfaces and ventilation. Host determinants in both the
+transmitter and the recipient of the virus are important: pre-existing
+immunity due to vaccination or natural immunity can modulate the
+propensity to transmit or to acquire a viral infection. Another key
+factor in the current pandemic is the impact of asymptomatic carriage,
+whereby individuals can carry and transmit the virus with no obvious
+symptoms.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="genomic-technologies-for-tracking-covid-19"
+class="section level1">
+<h1>Genomic technologies for tracking COVID-19</h1>
+<!-- 1-13 -->
+<p>As the SARS-CoV-2 virus spread around the world, and more suspected
+cases of COVID-19 were emerging, there was a significant need for a
+diagnostic test with high accuracy.</p>
+<p>Genomic technologies like sequencing and polymerase chain reaction
+(PCR) are used to study and identify an organism’s “genetic signature”.
+You will learn more about these in the next activity. Sequencing was
+used to determine the genome of SARS-CoV-2. Once this genome sequence
+was available, a test could be developed to look for the presence of
+SARS-CoV-2 in a given sample. The PCR test uses a specific probe
+(primer) that will only give a positive result in the presence of the
+SARS-CoV-2 genome.</p>
+<p>Figure 6 depicts the timeline of the early outbreak response to the
+new respiratory infection that emerged in 2019. The pathogen was
+identified as a virus within a week, tests were developed and deployed
+that would have been simply impossible without the power of genomic
+technologies. Once the first sequences of the new virus nCoV (later
+classified as SARS-CoV-2) became publicly available in early January
+2020, it was possible to quickly design the primers for the first PCR
+tests.</p>
+<!-- Figure 6 -->
+<div class="float">
+<img src="images/OC1_1-13_Fig_1.png"
+alt="Timeline of the fast SARS-CoV-2 PCR test development in the first couple of months since the first reported cases" />
+<div class="figcaption">Timeline of the fast SARS-CoV-2 PCR test
+development in the first couple of months since the first reported
+cases</div>
+</div>
+<p><a href="images/OC1_1-13_Fig_1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_1-13_Fig6_alt-text.pdf">Download Figure 6
+alt-text here</a></p>
+<p>With accurate diagnostic tests, scientists were able to define the
+reproduction number (R) of SARS-CoV-2. The R number is the average
+number of additional individuals infected (secondary infections)
+produced by a single infected individual. An R-value of “1” indicates
+that one infected individual will infect another person. At an R-value
+of “2”, one infected individual will infect two more individuals. Values
+lower than “1” indicate that infections are slowing - an R-value of
+“0.5” indicates that for every two infected individuals only one
+additional infection occurs.</p>
+<p>The infection growth rate shows how quickly numbers are changing by
+the day. It is an approximate percentage change in the number of newly
+infected individuals. If the growth rate is bigger than 0, the outbreak
+or epidemic is growing, and if the growth rate is less than 0, the
+epidemic is shrinking.</p>
+<p>Both R values and growth rates are useful for the definition of
+outbreak, epidemic and pandemic. Comment below your thoughts on what the
+definitions for COVID-19 may have been like without genomic technology,
+or if the technology took longer to develop.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="the-great-influenza-pandemic-of-1918" class="section level1">
+<h1>The Great Influenza Pandemic of 1918</h1>
+<!-- 1-14 -->
+<p>Whilst the current situation we are facing during this pandemic may
+feel unprecedented, it is important to remember that the World has faced
+a number of previous outbreaks of different viruses. One of the most
+notable previous pandemics was that of the 1918 Great Influenza
+outbreak, estimated to have killed more than 20 million people.</p>
+<p>Despite being over 100 years ago, many of the responses to influenza
+in 1918 can be recognised in how governments have reacted during the
+current pandemic. It was recognised early that transmission was through
+the air and the <a
+href="https://www.bmj.com/content/bmj/2/3016/439.full.pdf">British
+Medical Journal in October 1918</a> reported that health officials
+believed the best measures for prevention were good ventilation, fresh
+air and the avoidance of crowded meetings. Responses varied
+internationally, with the United States taking measures to restrict
+non-essential meetings; bars and cinemas were closed and public funerals
+stopped. Some countries closed schools whilst others heavily resisted
+this. Influenza wards were created, sick people in the community were
+quarantined and mask-wearing was encouraged (though the effectiveness of
+this was hotly debated in different settings).</p>
+<p>So what is different now? Crucially, in 1918, the pathogen causing
+the outbreak was not characterised at the time. It was initially
+believed to be of bacterial origin, in keeping with the prevailing
+thought that <em>Bacillus influenzae</em> (now known as <em>Haemophilus
+influenzae</em>) was the causative agent of influenza. This assumption
+was challenged during the 1918 pandemic. Whilst many groups advocated
+for the use of vaccines and trials in susceptible individuals, the <a
+href="https://jamanetwork.com/journals/jama/article-abstract/219877">Journal
+of the American Medical Association in December 1918 published</a> a
+conclusion from the American Public health Association that because of
+the unknown cause of influenza, an effective vaccine had no scientific
+basis. In the current pandemic, the <a
+href="https://www.nejm.org/doi/full/10.1056/nejmoa2001017">causative
+virus was identified quickly</a> using a PCR screen for 22 known
+pathogens and an unbiased sequencing approach to detect novel agents,
+allowing the development of both diagnostic tests and rapid vaccine
+development. This was enabled by the use of the genomic technologies
+discussed in this course.</p>
+<p>To learn more about the 1918 pandemic and lessons learned for the
+future, watch this video:</p>
+<!-- YT: https://youtu.be/3x1aLAw_xkY -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/3x1aLAw_xkY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><sub>This video is hosted by a third party</sub></p>
+<p>This video is also available on the <a
+href="https://www.cam.ac.uk/research/news/spanish-flu-a-warning-from-history">University
+of Cambridge website</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="dna-rna-and-pcr" class="section level1">
+<h1>DNA, RNA and PCR</h1>
+<!--1-15 -->
+<!-- YT: https://youtu.be/6Zmv76CFzMw -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/6Zmv76CFzMw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC1_1-15_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this video, Dr Sophie Prosolek discusses the importance of
+genomics for sequencing and PCR methodologies.</p>
+<p>Deoxyribonucleic acid (DNA) and ribonucleic acid (RNA) are amongst
+the most important molecules for life on earth – they’re responsible for
+the storage and translation of the genetic code. DNA and RNA are both
+linear polymers (chains of molecules) – they consist of sugars,
+phosphates, and bases, linked together in a chain (Figure 7).</p>
+<!-- Figure 7 -->
+<div class="float">
+<img src="images/OC1_1-15.png" style="width:50.0%"
+alt="Difference between DNA and RNA molecules. DNA: deoxyribonucleic acid is represented by a double-stranded helix. The bases are paired as adenine-thymine and cytosine-guanine, forming “stores” of genetic code. RNA: ribonucleic acid is usually a single-stranded helix that codifies the instructions for building proteins. RNA is composed of the nucleotides adenine, cytosine, guanine, and has uracil replacing thymine" />
+<div class="figcaption">Difference between DNA and RNA molecules. DNA:
+deoxyribonucleic acid is represented by a double-stranded helix. The
+bases are paired as adenine-thymine and cytosine-guanine, forming
+“stores” of genetic code. RNA: ribonucleic acid is usually a
+single-stranded helix that codifies the instructions for building
+proteins. RNA is composed of the nucleotides adenine, cytosine, guanine,
+and has uracil replacing thymine</div>
+</div>
+<p><a href="images/OC1_1-15.png">Click here to enlarge the image</a></p>
+<p><a href="images/OC1_1-15_Fig7_alt-text.pdf">Download Figure 7
+alt-text here</a></p>
+<p>DNA is a double-stranded molecule comprising four nitrogenous
+‘bases’, each strung together along a carbon backbone - these bases are
+known as adenine (A), thiamine (T), cytosine (C) and guanine (G).</p>
+<p>The sequence in which DNA bases occur provides the genetic code
+within human cells. Some viruses, such as SARS-CoV-2, use RNA rather
+than DNA as their genetic material.</p>
+<p>RNA is usually a single-stranded molecule, and it also comprises four
+nitrogenous bases. Like DNA, RNA contains adenine (A), cytosine (C), and
+guanine (G) - instead of containing thiamine (T) RNA’s fourth base is
+uracil (U). Although RNA is presented as single-stranded molecules for
+most of its biological functions, it can form double-strands to compose
+the genome of certain viruses or bend in double-helix to form transport
+RNA (tRNA), for instance.</p>
+<p>The subtle differences between DNA and RNA have implications for
+viral sequencing. To read the genetic code of SARS-CoV-2, its RNA must
+first be converted to DNA – allowing it to be ‘read’ by the sequencing
+machine (Figure 8).</p>
+<!-- Figure 8 -->
+<div class="float">
+<img src="images/OC1_1-15_table_1.png"
+alt="Table differentiating DNA and RNA." />
+<div class="figcaption">Table differentiating DNA and RNA.</div>
+</div>
+<p><a href="images/OC1_1-15_table_1.png">Click here to enlarge the
+image</a></p>
+<p><a href="assets/OC1_1-15_DNA_RNA_table.pdf">Download the table PDF
+file here</a></p>
+<p><strong>Polymerase chain reaction</strong> (PCR) was first developed
+by Kary Mullis &amp; team in the <a
+href="https://www.sciencedirect.com/science/article/abs/pii/0076687987550236">mid-1980s</a>,
+revolutionising the way that clinical samples are tested. The
+development of PCR has enabled other techniques to be established,
+including sequencing, cloning and genetic engineering. This wider suite
+of genomic technologies has enabled clinicians and virologists to
+understand the characteristics of an active infection, interactions
+between the host and organisms, and the effectiveness of treatment
+regimens. Throughout the current pandemic, PCR has been used to diagnose
+COVID-19 and to provide a template for genomic sequencing, to
+characterise the specific virus within an infected individual.</p>
+<p>PCR targets and amplifies a specific region of single or
+double-stranded DNA. The following components are required to conduct a
+PCR: two oligonucleotide primers that flank the DNA sequence being
+amplified, thermostable polymerase; nucleotides, buffer (including Mg2+,
+to create an optimal pH) and water.</p>
+<p>PCR has 3 crucial steps:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Denaturation</strong> (about 95°C)- this is the
+separation of the strands of DNA by melting the double-strand templates
+apart. The melting temperature depends on the length and the sequence of
+the template in addition to the duration of the melting</p></li>
+<li><p><strong>Annealing</strong> (55-60°C)- this is the attachment of
+the primers targeting specific sequences. The temperature depends on the
+primers used. Protocols often use a temperature a few degrees below the
+melting temperature to enable the stable complexes to be formed with the
+target sequences and avoid binding with any other sequences.</p></li>
+<li><p><strong>Elongation</strong> (72°C)- this is the synthesis of new
+strands of DNA with the help of DNA polymerase, which is used to anneal
+the primers whilst stabilizing the complex.</p></li>
+</ol>
+<p>These temperatures are regulated with a thermocycler, which can be
+programmed to change according to the PCR of interest. The experimental
+conditions are critical to the outcome of the PCR reaction. For example,
+if the annealing temperature is too high, there might be insufficient
+primer-template hybridization. If it’s too low, it could result in the
+creation of non-specific products, which are formed from a large number
+of base pair mismatches. It is important that the magnesium ion
+concentration is optimised for each primer being used. There is a
+balance between providing enough magnesium to provide stability to the
+polymerase, whereas too much magnesium can mean the primer binding may
+become non-specific.</p>
+<p><strong>PCR</strong> is the amplification of nucleic acid which
+provides genetically identical copies. This amplifies the nucleic acid
+but it is not possible to quantify the amount of nucleic acid as the
+amount of product doesn’t correlate with the amount of nucleic acid in
+the original sample. It is a qualitative technique.
+<strong>End-point</strong> PCR is visualised by the use of gel
+electrophoresis.</p>
+<p><strong>Pros:</strong> Sensitive as only one copy of target DNA is
+sufficient, easy to use and is a rapid technique. <strong>Cons:</strong>
+There is a risk of false positives if there is cross-contamination; the
+analysis of the results is not automated, it requires the post-PCR
+processing to be able to read the results (gel electrophoresis and
+therefore poor resolution); it is not a quantitative method and
+therefore it does not provide information on template target DNA.</p>
+<p><a
+href="https://www.sciencedirect.com/science/article/pii/S0098299705000907"><strong>Real-time
+PCR</strong></a>, also known as <strong>Kinetic PCR</strong>, was
+developed in 1992 and allows for the semi-quantification of the amount
+of nucleic acid present. Measuring fluorescent dyes or probes enabled
+the proportional comparison of the amount of product made from
+amplification and the number of cycles required to form a threshold
+amount of amplified DNA. This approach has been used for <a
+href="https://academic.oup.com/nar/article/30/6/1292/1115130">many years
+in virology</a> and has been utilised in the current pandemic to
+prioritise samples that are more likely to generate a good quality
+sequence. The PCR efficiency has to be calculated when considering this;
+usually, this represents a doubling of the amount of cloned nucleic acid
+per cycle of amplification. With this in mind, the amount of DNA
+molecules originally present in the sample can be measured.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="what-is-genome-sequencing" class="section level1">
+<h1>What is Genome Sequencing?</h1>
+<!-- 1-16 -->
+<p>Sequencing may appear to be a very challenging in-depth technology,
+but here we will break it down into steps and discuss the application of
+each step.</p>
+<p>All living things have a unique code which is made up of RNA or DNA
+containing nucleotide bases. Sequencing is a technique that helps us to
+determine this unique code.</p>
+<p>Sanger sequencing was the first technique discovered by Frederick
+Sanger in the 1970s. This technique used radiolabelled partially
+digested fragments to discover the unique bases and was known as the
+chain termination method. However, this method was time-consuming and
+very expensive to determine small fragments of DNA.</p>
+<p>The Human Genome Project (HGP) has led to changes that have
+dramatically changed our approach to disease diagnosis, and together
+with the development of sequencing-by-synthesis techniques (otherwise
+known as next-generation sequencing or NGS technologies) the cost and
+time to sequence have decreased considerably. The HGP enabled clinicians
+to find mutations within the DNA code which we now use to test for
+genetic disorders and personalised medicine. Today, we can sequence the
+whole genome of a human in 1-2 days and it is expected that this will
+continue to decrease in time and cost.</p>
+<!-- YT: https://youtu.be/fCd6B5HRaZ8 -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/fCd6B5HRaZ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><sub>This video is hosted by a third party</sub></p>
+<p>At the beginning of the 21st century, NGS methodologies became
+available and the development and improvement of these methods have been
+continuous. These are high-throughput sequencing platforms. Nowadays
+there are multiple NGS platforms available (see the videos explaining
+the Illumina and Oxford Nanopore Technologies, two examples used
+extensively within the early COG-UK consortium, although there are many
+others such as PacBio and Ion Torrent), and a variety of techniques and
+sequencing strategies. We will address the details of NGS later in our
+course series.</p>
+<p>Since the COVID-19 pandemic began, the COG-UK Consortium has used NGS
+and viral Whole Genome Sequencing (WGS) technologies to find the unique
+code of the SARS-CoV-2 RNA genomes. Although different sequencing
+methods can be used, WGS has helped us to understand many different
+aspects of the virus in rapid time: its epidemiology and transmission,
+how the interventions and treatment are working and the biological
+understanding of the virus. Sequencing the human DNA from a large cohort
+of people who have been infected with the virus has allowed us to
+determine the genetic changes over time and understand how this
+translates into patient health and the genetic evolution of the virus
+during the pandemic.</p>
+<!-- YT: https://youtu.be/qzusVw4Dp8w -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/qzusVw4Dp8w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><sub>This video is hosted by a third party</sub></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="tracking-and-reacting-to-outbreaks-with-genomic-knowledge"
+class="section level1">
+<h1>Tracking and reacting to outbreaks with genomic knowledge</h1>
+<!-- 1-17 -->
+<!-- YT: https://youtu.be/mlbVYNzVejE -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/mlbVYNzVejE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/Tapfumanei_Talk_outbreaks_zim.pdf">Download the
+transcript here</a></p>
+<p><a href="assets/Zimbabwe_AMR_StoryT_Mashe_wAlt_Text.pdf">Download the
+slides here</a></p>
+<p>Watch Dr Tapfumanei Mashe from the Ministry of Health and Child Care,
+Zimbabwe explains how genomics was used to track and respond to cholera
+outbreaks in his country.</p>
+<p>Cholera is caused by bacteria, specifically the species: <em>Vibrio
+cholerae</em>, however many of the approaches used in surveillance are
+similar to those used for viruses.</p>
+<p>Bacteria can carry DNA external to their genomes in transmissible
+elements called “plasmids”.</p>
+<p>Tapfumanei explains that resistance genes carried on plasmids can
+give <em>Vibrio cholerae</em> the ability to resist certain treatments
+(Figure 9).</p>
+<!-- Figure 9 -->
+<div class="float">
+<img src="images/OC1_1-17_fig1.png"
+alt="Phylogenetic Relatedness of the Vibrio cholerae O1 El Tor Isolates from the 2018–2019 Outbreak in Zimbabwe" />
+<div class="figcaption">Phylogenetic Relatedness of the <strong>Vibrio
+cholerae</strong> O1 El Tor Isolates from the 2018–2019 Outbreak in
+Zimbabwe</div>
+</div>
+<p><em>Source: <a
+href="https://www.nejm.org/doi/full/10.1056/NEJMc2004773">NEJM</a></em></p>
+<p><a href="images/OC1_1-17_fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_1-17_Fig9_alt-text.pdf">Download Figure 9
+alt-text here</a></p>
+<p>He also gives the example of discovering that Typhoid, caused by
+<em>Salmonella typhi</em>, also carried genetic material conferring
+resistance to ciprofloxacin (a commonly used antibiotic).</p>
+<p>By sequencing samples from Typhoid cases, researchers could show
+where resistance was spreading, and health teams were able to respond by
+increasing vaccination in those areas.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="how-is-sars-cov-2-sequencing-done" class="section level1">
+<h1>How is SARS-CoV-2 sequencing done?</h1>
+<!-- 1-18 -->
+<p>There are many sequencing technologies used for SARS-CoV-2 (Figure
+10). Here we will approach a broadly used protocol based on viral WGS.
+The method consists of viral RNA isolation, Library preparation,
+Sequencing run and Analysis.</p>
+<!-- Figure 10 -->
+<div class="float">
+<img src="images/OC1_1-18_fig_1.png"
+alt="Methods for SARS-CoV-2 genome sequencing. a.) In Illumina’s Nextera DNA Flex Enrichment protocol cDNA is tagmented and made into barcoded sequencing libraries, which are then enriched using sequence capture with a respiratory virus panel containing probes against SARS-CoV-2. b.) In the ARTIC protocol, first-strand cDNA is enriched by amplifying with two pools of primers to generate amplicons tiling the SARS-CoV-2 genome. These amplicons are then subjected to either Illumina or Oxford Nanopore library preparation, using methods that either directly add adapters to the ends of the amplicons or fragment them to enable sequencing on a wider variety of Illumina instruments. c.) The tailed amplicon approach, developed here, enriches first-strand cDNA using ARTIC v3 primers containing adapter tails. This allows functional sequencing libraries to be created through a second indexing PCR reaction that adds sample-specific barcodes and flow cell adapters" />
+<div class="figcaption">Methods for SARS-CoV-2 genome sequencing.
+<strong>a.)</strong> In Illumina’s Nextera DNA Flex Enrichment protocol
+cDNA is tagmented and made into barcoded sequencing libraries, which are
+then enriched using sequence capture with a respiratory virus panel
+containing probes against SARS-CoV-2. <strong>b.)</strong> In the ARTIC
+protocol, first-strand cDNA is enriched by amplifying with two pools of
+primers to generate amplicons tiling the SARS-CoV-2 genome. These
+amplicons are then subjected to either Illumina or Oxford Nanopore
+library preparation, using methods that either directly add adapters to
+the ends of the amplicons or fragment them to enable sequencing on a
+wider variety of Illumina instruments. <strong>c.)</strong> The tailed
+amplicon approach, developed here, enriches first-strand cDNA using
+ARTIC v3 primers containing adapter tails. This allows functional
+sequencing libraries to be created through a second indexing PCR
+reaction that adds sample-specific barcodes and flow cell adapters</div>
+</div>
+<p><em>Source: <a
+href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-020-07283-6#Fig1">BMC
+Genomics</a></em></p>
+<p><a href="images/OC1_1-18_fig_1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_1-18_Fig10_alt-text.pdf">Download Figure 10
+alt-text here</a></p>
+<p><strong>Viral RNA Isolation</strong></p>
+<p><em>1. Viral inactivation</em><br />
+Sequencing of SARS-CoV-2 first requires the inactivation of live virus
+either by heat or inactivating buffer so that the laboratory worker can
+handle the sample without putting themselves at risk. This procedure is
+carried out at various Biosafety Levels (BSL) worldwide. In the UK,
+prior to the current pandemic, this viral isolation would have been
+carried out at BSL3 facilities, but in early 2020, Public Health England
+issued a directive allowing this work to be completed at BSL2+.</p>
+<p><em>2. Extraction of nucleic acid</em><br />
+The sample requires extraction of the nucleic acid so there is nothing
+else in the sample which could inhibit the sequencing. Extraction is
+normally performed by lysing (breaking down) the virus. It can be
+performed using commercial kits or using magnetic beads to separate the
+nucleic acids from other materials in the sample. A range of buffers and
+alcohol suspensions are used to elute the nucleic acid into a final
+solution which is usually molecular-grade water.</p>
+<p><strong>Library preparation</strong></p>
+<p><em>1. complementary DNA synthesis (not used for all
+technologies)</em><br />
+RNA extracts must be converted to cDNA because amplification methods,
+such as PCR, require DNA molecules as a template. A reverse
+transcriptase enzyme is used to synthesize the cDNA.</p>
+<p><em>2. PCR Set-up and Amplification (not used for all
+technologies)</em><br />
+The cDNA is then added to a reaction mix including PCR reagents and
+SARS-CoV-2 specific primers, each targeting small regions of the viral
+genome. A specific primer targeting strategy is used to ensure that the
+entire genome is covered by these small regions. Samples are placed in a
+thermocycler, where amplification takes place. At the end of the
+process, millions of viral DNA fragments are generated.</p>
+<p><em>3. Index PCR Set-up</em><br />
+NGS technologies allow multiplexing, ie. pooling several different
+samples in a single sequencing run. In this process oligonucleotide
+indexes are added to each individual sample, ‘barcoding’ them, using a
+PCR procedure. This allows the individual samples to be separated
+computationally after sequencing.</p>
+<p><em>4. Sample Pooling</em><br />
+The concentration of the DNA of the barcoded samples is measured and
+equal amounts of DNA from each sample are pooled in a single tube.</p>
+<p><em>5. Clean-Up</em><br />
+NGS methodologies are highly sensitive. Inhibitors and reagent residues
+must be removed through DNA purification. It is strongly recommended to
+use magnetic beads purification protocols for the clean-up step.</p>
+<p><strong>Sequencing run</strong></p>
+<p>Depending on the technology used, the samples are loaded onto a flow
+cell and run on a sequencer that will generate fluorescent reads which
+can be captured by a camera or one which passes the entire molecule
+through a Nanopore and captures the sequence in real time.</p>
+<p><strong>Analysis</strong></p>
+<p>Sequencing data is demultiplexed and the viral genome is assembled
+(similar to an alignment) using bioinformatics tools. There are many
+analysis pipelines, most commonly using command-line, but there are also
+graphic interface tools.</p>
+<p><strong>SARS-CoV-2 ARTIC Protocols</strong><br />
+There are specific ARTIC Network-derived protocols available for both <a
+href="https://www.protocols.io/view/ncov-2019-sequencing-protocol-for-illumina-b2msqc6e">Illumina</a>
+and <a
+href="https://www.protocols.io/view/ncov-2019-sequencing-protocol-v3-locost-bh42j8ye">Oxford
+Nanopore Technologies</a> platforms.</p>
+<p>If you are interested in seeing a sequencing workflow in a
+laboratory, see this video (note, the video is silent) :</p>
+<!-- YT: https://youtu.be/0iok-W3N_Iw -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/0iok-W3N_Iw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><sub>This video is hosted by a third party</sub></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container-left {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.img-container-right {
+  float: right;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<hr>
+<div class="clearfix">
+  <div class="img-container-left">
+    <img src="assets/img/COG-Train_logo.png" alt="COG-Train" 
+style="width:200%">
+  </div>
+  <div class="img-container-right">
+    <img src="assets/img/WCS_Logo-Primary_Black.jpg" alt="Wellcome 
+Connecting Science" style="width:200%">
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

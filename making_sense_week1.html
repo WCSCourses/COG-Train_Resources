@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>making_sense_week1</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COG-Train_Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-file-lines"></span>
+     
+    Course Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Virtual Courses</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viral Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="vbioinfasia.html">VBioinf2022 Asia</a>
+        </li>
+        <li>
+          <a href="vbioinflac.html">VBioinf2022 LAC</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOCs</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Power of Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="power_of_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Swab to Server</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="swab_to_server_home.html">Home</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Making Sense</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="making_sense_home.html">Home</a>
+        </li>
+        <li>
+          <a href="making_sense_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="making_sense_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="making_sense_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Practical Guide</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="practical_guide_home.html">Home</a>
+        </li>
+        <li>
+          <a href="practical_guide_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="practical_guide_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="practical_guide_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pathogen Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="pathogen_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Hybrid Course</li>
+    <li>
+      <a href="scvo2b4b.html">SARS-CoV-2 B4B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">In Person Courses</li>
+    <li>
+      <a href="ECPG.html">Pathogen Genomics Capacity</a>
+    </li>
+    <li>
+      <a href="IGM_B4B.html">Bioinformática Decodificada</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Webinars</li>
+    <li>
+      <a href="Community.html">COG-Train Community</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Team
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cogteam.html">COG-Train Team</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/WCSCourses/COG-Train_Resources">
+    <span class="fa fa-brands fa-github"></span>
+     
+    Github
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="introduction-to-viral-genomics" class="section level1">
+<h1>INTRODUCTION TO VIRAL GENOMICS</h1>
+<p><img src="images/OC3_W1_cover.png" /><br />
+<sub><span class="citation">@Canva</span></sub></p>
+</div>
+<div id="glossary" class="section level1">
+<h1>Glossary</h1>
+<!-- 1-4 -->
+<ul>
+<li><strong>Adaptors:</strong> a short chemically synthesised single or
+double-strand DNA (oligonucleotide) used in some sequencing
+methodologies that allow the addition of a DNA barcode or other
+oligonucleotides downstream of an unknown or amplified DNA strand.<br />
+</li>
+<li><strong>Amplicon:</strong> a DNA fragment that has been amplified
+using polymerase chain reaction (PCR) or a method that results in the
+generation of multiple copies of that fragment.<br />
+</li>
+<li><strong>A-tailing:</strong> an enzymatic reaction to add a sequence
+of adenines at the 3’-terminus of a DNA fragment for sequencing
+purposes.<br />
+</li>
+<li><strong>BAM:</strong> Binary version of a SAM file format.<br />
+</li>
+<li><strong>Barcoding:</strong> addition of a tag of known DNA sequence
+(barcode) to an amplified DNA strand that permits sequencing multiple
+samples in parallel, and stratifying sample data informatically
+post/during sequencing.<br />
+</li>
+<li><strong>cDNA:</strong> complementary DNA, a DNA molecule synthesised
+from an RNA molecule.<br />
+</li>
+<li><strong>COVID-19:</strong> coronavirus disease 2019.<br />
+</li>
+<li><strong>DNA:</strong> deoxyribonucleic acid is an information
+molecule forming the “base code” for a living organism.<br />
+</li>
+<li><strong>Enzyme:</strong> a protein able to catalyse, i.e. accelerate
+chemical reactions.<br />
+</li>
+<li><strong>Exome:</strong> part of genome composed of exons, i.e. the
+sequences that will be transcribed and translated into proteins.<br />
+</li>
+<li><strong>FASTA:</strong> text-based format for representing
+nucleotide or peptide sequences, with base pairs or amino acids
+represented by single-letter codes.</li>
+<li><strong>PCR:</strong> polymerase chain reaction (PCR) is a
+laboratory technique for rapidly making (amplifying) millions to
+billions of copies of a given section of DNA, which may then be analysed
+further.<br />
+</li>
+<li><strong>Primer:</strong> a short chain of oligonucleotides used to
+target and ‘prime’ the initiation of DNA replication.<br />
+</li>
+<li><strong>Protein translation:</strong> is the process of synthesising
+proteins from a transcript.<br />
+</li>
+<li><strong>NGS:</strong> next-generation sequencing, a high throughput
+sequencing methodology.<br />
+</li>
+<li><strong>Nucleotides:</strong> the individual subunits that form DNA
+and RNA molecules.<br />
+</li>
+<li><strong>RNA:</strong> ribonucleic acid, an information molecule, can
+be the “base code” for viruses.<br />
+</li>
+<li><strong>SAM:</strong> sequence alignment/map format. It is a
+TAB-delimited text format that holds information from sequence
+alignment.</li>
+<li><strong>SARS-CoV-2:</strong> severe acute respiratory syndrome
+coronavirus 2.<br />
+</li>
+<li><strong>SNP:</strong> single-nucleotide polymorphism is a nucleotide
+substitution in a specific position of the genome. It is identified when
+compared to a reference sequence.<br />
+</li>
+<li><strong>Sonication:</strong> is a technique that applies sound
+energy to a sample at a specific amplitude. In molecular biology, it is
+commonly used for fragment DNA fragmentation.<br />
+</li>
+<li><strong>Transcription:</strong> is the process of copying a segment
+of DNA into RNA.<br />
+</li>
+<li><strong>Trimming:</strong> in bioinformatics, it is the process of
+removing the ends of the reads, leaving only a region of high-quality
+bases and those relating to the sample, not the sequencing chemistry or
+DNA barcoding.<br />
+</li>
+<li><strong>VCF:</strong> variant call format, is the plain text file
+format that holds gene sequence variations.<br />
+</li>
+<li><strong>Viral replication:</strong> is the mechanism in how viruses
+propagate during the infection cycle, it is the process of virus
+multiplication.<br />
+</li>
+<li><strong>Viral genome variant:</strong> a virus that has one or more
+mutations in its genome.<br />
+</li>
+<li><strong>Whole-genome sequencing (WGS):</strong> is the method of
+determining the entirety, or almost the entirety, of an organism’s
+genomic DNA sequence all at once. This entails sequencing all of an
+organism’s chromosomal DNA, as well as, DNA found in mitochondria and,
+in plants, chloroplasts.</li>
+</ul>
+<p><a href="assets/OC3_glossary.pdf">Download the PDF here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="frequently-asked-questions" class="section level1">
+<h1>Frequently asked questions</h1>
+<!-- 1-5 -->
+<p><strong>Galaxy questions</strong></p>
+<p><em>Question 1: I cannot change the name of my history in
+Galaxy.</em><br />
+Please make sure that you are logged in. If you click on the “User” tab
+at the top, you should see “Logged in as [your_username]”</p>
+<p><em>Question 2: I cannot find the tool you are referring to in
+Galaxy.</em><br />
+Please make sure that you are logged in to the correct Galaxy instance.
+There are many Galaxy instances such as: <a
+href="https://usegalaxy.eu/">https://usegalaxy.eu/</a>, <a
+href="https://usegalaxy.org/">https://usegalaxy.org/</a>, <a
+href="https://africa.usegalaxy.eu,">https://africa.usegalaxy.eu</a>, and
+they do not all have the same tools.</p>
+<p><strong>Mapping</strong></p>
+<p><em>Question 1: Is mapping and aligning to a reference genome the
+same?</em><br />
+They are often used interchangeably because they are often used for the
+same purpose. But with mapping, we are trying to find the approximate
+origin/location of a sequence. With alignment, we aim to find the exact
+differences between two sequences.</p>
+<p><em>Question 2: What is a read?</em><br />
+After sending your DNA/RNA sample to the sequencing facility, your
+sample gets fragmented into many small fragments so that the sequencing
+machine can handle it. These fragments are then copied and a camera
+takes an image of each nucleotide, producing a stretch of letters ACGT.
+This stretch of letters represents the nucleotides that were present in
+your fragmented piece of DNA. This is also called a read.</p>
+<p><strong>Variant calling</strong></p>
+<p><em>Question 1: Is there a difference between variant calling and
+variant annotation?</em><br />
+Variant calling is simply calling the position where a nucleotide(s)
+differs from a reference genome. It also tells us how it is different,
+by telling us which nucleotide was present in the reference genome and
+how your sample differs. With variant annotation, we show the potential
+downstream effect of that mutation. For example, if it was an SNP, was
+it synonymous/non-synonymous. Did a mutation lead to a stop-loss, a
+frame-shift etc?</p>
+<p><a href="assets/OC3_1-5_FAQ.pdf">Download the PDF here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="sars-cov-2-replication-cycle" class="section level1">
+<h1>SARS-CoV-2 replication cycle</h1>
+<!-- 1-7 -->
+<!-- YT https://youtu.be/6M6zItfVLkE -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/6M6zItfVLkE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC3_1-7_transcript.pdf">Download the transcript
+here</a></p>
+<p><a href="assets/OC3_1-7_slides.pdf">Download the presentation slides
+here</a></p>
+<p>In this video, you will be guided through the SARS-CoV-2 replication
+cycle. You will learn how the <a
+href="https://pubmed.ncbi.nlm.nih.gov/34987123/">virus enters the cells
+and cause disease</a> and details of <a
+href="https://doi.org/10.1038/s41579-020-00468-6">how the virus makes
+copies of itself to infect other cells</a>.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="sars-cov-2-genomic-landscape" class="section level1">
+<h1>SARS-CoV-2 genomic landscape</h1>
+<!-- 1-8 -->
+<p>All of us have been impacted in some way by SARS-CoV-2 (severe acute
+respiratory syndrome coronavirus 2). You are likely to be familiar with
+a city in China that you never heard of before the pandemic, Wuhan - <a
+href="https://doi.org/10.1016/j.rceng.2020.03.001">where this virus was
+isolated in 2019</a>.</p>
+<p><a href="https://doi.org/10.3389/fmicb.2020.01818">SARS-CoV-2 is a
+single-stranded RNA virus of ~30 Kb (positive sense)</a> (Figure 1).
+Despite being incredibly small, compared to the human genome, which is
+approximately <a
+href="https://www.nature.com/articles/s41587-020-0719-5">6 Gbp</a>,
+SARS-CoV-2 is the <a
+href="https://www.ncbi.nlm.nih.gov/books/NBK554776/">largest known RNA
+virus</a>. SARS-CoV-2 has a crown-like shape which contains four main
+structural proteins, namely the: spike (S), envelope (E) glycoprotein,
+nucleocapsid (N), membrane (M) protein, along with 16 nonstructural
+proteins, and 5-8 accessory proteins.</p>
+<p>We are interested in the structure of a virus/organism because it
+gives us information about how the virus is able to shed, spread, infect
+and subsequently <a
+href="https://www.ncbi.nlm.nih.gov/books/NBK554776/">cause disease
+(pathogenesis)</a>.</p>
+<div class="float">
+<img src="images/OC3_1-8_Fig1.jpeg"
+alt="The SARS-CoV-2 virus with its proteins" />
+<div class="figcaption">The SARS-CoV-2 virus with its proteins</div>
+</div>
+<p><em>Source: <a
+href="https://doi.org/10.3389/fmicb.2020.01818">Frontiers</a></em></p>
+<p><a href="images/OC3_1-8_Fig1.jpeg">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_1-8_fig1-2_alt-text_fixed.pdf">Download Figure 2
+alt-text here</a></p>
+<p>The <a
+href="https://doi.org/10.2174/1566524021666210223143243">accessory
+proteins</a> participate in the viral replication, assembly and in
+virus-host interactions.</p>
+<p>The <a
+href="https://doi.org/10.2174/1566524021666210223143243">non-structural
+proteins</a> are like maintenance workers which act as enzymes,
+coenzymes, and binding proteins to facilitate the replication,
+transcription, and translation of the virus.</p>
+<p>Finally, the <a
+href="https://doi.org/10.2174/1566524021666210223143243">structural
+proteins</a> are essential for the host cells’ binding and invasion. The
+3D shape of a spike protein is shown in Figure 2 below. This protein
+allows the virus to enter human cells by <a
+href="https://doi.org/10.2174/1566524021666210223143243">binding to
+human ACE receptors</a> in the respiratory epithelium. <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5457962/">This
+article</a> provides a detailed explanation of this process.</p>
+<div class="float">
+<img src="images/OC3_1-8_Fig2.jpeg"
+alt="Various enzymes and the spike protein of SARS-CoV-2" />
+<div class="figcaption">Various enzymes and the spike protein of
+SARS-CoV-2</div>
+</div>
+<p><em>Source: <a
+href="https://www.ncbi.nlm.nih.gov/books/NBK554776/figure/article-52171.image.f5/">StatPearls
+Publishing LLC</a></em></p>
+<p><a href="images/OC3_1-8_Fig2.jpeg">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_W1_Fig1-2_alt-text.pdf">Download Figure 2
+alt-text here</a></p>
+<p>The spike proteins are also frequently the site of mutations,
+resulting in <a
+href="https://www.ncbi.nlm.nih.gov/books/NBK554776/">diverse new
+variants</a>. <a
+href="https://doi.org/10.1016/j.yamp.2021.06.006">Mutations are natural
+random events</a> which occur in viruses during replication. A variant
+has one or more mutations that may allow it to be distinct in its
+transmissibility, virulence, pathogenicity or response to vaccines.
+Currently, variants have been grouped into four different categories
+which are: a <a
+href="https://www.cdc.gov/coronavirus/2019-ncov/variants/variant-classifications.html">Variant
+of Interest (VOI), a Variant Being Monitored (VBM), a Variant of High
+Consequence (VOHC) and a Variant of Concern (VOC)</a>. <a
+href="https://doi.org/10.1146/annurev-virology-110615-042301">This
+article</a> provides a detailed explanation of this process and you can
+read more about these proteins in <a
+href="https://doi.org/10.3390/cells10040821">here</a></p>
+<p>A <a href="https://doi.org/10.1128/jvi.02077-21">VOC usually
+contributes to outbreaks</a> due to its increased transmission fitness
+and/or immune evasion ability. The most notable VOCs are currently
+called <a href="https://doi.org/10.1016/j.yamp.2021.06.006">Alpha, Beta,
+Gamma and Delta</a>; firstly described in the United Kingdom, South
+Africa, Brazil and India, respectively. The latest and most
+transmissible variant has been labelled Omicron, which was also first
+reported in <a href="https://doi.org/10.1128/jvi.02077-21">South
+Africa</a>. The location of where variants are first described is highly
+linked to the amount and quality of genomic surveillance occurring in a
+particular country. We can only find variants if we are looking for them
+at a genomic level.</p>
+<p><a
+href="https://www.cdc.gov/coronavirus/2019-ncov/variants/variant-classifications.html">The
+CDC’s website</a> has up-to-date information to keep you abreast of the
+range of variants.</p>
+<p>Mutations may also lead to the formation of new <a
+href="https://www.bioserendipity.com/defining-a-new-strain-of-a-virus/">lineages</a>.
+Lineages are described as being a genetically closely related group of
+viral variants which are derived from a common ancestor. Tracking
+lineages informs us of outbreaks and of the spread of a virus in a
+community or within populations.</p>
+<p><a href="https://www.nature.com/articles/nm.3985">Zoonotic
+coronaviruses</a> have caused several outbreaks over the last two
+decades and many of the coronaviruses present in other mammals have the
+potential to infect humans. Therefore our continuous efforts to
+understand <a href="https://doi.org/10.1038/s12276-021-00604-z">the
+origins and evolution of SARS-CoV-2</a> will remain critical.</p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://www.ncbi.nlm.nih.gov/books/NBK554776/">Features,
+Evaluation, and Treatment of Coronavirus (COVID-19)</a></p>
+<p><a
+href="https://www.cdc.gov/coronavirus/2019-ncov/variants/variant-classifications.html">CDC
+Coronavirus Disease 2019 (COVID-19)</a></p>
+<p><a
+href="https://www.bioserendipity.com/defining-a-new-strain-of-a-virus/">Defining
+a New Strain of a Virus</a></p>
+<p><a href="https://doi.org/10.1128/jvi.02077-21">Omicron: What Makes
+the Latest SARS-CoV-2 Variant of Concern So Concerning?</a></p>
+<p><a href="https://doi.org/10.1016/j.yamp.2021.06.006">The Genomic
+Landscape of Severe Acute Respiratory Syndrome Coronavirus 2</a></p>
+<p><a
+href="https://doi.org/10.2174/1566524021666210223143243">SARS-CoV-2
+Proteins: Are They Useful as Targets for COVID-19 Drugs and
+Vaccines?</a></p>
+<p><a href="https://doi.org/10.15585/mmwr.mm6912e3">Public Health
+Responses to COVID-19 Outbreaks on Cruise Ships — Worldwide,
+February–March 2020</a></p>
+<p><a href="https://doi.org/10.1016/j.rceng.2020.03.001">COVID-19, a
+worldwide public health emergency</a></p>
+<p><a href="https://doi.org/10.3389/fmicb.2020.01818">Antivirals Against
+Coronaviruses: Candidate Drugs for SARS-CoV-2 Treatment?</a></p>
+<p><a href="https://doi.org/10.1038/s12276-021-00604-z">On the origin
+and evolution of SARS-CoV-2</a></p>
+<p><a href="https://doi.org/10.1056/NEJMc2004973">Aerosol and Surface
+Stability of SARS-CoV-2 as Compared with SARS-CoV-1</a></p>
+<p><a href="https://doi.org/10.1101/2020.03.11.20031096">Relationship
+between the ABO Blood Group and the COVID-19 Susceptibility</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="overview-of-genomic-sub-genomic-and-anti-genomic-sequences"
+class="section level1">
+<h1>Overview of genomic, sub-genomic and anti-genomic sequences</h1>
+<!-- 1-9 -->
+<p>During the lifecycle of SARS-CoV-2, varying genomic sequences
+contribute toward the creation of new virions. These virions (small,
+membrane-bound particles containing viral RNA) are formed within the
+infected host cell machinery, leading to a persisting infection whereby
+it is not cleared by the immune system and enables further host-cell
+entry. These genomic sequences can be categorised for simplicity into
+three key groups: genomic sequences, sub-genomic sequences and
+anti-genomic sequences.</p>
+<p><strong>Genomic sequences</strong></p>
+<p>Genomic sequences, known as gRNA, consist of all of the genetic
+information needed to encode SARS-CoV-2 and its associated proteins. The
+organisation of this information varies between different viruses to
+generate different ‘classes’. SARS-CoV-2 is classed as a positive-sense
+single-stranded RNA virus, similar to that of common cold viruses where
+the genome is organised as a single contiguous RNA genome. This class of
+viruses produces unique sub-genomic RNA sequences as part of their life
+cycle (discussed below). The SARS-CoV-2 genome is 5′-capped and has
+29,870 bases and a 3′ poly(A) tail of variable length. It encodes at
+least 13 recognised open reading frames (ORFs), each of which contains
+regions with specific functions key to the virus’ transcription,
+translation and replication. <a
+href="https://doi.org/10.1038/s41580-021-00432-z">The coding elements of
+gRNA are hugged by a 5′ untranslated region (UTR) (265 nucleotides) and
+a 3′ UTR (337 nucleotides)</a>.</p>
+<p>When a host cell is infected, <a
+href="https://doi.org/10.3390/cells9051267">gRNA synthesis</a> occurs in
+double membrane-bound organelles (replicative organelles) within the
+cell. Utilising the original gRNA from the entered virion, the
+replicative-transcription complex (RTC) creates more gRNA sequences.
+This is achieved through anti-genomic sequences. These are complementary
+to the original viral genome and are created by the RTC to act as a
+minus-strand template. The minus-strand template then utilises
+complementary base pairing to form new positive-strand RNA sequences for
+new gRNA.</p>
+<p><strong>Anti-genomic sequences</strong></p>
+<p>Before new gRNA synthesis occurs, the anti-genome is created in these
+new replicative organelles – these are virally-induced membranes. The
+anti-genome is a full-length complement to the original gRNA and acts as
+the template for synthesis of the <a
+href="https://doi.org/10.1038/s41580-021-00432-z">new gRNAs</a>. After
+‘transcription’ using the anti-genomic sequences, new gRNA can take one
+of three paths. The first could lead to the new gRNA being used to
+create new enzymes and accessory proteins key to viral replication
+within the cell. The second path is creating more new gRNAs. The third
+is that the gRNA could acquire a nucleocapsid shell, then a lipid
+bilayer membrane to form a new virion before <a
+href="https://doi.org/10.1038/s41580-021-00432-z">leaving the cell</a>
+(Figure 3).</p>
+<div class="float">
+<img src="images/OC3_1-9_Fig1.png" alt="SARS-CoV-2 replication cycle" />
+<div class="figcaption">SARS-CoV-2 replication cycle</div>
+</div>
+<p><em>Source: <a
+href="https://doi.org/10.1038/s41580-021-00432-z">Nature</a></em></p>
+<p><a href="images/OC3_1-9_Fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_1-9_Fig3_alt-text.pdf">Download Figure 3 alt-text
+here</a></p>
+<p><strong>Sub-genomic sequences</strong></p>
+<p><a href="https://doi.org/10.1038%2Fsj.emboj.7601931">Sub-genomic RNA
+sequences</a> are a unique feature of positive-sense RNA viruses. These
+are produced by the discontinuous transcription of virion structural
+genes during active replication and result in the formation of
+rearranged template sequences that are not found in juxtaposition in the
+native RNA genome of the virus. The gRNA sequences found for these
+proteins are what is looked for in COVID-19 tests.</p>
+<p>Whilst the anti-genome is being generated in replicative organelles,
+these smaller, minus-strand sgRNAs are also produced. These then
+originate a nested group of sg-mRNAs which are fundamental in the
+synthesis of structural proteins necessary for virion packaging,
+consisting of the membrane, spike, nucleocapsid and envelope proteins.
+The nucleocapsid protein in particular is acquired by newly formed gRNAs
+before being able to <a
+href="https://doi.org/10.1038/s41580-021-00432-z">form a new virion</a>
+(Figure 3).</p>
+<p>These sub-genomic sequences provide unique opportunities for the
+virus, mainly by enabling greater functionality out of a smaller
+original genomic sequence. They also present opportunities for tackling
+the pandemic. Sub-genomic RNAs are <a
+href="https://doi.org/10.1016/j.ijid.2021.12.312">only present for
+virion formation</a> during an active infection. As such, <a
+href="https://doi.org/10.1038/s41586-020-2196-x">evidence from the
+University of Exeter</a> showed they can be used to better track the
+infectivity and disease duration with SARS-CoV-2 infection, compared to
+the current wide-scale testing approaches.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="introduction-to-sequencing-methods" class="section level1">
+<h1>Introduction to sequencing methods</h1>
+<!-- 1-10 -->
+<p>The genomic era was propelled forward by DNA sequencing techniques
+pioneered by numerous scientists in the 1970s. Fredrick Sanger developed
+the “chain-termination method”, now known as the “Sanger method”, in
+1977.</p>
+<p>This method is based on a polymerase chain reaction (PCR) using
+labelled modified nucleotides (ddNTPs) that lead to a premature
+termination of the DNA chain extention. The result of chain-termination
+PCR is a considerable number of oligonucleotide copies of the DNA
+sequence of interest, terminated at random lengths by ddNTPs to be
+ordered in size using gel electrophoresis. The shortest fragment must
+terminate at the first nucleotide from the 5’ end, the second-shortest
+fragment must terminate at the second nucleotide from the 5’ end, and so
+on. As a result, by interpreting the gel bands from smallest to largest,
+the original DNA strand 5’ to 3’ sequence can be determined. The Sanger
+method recognizes up to 1000 bp DNA sequences in less than 2 hours.
+These findings epitomise what we now know as first-generation sequencing
+technologies. Watch the following video for details of the Sanger
+sequencing method.</p>
+<!-- YT https://www.youtube.com/watch?v=dVRB4CaLizc -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/dVRB4CaLizc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><sub>This video is hosted by a third party</sub></p>
+<p>The next-generation methods used highly parallel sequencing
+approaches that were faster and cheaper (per base) with the ability to
+sequence hundreds of thousands to billions of DNA fragments per run.
+This may not always be the most efficient option however and will depend
+on what is being sequenced. Below we will describe the most commonly
+used Next-Generation Sequencing (NGS) technologies available.</p>
+<p><strong>Illumina Sequencing</strong></p>
+<p>After DNA is isolated, it is fragmented generally with physical
+(sonication) or enzymatic (Endonuclease-based) methods. A single adenine
+base is added to form an overhang via an A-tailing reaction onto the 3’
+end. This allows adapters containing a single thymine-overhanging base
+to pair with the DNA fragments. The adapters are complementary to
+primers that are surface-bound to nano wells that help space out the
+genomic fragments and prevent overcrowding. Such primers act as anchors
+for the DNA fragments on both ends, forming a “bridge”. Bridge
+amplification is done by the polymerase generating two-stranded bridges.
+The two strands are separated, leaving a cluster of single-strand
+fragments. Fluorescently-labelled NTPs (dNTPs) are added to the single
+strands by the polymerase causing the elongation, the fluorophore blocks
+the synthesis preventing any other dNTP to bind. Every time a dNTP is
+bound to the strand, the computer records the colour of the fluorophore,
+and then the fluorophore is removed to allow synthesis to continue. The
+process is repeated until the sequence of the DNA fragment is
+obtained.</p>
+<p><strong>Ion Torrent</strong></p>
+<p>The Ion torrent technology is similar to Illumina but it differs in
+the way that fragments are added to microbeads and instead of recording
+a fluorophore, the addition of NTPs is identified with a voltage change
+in the cell measuring the pH change. Illumina and Ion torrent both have
+short read lengths (75-300bp with Illumina and 200-400bp with
+IonTorrent), but IonTorrent runs for only 2 hours compared to up to 56
+hours with Illumina and has cheaper equipment. Illumina, on the other
+hand, has a lower error rate and a lower cost per base.</p>
+<p><strong>PacBio</strong></p>
+<p>This technology works with single-molecule real-time sequencing and
+uses nanocontainers with only one DNA molecule per hollow cylindrical
+well of 20 nm. The DNA molecule has to be prepared in a way that hairpin
+adapters are added to it to allow continuous circular sequencing. Once
+in the nanowell, dNTPs are incorporated one by one and the computer
+records the change of colour of each well. This technology yields
+long-read sequencing of more than 10 Kb with few systematic errors. It
+is ideal for de-novo assembly or long-range genomic structures. On the
+other hand, it also has a high single-pass error rate, to address this,
+coverage needs to be increased, resulting in an increase in cost and
+time, though even this extended time is still comparable to
+Illumina.</p>
+<p><strong>Oxford Nanopore Technology</strong></p>
+<p>Oxford Nanopore Technology (ONT) utilises nanopores through which a
+single-stranded DNA will pass. The nanopores are embedded in a membrane
+and a change of voltage is registered for each nucleotide in the strand
+that goes through the pore. It has unique features, like the ability to
+use a portable sequencer to bring to places that are hard to access;
+this makes it attractive since it facilitates viral genomic
+surveillance. Real-time sequencing also allows laboratories to stop when
+there is sufficient data. Using shorter amplicons and high mapping help
+to reduce the single pass error rate.</p>
+<p><strong>Further reading</strong></p>
+<p><a
+href="https://www.sigmaaldrich.com/MX/es/technical-documents/protocol/genomics/sequencing/sanger-sequencing">Sanger
+Sequencing protocol</a></p>
+<p><a
+href="https://www.khanacademy.org/science/ap-biology/gene-expression-and-regulation/biotechnology/a/dna-sequencing">DNA
+sequencing</a></p>
+<p><a href="https://www.who.int/publications/i/item/9789240018440">WHO
+Guideline on SARS-CoV-2 genome sequencing</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="how-is-sars-cov-2-sequencing-done" class="section level1">
+<h1>How is SARS-CoV-2 sequencing done?</h1>
+<!-- 1-11 -->
+<p>There are many sequencing technologies used for SARS-CoV-2 (Figure
+4). Below, we will approach a broadly used protocol based on viral
+whole-genome sequencing (WGS). The method consists of viral RNA
+isolation, Library preparation, Sequencing run and Analysis.</p>
+<div class="float">
+<img src="images/OC3_1-11_Fig1.png"
+alt="Methods for SARS-CoV-2 genome sequencing. a) In Illumina’s Nextera DNA Flex Enrichment protocol cDNA is tagmented and made into barcoded sequencing libraries, which are then enriched using sequence capture with a respiratory virus panel containing probes against SARS-CoV-2. b) In the ARTIC protocol, first-strand cDNA is enriched by amplifying with two pools of primers to generate amplicons tiling the SARS-CoV-2 genome. These amplicons are then subjected to either Illumina or Oxford Nanopore library preparation, using methods that either directly add adapters to the ends of the amplicons or to fragment them to enable sequencing on a wider variety of Illumina instruments. c) The tailed amplicon approach, developed here, enriches first-strand cDNA using ARTIC v3 primers containing adapter tails. This allows functional sequencing libraries to be created through a second indexing PCR reaction that adds sample-specific barcodes and flow cell adapters" />
+<div class="figcaption">Methods for SARS-CoV-2 genome sequencing. a) In
+Illumina’s Nextera DNA Flex Enrichment protocol cDNA is tagmented and
+made into barcoded sequencing libraries, which are then enriched using
+sequence capture with a respiratory virus panel containing probes
+against SARS-CoV-2. b) In the ARTIC protocol, first-strand cDNA is
+enriched by amplifying with two pools of primers to generate amplicons
+tiling the SARS-CoV-2 genome. These amplicons are then subjected to
+either Illumina or Oxford Nanopore library preparation, using methods
+that either directly add adapters to the ends of the amplicons or to
+fragment them to enable sequencing on a wider variety of Illumina
+instruments. c) The tailed amplicon approach, developed here, enriches
+first-strand cDNA using ARTIC v3 primers containing adapter tails. This
+allows functional sequencing libraries to be created through a second
+indexing PCR reaction that adds sample-specific barcodes and flow cell
+adapters</div>
+</div>
+<p><em>Source: <a
+href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-020-07283-6#Fig1">BMC
+Genomics</a></em></p>
+<p><a href="images/OC3_1-11_Fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_1-11_Fig4_alt-text.pdf">Download Figure 4
+alt-text here</a></p>
+<p><strong>Viral RNA Isolation</strong></p>
+<p><em>1. Viral inactivation</em></p>
+<p>Sequencing of SARS-CoV-2 first requires inactivation of live virus
+either by heat or inactivating buffer so that the laboratory worker can
+handle the sample without putting themselves at risk. This procedure is
+carried out at various Biosafety Levels (BSL) worldwide. In the UK,
+prior to the current pandemic, this viral isolation would have been
+carried out at BSL3 facilities, but in early 2020, Public Health England
+issued a directive allowing this work to be completed at BSL2+.</p>
+<p><em>2. Extraction of nucleic acid</em></p>
+<p>The sample requires extraction of the nucleic acid so there is
+nothing else in the sample which could inhibit the sequencing.
+Extraction is normally performed by lysing (breaking down) the virus.
+Extraction can be performed using commercial kits or using magnetic
+beads to separate the nucleic acids from other materials in the sample.
+A range of buffers and alcohol suspensions are used to elute the nucleic
+acid into a final solution which is usually molecular-grade water.</p>
+<p><strong>Library preparation</strong></p>
+<p><em>1. Complementary DNA synthesis (not used for all
+technologies)</em></p>
+<p>RNA extracts must be converted to cDNA because amplification methods,
+such as PCR, require DNA molecules as a template. A reverse
+transcriptase enzyme is used to synthesise the cDNA.</p>
+<p><em>2. PCR Set-up and Amplification (not used for all
+technologies)</em></p>
+<p>The cDNA is then added to a reaction mix including PCR reagents and
+SARS-CoV-2 specific primers, each targeting small regions of the viral
+genome. A specific primer targeting strategy is used to ensure that the
+entire genome is covered by these small regions. Samples are placed in a
+thermocycler, where amplification takes place. At the end of the
+process, millions of viral DNA fragments are generated.</p>
+<p><em>3. Index PCR Set-up</em></p>
+<p>NGS technologies allow multiplexing ie. pooling several different
+samples in a single sequencing run. In this process oligonucleotide
+indexes are added to each individual sample, ‘barcoding’ them, using a
+PCR procedure. This allows the individual samples to be separated
+computationally after sequencing.</p>
+<p><em>4. Sample Pooling</em></p>
+<p>The concentration of the DNA of the barcoded samples is measured and
+equal amounts of DNA of each sample are pooled in a single tube.</p>
+<p><em>5. Clean-Up</em></p>
+<p>NGS methodologies are highly sensitive. Inhibitors and reagent
+residues must be removed through DNA purification. It is strongly
+recommended to use magnetic beads purification protocols for the
+clean-up step.</p>
+<p><strong>Sequencing run</strong></p>
+<p>Depending on the technology used, the samples are loaded onto a flow
+cell and run on a sequencer that will generate fluorescent reads which
+can be captured by a camera or one which passes the entire molecule
+through a Nanopore and captures the sequence in real-time.</p>
+<p><strong>Analysis</strong></p>
+<p>Sequencing data is demultiplexed and the viral genome is assembled
+(similar to an alignment) using bioinformatics tools. There are many
+analysis pipelines, most commonly using command line, but there are also
+graphic interface tools.</p>
+<p><strong>SARS-CoV-2 ARTIC Protocols</strong><br />
+There are specific ARTIC Network-derived protocols available for both <a
+href="https://www.protocols.io/view/ncov-2019-sequencing-protocol-for-illumina-b2msqc6e">Illumina</a>
+and <a
+href="https://www.protocols.io/view/ncov-2019-sequencing-protocol-v3-locost-bh42j8ye">Oxford
+Nanopore Technologies</a> platforms.</p>
+<p>If you are interested in seeing a sequencing workflow in a
+laboratory, see this video (note, the video is silent) :</p>
+<!-- YT: https://youtu.be/0iok-W3N_Iw -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/0iok-W3N_Iw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><sub>This video is hosted by a third party</sub></p>
+<p><a href="assets/OC3_1-11-transcript.pdf">Downlod video transcript
+here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="amplicon-based-sequencing" class="section level1">
+<h1>Amplicon-based sequencing</h1>
+<!-- 1-12  -->
+<p><strong>Introduction</strong></p>
+<p>Amplicon sequencing is a highly targeted approach that enables
+researchers to analyse genetic variation in specific genomic regions.
+The ultra-deep sequencing of PCR products (amplicons) allows efficient
+variant identification and characterisation. This method uses
+oligonucleotide probes designed to target and capture regions of
+interest, followed by next-generation sequencing (NGS). SARS-CoV-2
+whole-genome sequencing (WGS) requires a viral RNA isolation from the
+clinical samples for sequencing library construction, and there can be
+orders-of-magnitude differences in viral load across different subjects.
+A large proportion of clinical samples contain extremely low viral copy
+number, which may impact the quality of WGS (Figure 5).</p>
+<div class="float">
+<img src="images/OC3_1-12_Fig1.png"
+alt="Flowchart of a sequencing protocol from viral RNA isolation to sequencing analyses" />
+<div class="figcaption">Flowchart of a sequencing protocol from viral
+RNA isolation to sequencing analyses</div>
+</div>
+<p><em>Source: <a
+href="https://www.mdpi.com/genes/genes-11-00949/article_deploy/html/images/genes-11-00949-g001.png">MDPI</a></em></p>
+<p><a href="images/OC3_1-12_Fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_1-12_Fig5-6-7_alt-text.pdf">Download Figure 5
+alt-text here</a></p>
+<p>The RNA viral genome is relatively small (~ 30 Kb) and highly
+heterogeneous. Due to these factors, the copy number of the viral genome
+is low and many errors can be introduced while sequencing after PCR
+enrichment. To overcome these hurdles, amplicon-based sequencing is
+utilised. In this method, the viral genome is amplified using primers
+which are complementary to known sequences. The amplicon enriched
+samples are then subjected to sequencing in platforms such as Nanopore
+or Illumina.</p>
+<p><strong><a href="https://artic.network/">ARTIC
+protocol</a></strong></p>
+<p>The ARTIC protocol is based on a method that enriches the cDNA
+generated through reverse transcription of the SARS-CoV-2 genome, using
+a tiled PCR amplification using two primer pools. A total of 196 primers
+(98 pairs) were designed to tile the entire SARS-CoV-2 genome. An
+amplicon size of ~400 bp per target is obtained that then moves to the
+specific library preparation either for Illumina or Oxford Nanopore <a
+href="https://doi.org/10.1186/s12864-020-07283-6">sequencing</a> (Figure
+6).</p>
+<div class="float">
+<img src="images/OC3_1-12_Fig2.png"
+alt="The ARTIC sequencing protocol" />
+<div class="figcaption">The ARTIC sequencing protocol</div>
+</div>
+<p><em>Source: <a href="https://doi.org/10.1186/s12864-020-07283-6">BMC
+Genomics</a></em></p>
+<p><a href="images/OC3_1-12_Fig2.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_1-12_Fig5-6-7_alt-text.pdf">Download Figure 6
+alt-text here</a></p>
+<p><strong><a
+href="https://www.protocols.io/view/sars-cov2-genome-sequencing-protocol-1200bp-amplic-rm7vz8q64vx1/v5?version_warning=no">Midnight
+protocol</a></strong></p>
+<p>The Midnight protocol approach uses 1200 base pair (bp) tiled
+amplicons produced by the multiplex PCR. Briefly, two PCR reactions are
+performed for each SARS-CoV-2 sample which includes two sets of <a
+href="https://genome.ucsc.edu/cgi-bin/hgTrackUi?db=wuhCor1&amp;g=rapid">primers</a>.
+The first set (Pool 1) has thirty primers that generate the odd-numbered
+amplicons, while the second PCR reaction has twenty-eight primers that
+generate the even-numbered amplicons (Pool 2). After PCR, the two
+amplicon pools are combined which can be further processed for
+sequencing using either Oxford Nanopore or Illumina platforms (Figure
+7).</p>
+<div class="float">
+<img src="images/OC3_1-12_Fig3.png" alt="The Midnight protocol" />
+<div class="figcaption">The Midnight protocol</div>
+</div>
+<p><em>Source: <a
+href="https://nanoporetech.com/sites/default/files/s3/applications/Midnight%20workflow%2024%20samples%20GridION.PNG">Oxford
+Nanopore Technologies</a></em></p>
+<p><a href="images/OC3_1-12_Fig3.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_1-12_Fig5-6-7_alt-text.pdf">Download Figure 7
+alt-text here</a></p>
+<p><strong>Considerations for amplicon-based sequencing</strong></p>
+<ul>
+<li>Enables researchers to efficiently discover, validate, and screen
+genetic variants using a highly targeted approach</li>
+<li>Supports multiplexing of hundreds to thousands of amplicons per
+reaction so that it can achieve high coverage</li>
+<li>Delivers highly targeted resequencing, even in difficult-to-sequence
+areas, such as GC-rich regions</li>
+<li>Allows flexibility for a wide range of experimental designs</li>
+<li>Reduces sequencing costs and turnaround time compared to broader
+approaches such as whole-genome sequencing</li>
+<li>Since primers cannot capture the very ends of the viral genome,
+amplicon approaches have the <a
+href="https://doi.org/10.1186/s12864-020-07283-6">drawback</a> of
+slightly less complete genome coverage, and mutations in primer binding
+sites have the potential to disrupt the amplification of the associated
+amplicon.</li>
+</ul>
+<p><strong>Further reading</strong></p>
+<p><a href="https://doi.org/10.1038/nrmicro.2016.182">Clinical and
+biological insights from viral genome sequencing</a></p>
+<p><a href="https://doi.org/10.3389/fcimb.2020.565591">Amplicon-Based,
+Next-Generation Sequencing Approaches to Characterize Single Nucleotide
+Polymorphisms of Orthohantavirus Species</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="overview-of-different-data-formats" class="section level1">
+<h1>Overview of different data formats</h1>
+<!-- 1-13 -->
+<p>Sequencing data can be saved in specific formats to make it easier to
+collect, store, analyse, and disseminate information. Each format will
+specify the manner in which each level of the genetic analysis is
+employed as it encodes the obtained information from each step of the
+pipeline, going from the sequencer data output, the alignment and all
+the way to the variant calling. The majority of data formats are
+text-based and can be explored using a simple text editor (apart from
+FAST5, which is specific to Oxford Nanopore Technologies and BCL files
+used in Illumina pipelines). Several technologies are attached to their
+own data formats, but there are several that are widely used in NGS data
+analysis. The data format flow in a typical NGS data analysis pipeline
+is generally composed of: FASTQ, BAM/SAM and VCF.</p>
+<p><strong>FASTQ</strong></p>
+<p>The format for sequencing data files known as FASTQ is based on text
+and may hold both raw sequence data as well as quality scores. A FASTQ
+file normally uses four lines per sequence: the first line begins with a
+‘@’ character, the sequence identifier and an optional description; the
+second line has the raw sequence in letters; the third line, begins with
+a ‘+’ and has the same sequence ID and any description; and line 4
+encodes the quality values for the sequence in line two.</p>
+<p><strong>BAM/SAM</strong></p>
+<p>After alignment, the file format that holds information on how our
+target sequence aligns to a reference is called SAM, which stands for
+Sequence Alignment/Map format. A BAM file is a binary compressed version
+of the SAM format, thus we refer to both formats as SAM/BAM. It is a
+TAB-delimited text format with an optional header section and an
+alignment section. Header lines begin with an ‘@,’ whereas alignment
+lines do not. Each tab acts as a separator between columns. A SAM file
+has 11 mandatory columns that hold information on each alignment, they
+hold information as follows: 1. Query template NAME, 2. bitwise FLAG, 3.
+Reference sequence NAME, 4. 1-based leftmost mapping POSition, 5.
+MAPping Quality, 6. CIGAR string, 7. Reference name of the mate/next
+read, 8. Position of the mate/next read, 9. observed Template LENgth,
+10. segment SEQuence and 11. ASCII of Phred-scaled base QUALity+33. The
+optional fields must follow <a href="TAG:TYPE:VALUE"
+class="uri">TAG:TYPE:VALUE</a>, for them to be explicit and the
+information accessible for further analysis. After alignment comes
+variant calling.</p>
+<p><strong>VCF</strong></p>
+<p>The file format that holds variant calls information is called the
+variant call format or VCF. A single VCF file can hold many millions of
+variants. A VCF format is also a text-based, tab-delimited file. It
+contains meta-information lines that start with the characters ‘##’, a
+header that starts with only one ‘#’ and then data lines each containing
+information about a position in the genome. The format also has the
+ability to contain genotype information on samples for each position. It
+consists of 8 mandatory columns named in the header. These columns are
+as follows: 1. #CHROM: chromosome number, 2. POS: position, 3. ID:
+identifier of the variant, 4. REF: the reference allele, 5. ALT: the
+alternative allele, 6. QUAL: Phred-scaled quality score, 7. FILTER:
+filter status and, 8. INFO: additional information. The VCF can have
+more rows and columns, depending on how many samples are being analysed.
+One column is added for each sample, and one row is added for each
+variant or genotype that is found.</p>
+<p><strong>Further reading</strong></p>
+<p><a href="https://samtools.github.io/hts-specs/SAMv1.pdf">Sequence
+Alignment/Map Format Specification</a></p>
+<p><a href="https://samtools.github.io/hts-specs/VCFv4.2.pdf">The
+Variant Call Format (VCF)</a></p>
+<p><a
+href="https://bioinf.comav.upv.es/courses/sequence_analysis/sequence_file_formats.html#:~:text=The%20most%20common%20file%20formats,world%20are%3A%20fastq%20and%20sff">Bioinformatics
+at COMAV</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="what-is-bioinformatics" class="section level1">
+<h1>What is bioinformatics?</h1>
+<!--1-15 -->
+<p>Paulien Hogeweg and Ben Hesper described for the first time the term
+bioinformatics as <a
+href="https://www.ebi.ac.uk/training/online/courses/bioinformatics-terrified/what-bioinformatics/">“the
+study of informatics processes in biotic systems”</a>.</p>
+<p>In a very simplistic way, <a
+href="https://doi.org/10.1038/35042090">bioinformatics</a> could be
+defined as a field where computational science and biology meet. This
+subdiscipline uses interdisciplinary knowledge from <a
+href="https://www.genome.gov/genetics-glossary/Bioinformatics">computational
+science, mathematics, statistics, biology and genomics</a> to analyse
+large amounts of biological data and to obtain knowledge from diseases,
+biological processes, evolutionary events, or any other question in life
+science. <a
+href="https://www.northeastern.edu/graduate/blog/computational-biology-vs-bioinformatics/">Computational
+biology</a> is a similar term and refers to applying computational
+methods to solve biological problems (are they the same… the answer will
+change depending on who you are asking). What is crucial is that
+computational tools are key to biology and have shaped our understanding
+of doing <a
+href="https://doi.org/10.1371/journal.pbio.2002050">biological
+research</a>.</p>
+<p>Computational methods have sped up the advances in biology by
+applying techniques developed in the past (e.g. hidden Markov models,
+principal component analysis), and creating new ones. Moreover,
+algorithms can be iterated and applied (like Bayesian inference,
+bootstrap) to large-scale experiments at different molecular levels
+(e.g. proteomics, epigenomics, metagenomics, any -omic), which can be
+used to shed light on specific biological questions. Computational
+techniques have been used to study mutational processes and led to the
+identification of mutational signatures related to cigarette smoke and
+UV light, as part of a <a
+href="https://doi.org/10.1038/s41586-020-1943-3">large cancer study.</a>
+They can also be used to organise information on the functions of genes
+(e.g. the <a href="http://www.geneontology.org/">GO ontology</a>).
+Combining large collections of gene expression data into a cell atlas
+(e.g. collecting gene expression data of thousands of cells in different
+tissues at different stages of development in one database) enables
+identification of new cell types, a better understanding of how cells
+communicate and the pathology of disease.</p>
+<p>Computational methods are useful when generating hypotheses, which is
+circular and iterative process.. Ideas can be <a
+href="http://dx.doi.org/10.1007/978-1-0716-2257-5_25">tested
+<em>in-silico</em></a>, then hypotheses can be proven experimentally and
+new ideas may become apparent. Some researchers go further and <a
+href="https://doi.org/10.1016/j.cels.2019.08.010">model biological
+systems</a> to make predictions in a way to understand the biological
+process and combine mathematical models, computational approaches, and
+biology knowledge.</p>
+<p>Bioinformatics can be used for different and diverse applications.
+For example, analysing the regulatory mechanisms of <a
+href="https://doi.org/10.1093/nar/gks1201">gene expression and drug
+development</a>; analysing ancient DNA of <a
+href="https://doi.org/10.1098/rstb.2019.0580">bacteria</a> and <a
+href="https://doi.org/10.7554/eLife.68612">viruses</a> to infer
+co-evolutionary relationships and diet, and analysing ancient DNA to
+understand migration or inferring evolutionary history by <a
+href="https://doi.org/10.1371/journal.pgen.1004016">modelling population
+bottlenecks</a> with polymorphisms.</p>
+<p>In fact, the field has evolved; it is more than just analysis, it
+requires integration of different data (multi-omics) to create
+inferences, and constant interdisciplinary development to learn and
+apply new knowledge and methods from outside of our field - leading to
+the emergence of data science.</p>
+<p>Data science involves the following ideas:</p>
+<ol style="list-style-type: decimal">
+<li><p>Systems: which includes cloud environments, workflows,
+benchmarking, cybersecurity;</p></li>
+<li><p>Design: how to communicate between computers and humans
+e.g. input data, visualisation of results;</p></li>
+<li><p>Analysis: interrogating the data with different techniques for
+example deep learning, data mining, and statistical methods (<a
+href="https://en.wiktionary.org/wiki/if_you_torture_the_data_long_enough,_it_will_confess_to_anything">be
+careful not to torture the data in doing so</a>.</p></li>
+<li><p>Value: the desired step of gaining knowledge. In the end, as
+Bourne, P. E also said <a
+href="https://doi.org/10.1371/journal.pbio.3001165">“it really doesn’t
+matter what you call it. Just do it”</a>. Others argue that
+“computational biologists are just biologists using different tools” and
+we should remove this label for avoiding segregation and bringing the
+community closer to solving biological questions.</p></li>
+</ol>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="overview-of-web-based-bioinformatics-analyses-using-galaxy"
+class="section level1">
+<h1>Overview of web-based bioinformatics analyses using Galaxy</h1>
+<!-- 1-16 -->
+<!-- YT https://youtu.be/uYwoERdLT0s -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/uYwoERdLT0s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC3_1-16_transcript.pdf">Download the transcript
+here</a></p>
+<p><a href="assets/OC3_1-16_slides.pdf">Donwload the presentation slides
+here</a> This is a <a
+href="https://training.galaxyproject.org/training-material/videos/watch.html?v=introduction/tutorials/galaxy-intro-short/slides">short
+introduction video</a> explaining Galaxy servers and the tools available
+to do the bioinformatics analysis.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="importing-data-onto-galaxy" class="section level1">
+<h1>Importing data onto Galaxy</h1>
+<!-- 1-17 -->
+<!-- YT https://youtu.be/DRgbhpBwHg8 -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/DRgbhpBwHg8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC3_1-17_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this tutorial, you are going to learn how to access the <a
+href="https://usegalaxy.org.au/">Australian Galaxy server</a> and upload
+data onto your account.</p>
+<p>If you would like to try and test this tutorial on your own, you can
+use the example dataset available for download below. These are the raw
+reads of SARS-CoV-2 obtained by performing sequencing on Oxford Nanopore
+MinION using amplicon-based Midnight protocol primers.</p>
+<p>You will find all the datasets for this course, including the one for
+this tutorial at the <a
+href="https://zenodo.org/record/6652215#.YrB8D-zML0u">Zenodo
+repository</a>.</p>
+<p><strong>Additional resources</strong></p>
+<p><a
+href="https://training.galaxyproject.org/training-material/topics/galaxy-interface/tutorials/get-data/slides-plain.html">Getting
+data into Galaxy</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="processing-data-on-galaxy" class="section level1">
+<h1>Processing data on Galaxy</h1>
+<!-- 1-18 -->
+<!-- YT https://youtu.be/qLpan9ZfM9Q -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/qLpan9ZfM9Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC3_1-18_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this video, you will learn how to process your data on Galaxy
+using NanoPlot to assess the quality of the FASTQ files.</p>
+<p>You will find all the datasets for this course, including the one for
+this tutorial at the <a
+href="https://zenodo.org/record/6652215#.YrB8D-zML0u">Zenodo
+repository</a>.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="building-a-workflow-on-galaxy" class="section level1">
+<h1>Building a workflow on Galaxy</h1>
+<!-- 1-19 -->
+<p>By now, you are becoming familiar with the concepts of loading up an
+input file into Galaxy, performing a task with that file, and saving the
+output of this task. You will generally use one input file when learning
+about input file types and expected outputs. Once you are familiar with
+the flow of your system, you will need to introduce techniques to
+increase the “throughput” of your activities.</p>
+<p>Throughput is a measurement of how many units of information a system
+can process in a given amount of time. A person selecting each
+subsequent step or operation will always have limited throughput.
+Computers, however, are excellent at repeating steps once these are
+configured. It is possible to scale up to massive computer clusters and
+data centres that can process terabytes of information in minutes.</p>
+<p>Many data science tasks require the same processing or operations to
+happen to different input files. We will explore the “workflow”
+technique to explore the path of input and outputs of a series of
+tasks.</p>
+<p>Galaxy has a <a
+href="https://usegalaxy.org.au/training-material/topics/galaxy-interface/tutorials/workflow-editor/tutorial.html">workflow
+tutorial</a> for building a workflow on the platform, and this was used
+to formulate the basis of this article. For more information, please
+explore the following resources:</p>
+<p><a
+href="https://training.galaxyproject.org/training-material/topics/galaxy-interface/tutorials/workflow-editor/tutorial.html">Creating,
+Editing and Importing Galaxy Workflows (Galaxy Training
+Materials)</a></p>
+<p><a href="https://doi.org/10.1016/j.cels.2018.05.012">Community-Driven
+Data Analysis Training for Biology Cell Systems</a></p>
+<p>To create a workflow, click on “Workflow” on the top panel in the <a
+href="https://usegalaxy.org/">Galaxy homepage</a>, then see the “Create
+and Import” buttons on the top right, and click “Create”. Give your
+workflow a name - something memorable related to the task you wish to
+perform is best.</p>
+<div class="float">
+<img src="images/OC3_1-19_Fig1.png"
+alt="A screenshot of the steps used to create a new workflow on Galaxy" />
+<div class="figcaption">A screenshot of the steps used to create a new
+workflow on Galaxy</div>
+</div>
+<p><a href="images/OC3_1-19_Fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC3_1-20_Fig8-16_alt-text_fixed.pdf">Download Figure
+8-16 alt-text here</a></p>
+<p>In this example, we’ll make a workflow to flip a “digital burger”</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="ex">Bread</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="ex">Onions</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="ex">Cheese</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="ex">Burger</span> Patty</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="ex">Bread</span></span></code></pre></div>
+<div class="float">
+<img src="images/OC3_1-19_Fig2.png"
+alt="The annotation naming of a galaxy workflow" />
+<div class="figcaption">The annotation naming of a galaxy workflow</div>
+</div>
+<p><a href="images/OC3_1-19_Fig2.png">Click here to enlarge the
+image</a></p>
+<p>After creating your workflow, you will see a blank canvas</p>
+<div class="float">
+<img src="images/OC3_1-19_Fig3.png"
+alt="The blank canvas of a galaxy workflow" />
+<div class="figcaption">The blank canvas of a galaxy workflow</div>
+</div>
+<p><a href="images/OC3_1-19_Fig3.png">Click here to enlarge the
+image</a></p>
+<p>You can add some annotations on the right-hand side panel to describe
+what this workflow does</p>
+<p>On the left-hand side panel, click “Input Dataset”, and you will see
+a marker for this task on your canvas. Then you will be able to click on
+this to add some annotation data on the right-hand side panel</p>
+<div class="float">
+<img src="images/OC3_1-19_Fig4.png"
+alt="Adding the input dataset tool" />
+<div class="figcaption">Adding the input dataset tool</div>
+</div>
+<p><a href="images/OC3_1-19_Fig4.png">Click here to enlarge the
+image</a></p>
+<p>Then add the tool “tac reverse a file” by searching for it on the
+left hand side panel</p>
+<div class="float">
+<img src="images/OC3_1-19_Fig5.png"
+alt="Adding the reverse a file tool and link to the input dataset" />
+<div class="figcaption">Adding the reverse a file tool and link to the
+input dataset</div>
+</div>
+<p><a href="images/OC3_1-19_Fig5.png">Click here to enlarge the
+image</a></p>
+<p>You can add annotations for this too. Now link the two steps by
+dragging the small arrow “&gt;” on the load burger step onto the arrow
+on the tac step (labelled flip burger).</p>
+<p>Now click on the triangle in the top right corner to “run workflow”.
+You will see a page with the workflow name and an upload space for
+loading the “burger data” Click the vertical arrow on the right-hand
+side to initiate a file upload.</p>
+<div class="float">
+<img src="images/OC3_1-19_Fig6.png" alt="The file upload menu" />
+<div class="figcaption">The file upload menu</div>
+</div>
+<p><a href="images/OC3_1-19_Fig6.png">Click here to enlarge the
+image</a></p>
+<div class="float">
+<img src="images/OC3_1-19_Fig7.png"
+alt="The file upload menu on the paste input section" />
+<div class="figcaption">The file upload menu on the paste input
+section</div>
+</div>
+<p><a href="images/OC3_1-19_Fig7.png">Click here to enlarge the
+image</a></p>
+<p>Select “Paste/fetch data”, then fill in the details - see examples
+below. You must add the name of the file, and the type (text file is
+format txt), then paste the lines of the “digital burger” as shown
+above. Once filled, click “Start”.</p>
+<div class="float">
+<img src="images/OC3_1-19_Fig8.png"
+alt="The run workflow window after upload set" />
+<div class="figcaption">The run workflow window after upload set</div>
+</div>
+<p><a href="images/OC3_1-19_Fig8.png">Click here to enlarge the
+image</a></p>
+<p>You can then hit, “Start workflow”, and make sure the input file
+specified is the burger file you made (select it from the dropdown
+menu). Once the job is complete, you will see the output available via
+the history panel on the right.</p>
+<div class="float">
+<img src="images/OC3_1-19_Fig9.png"
+alt="The workflow complete screen" />
+<div class="figcaption">The workflow complete screen</div>
+</div>
+<p><a href="images/OC3_1-19_Fig9.png">Click here to enlarge the
+image</a></p>
+<p>Our burger has been flipped! So now the order is:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">Bread</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">Burger</span> Patty</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="ex">Cheese</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="ex">Onions</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="ex">Bread</span></span></code></pre></div>
+<p>Congratulations on making your first workflow! Now try to expand that
+workflow by trying to restore the order of the “burger”, add some
+ingredients into your input file, or try another tool to disassemble
+it!</p>
+<p><strong>Futher information</strong></p>
+<p><a
+href="https://usegalaxy.org.au/training-material/topics/galaxy-interface/tutorials/workflow-editor/tutorial.html">Galaxy
+tutorial</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="using-existing-workflows-on-galaxy" class="section level1">
+<h1>Using existing workflows on Galaxy</h1>
+<!-- 1-20 -->
+<!-- YT https://youtu.be/mDuH0-X86WU -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/mDuH0-X86WU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC3_1-20_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this tutorial, you are going to learn how to import publicly
+available Galaxy workflows and execute them.</p>
+<p>This workflow was edited from the <a
+href="https://usegalaxy.org.au/u/varunshamanna/w/copy-of-imported-covid-19-variation-analysis-of-artic-ont-data">original
+workflow available on Galaxy</a> to include Nextstrain and Pangolin to
+assign lineage and clades. The workflow will run a series of tools to
+generate outputs such as: Consensus FASTA (SARS-CoV-2 assembled
+genome)<br />
+MultiQC Report<br />
+Clades and Lineages report<br />
+Variant file (SNPs)</p>
+<p>Here we used the COVID-19 ARTIC analysis protocol to analyse the
+FASTQ files available at the <a
+href="https://zenodo.org/record/6652215#.YrB8D-zML0u">Zenodo
+repository</a>. To execute the workflow it is also required the BED file
+which contains the coordinates of the primers and the SARS-CoV-2
+reference genome.</p>
+<p><a href="assets/OC3_1-20_dataset.zip">Download the BED file
+here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container-left {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.img-container-right {
+  float: right;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<hr>
+<div class="clearfix">
+  <div class="img-container-left">
+    <img src="assets/img/COG-Train_logo.png" alt="COG-Train" 
+style="width:200%">
+  </div>
+  <div class="img-container-right">
+    <img src="assets/img/WCS_Logo-Primary_Black.jpg" alt="Wellcome 
+Connecting Science" style="width:200%">
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>swab_to_server_week2</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COG-Train_Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-file-lines"></span>
+     
+    Course Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Virtual Courses</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viral Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="vbioinfasia.html">VBioinf2022 Asia</a>
+        </li>
+        <li>
+          <a href="vbioinflac.html">VBioinf2022 LAC</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOCs</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Power of Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="power_of_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Swab to Server</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="swab_to_server_home.html">Home</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Making Sense</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="making_sense_home.html">Home</a>
+        </li>
+        <li>
+          <a href="making_sense_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="making_sense_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="making_sense_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Practical Guide</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="practical_guide_home.html">Home</a>
+        </li>
+        <li>
+          <a href="practical_guide_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="practical_guide_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="practical_guide_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pathogen Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="pathogen_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Hybrid Course</li>
+    <li>
+      <a href="scvo2b4b.html">SARS-CoV-2 B4B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">In Person Courses</li>
+    <li>
+      <a href="ECPG.html">Pathogen Genomics Capacity</a>
+    </li>
+    <li>
+      <a href="IGM_B4B.html">Bioinformática Decodificada</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Webinars</li>
+    <li>
+      <a href="Community.html">COG-Train Community</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Team
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cogteam.html">COG-Train Team</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/WCSCourses/COG-Train_Resources">
+    <span class="fa fa-brands fa-github"></span>
+     
+    Github
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="how-to-make-data-richer" class="section level1">
+<h1>HOW TO MAKE DATA RICHER</h1>
+<p><img src="images/OC2_W2_cover.png" /><br />
+<sub><span class="citation">@Canva</span></sub></p>
+</div>
+<div id="how-different-countries-tackled-the-pandemic-an-example"
+class="section level1">
+<h1>How different countries tackled the pandemic: an example</h1>
+<!-- 2-2 -->
+<!-- YT https://youtu.be/yB89a8rxRug -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/yB89a8rxRug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p>NB: this video is in French.</p>
+<p><a href="assets/OC2_2-2_fr_transcript.pdf">Download the French
+transcript here</a></p>
+<p><a href="assets/OC2_2-2_en_transcript.pdf">Download the English
+translation here</a></p>
+<p>In this video, Rodrigue Bakangui, supervisor of the Laboratory of
+Immunology and Molecular Biology at the Centre de Recherches Médicales
+de Lambaréné in Gabon, shares how he and his team implemented the
+SARS-CoV-2 diagnostics and sequencing to tackle the COVID-19 pandemic in
+Gabon.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="introduction-to-biobanking" class="section level1">
+<h1>Introduction to biobanking</h1>
+<!-- 2-3 -->
+<p>Just like a bank accepts (receives) and safeguards (stores) money
+owned by other individuals and entities, and then lends (gives
+out/shares) this money in order to conduct economic activities such as
+making a profit or simply covering operating expenses (value addition),
+Biobanks receive and store biological samples and health information in
+an ethically and legally regulated manner, and shares these samples to
+researchers who make health sense out of them.</p>
+<p><strong>What is a biobank?</strong></p>
+<p>A biobank/biorepository/bioresource is a collection of biological
+samples and health information. The purpose of a biobank is to process,
+organise, and maintain various types of biospecimens that are shared for
+utilisation in both clinical and research-based services (Figure 1).</p>
+<div class="float">
+<img src="images/OC2_2-3_Fig1.png" alt="Biobanking process" />
+<div class="figcaption">Biobanking process</div>
+</div>
+<p><a href="images/OC2_2-3_Fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC2_2-3_Fig1_alt-text.pdf">Download Figure 1 alt-text
+here</a></p>
+<p>Different biobanks collect different types of samples and
+information. The types of information and samples collected depend on
+the specific purpose of the biobank. For example, some biobanks are
+specific to a particular disease, such as cancer. Other biobanks are
+population-based and contain samples and information from people in a
+specific population or region. The biobanks have become a crucial
+resource for medical research since the late 1990s as they support
+various research such as those in the field of personalised medicine and
+genomics. In fact, Biobanks are listed among the 10 big ideas changing
+the world by Times Magazine. Biobanks allow researchers to access data
+that represents a large number of people. The biospecimens and data
+acquired can be used by multiple researchers for cross-purpose research
+studies.</p>
+<p><strong>Biospecimens</strong></p>
+<p>Biospecimen types that are available include organ tissue, blood,
+saliva, urine, skin cells, and other tissues or fluids taken from the
+body. The samples are maintained in appropriate condition to prevent
+deterioration and are protected from accidental and intentional damage.
+The sample is registered in the computer-based system. The physical
+location of the specific sample is also noted to enable the specimen to
+be easily located when required. Samples are de-identified to ensure
+donor privacy and allow the blinding of researchers to the analysis.
+Room temperature storage may be used in some cases as it helps with cost
+efficiency and avoids issues such as freezer failure.</p>
+<p><strong>Ethics</strong></p>
+<p>Biobanks can only store and share samples if they follow the required
+ethical guidelines. Some ethical issues regarding biobanking are the
+ownership of samples, ownership of derived data, the right to privacy
+for donors, the extent of donor consent, and the extent to which the
+donor can share regarding the return of research results.</p>
+<p><strong>How does a biobank make performing research
+easier?</strong></p>
+<p>The biobank serves as a library for researchers. Therefore, the time
+and resources needed to recruit new participants for each research study
+are greatly reduced because samples and corresponding medical
+information are available in one place. By making sample collection and
+patient recruitment more efficient, better studies can be performed in a
+timely fashion.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="walking-through-a-biobank" class="section level1">
+<h1>Walking through a biobank</h1>
+<!-- 2-4 -->
+<!-- YT https://youtu.be/3k11ydVZonU -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/3k11ydVZonU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC2_2-4_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this video, Gideon Nsubuga walks us through the Integrated
+Biorepository facility of H3Africa at Makerere University, Uganda and
+shows that biobanking is a lot more than a freezer farm.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="what-is-metadata" class="section level1">
+<h1>What is metadata?</h1>
+<!-- 2-5 -->
+<p>Metadata is any additional information that can be collected on a
+sample that is being sequenced. For clinical samples, it is mostly
+information about the patient, testing, and sample types. This
+information helps us discover links between the sequencing data that
+would not otherwise be possible e.g. in a set of suspected hospital
+outbreak samples, metadata like time of sample collection and ward
+location of the patient where the sample was collected can help confirm
+or refute related outbreak clusters found in sequencing data.</p>
+<p>For instance, COG-UK collected a large number of fields relating to
+each sample. The metadata collected could be broadly divided into the
+following categories.</p>
+<ul>
+<li><p><strong>Biosamples</strong> – Metadata fields collected in this
+category were mostly related to the actual patient the sample was
+collected from e.g. sample collection dates, location, age, sex,
+admitted hospital etc.</p></li>
+<li><p><strong>Metrics</strong> – Metadata fields in this category
+describe the quality of the samples. This comprised mostly of the ct
+value, the target gene and the platform used to assess the ct.</p></li>
+<li><p><strong>Library</strong> – This category mostly captured
+information on the library preparation methods for the genomic material
+to be sequenced like primers types, library kits, library sources
+etc.</p></li>
+<li><p><strong>Sequencing</strong> – This category captured information
+on final sequencing and data analytics like the sequencing technology
+and machine used along with bioinformatics pipelines for downstream data
+analysis.</p></li>
+</ul>
+<p>During the COG-UK sequencing project, metadata used was anonymised
+data about a single sample. This information was uploaded by the
+sequencing centre to a database known as <a
+href="https://docs.covid19.climb.ac.uk/upload-instructions">MAJORA which
+would link up the information with the sequencing data</a> anonymously.
+Both open-source data could then be displayed such as ‘date of the
+sample collection’ and then restricted data such as ‘laboratory ID’
+could also be uploaded at the same time.</p>
+<p>By using metadata, it helps to let us identify if there are metadata
+subjects that have provided different patterns such as care homes or
+hospital environments. It helps us understand epidemiological patterns
+such as certain variants emerging and to determine if samples associated
+with the same outbreak show similar sequencing results. Metadata is
+crucial for creating policy or knowing where increased surveillance or
+testing is required.</p>
+<p>Collecting such a large number of metadata fields per sample is
+always challenging and time-consuming. One key challenge is maintaining
+standards for each input field as various locations globally have
+slightly different ways of recording the same data. There is a push in
+international communities to standardise fields, especially now for
+SARS-CoV-2. Global sequence databases like <a
+href="https://www.gisaid.org">GISAID</a> have a standardised format in
+which data is recorded. There is work happening at PHA4GE (Public Health
+Alliance for Genomic Epidemiology) and you can read more about that on
+the <a
+href="https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification">GitHub
+resources page</a>. The other main issue of collecting patient data is
+the storage of sensitive data as there are fields collected that are
+considered PII (Personally Identifiable Information). One should be
+aware while collecting the data of what fields are considered PII and
+secure the data appropriately in accordance with the data protection
+rules in that country.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="types-of-metadata" class="section level1">
+<h1>Types of metadata</h1>
+<!-- 2-6 -->
+<p>The metadata can be divided into three tiers:</p>
+<p><strong>Tier 1</strong> corresponds to essential core metadata,
+including the following label:<br />
+- Sample identification number<br />
+- Sample type can be labelled as sputum, blood, serum, saliva, stool,
+nasopharyngeal swab and wastewater<br />
+- Sample collection date is a field that can potentially be used to
+inform on introductions and evolutionary rates<br />
+- Country of the collection can be used to inform on introductions of a
+virus, transmission routes and can be used in BEASTanalysis (Bayesian
+Evolutionary Analysis Sampling Tree)<br />
+- State/province of collection<br />
+- Originating diagnostic lab, which is the laboratory where the clinical
+specimen or virus isolate was first obtained<br />
+- Sequencing submitting lab is the lab where the sequence data was
+generated and this metadata can be used to assess sequencing
+capacity<br />
+- Sampling method, where samples can be labelled as routine surveillance
+or focused sampling, representative or targeted sampling<br />
+- Host can correspond to human samples or a specific animal, environment
+or unknown, for example</p>
+<p><strong>Tier 2</strong> corresponds to descriptive metadata,
+including the following labels:<br />
+- Age, sex (including for example male, female, other and unknown) and
+race/ethnicity (considering individual collection laws) can be used to
+assess risk factors<br />
+- Health worker status can be classified as yes, no or unknown and it’s
+also important to understand risk factors but also transmission
+routes<br />
+- Travel history should include locations(s) and timing and it’s
+important not only to understand introductions of the virus but also
+transmission routes</p>
+<p><strong>Tier 3</strong> corresponds to metadata for characterisation,
+including the following labels:<br />
+- RT-PCR assay used (if any)<br />
+- RT-PCR Ct value (if any)<br />
+- Symptomatic, for example, yes, no, unknown, is an important label to
+perform severity analysis<br />
+- Vaccination status for humans should include the date of vaccination,
+including for doses one and two, vaccine type, source of information
+such as documented evidence (vaccine register our vaccine card) versus
+recall, and can be used in vaccine failure studies<br />
+- Date of symptom onset can be used to assess the delay between onset
+and sequence submission<br />
+- Hospitalisation status for example hospitalised never hospitalised and
+unknown can be used for severity analysis studies<br />
+- Admission to the intensive care unit, mechanical ventilation outcome
+(deceased or recovered) can be used in severity analysis studies<br />
+- Past history of SARS-CoV-2 to infection and dates are important to
+assess re-infection risk<br />
+- Therapeutics received, include COVID-19 specific therapeutics and this
+type of metadata can inform therapeutic failure studies<br />
+- Location of exposure, and link to known cluster/outbreaks can inform
+cluster outbreak analysis and transmission routes and transmission
+routes<br />
+- Contact with known animal reservoirs is relevant to support
+transmission routes studies<br />
+- Comorbidities known to increase the severity of COVID-19 can be used
+in studies to determine risk factors</p>
+<p>More information can also be found at the <a
+href="https://samstudio8.github.io/majora-docs/#authentication">COG-UK
+Inbound Operations Repository</a> and <a
+href="https://docs.covid19.climb.ac.uk/metadata">COG-UK Docs
+repository</a></p>
+<p>Additionally, the WHO suggested a table for collecting metadata. The
+items are colour-coded according to their importance and the red items
+are essential.</p>
+<p><a href="assets/OC2_2-6_resources.pdf">Download WHO’s metadata table
+here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="data-collection-tools" class="section level1">
+<h1>Data collection tools</h1>
+<!-- 2-7 -->
+<p><strong>What is Data Collection?</strong></p>
+<p>Data collection is the methodical process of gathering and analyzing
+specific information to provide solutions to relevant questions and
+evaluate the results. It focuses on finding out all there is to a
+particular subject matter.</p>
+<p><strong>What is a Data Collection Tool?</strong></p>
+<p>A data collection tool is an instrument used to collect data intended
+to answer a particular question(s), such as a paper-based or a computer
+system. The underlying need for data collection is to capture quality
+data that seeks to answer questions that have been posted. The choice of
+the tool to use is mainly determined by the likelihood of errors, cost,
+and time.</p>
+<p><strong>The Different Data Collection Tools – During the
+Pandemic?</strong></p>
+<p>It is useful to ensure that quality data is collected so that you can
+draw inferences and make informed decisions on what is factual. In
+relation to sampling and testing during the COVID-19 pandemic,
+individuals, public and private institutions participating in the
+COVID-19 testing or surveillance have deployed different tools for data
+collection of patients’ information, samples and test results
+information around the pandemic.</p>
+<p><em>1) Laboratory Investigation Forms (LIFs):</em></p>
+<p>When the COVID-19 pandemic broke out, the ministry of health in
+Uganda, together with the different laboratories involved in the sample
+collection and testing developed a standard Laboratory Investigation
+Form for enrolling and documenting all the important information about
+the COVID-19 suspected patients and samples. This form would be printed
+into booklets and distributed across the country to the different
+COVID-19 collection and testing facilities. Similar forms, both paper
+and online are used globally to record critical patient information.
+Challenges arise from the ability to quickly and accurately collate and
+combine this data at scale for public health benefit.</p>
+<p><em>2) Common Online Survey Tools:</em></p>
+<ol style="list-style-type: lower-alpha">
+<li><p><a href="https://www.google.co.uk/forms/about/">Google Forms</a>:
+This is a free survey administration software included as part of the
+free, web-based Google Docs Editors suite offered by Google. It helps
+you to easily create and share polished surveys and forms to respondents
+from which you can analyze their responses.</p></li>
+<li><p><a href="https://forms.office.com/">Microsoft form</a>: An online
+survey creator, part of Office 365 by Microsoft. It allows users to
+create surveys and quizzes, and the data from respondents can be
+exported to Microsoft Excel for further analysis.</p></li>
+<li><p><a
+href="https://help.doodle.com/hc/en-us/articles/360012149713-Get-started-with-Doodle">Doodle
+forms</a>: This is a free online tool that allows users to create
+questionnaires to gather people’s opinions.</p></li>
+<li><p>Emails: You can use emails, webmail or mailing lists to send out
+questions or questionnaires for which you receive feedback from the
+respondents.</p></li>
+<li><p>Social Media: During the CoVID-19 pandemic, many organisations
+and individuals used social media such <a
+href="https://en-gb.facebook.com/">Facebook</a>, <a
+href="https://www.whatsapp.com/">WhatsApp</a>, <a
+href="https://twitter.com/?lang=en">Twitter</a> to collect information
+from users about the pandemic.</p></li>
+</ol>
+<p><em>3) Common Online Data Collection Tools:</em></p>
+<ol style="list-style-type: lower-alpha">
+<li><p><a href="https://opendatakit.org/">Open Data Kit (ODK)</a>: ODK
+is open-source software for collecting, managing and using data in
+resource-constrained environments. It allows for offline data collection
+with mobile devices in remote areas and the submission of the data to
+the server can be performed when internet connectivity on the device is
+available.</p></li>
+<li><p><a href="https://www.project-redcap.org/">RedCap</a>: A web
+application for building and managing online surveys and designing
+clinical and translational research databases. It provides for the
+export of the data into other applications for further
+analysis.</p></li>
+<li><p><a href="https://www.kobotoolbox.org/">Kobotoolbox</a>: It is a
+free and open-source software suite of tools for field data collection
+for use in challenging environments. It provides simple, robust and
+powerful tools for data collection and analysis.</p></li>
+</ol>
+<p>Custom software applications. Customised software is software that is
+specially developed for a specific organisation or user. In
+circumstances where the available tools cannot meet your needs, one can
+develop their own software application for their data collection
+needs.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="public-databases-benefit-epidemiology" class="section level1">
+<h1>Public databases benefit epidemiology</h1>
+<!-- 2-8 -->
+<p>For researchers, during the COVID-19 pandemic, the most significant
+mission has been to produce valuable data regarding infection and
+transmission of SARS-CoV-2. Equally important has been to share such
+data quickly and unreservedly to be looked at by others in real
+time.</p>
+<p>Such data sharing has enabled connectivity between researchers and
+policymakers and between regions across the world, helping to build the
+foundations of a global surveillance programme. Data sharing has become
+a valuable way to evaluate (and sometimes prevent) the effect of
+incoming variants into different latitudes. A relevant example of
+efficient data production and data sharing, includes the initial
+identification of the highly contagious <a
+href="https://www.nature.com/articles/s41586-022-04411-y">Omicron
+variant in South Africa</a> in November 2021. As a consequence, many
+countries were rapidly aware of this variant and initiated studies on
+its possible effect. Tailored PCR methods were developed or adapted to
+detect this variant (without nucleotide sequencing), reducing the costs
+of its detection. This is an extraordinary example of how high-quality
+research can inform global public health.</p>
+<p>At the beginning of the pandemic, relevant information was shared on
+social media or in specialised blogs. Of outstanding importance was the
+discussion forum <a href="https://virological.org/">Virological</a>
+where the <a
+href="https://virological.org/t/novel-2019-coronavirus-genome/319">first
+whole SARS-CoV-2 genome</a> was shared by Chinese-Australian scientists,
+and later was the niche to discuss relevant epidemiological and genomic
+information. For instance, many of the variants of interest or concern
+were first described on this blog (like alfa, gamma, lambda, mu, etc.).
+The blogging community has also discussed: the possible SARS-CoV-2
+origin, whole-genome sequencing protocols, variants classification, and
+nomenclature.</p>
+<p>Early in 2020, not many specialised databases were available to share
+large quantities of genomic data. For that reason, the <a
+href="https://www.ncbi.nlm.nih.gov/">National Center for Biotechnology
+Information (NCBI)</a> nucleotide database in the USA and <a
+href="https://www.gisaid.org/">Global Initiative on Sharing Avian
+Influenza Data, known as GISAID</a>, gathered data, curated it and
+shared it openly. GISAID became the preferred database to share
+SARS-CoV-2 genomes worldwide, holding sequencing data for a staggering
+amount of 9.5 million SARS-CoV-2 genomes by March 2022.</p>
+<p>Epidemiological databases created to share and visualise COVID-19
+information Databases like <a
+href="https://ourworldindata.org/coronavirus-source-data">Our World in
+Data</a> are reliable information sources used even by the World Health
+Organization and regional health organisations. This database collects
+information from at least 57 different sources and provides trustworthy
+indicators such as infections, hospitalisations, officially reported
+deaths, and excess deaths. This is especially helpful in developing
+countries that do not possess open databases or cannot openly share most
+of their information.</p>
+<p>Research findings databases became remarkably popular during the
+pandemic, for example, preprints servers like <a
+href="https://www.biorxiv.org">bioRxiv</a> and <a
+href="https://www.medrxiv.org">medRxiv</a> where non-peer-reviewed
+studies are shared with preliminary or complete results. Minimum
+requisites must be fulfilled to publish on these databases. Whilst lots
+of information produced was derived from non-verified or even fraudulent
+data which open scrutiny could not entirely confirm; nevertheless, <a
+href="https://doi.org/10.1038/s41591-021-01654-6">it changed scientific
+information access forever</a>. Canonical peer-review journals are still
+the most reliable approach to obtaining reliable research data.
+Additionally, most publishers have their published papers directly
+available or through open-source libraries such as PMC or Pubmed.
+Finally, wet lab, statistics, and bioinformatics protocols have been
+also shared in public databases such as <a
+href="www.github.org">GitHub</a>. Such databases provide quick updates
+on protocols, comments, and adapted pipelines that developers directly
+share.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="ensuring-sampledata-consent-and-ownership"
+class="section level1">
+<h1>Ensuring sample/data consent and ownership</h1>
+<!-- 2-10 -->
+<!--YT https://youtu.be/ecrTVEFdw88 -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/ecrTVEFdw88" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC2_2-10_transcript.pdf">Download the transcript
+here</a></p>
+<p><a href="assets/OC2_2-10_slides.pdf">Download the presentation slides
+here</a></p>
+<p>In this lecture Malebo Malope from Stellenbosch University, South
+Africa reviews informed consent and discusses who owns the data.</p>
+<p>Please visit the <a href="https://popia.co.za/">POPI Act website</a>
+to learn more about the Protection of Personal Information Act from
+South Africa.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="data-enrichment-benefits-to-epidemiology"
+class="section level1">
+<h1>Data enrichment benefits to epidemiology</h1>
+<!-- 2-11 -->
+<p>The process of appending or otherwise augmenting gathered data with
+relevant context gained from extra sources is known as data enrichment.
+It’s done by appending various attributes and values from different data
+sets to one or more data sets.</p>
+<p><strong>Allows you to collect useful data</strong></p>
+<p>Enriched data describes important data that is relevant to the
+problem and scenario at hand and that may be shared across stakeholders
+such as epidemiologists, healthcare workers, researchers, and other
+shareholders. This might include data such as travel history,
+vaccination status or prior infection data. Enriched data allows you to
+address more than one research question at a time.</p>
+<p><strong>Enhances data quality and accuracy</strong></p>
+<p>Good data enrichment techniques validate the information and ensure
+that the data is current. Allows for extensive data collection by
+linking data from numerous sources, as well as improved validation of
+exposures and research endpoints. This may involve combining different
+research databases, hospital and community data, health records and
+patient self-reports.</p>
+<p><strong>It saves time</strong></p>
+<p>You’d think that adding more data would take longer. Data enrichment,
+on the other hand, reduces the amount of time and effort required to
+complete a task by allowing for AI-assisted automation. Using historical
+medical records as a baseline can shorten multi-year study timelines.
+Due to the link to continuous medical records data, also reduces
+timelines for follow-up studies</p>
+<p><strong>Provides Deeper insights</strong></p>
+<p>Provides a more solid evidence base for addressing specific research
+goals. It also allows for analysis to be carried out in parallel with
+studies based on continuous medical records data. The addition of
+patient-reported data, also allows researchers to generate more
+patient-centred insights.</p>
+<p>Additionally, through existing data sources, insights can be gained
+earlier, informing feasibility, generating new research questions, and
+providing information on the path to diagnosis, disease characteristics,
+or treatment patterns. Furthermore, clinicians who do not have robust
+research infrastructures can participate in studies, resulting in more
+representative populations than those seen at research-savvy centres.
+Because existing clinical data alone are frequently insufficient to
+fully establish the value of treatment intervention, the ability of
+enriched studies to supplement existing data with patient-reported
+information opens up new avenues for greater impact.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="benefits-and-challenges-of-integrating-clinical-data"
+class="section level1">
+<h1>Benefits and challenges of integrating clinical data</h1>
+<!-- 2-12 -->
+<!-- YT https://youtu.be/YrdhzhVTJ1o -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/YrdhzhVTJ1o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC2_2-12_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this video, Prof Emma Thomson from the University of Glasgow
+explains the importance and implications of integrating sequencing and
+clinical data.</p>
+<p>You can learn more about the Safe Haven System that Emma mentioned on
+the <a
+href="https://www.nhsresearchscotland.org.uk/research-in-scotland/data/safe-havens#:~:text=Safe%20Havens%20provide%20a%20platform,to%20agreed%20principles%20and%20standards">NHS
+Scotland website</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="practical-challenges-setting-up-a-laboratory-during-lockdown"
+class="section level1">
+<h1>Practical challenges: setting up a laboratory during lockdown</h1>
+<!-- 2-13 -->
+<!-- YT https://youtu.be/ymQvD-yc8s8 -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/ymQvD-yc8s8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC2_2-13_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this roundtable discussion, Dr Sharon Glaysher, Dr Sam Robson and
+Angie Beckett from the University of Portsmouth talk about their
+experiences setting up a sequencing laboratory on the verge of a
+national lockdown.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="de-centralising-genomic-surveillance" class="section level1">
+<h1>De-centralising genomic surveillance</h1>
+<!-- 2-15 -->
+<p>To address the pressing challenge of centralised genomic
+surveillance, the Philippines Department of Health (DOH) with its
+established surveillance network was utilized to leverage the crafting
+of additional genomic surveillance for SARS-COV-2 led by the Research
+Institute for Tropical Medicine (RITM) in collaboration with various
+Sub-national Laboratories (SNLs); the Epidemiology Bureau (DOH-EB); the
+Regional Epidemiology and Surveillance Units (RESUs) and its
+surveillance units within the DOH; and strong support from the
+University of Glasgow (UOG) with funding from the UKRI GECO-COMP. This
+project dubbed the <a href="https://www.geco-seqlab.org/">GECO PH
+Project</a> is deemed to be a landmark catalyst to empower local
+laboratories to perform their own genomic surveillance using
+state-of-the-art real-time Nanopore whole genome sequencing technology
+(e.g. MinION, GridION). This initiative has boosted the sequencing
+capacity of the Philippines for genomic surveillance, particularly for
+COVID-19.</p>
+<p>The <a href="https://www.geco-seqlab.org/">Genomic Epidemiology of
+COVID in the Philippines</a> (GECO PH) project has operationalized
+genomic surveillance and informed responses across the Philippines to
+embed large-scale real-time sequencing capacity at the national
+reference laboratory (RITM) and builds local sequencing capacity at
+(Sub-national Laboratories) SNLs for national, regional, and local-scale
+responses in the Philippines. The <a
+href="https://gtr.ukri.org/projects?ref=MR%2FV035444%2F1">research</a>
+will further enable the evaluation of control measures across settings,
+from infection controls to prevent hospital-acquired infections,
+lockdowns to interrupt community transmission, and quarantining and
+movement restrictions to contain introductions, whilst increasing our
+understanding of SARS-CoV-2 transmission and control.</p>
+<p><strong>Ensuring sample and data ownership</strong></p>
+<p>Due to the intricate natures, functions, and relationships of each
+stakeholder within the healthcare system in the Philippines, the RITM as
+the national reference laboratory for emerging and re-emerging
+infectious diseases of the Department of Health (DOH), forged agreements
+with the SNLs, Epidemiology Bureau (DOH-EB), and the University of
+Glasgow (UOG) to formalize and ensure the roles and responsibilities of
+each stakeholder are clear, distinct, and avoid overlap with each other.
+Embedded within the agreements is the participation of the SNLs in a
+consortium which facilitates the sharing and cooperation within the
+context of research and investigation of SARS-CoV-2 sequences and
+associated data. Moreover, it underpins the upholding of scientific
+etiquette, by acknowledging the originating laboratories providing the
+specimens, and the submitting laboratories generating sequence and other
+metadata, ensuring fair exploitation of results derived from the data,
+and promoting collaboration among researchers on the basis of open
+sharing of data and respect for all rights and interests.</p>
+<p>To guarantee the success of the GECO PH surveillance through the
+consortium, the project undertook the following key steps and
+activities:</p>
+<p><strong>Ethical Clearance</strong></p>
+<p>The research project obtained approval from the Single Joint Research
+Ethics Board of the DOH and various local ethical boards of the RITM and
+SNLs, a vital part of the framework of crafting the biosurveillance of
+SARS-COV-2 in the country.</p>
+<p><strong>Advocacy</strong></p>
+<p>Advocacy is critical to the roll-out of the surveillance project and
+its sustainability and future integration into the surveillance program
+of the DOH, the principal health agency in the Philippines responsible
+for the regulation of various healthcare providers including the SNLs
+and DOH-EB for the provision of health services, particularly in the
+ongoing pandemic. A policy issuance from DOH ensured support for the
+capacity building of RITM and more particularly the SNLs to carry out
+their own sequencing activities. Moreover, a series of meaningful
+meetings were conducted to formalize the consortium’s objectives and
+goals.</p>
+<p>Consequently, a laboratory needs assessment was conducted to identify
+gaps, propose solutions and ensure the readiness of the SNLs for rapid
+sequencing. The needs assessment includes evaluation of facilities
+(space for workstation and equipment, Wi-Fi access, sample storage,
+etc.), logistics (supplies and sample transport), biosafety (PPEs,
+disinfection/sterilization procedures, waste disposal, etc.), equipment,
+staff (knowledge and skills), metadata (electronic and paper records,
+kinds of data collected, etc.), and policy environment for genomic
+research and surveillance.</p>
+<p><strong>Coordination</strong></p>
+<p>To facilitate close coordination within the consortium, regular
+meetings using various social media platforms such as Viber chat groups
+and Slack channels are employed for rapid updates, planning, queries and
+dissemination of information and guidance.</p>
+<p><strong>Training</strong></p>
+<p>Capacity building to perform rapid sequencing hallmarks the crafting
+of the consortium. There is a great fervour among the SNLs to acquire
+knowledge, skills and technology to sequence the genome of pathogens
+particularly SARS-COV-2. Briefly, the training comprised lectures and
+demonstrations videos; and practical/hands-on sessions. Practical
+sessions include primarily cDNA preparation, multiplex PCR, library
+preparation, sequencing, data retrieval from Mk1C and basic
+bioinformatics and RedCAP exercises.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container-left {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.img-container-right {
+  float: right;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<hr>
+<div class="clearfix">
+  <div class="img-container-left">
+    <img src="assets/img/COG-Train_logo.png" alt="COG-Train" 
+style="width:200%">
+  </div>
+  <div class="img-container-right">
+    <img src="assets/img/WCS_Logo-Primary_Black.jpg" alt="Wellcome 
+Connecting Science" style="width:200%">
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

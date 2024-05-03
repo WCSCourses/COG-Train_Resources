@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>power_of_genomics_set3</title>
+
+<script src="site_libs/header-attrs-2.26/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COG-Train_Resources</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-file-lines"></span>
+     
+    Course Materials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Virtual Courses</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Viral Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="vbioinfasia.html">VBioinf2022 Asia</a>
+        </li>
+        <li>
+          <a href="vbioinflac.html">VBioinf2022 LAC</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOCs</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Power of Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="power_of_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="power_of_genomics_set3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Swab to Server</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="swab_to_server_home.html">Home</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="swab_to_server_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Making Sense</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="making_sense_home.html">Home</a>
+        </li>
+        <li>
+          <a href="making_sense_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="making_sense_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="making_sense_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Practical Guide</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="practical_guide_home.html">Home</a>
+        </li>
+        <li>
+          <a href="practical_guide_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="practical_guide_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="practical_guide_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pathogen Genomics</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="pathogen_genomics_home.html">Home</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week1.html">Week 1</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week2.html">Week 2</a>
+        </li>
+        <li>
+          <a href="pathogen_genomics_week3.html">Week 3</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Hybrid Course</li>
+    <li>
+      <a href="scvo2b4b.html">SARS-CoV-2 B4B</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">In Person Courses</li>
+    <li>
+      <a href="ECPG.html">Pathogen Genomics Capacity</a>
+    </li>
+    <li>
+      <a href="IGM_B4B.html">Bioinformática Decodificada</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Webinars</li>
+    <li>
+      <a href="Community.html">COG-Train Community</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Team
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="cogteam.html">COG-Train Team</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/WCSCourses/COG-Train_Resources">
+    <span class="fa fa-brands fa-github"></span>
+     
+    Github
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="epidemiology-and-tracking-in-a-pandemic"
+class="section level1">
+<h1>EPIDEMIOLOGY AND TRACKING IN A PANDEMIC</h1>
+<p><img src="images/OC1_W3_cover.png" /><br />
+<sub><span class="citation">@Canva</span></sub></p>
+</div>
+<div id="how-to-tackle-a-respiratory-virus" class="section level1">
+<h1>How to tackle a respiratory virus?</h1>
+<!-- 3-2 -->
+<p>When an infected person sneezes, coughs, eats, sings or even
+whispers, they release air droplets and aerosols that can carry viruses
+long distances. The table below compares some of the characteristics of
+droplets with those of aerosols.</p>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Droplet</th>
+<th>Aerosol</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&gt; 5 μm (may be much larger)</td>
+<td>&lt; 5 μm</td>
+</tr>
+<tr class="even">
+<td>Short range (&lt;2 m)</td>
+<td>Long range – (up to km)</td>
+</tr>
+<tr class="odd">
+<td>Short dwell time</td>
+<td>Long dwell time – need air handling</td>
+</tr>
+<tr class="even">
+<td>Resistant to environmental damage</td>
+<td>Readily dry</td>
+</tr>
+<tr class="odd">
+<td>Can enter upper airway</td>
+<td>Can enter lower airway</td>
+</tr>
+</tbody>
+</table>
+<p>People who are not protected against a particular airborne virus are
+susceptible to becoming infected and transmitting the disease to new
+hosts. Preventive measures for most respiratory infections include
+vaccinations, use of face covering, ventilation and air circulation, and
+hand hygiene.</p>
+<p><strong>Vaccination:</strong> stimulates the immune system to produce
+antibodies and trigger immune responses against its target when an
+individual encounters the virus. Not all vaccines prevent infection, but
+all of them are designed to mitigate severe disease and death.</p>
+<p><strong>Face covering:</strong> a physical barrier that prevents the
+spread of infective droplets and aerosols. Their efficiency depends on
+their filtration capacity. Cloth face coverings, although mitigating the
+spread of the virus, allow the dissemination of small infective
+particles, whereas filtering facepiece masks (FFP2 or N95) can filter up
+to 95% of droplets (Figure 1).</p>
+<div class="float">
+<img src="images/OC1_3-2_Fig1.png"
+alt="Droplet transmission through face masks. Each data point represents the relative droplet count (RDC) compared with no mask. The lower the RDC, the more droplets are blocked by the mask and increased the filtration efficiency" />
+<div class="figcaption">Droplet transmission through face masks. Each
+data point represents the relative droplet count (RDC) compared with no
+mask. The lower the RDC, the more droplets are blocked by the mask and
+increased the filtration efficiency</div>
+</div>
+<p><em>Source <a
+href="https://www.science.org/doi/10.1126/sciadv.abd3083">Science
+Advances</a></em></p>
+<p><a href="images/OC1_3-2_Fig1.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_3-2_alt-text.pdf">Download Figure 1 alt-text
+here</a></p>
+<p><strong>Ventilation</strong>: open windows increase the circulation
+and renewal of the air in a room. The viral particles in the air are
+carried outside the room, significantly reducing the number of virus
+particles in suspension and the spread of the infection.</p>
+<p><strong>Hand hygiene:</strong> we can touch contaminated surfaces and
+bring the pathogens to our mouth and nose, where the viruses can infect
+the mucosa cells. Although this is not the main route of COVID-19
+spread, hand washing is a preventive measure for most infectious
+diseases.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="introduction-to-phylogenetics" class="section level1">
+<h1>Introduction to Phylogenetics</h1>
+<!-- 3-4 -->
+<p>In biology, evolution is the process of modification and adaptation
+that passes on from an organism to its future generations. In the
+context of SARS-CoV-2, mutations in the spike gene are examples of such
+changes. A mutation is a genetic variation, such as a change of a
+nucleotide (e.g an adenine substituted by a cytosine). A group of three
+nucleotides (codon) encodes an amino acid (subunits of proteins).
+Nucleotide changes can lead to an amino acid substitution. For instance,
+the <a href="https://doi.org/10.1016/j.cell.2020.11.020">D614G mutation
+of SARS-CoV-2 Spike protein</a> means that the original virus had an
+aspartate (D) at the 614th residue (amino acid) of the Spike and that
+the new variant has now a glycine (G) replacing it. Deletions or
+insertions of nucleotides can also cause alterations to the protein.</p>
+<p>Phylogenetic inferences apply models and algorithms to reconstruct
+the evolutionary history of a group of organisms. It evaluates genetic
+changes (e.g mutations) to predict similarities and relationship
+pathways between organisms. These relationships are visualised through
+cladograms and phylogenetic trees, which are graphical representations
+of the phylogenetic inferences. A cladogram is a simple representation
+of the hypothetical ancestry of a group of organisms, whereas a
+phylogenetic tree uses data analysis to infer the actual similarity
+among these organisms.</p>
+<p>Figure 2 depicts a cladogram (in black) of four organisms or taxa A-D
+and their hypothetical evolutionary relationships through time. Each
+taxon has a connection (branch) to a node. The length of the branch is
+an inference of the evolutionary steps or genetic changes from the
+analysed organisms to their common ancestor, represented by a node. A
+clade is composed of a group of taxa that shares a common node/ancestor,
+also known as a lineage in the context of SARS-CoV-2. The root
+represents the hypothetical last common ancestor of the analysed group.
+Purple and green cladograms are just different graphical representations
+of the same inference.</p>
+<div class="float">
+<img src="images/OC1_3-4_Fig2.png"
+alt="Different graphic representations of a cladogram of four organisms" />
+<div class="figcaption">Different graphic representations of a cladogram
+of four organisms</div>
+</div>
+<p><a href="images/OC1_3-4_Fig2.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_3-4_alt-text.pdf">Donwload Figure 2 alt-text
+here</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="surveillance-around-the-world" class="section level1">
+<h1>Surveillance around the world</h1>
+<!-- 3-5 -->
+<!-- YT https://youtu.be/_6TtEqLxJyo -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/_6TtEqLxJyo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC1_3-5_transcript.pdf">Donwload the transcript
+here</a></p>
+<p>The SARS-CoV-2 virus spread rapidly across the world, and networks
+were developed to sequence the virus and track its spread.</p>
+<p>In this recorded video call, in January 2022, you will hear from
+experts from the <a href="https://africacdc.org">Africa CDC</a>, <a
+href="https://www.cogconsortium.uk">COG-UK</a> and the <a
+href="https://pgc.up.edu.ph">Philippine Genome Center</a> about genomic
+surveillance in their regions.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div
+id="identifying-transmission-clusters-hospital-outbreak-investigation-in-the-united-kingdom"
+class="section level1">
+<h1>Identifying transmission clusters: Hospital outbreak investigation
+in the United Kingdom</h1>
+<!-- 3-6 -->
+<audio controls>
+<source src="assets/OC1_3-6_audio.m4a" type="audio/ogg">
+</audio>
+<p><a href="assets/OC1_3-6_audio_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this audio, Stephanie Hutchings shares her professional experience
+during the early days of the pandemic. Listen to a case study where she
+outlines an example where genomic surveillance was ultimately not
+helpful in investigating an outbreak at a hospital in the United
+Kingdom.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="surveillance-of-viruses-in-a-population"
+class="section level1">
+<h1>Surveillance of viruses in a population</h1>
+<!-- 3-7 -->
+<!-- YT https://youtu.be/qqEDfAlJ54A -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/qqEDfAlJ54A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC1_3-7_transcript.pdf">Download the transcript
+here</a></p>
+<p><a href="assets/OC1_3-7_slides.pdf">Download the presentation slides
+here</a></p>
+<p>In this recorded lecture, you will hear from Dr Carolina Torres from
+the <a href="http://pais.qb.fcen.uba.ar">Proyecto Argentino
+Interinstitucional de genómica de SARS-CoV-2 (PAIS)</a>. PAIS is
+sequencing SARS-CoV-2 to characterise if variants are detected in the
+circulating virus. This is very important to track the ongoing evolution
+of the virus.</p>
+<p>Efforts like these around the world help to detect variants quickly
+and allow scientists to study their impact on the human populations in
+their country.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="genomic-surveillance-and-its-impacts" class="section level1">
+<h1>Genomic surveillance and its impacts</h1>
+<!-- 3-8 -->
+<!-- YT https://youtu.be/RR3NZThcTWc -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/RR3NZThcTWc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC1_3-8_transcript.pdf">Download the transcript
+here</a></p>
+<p>In this recorded lecture, hear from Prof Thanat Chookajoorn, of the
+<a href="https://coni.team">COVID-19 Network Investigations Alliance
+(CONI)</a> about the importance of genomic surveillance, and how this
+was used in the pandemic response in Thailand.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="sequencing-surveillance-options" class="section level1">
+<h1>Sequencing surveillance options</h1>
+<!-- 3-9 -->
+<div class="float">
+<img src="images/OC1_3-9_Fig3.png"
+alt="An example of some potential categories of public health options and the types of sample you might decide to sequence" />
+<div class="figcaption">An example of some potential categories of
+public health options and the types of sample you might decide to
+sequence</div>
+</div>
+<p><a href="images/OC1_3-9_Fig3.png">Click here to enlarge the
+image</a></p>
+<p><a href="images/OC1_3-9_alt-text.pdf">Donwload Figure 3 alt-text
+here</a></p>
+<p>When deciding which samples to sequence, there are many options
+depending on the capacity of your network, the stage of the pandemic in
+your country and the most pressing public health questions requiring
+answers. The figure above shows some different categories of samples and
+one way of thinking about prioritisation.</p>
+<p>Whilst these priorities will be different in each setting, it is
+almost universally accepted that the most important and primary activity
+in genomic surveillance is the tracking of different lineages and
+variants. This is best achieved by taking a random, unbiased and
+geographically representative sample of cases. This approach will be
+informative as to the lineages circulating, potentially at low levels
+depending on the size of the sample.</p>
+<p>Specifically sampling in hospitals, intensive care units, suspected
+imported cases and care homes can answer very important targeted public
+health questions but, without being accompanied by general surveillance,
+risks a bias in the data.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="what-can-we-do-better-for-the-pandemics-that-may-come"
+class="section level1">
+<h1>What can we do better for the pandemics that may come?</h1>
+<!-- 3-11 -->
+<!--YT https://youtu.be/sxNhMuwCgIg -->
+<iframe width="840" height="472" src="https://www.youtube.com/embed/sxNhMuwCgIg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+<p><a href="assets/OC1_3-11_transcript.pdf">Download the transcript
+here</a></p>
+<p>There is always the potential for a disease outbreak to become a
+pandemic. It’s a scary thought! On this video call, we asked Dr Gerald
+Mboowa, from the <a href="https://africacdc.org">Africa CDC</a>, for his
+advice for future pandemics.</p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+<div id="resources" class="section level1">
+<h1>Resources</h1>
+<p>A useful range of COVID-19 and SARS-CoV-2 additional resources. From
+databases to top-trump cards</p>
+<p>Protein structure repository: <a
+href="https://www.rcsb.org/news?year=2020&amp;article=5e74d55d2d410731e9944f52&amp;feature=true">RCSB
+Protein Data Bank</a><br />
+RCSB PDB Educational Portal: <a
+href="https://pdb101.rcsb.org/">PDB-101</a><br />
+Coronavirus biology: <a
+href="https://viralzone.expasy.org/9056">ViralZone</a><br />
+Coronavirus taxonomy: <a
+href="https://talk.ictvonline.org/taxonomy/">International Committee on
+Taxonomy of Viruses (ICTV)</a><br />
+Real-time tracking of pathogen evolution: <a
+href="https://nextstrain.org/ncov/gisaid/global">NextStrain</a><br />
+Lineages nomenclature: <a
+href="https://cov-lineages.org/index.html">Pango</a><br />
+Genomic data sharing: <a href="https://www.gisaid.org/">GISAID</a><br />
+Cloud Infrastructure for Big Data Microbial Bioinformatics: <a
+href="https://www.climb.ac.uk/">CLIMB</a><br />
+COVID-19 Genomics UK Consortium: <a
+href="https://www.cogconsortium.uk/">COG-UK</a><br />
+COVID-19 Vaccine top-trump cards: <a
+href="https://lapipette.com/vaccine_cards">LaPipette</a><br />
+NCBI COVID-19 scientific literature: <a
+href="https://www.ncbi.nlm.nih.gov/research/coronavirus/">LitCovid</a></p>
+<hr style="height:5px;border-width:0;color:gray;background-color:gray">
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.img-container-left {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.img-container-right {
+  float: right;
+  width: 33.33%;
+  padding: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<hr>
+<div class="clearfix">
+  <div class="img-container-left">
+    <img src="assets/img/COG-Train_logo.png" alt="COG-Train" 
+style="width:200%">
+  </div>
+  <div class="img-container-right">
+    <img src="assets/img/WCS_Logo-Primary_Black.jpg" alt="Wellcome 
+Connecting Science" style="width:200%">
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
