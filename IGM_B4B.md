@@ -72,7 +72,7 @@ Jorge Batista da Rocha, Wellcome Connecting Science, United Kingdom
 [Course summary](assets/Course_summary_template.docx)
 
 
-[Course planner](assets/Course_summary_template.docx)
+[Course planner](assets/Course_planner.xlsx)
 
 
 **Translation procedures**
